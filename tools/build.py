@@ -155,7 +155,7 @@ def build_stats(prompts: list[dict], check: bool) -> None:
         *[f"| {k}/20 | {v} |" for k, v in sorted(scores.items(), reverse=True)], "",
         "> Paper scores skew high: the library was written against this rubric. Dry-run, "
         "consistency and hand-off tests on real (de-identified) work are the stronger evidence - "
-        "log those in [`field-reports/`](field-reports/).",
+        "log those in [`field-reports/`](../field-reports/).",
     ]
     emit(ROOT / "docs" / "statistics.md", "\n".join(lines), check)
 
