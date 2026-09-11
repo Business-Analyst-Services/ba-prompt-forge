@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master – Environment Access &amp; DevOps Enablement &middot; BA Prompt Forge</title>
+<meta name="description" content="TB-01-M: Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, ">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../prompts/" aria-current="page">Find a prompt</a></li>
+          <li><a href="../contexts/">Delivery contexts</a></li>
+          <li><a href="../frameworks/">Frameworks</a></li>
+          <li><a href="../scoring/">Scoring</a></li>
+          <li><a href="../skills/">Skills</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<p class="muted"><a href="../prompts/">&larr; All prompts</a></p>
+<h1>Master – Environment Access &amp; DevOps Enablement</h1>
+<p class="meta">
+  <code>TB-01-M</code>
+  <span>Technical BA</span>
+  <span>Environment Access &amp; DevOps Enablement</span>
+  <span>Master prompt</span>
+  <span class="badge badge-good">19/20 Library-ready</span>
+</p>
+<p class="lede">Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request</p>
+
+<h2>Who it is for</h2>
+<p><strong>You are:</strong> a technical business analyst (Technical BA).<br>
+<strong>The audience for the output:</strong> Platform/DevOps engineers (build), security (approval), delivery teams (consumers).</p>
+<p><strong>Target deliverables:</strong> Environment requirements, deployment requirements, access requirements, release process definitions, pipeline requirements</p>
+
+<h2 id="fill-in">What you need to fill in</h2>
+<ul>
+<li><code>[PROJECT NAME AND ONE-LINE DESCRIPTION]</code></li>
+<li><code>[DESCRIBE]</code></li>
+<li><code>[DEV, TEST, VENDOR, SUPPORT]</code></li>
+<li><code>[DESCRIBE OR &#x27;UNKNOWN&#x27;]</code></li>
+<li><code>[CHANGE FREEZE WINDOWS, CAB REQUIREMENTS]</code></li>
+</ul>
+<div class="panel">
+  <p><strong>Before you paste anything in:</strong> My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding.</p>
+</div>
+
+<h2 id="prompt">The prompt</h2>
+<p>Pick the framework your tool expects. The first is the library's native
+CARE + G.E.T. build; the others are conversions, and each says what it costs.</p>
+<div class="tabs full">
+  <div class="tablist" role="tablist" aria-label="Prompt framework">
+    <button type="button" role="tab" id="tab-care" aria-controls="panel-care" aria-selected="true" tabindex="0">CARE + G.E.T.</button><button type="button" role="tab" id="tab-co-star" aria-controls="panel-co-star" aria-selected="false" tabindex="-1">CO-STAR</button><button type="button" role="tab" id="tab-tidd-ec" aria-controls="panel-tidd-ec" aria-selected="false" tabindex="-1">TIDD-EC</button><button type="button" role="tab" id="tab-risen" aria-controls="panel-risen" aria-selected="false" tabindex="-1">RISEN</button><button type="button" role="tab" id="tab-crispe" aria-controls="panel-crispe" aria-selected="false" tabindex="-1">CRISPE</button><button type="button" role="tab" id="tab-race" aria-controls="panel-race" aria-selected="false" tabindex="-1">RACE</button><button type="button" role="tab" id="tab-rtf" aria-controls="panel-rtf" aria-selected="false" tabindex="-1">RTF</button><button type="button" role="tab" id="tab-ape" aria-controls="panel-ape" aria-selected="false" tabindex="-1">APE</button><button type="button" role="tab" id="tab-bab" aria-controls="panel-bab" aria-selected="false" tabindex="-1">BAB</button><button type="button" role="tab" id="tab-chat" aria-controls="panel-chat" aria-selected="false" tabindex="-1">Compact chat</button><button type="button" role="tab" id="tab-skill" aria-controls="panel-skill" aria-selected="false" tabindex="-1">Agent skill</button>
+  </div>
+  
+<div class="tabpanel" role="tabpanel" id="panel-care" aria-labelledby="tab-care" tabindex="0">
+  <h3 class="panel-heading">CARE + G.E.T.</h3>
+  <p class="muted">The library&#x27;s native format. Context, Action, Result/Format, Example, plus Generate -&gt; Explain -&gt; Test. Lossless: every rubric criterion has somewhere to go.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-care"
+            data-copy-status="copy-status-care" hidden>Copy CARE + G.E.T. prompt</button>
+    <span class="copy-status" id="copy-status-care" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-care"><code># CONTEXT
+I am a technical business analyst (Technical BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Solution/platform: [DESCRIBE]. Teams needing environments/access: [DEV, TEST, VENDOR, SUPPORT]. Current DevOps maturity: [DESCRIBE OR &#x27;UNKNOWN&#x27;]. Release constraints: [CHANGE FREEZE WINDOWS, CAB REQUIREMENTS]. The audience for this output: Platform/DevOps engineers (build), security (approval), delivery teams (consumers).
+
+# ACTION
+Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request:
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation).
+
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+# RESULT / FORMAT
+Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation. Keep the language professional, plain-English and appropriate for a business audience. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+# EXAMPLE
+Example access row: &quot;Role: Vendor developer | DEV: deploy | SIT: read | UAT: none | PROD: none | Justification: build responsibilities only | Approval: platform owner + security | Review: quarterly. Flag: vendor requested UAT deploy — segregation conflict with test independence, escalated.&quot;
+
+# VALIDATION (GENERATE -&gt; EXPLAIN -&gt; TEST)
+Generate: produce the output requested above.
+Explain: then break down, step by step, the logic you used to synthesise your answer - how you interpreted each of my inputs and why you structured the output the way you did.
+Test: list the source references you used (my pasted inputs, earlier turns, or your general knowledge - label which is which); cross-reference the key facts in your output against those sources and flag anything that does not trace back to a source; and list every additional assumption you made so I can verify or correct it.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-co-star" aria-labelledby="tab-co-star" tabindex="0">
+  <h3 class="panel-heading">CO-STAR</h3>
+  <p class="muted">Splits CARE&#x27;s Result into Style/Tone/Response and promotes Audience to its own slot. Lossless. Lossless: every rubric criterion has somewhere to go.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-co-star"
+            data-copy-status="copy-status-co-star" hidden>Copy CO-STAR prompt</button>
+    <span class="copy-status" id="copy-status-co-star" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-co-star"><code># CONTEXT
+I am a technical business analyst (Technical BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Solution/platform: [DESCRIBE]. Teams needing environments/access: [DEV, TEST, VENDOR, SUPPORT]. Current DevOps maturity: [DESCRIBE OR &#x27;UNKNOWN&#x27;]. Release constraints: [CHANGE FREEZE WINDOWS, CAB REQUIREMENTS]. The audience for this output: Platform/DevOps engineers (build), security (approval), delivery teams (consumers).
+
+# OBJECTIVE
+Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request:
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation).
+
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+# STYLE
+Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation.
+
+# TONE
+Keep the language professional, plain-English and appropriate for a business audience.
+
+# AUDIENCE
+Platform/DevOps engineers (build), security (approval), delivery teams (consumers).
+
+# RESPONSE
+Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+Worked example to imitate: Example access row: &quot;Role: Vendor developer | DEV: deploy | SIT: read | UAT: none | PROD: none | Justification: build responsibilities only | Approval: platform owner + security | Review: quarterly. Flag: vendor requested UAT deploy — segregation conflict with test independence, escalated.&quot;
+
+Generate: produce the output requested above.
+Explain: then break down, step by step, the logic you used to synthesise your answer - how you interpreted each of my inputs and why you structured the output the way you did.
+Test: list the source references you used (my pasted inputs, earlier turns, or your general knowledge - label which is which); cross-reference the key facts in your output against those sources and flag anything that does not trace back to a source; and list every additional assumption you made so I can verify or correct it.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-tidd-ec" aria-labelledby="tab-tidd-ec" tabindex="0">
+  <h3 class="panel-heading">TIDD-EC</h3>
+  <p class="muted">The only common format with an explicit DONT slot, so anti-fabrication and data-safety rules land naturally. Lossless: every rubric criterion has somewhere to go.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-tidd-ec"
+            data-copy-status="copy-status-tidd-ec" hidden>Copy TIDD-EC prompt</button>
+    <span class="copy-status" id="copy-status-tidd-ec" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-tidd-ec"><code># TASK
+Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request:
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation).
+
+# INSTRUCTIONS
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+Then generate the output, explain the synthesis logic you used, and test it: cite which parts came from my inputs versus your general knowledge, flag anything that does not trace back to a source, and list the assumptions you made.
+
+# DO
+- Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation.
+- Keep the language professional, plain-English and appropriate for a business audience.
+
+# DONT
+- Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for my review, not a finished artefact.
+- Do not ask me to paste real personal or sensitive data.
+
+# EXAMPLES
+Example access row: &quot;Role: Vendor developer | DEV: deploy | SIT: read | UAT: none | PROD: none | Justification: build responsibilities only | Approval: platform owner + security | Review: quarterly. Flag: vendor requested UAT deploy — segregation conflict with test independence, escalated.&quot;
+
+# CONTEXT
+I am a technical business analyst (Technical BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Solution/platform: [DESCRIBE]. Teams needing environments/access: [DEV, TEST, VENDOR, SUPPORT]. Current DevOps maturity: [DESCRIBE OR &#x27;UNKNOWN&#x27;]. Release constraints: [CHANGE FREEZE WINDOWS, CAB REQUIREMENTS]. The audience for this output: Platform/DevOps engineers (build), security (approval), delivery teams (consumers).</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-risen" aria-labelledby="tab-risen" tabindex="0">
+  <h3 class="panel-heading">RISEN</h3>
+  <p class="muted">Strong for multi-step work. No Example slot, so the worked example is lost. Converting costs 2 rubric point(s) &mdash; this rendering scores 17/20, losing: Example.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-risen"
+            data-copy-status="copy-status-risen" hidden>Copy RISEN prompt</button>
+    <span class="copy-status" id="copy-status-risen" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-risen"><code>**Role:** A technical business analyst (Technical BA).
+
+**Instructions:** Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request
+
+**Steps:**
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation).
+
+**End goal:** A reviewable first draft that Platform/DevOps engineers (build), security (approval), delivery teams (consumers) can act on.
+
+**Narrowing (constraints):**
+- Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation.
+- Keep the language professional, plain-English and appropriate for a business audience.
+- Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for my review, not a finished artefact.
+- My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding.
+- Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-crispe" aria-labelledby="tab-crispe" tabindex="0">
+  <h3 class="panel-heading">CRISPE</h3>
+  <p class="muted">Its Experiment slot asks for alternatives rather than verification, and there is no Example slot. Converting costs 4 rubric point(s) &mdash; this rendering scores 15/20, losing: Example, Test step.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-crispe"
+            data-copy-status="copy-status-crispe" hidden>Copy CRISPE prompt</button>
+    <span class="copy-status" id="copy-status-crispe" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-crispe"><code>**Capacity / Role:** Act as a technical business analyst (Technical BA).
+
+**Insight:** Solution/platform: [DESCRIBE]. Teams needing environments/access: [DEV, TEST, VENDOR, SUPPORT]. Current DevOps maturity: [DESCRIBE OR &#x27;UNKNOWN&#x27;]. Release constraints: [CHANGE FREEZE WINDOWS, CAB REQUIREMENTS]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. This is for Platform/DevOps engineers (build), security (approval), delivery teams (consumers).
+
+**Statement:** Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request:
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation). Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+**Personality:** Keep the language professional, plain-English and appropriate for a business audience. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+**Experiment:** Give me the draft in the format below, then offer one alternative structure and say when you would use it instead.
+
+**Format:** Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-race" aria-labelledby="tab-race" tabindex="0">
+  <h3 class="panel-heading">RACE</h3>
+  <p class="muted">Compact four-slot format. Keeps guardrails and audience; drops the worked example and the whole G.E.T. validation step. Converting costs 6 rubric point(s) &mdash; this rendering scores 13/20, losing: Example, Explain step, Test step.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-race"
+            data-copy-status="copy-status-race" hidden>Copy RACE prompt</button>
+    <span class="copy-status" id="copy-status-race" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-race"><code>**Role:** I am a technical business analyst (Technical BA).
+
+**Action:** Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request:
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation).
+
+**Context:** Solution/platform: [DESCRIBE]. Teams needing environments/access: [DEV, TEST, VENDOR, SUPPORT]. Current DevOps maturity: [DESCRIBE OR &#x27;UNKNOWN&#x27;]. Release constraints: [CHANGE FREEZE WINDOWS, CAB REQUIREMENTS]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Audience: Platform/DevOps engineers (build), security (approval), delivery teams (consumers).
+
+**Expectation:** Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-rtf" aria-labelledby="tab-rtf" tabindex="0">
+  <h3 class="panel-heading">RTF</h3>
+  <p class="muted">Minimal. Fine for a quick one-off; strips every verification and safety rule. Converting costs 10 rubric point(s) &mdash; this rendering scores 9/20, losing: Example, Explain step, Test step, Anti-fabrication, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-rtf"
+            data-copy-status="copy-status-rtf" hidden>Copy RTF prompt</button>
+    <span class="copy-status" id="copy-status-rtf" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-rtf"><code>**Role:** A technical business analyst (Technical BA), writing for Platform/DevOps engineers (build), security (approval), delivery teams (consumers).
+
+**Task:** Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request:
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation).
+
+**Format:** Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-ape" aria-labelledby="tab-ape" tabindex="0">
+  <h3 class="panel-heading">APE</h3>
+  <p class="muted">Purpose-led and very short. No role, audience or example. Converting costs 10 rubric point(s) &mdash; this rendering scores 9/20, losing: Context, Example, Explain step, Test step, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-ape"
+            data-copy-status="copy-status-ape" hidden>Copy APE prompt</button>
+    <span class="copy-status" id="copy-status-ape" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-ape"><code>**Action:** Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request:
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation).
+
+**Purpose:** So that Platform/DevOps engineers (build), security (approval), delivery teams (consumers) can review and act on it.
+
+**Expectation:** Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-bab" aria-labelledby="tab-bab" tabindex="0">
+  <h3 class="panel-heading">BAB</h3>
+  <p class="muted">Persuasive narrative shape. A poor fit for deliverable prompts - use it to pitch the work, not to produce it. Converting costs 10 rubric point(s) &mdash; this rendering scores 9/20, losing: Example, Explain step, Test step, Data safety, Right-sized.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-bab"
+            data-copy-status="copy-status-bab" hidden>Copy BAB prompt</button>
+    <span class="copy-status" id="copy-status-bab" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-bab"><code>**Before:** I am a technical business analyst (Technical BA). Solution/platform: [DESCRIBE]. Teams needing environments/access: [DEV, TEST, VENDOR, SUPPORT]. Current DevOps maturity: [DESCRIBE OR &#x27;UNKNOWN&#x27;]. Release constraints: [CHANGE FREEZE WINDOWS, CAB REQUIREMENTS]. Right now this work is unstructured and cannot be reviewed.
+
+**After:** Platform/DevOps engineers (build), security (approval), delivery teams (consumers) has a reviewable draft: Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation.
+
+**Bridge:** Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request:
+1. environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window).
+2. access matrix (role vs environment vs permission level, with approval workflow and audit needs).
+3. deployment and runtime topology requirements.
+4. release process definition (stages, entry/exit criteria, approvals, rollback expectations).
+5. CI/CD pipeline requirements (build, test gates, security scanning, deployment automation). Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-chat" aria-labelledby="tab-chat" tabindex="0">
+  <h3 class="panel-heading">Compact chat</h3>
+  <p class="muted">One paragraph for short-context chat boxes. Deliberately lossy. Converting costs 8 rubric point(s) &mdash; this rendering scores 11/20, losing: Example, Explain step, Test step, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-chat"
+            data-copy-status="copy-status-chat" hidden>Copy Compact chat prompt</button>
+    <span class="copy-status" id="copy-status-chat" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-chat"><code>Act as a technical business analyst (Technical BA) writing for Platform/DevOps engineers (build), security (approval), delivery teams (consumers). Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers. Format: Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact. Finish by listing your assumptions and which claims came from my inputs versus your own knowledge.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-skill" aria-labelledby="tab-skill" tabindex="0">
+  <h3 class="panel-heading">Agent skill</h3>
+  <p class="muted">The prompt rebuilt as an agent skill: the modes become steps, the clarifying questions become a gate before drafting, and the validation block becomes a hand-back checklist. Save as <code>SKILL.md</code>.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-skill"
+            data-copy-status="copy-status-skill" hidden>Copy Agent skill prompt</button>
+    <span class="copy-status" id="copy-status-skill" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-skill"><code>---
+name: ba-environment-access-and-devops-enablement
+description: Use when the user is working on environment access &amp; devops enablement and needs environment requirements, deployment requirements, access requirements, release process definitions. Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produces a reviewable first draft for platform/devops engineers (build), security (approval), delivery teams (consumers).
+license: CC-BY-4.0
+---
+
+# Master – Environment Access &amp; DevOps Enablement
+
+Derived from `TB-01-M` in the BA Prompt Forge library
+(Technical BA / Environment Access &amp; DevOps Enablement, scored 19/20
+against the CARE + G.E.T. rubric).
+
+## When to use this
+
+The user is doing environment access &amp; devops enablement work and needs one of:
+- Environment requirements
+- deployment requirements
+- access requirements
+- release process definitions
+- pipeline requirements
+
+The audience for whatever you produce is: **Platform/DevOps engineers (build), security (approval), delivery teams (consumers)**.
+
+## Before you start
+
+The user&#x27;s work must respect the user&#x27;s organisation&#x27;s privacy, information-security and data-residency obligations. Everything the user pastes is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert them before proceeding.
+
+Collect these inputs from the user. Do not guess them:
+
+1. `[PROJECT NAME AND ONE-LINE DESCRIPTION]`
+2. `[DESCRIBE]`
+3. `[DEV, TEST, VENDOR, SUPPORT]`
+4. `[DESCRIBE OR &#x27;UNKNOWN&#x27;]`
+5. `[CHANGE FREEZE WINDOWS, CAB REQUIREMENTS]`
+
+Then ask up to 5 clarifying questions about anything still
+missing, and **wait for the answers** before drafting.
+
+## What to produce
+
+- environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window)
+- access matrix (role vs environment vs permission level, with approval workflow and audit needs)
+- deployment and runtime topology requirements
+- release process definition (stages, entry/exit criteria, approvals, rollback expectations)
+- CI/CD pipeline requirements (build, test gates, security scanning, deployment automation)
+
+Format the output exactly as follows:
+
+&gt; Structured technical-BA writing: requirements numbered and testable, expressed as needs and constraints rather than design decisions (pre-solution) or as precise specifications (post-solution). Tables over prose where possible; expand acronyms on first use. Access requirements honour least privilege and segregation of duties; release requirements distinguish governance needs from tooling implementation.
+
+Keep the language professional, plain-English and appropriate for a business audience.
+
+## Rules
+
+- Do not invent facts or figures: mark anything you could not verify from the user&#x27;s inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for the user&#x27;s review, not a finished artefact.
+- Do not ask the user to paste real personal or sensitive data.
+
+## Worked example to imitate
+
+Example access row: &quot;Role: Vendor developer | DEV: deploy | SIT: read | UAT: none | PROD: none | Justification: build responsibilities only | Approval: platform owner + security | Review: quarterly. Flag: vendor requested UAT deploy — segregation conflict with test independence, escalated.&quot;
+
+## Before you hand it back
+
+1. **Explain** - break down, step by step, the logic you used: how you interpreted
+   each input and why you structured the output the way you did.
+2. **Test** - list the sources you drew on (the user&#x27;s inputs, earlier turns, or
+   your own general knowledge; label which is which), cross-reference the key facts
+   against them, flag anything that does not trace back to a source, and list every
+   assumption you made so the user can verify or correct it.
+</code></pre>
+</div>
+</div>
+
+<h2 id="scorecard">Scorecard</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Marks out of 2 against the ten-criterion CARE + G.E.T. rubric."><table><caption>Marks out of 2 against the ten-criterion CARE + G.E.T. rubric.</caption><thead><tr><th scope="col">Criterion</th><th scope="col">Mark</th><th scope="col">Decided by</th></tr></thead><tbody>
+<tr><th scope="row">Context</th><td>2</td><td>Judgement</td></tr>
+<tr><th scope="row">Action</th><td>1</td><td>Judgement</td></tr>
+<tr><th scope="row">Result / Format</th><td>2</td><td>Judgement</td></tr>
+<tr><th scope="row">Example</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Explain step</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Test step</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Anti-fabrication</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Data safety</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Reusability</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Right-sized</th><td>2</td><td>Judgement</td></tr>
+</tbody></table></div>
+<p><strong>Total: 19/20 &mdash; Library-ready.</strong>
+<br>Action 1/2: a menu of modes, not one task — deliberate flexibility, but costs single-task clarity. Fix: for repeated use of one mode, use the matching Deliverable prompt instead.</p>
+<p class="muted">A high score means the prompt is well-formed, not that it is effective.
+<a href="../scoring/">How scoring works</a>.</p>
+
+<h2 id="contexts">Used in these delivery contexts</h2>
+<ul>
+<li><a href="../contexts/#1-tech-services-back-end-ict">1. Tech Services (back-end ICT)</a></li>
+</ul>
+
+<h2 id="provenance">Provenance</h2>
+<ul>
+  <li><strong>Author:</strong> Business Analyst Services</li>
+  <li><strong>Source:</strong> BA_Prompt_Library_CARE_GET_v1_0_Portable.xlsx (v1.0 portable edition)</li>
+  <li><strong>Added:</strong> 2026-09-12</li>
+  <li><strong>Licence:</strong> CC-BY-4.0</li>
+</ul>
+<p>Improved this prompt, or used it on real work?
+<a href="../contribute/">Contribute it back</a> &mdash; you keep the credit.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

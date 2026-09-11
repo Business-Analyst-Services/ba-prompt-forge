@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt forge &middot; BA Prompt Forge</title>
+<meta name="description" content="Author a new business-analysis prompt to library standard, or rebuild an existing one in a different prompt framework. Use when no library prompt fits the user&#x27;s work and they need">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">Delivery contexts</a></li>
+          <li><a href="../frameworks/">Frameworks</a></li>
+          <li><a href="../scoring/">Scoring</a></li>
+          <li><a href="../skills/" aria-current="page">Skills</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<p class="muted"><a href="../skills/">&larr; All skills</a></p>
+<h1>Prompt forge</h1>
+<p class="lede">Write a new prompt to library standard, or convert one.</p>
+<div class="panel">
+  <p><strong>Skill name:</strong> <code>ba-prompt-forge</code></p>
+  <p><strong>Description</strong> (this is what makes an agent trigger it):
+  Author a new business-analysis prompt to library standard, or rebuild an existing one in a different prompt framework. Use when no library prompt fits the user&#x27;s work and they need one written from scratch, when a rough prompt needs rebuilding to score 17+ on the CARE + G.E.T. rubric, or when a prompt has to be converted to CO-STAR, RISEN, TIDD-EC, RTF, RACE, CRISPE, APE, BAB or an agent skill. Produces a complete prompt file ready to submit to the library.</p>
+  <p>Save the text below as <code>SKILL.md</code> inside a folder named
+  <code>ba-prompt-forge</code>, and point your agent at it. It works with any runtime that
+  reads agent skills.</p>
+</div>
+<div class="copy-row">
+  <button type="button" class="btn" data-copy="skill-source"
+          data-copy-status="copy-status-skill" hidden>Copy the full SKILL.md</button>
+  <span class="copy-status" id="copy-status-skill" role="status" aria-live="polite"></span>
+</div>
+<details>
+  <summary>Show the raw SKILL.md (with front-matter, ready to save)</summary>
+  <pre tabindex="0" id="skill-source"><code>---
+name: ba-prompt-forge
+description: Author a new business-analysis prompt to library standard, or rebuild an existing one in a different prompt framework. Use when no library prompt fits the user&#x27;s work and they need one written from scratch, when a rough prompt needs rebuilding to score 17+ on the CARE + G.E.T. rubric, or when a prompt has to be converted to CO-STAR, RISEN, TIDD-EC, RTF, RACE, CRISPE, APE, BAB or an agent skill. Produces a complete prompt file ready to submit to the library.
+license: CC-BY-4.0
+---
+
+# BA prompt forge
+
+Write a new prompt that would pass review, or rebuild an existing one. The target
+is 17/20 minimum; the library mean is 19.67, so aim there.
+
+Before writing anything, check the prompt does not already exist: search
+`catalogue.json` by `service` and `deliverables`. Duplicating a 20/20 prompt
+helps nobody.
+
+## Authoring a new prompt
+
+Work through the fields in this order. Each maps to a rubric criterion, so
+filling them all is what produces the score.
+
+**1. Who and for whom** (criterion 1)
+Write `persona` and `audience` as separate fields. &quot;I am an agile business
+analyst (Agile BA)&quot; and &quot;Developers and testers picking the story up; product
+owner confirming intent&quot;. The audience is what decides the format later, so be
+specific about who reads it, not just that someone does.
+
+**2. The one task** (criterion 2)
+One artefact. Strong verb. Name the inputs it will receive. If you find yourself
+writing &quot;(1) ... (2) ... (3) ...&quot;, you are writing a Master prompt - that is a
+legitimate thing to write, but it caps criterion 2 at 1/2 and it cannot carry a
+regression test. Prefer a Deliverable prompt unless the user genuinely wants a
+working session across the whole service.
+
+**3. The checkable format** (criterion 3)
+The test: could a reviewer hold the output against this and tick each item off?
+Name the sections, the table columns, the counts. &quot;Minimum 3 happy, 2 negative,
+2 boundary&quot; is checkable. &quot;Comprehensive coverage&quot; is not.
+
+**4. A real example** (criterion 4)
+This is the field that most changes output quality, and the one people skip.
+Write an actual sample row or snippet the model can imitate - with realistic but
+**synthetic** values. Never lift a real example from real work.
+
+**5. The safety and honesty rules** (criteria 7 and 8)
+Two non-negotiables, and the library template already carries both:
+
+&gt; My work must respect my organisation&#x27;s privacy, information-security and
+&gt; data-residency obligations. Everything I paste is de-identified or synthetic -
+&gt; if any input appears to contain real personal or sensitive data, stop and alert
+&gt; me before proceeding.
+
+&gt; Do not invent facts or figures: mark anything you could not verify from my
+&gt; inputs as `[TBC]` and any value you propose yourself as `[PROPOSED - VALIDATE]`.
+
+**6. The G.E.T. validation** (criteria 5 and 6)
+Set `validation: get`. It renders the standard Generate -&gt; Explain -&gt; Test block.
+Only write a custom one if the user has a specific reason.
+
+**7. Placeholders** (criterion 9)
+Everything project-specific becomes `[A MARKED PLACEHOLDER IN CAPITALS]`. No
+organisation names, no sectors, no jurisdiction-specific legislation - the
+library is deliberately portable so anyone can adopt it.
+
+**8. Cut it back** (criterion 10)
+Last pass. Delete each sentence in turn and ask whether the output would change.
+If not, it stays deleted.
+
+## Writing the file
+
+Prompts live at `library/&lt;role-slug&gt;/&lt;service-slug&gt;/&lt;ID&gt;.md`. The YAML
+front-matter is the prompt; the body is generated. Copy the field structure from
+a neighbouring file, or start from `schema/prompt.schema.json`.
+
+IDs are `&lt;RR&gt;-&lt;NN&gt;-&lt;M|Dn&gt;`: role prefix (`BB`, `BT`, `TB`, `AB`, `LB`, `PL`),
+the service number within that role, then `M` for the Master or `D1`/`D2` for
+deliverable prompts.
+
+Then:
+
+```bash
+python tools/build.py                  # render the body, index, catalogue
+python tools/lint.py library/.../NEW-ID.md   # score it
+```
+
+Fix anything the linter marks down, and use `ba-prompt-scorer` for the four
+criteria the script cannot judge. Do not hand over a prompt you have not linted.
+
+## Rebuilding in another framework
+
+```bash
+python tools/convert.py --formats                        # what&#x27;s available
+python tools/convert.py BB-01-D1 --format risen --fidelity
+python tools/convert.py BB-01-D1 --to-skill
+```
+
+Ten frameworks are supported. What matters is that they are not equivalent:
+
+- **Lossless** - CARE, CO-STAR, TIDD-EC. All ten criteria have somewhere to go.
+  TIDD-EC is the best target when the guardrails matter most: it is the only
+  common framework with an explicit DON&#x27;T slot.
+- **Lossy** - RISEN and CRISPE have no Example slot. RACE drops the example and
+  the whole G.E.T. step.
+- **Very lossy** - RTF, APE, BAB and the compact chat build strip verification and
+  safety entirely. A 20/20 CARE prompt lands at 10/20 as RTF.
+
+Always run `--fidelity` and tell the user the cost before handing over a
+converted prompt. Choosing a lossy framework is fine - choosing one without
+knowing is not.
+
+## Converting a prompt into an agent skill
+
+`--to-skill` writes a `SKILL.md`. The conversion is not a copy-paste: a prompt is
+one turn, a skill is a procedure. The modes become steps, the clarifying
+questions become a gate before drafting, the G.E.T. block becomes a
+hand-back checklist, and first-person text is shifted to address the agent about
+the user.
+
+Check two things in the generated file before using it:
+
+- **The description.** It is what makes the skill trigger at the right moment.
+  Rewrite it to say *when to use this*, in the words a BA would actually use.
+- **The worked example.** It is inherited, and for a narrowed skill it is often
+  the wrong example.
+
+## Decomposing a Master into testable units
+
+```bash
+python tools/decompose.py BB-01-M        # preview
+python tools/decompose.py --all --write  # write proposals
+```
+
+Each mode of a Master becomes a single-task unit prompt scoring 2/2 on Action -
+and, unlike its parent, testable. Units land in `proposals/`, not `library/`:
+they are drafts. Before promoting one, narrow the output format to that single
+artefact, replace the inherited example, and run it once on real de-identified
+work.
+
+## Contributing it back
+
+If the prompt is good and general, open a pull request. `CONTRIBUTING.md` has the
+process; accepted prompts keep their author in the front-matter and in
+`CONTRIBUTORS.md`. If you ran it for real, log what happened in `field-reports/` -
+that evidence is worth more than the rubric score.
+</code></pre>
+</details>
+<h2>What it says</h2>
+<div class="prose"><h1>BA prompt forge</h1>
+<p>Write a new prompt that would pass review, or rebuild an existing one. The target
+is 17/20 minimum; the library mean is 19.67, so aim there.</p>
+<p>Before writing anything, check the prompt does not already exist: search
+<code>catalogue.json</code> by <code>service</code> and <code>deliverables</code>. Duplicating a 20/20 prompt
+helps nobody.</p>
+<h2>Authoring a new prompt</h2>
+<p>Work through the fields in this order. Each maps to a rubric criterion, so
+filling them all is what produces the score.</p>
+<p><strong>1. Who and for whom</strong> (criterion 1)
+Write <code>persona</code> and <code>audience</code> as separate fields. "I am an agile business
+analyst (Agile BA)" and "Developers and testers picking the story up; product
+owner confirming intent". The audience is what decides the format later, so be
+specific about who reads it, not just that someone does.</p>
+<p><strong>2. The one task</strong> (criterion 2)
+One artefact. Strong verb. Name the inputs it will receive. If you find yourself
+writing "(1) ... (2) ... (3) ...", you are writing a Master prompt - that is a
+legitimate thing to write, but it caps criterion 2 at 1/2 and it cannot carry a
+regression test. Prefer a Deliverable prompt unless the user genuinely wants a
+working session across the whole service.</p>
+<p><strong>3. The checkable format</strong> (criterion 3)
+The test: could a reviewer hold the output against this and tick each item off?
+Name the sections, the table columns, the counts. "Minimum 3 happy, 2 negative,
+2 boundary" is checkable. "Comprehensive coverage" is not.</p>
+<p><strong>4. A real example</strong> (criterion 4)
+This is the field that most changes output quality, and the one people skip.
+Write an actual sample row or snippet the model can imitate - with realistic but
+<strong>synthetic</strong> values. Never lift a real example from real work.</p>
+<p><strong>5. The safety and honesty rules</strong> (criteria 7 and 8)
+Two non-negotiables, and the library template already carries both:</p>
+<blockquote>
+<p>My work must respect my organisation's privacy, information-security and
+data-residency obligations. Everything I paste is de-identified or synthetic -
+if any input appears to contain real personal or sensitive data, stop and alert
+me before proceeding.</p>
+<p>Do not invent facts or figures: mark anything you could not verify from my
+inputs as <code>[TBC]</code> and any value you propose yourself as <code>[PROPOSED - VALIDATE]</code>.</p>
+</blockquote>
+<p><strong>6. The G.E.T. validation</strong> (criteria 5 and 6)
+Set <code>validation: get</code>. It renders the standard Generate -&gt; Explain -&gt; Test block.
+Only write a custom one if the user has a specific reason.</p>
+<p><strong>7. Placeholders</strong> (criterion 9)
+Everything project-specific becomes <code>[A MARKED PLACEHOLDER IN CAPITALS]</code>. No
+organisation names, no sectors, no jurisdiction-specific legislation - the
+library is deliberately portable so anyone can adopt it.</p>
+<p><strong>8. Cut it back</strong> (criterion 10)
+Last pass. Delete each sentence in turn and ask whether the output would change.
+If not, it stays deleted.</p>
+<h2>Writing the file</h2>
+<p>Prompts live at <code>library/&lt;role-slug&gt;/&lt;service-slug&gt;/&lt;ID&gt;.md</code>. The YAML
+front-matter is the prompt; the body is generated. Copy the field structure from
+a neighbouring file, or start from <code>schema/prompt.schema.json</code>.</p>
+<p>IDs are <code>&lt;RR&gt;-&lt;NN&gt;-&lt;M|Dn&gt;</code>: role prefix (<code>BB</code>, <code>BT</code>, <code>TB</code>, <code>AB</code>, <code>LB</code>, <code>PL</code>),
+the service number within that role, then <code>M</code> for the Master or <code>D1</code>/<code>D2</code> for
+deliverable prompts.</p>
+<p>Then:</p>
+<pre tabindex="0"><code class="language-bash">python tools/build.py                  # render the body, index, catalogue
+python tools/lint.py library/.../NEW-ID.md   # score it
+</code></pre>
+<p>Fix anything the linter marks down, and use <code>ba-prompt-scorer</code> for the four
+criteria the script cannot judge. Do not hand over a prompt you have not linted.</p>
+<h2>Rebuilding in another framework</h2>
+<pre tabindex="0"><code class="language-bash">python tools/convert.py --formats                        # what's available
+python tools/convert.py BB-01-D1 --format risen --fidelity
+python tools/convert.py BB-01-D1 --to-skill
+</code></pre>
+<p>Ten frameworks are supported. What matters is that they are not equivalent:</p>
+<ul>
+<li><strong>Lossless</strong> - CARE, CO-STAR, TIDD-EC. All ten criteria have somewhere to go.
+  TIDD-EC is the best target when the guardrails matter most: it is the only
+  common framework with an explicit DON'T slot.</li>
+<li><strong>Lossy</strong> - RISEN and CRISPE have no Example slot. RACE drops the example and
+  the whole G.E.T. step.</li>
+<li><strong>Very lossy</strong> - RTF, APE, BAB and the compact chat build strip verification and
+  safety entirely. A 20/20 CARE prompt lands at 10/20 as RTF.</li>
+</ul>
+<p>Always run <code>--fidelity</code> and tell the user the cost before handing over a
+converted prompt. Choosing a lossy framework is fine - choosing one without
+knowing is not.</p>
+<h2>Converting a prompt into an agent skill</h2>
+<p><code>--to-skill</code> writes a <code>SKILL.md</code>. The conversion is not a copy-paste: a prompt is
+one turn, a skill is a procedure. The modes become steps, the clarifying
+questions become a gate before drafting, the G.E.T. block becomes a
+hand-back checklist, and first-person text is shifted to address the agent about
+the user.</p>
+<p>Check two things in the generated file before using it:</p>
+<ul>
+<li><strong>The description.</strong> It is what makes the skill trigger at the right moment.
+  Rewrite it to say <em>when to use this</em>, in the words a BA would actually use.</li>
+<li><strong>The worked example.</strong> It is inherited, and for a narrowed skill it is often
+  the wrong example.</li>
+</ul>
+<h2>Decomposing a Master into testable units</h2>
+<pre tabindex="0"><code class="language-bash">python tools/decompose.py BB-01-M        # preview
+python tools/decompose.py --all --write  # write proposals
+</code></pre>
+<p>Each mode of a Master becomes a single-task unit prompt scoring 2/2 on Action -
+and, unlike its parent, testable. Units land in <code>proposals/</code>, not <code>library/</code>:
+they are drafts. Before promoting one, narrow the output format to that single
+artefact, replace the inherited example, and run it once on real de-identified
+work.</p>
+<h2>Contributing it back</h2>
+<p>If the prompt is good and general, open a pull request. <code>CONTRIBUTING.md</code> has the
+process; accepted prompts keep their author in the front-matter and in
+<code>CONTRIBUTORS.md</code>. If you ran it for real, log what happened in <code>field-reports/</code> -
+that evidence is worth more than the rubric score.</p></div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

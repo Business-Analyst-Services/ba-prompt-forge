@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Master – Data &amp; Reporting Analysis &middot; BA Prompt Forge</title>
+<meta name="description" content="BB-04-M: Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and wha">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../prompts/" aria-current="page">Find a prompt</a></li>
+          <li><a href="../contexts/">Delivery contexts</a></li>
+          <li><a href="../frameworks/">Frameworks</a></li>
+          <li><a href="../scoring/">Scoring</a></li>
+          <li><a href="../skills/">Skills</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<p class="muted"><a href="../prompts/">&larr; All prompts</a></p>
+<h1>Master – Data &amp; Reporting Analysis</h1>
+<p class="meta">
+  <code>BB-04-M</code>
+  <span>Business BA</span>
+  <span>Data &amp; Reporting Analysis</span>
+  <span>Master prompt</span>
+  <span class="badge badge-good">19/20 Library-ready</span>
+</p>
+<p class="lede">Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request</p>
+
+<h2>Who it is for</h2>
+<p><strong>You are:</strong> a business analyst (Business BA).<br>
+<strong>The audience for the output:</strong> Business data owners, reporting teams and the data engineering team.</p>
+<p><strong>Target deliverables:</strong> Data Requirements, Data Mapping, Reporting Requirements, KPI Definitions</p>
+
+<h2 id="fill-in">What you need to fill in</h2>
+<ul>
+<li><code>[PROJECT NAME AND ONE-LINE DESCRIPTION]</code></li>
+<li><code>[DESCRIBE]</code></li>
+<li><code>[LIST, e.g. core case management system, billing system, request intake channel, data warehouse]</code></li>
+</ul>
+<div class="panel">
+  <p><strong>Before you paste anything in:</strong> My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding.</p>
+</div>
+
+<h2 id="prompt">The prompt</h2>
+<p>Pick the framework your tool expects. The first is the library's native
+CARE + G.E.T. build; the others are conversions, and each says what it costs.</p>
+<div class="tabs full">
+  <div class="tablist" role="tablist" aria-label="Prompt framework">
+    <button type="button" role="tab" id="tab-care" aria-controls="panel-care" aria-selected="true" tabindex="0">CARE + G.E.T.</button><button type="button" role="tab" id="tab-co-star" aria-controls="panel-co-star" aria-selected="false" tabindex="-1">CO-STAR</button><button type="button" role="tab" id="tab-tidd-ec" aria-controls="panel-tidd-ec" aria-selected="false" tabindex="-1">TIDD-EC</button><button type="button" role="tab" id="tab-risen" aria-controls="panel-risen" aria-selected="false" tabindex="-1">RISEN</button><button type="button" role="tab" id="tab-crispe" aria-controls="panel-crispe" aria-selected="false" tabindex="-1">CRISPE</button><button type="button" role="tab" id="tab-race" aria-controls="panel-race" aria-selected="false" tabindex="-1">RACE</button><button type="button" role="tab" id="tab-rtf" aria-controls="panel-rtf" aria-selected="false" tabindex="-1">RTF</button><button type="button" role="tab" id="tab-ape" aria-controls="panel-ape" aria-selected="false" tabindex="-1">APE</button><button type="button" role="tab" id="tab-bab" aria-controls="panel-bab" aria-selected="false" tabindex="-1">BAB</button><button type="button" role="tab" id="tab-chat" aria-controls="panel-chat" aria-selected="false" tabindex="-1">Compact chat</button><button type="button" role="tab" id="tab-skill" aria-controls="panel-skill" aria-selected="false" tabindex="-1">Agent skill</button>
+  </div>
+  
+<div class="tabpanel" role="tabpanel" id="panel-care" aria-labelledby="tab-care" tabindex="0">
+  <h3 class="panel-heading">CARE + G.E.T.</h3>
+  <p class="muted">The library&#x27;s native format. Context, Action, Result/Format, Example, plus Generate -&gt; Explain -&gt; Test. Lossless: every rubric criterion has somewhere to go.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-care"
+            data-copy-status="copy-status-care" hidden>Copy CARE + G.E.T. prompt</button>
+    <span class="copy-status" id="copy-status-care" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-care"><code># CONTEXT
+I am a business analyst (Business BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Business area and decisions the data must support: [DESCRIBE]. Known source systems: [LIST, e.g. core case management system, billing system, request intake channel, data warehouse]. The audience for this output: Business data owners, reporting teams and the data engineering team.
+
+# ACTION
+Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request:
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries).
+
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+# RESULT / FORMAT
+Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element. Keep the language professional, plain-English and appropriate for a business audience. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+# EXAMPLE
+Example element row: &quot;Entity: Request | Element: request_severity | Definition: initial severity band assigned at lodgement (1–4) per triage matrix | Classification: internal | Quality expectation: mandatory at creation, single value, revalidated at assessment&quot;.
+
+# VALIDATION (GENERATE -&gt; EXPLAIN -&gt; TEST)
+Generate: produce the output requested above.
+Explain: then break down, step by step, the logic you used to synthesise your answer - how you interpreted each of my inputs and why you structured the output the way you did.
+Test: list the source references you used (my pasted inputs, earlier turns, or your general knowledge - label which is which); cross-reference the key facts in your output against those sources and flag anything that does not trace back to a source; and list every additional assumption you made so I can verify or correct it.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-co-star" aria-labelledby="tab-co-star" tabindex="0">
+  <h3 class="panel-heading">CO-STAR</h3>
+  <p class="muted">Splits CARE&#x27;s Result into Style/Tone/Response and promotes Audience to its own slot. Lossless. Lossless: every rubric criterion has somewhere to go.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-co-star"
+            data-copy-status="copy-status-co-star" hidden>Copy CO-STAR prompt</button>
+    <span class="copy-status" id="copy-status-co-star" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-co-star"><code># CONTEXT
+I am a business analyst (Business BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Business area and decisions the data must support: [DESCRIBE]. Known source systems: [LIST, e.g. core case management system, billing system, request intake channel, data warehouse]. The audience for this output: Business data owners, reporting teams and the data engineering team.
+
+# OBJECTIVE
+Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request:
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries).
+
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+# STYLE
+Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element.
+
+# TONE
+Keep the language professional, plain-English and appropriate for a business audience.
+
+# AUDIENCE
+Business data owners, reporting teams and the data engineering team.
+
+# RESPONSE
+Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+Worked example to imitate: Example element row: &quot;Entity: Request | Element: request_severity | Definition: initial severity band assigned at lodgement (1–4) per triage matrix | Classification: internal | Quality expectation: mandatory at creation, single value, revalidated at assessment&quot;.
+
+Generate: produce the output requested above.
+Explain: then break down, step by step, the logic you used to synthesise your answer - how you interpreted each of my inputs and why you structured the output the way you did.
+Test: list the source references you used (my pasted inputs, earlier turns, or your general knowledge - label which is which); cross-reference the key facts in your output against those sources and flag anything that does not trace back to a source; and list every additional assumption you made so I can verify or correct it.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-tidd-ec" aria-labelledby="tab-tidd-ec" tabindex="0">
+  <h3 class="panel-heading">TIDD-EC</h3>
+  <p class="muted">The only common format with an explicit DONT slot, so anti-fabrication and data-safety rules land naturally. Lossless: every rubric criterion has somewhere to go.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-tidd-ec"
+            data-copy-status="copy-status-tidd-ec" hidden>Copy TIDD-EC prompt</button>
+    <span class="copy-status" id="copy-status-tidd-ec" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-tidd-ec"><code># TASK
+Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request:
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries).
+
+# INSTRUCTIONS
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+Then generate the output, explain the synthesis logic you used, and test it: cite which parts came from my inputs versus your general knowledge, flag anything that does not trace back to a source, and list the assumptions you made.
+
+# DO
+- Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element.
+- Keep the language professional, plain-English and appropriate for a business audience.
+
+# DONT
+- Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for my review, not a finished artefact.
+- Do not ask me to paste real personal or sensitive data.
+
+# EXAMPLES
+Example element row: &quot;Entity: Request | Element: request_severity | Definition: initial severity band assigned at lodgement (1–4) per triage matrix | Classification: internal | Quality expectation: mandatory at creation, single value, revalidated at assessment&quot;.
+
+# CONTEXT
+I am a business analyst (Business BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Business area and decisions the data must support: [DESCRIBE]. Known source systems: [LIST, e.g. core case management system, billing system, request intake channel, data warehouse]. The audience for this output: Business data owners, reporting teams and the data engineering team.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-risen" aria-labelledby="tab-risen" tabindex="0">
+  <h3 class="panel-heading">RISEN</h3>
+  <p class="muted">Strong for multi-step work. No Example slot, so the worked example is lost. Converting costs 2 rubric point(s) &mdash; this rendering scores 17/20, losing: Example.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-risen"
+            data-copy-status="copy-status-risen" hidden>Copy RISEN prompt</button>
+    <span class="copy-status" id="copy-status-risen" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-risen"><code>**Role:** A business analyst (Business BA).
+
+**Instructions:** Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request
+
+**Steps:**
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries).
+
+**End goal:** A reviewable first draft that Business data owners, reporting teams and the data engineering team can act on.
+
+**Narrowing (constraints):**
+- Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element.
+- Keep the language professional, plain-English and appropriate for a business audience.
+- Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for my review, not a finished artefact.
+- My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding.
+- Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-crispe" aria-labelledby="tab-crispe" tabindex="0">
+  <h3 class="panel-heading">CRISPE</h3>
+  <p class="muted">Its Experiment slot asks for alternatives rather than verification, and there is no Example slot. Converting costs 4 rubric point(s) &mdash; this rendering scores 15/20, losing: Example, Test step.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-crispe"
+            data-copy-status="copy-status-crispe" hidden>Copy CRISPE prompt</button>
+    <span class="copy-status" id="copy-status-crispe" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-crispe"><code>**Capacity / Role:** Act as a business analyst (Business BA).
+
+**Insight:** Business area and decisions the data must support: [DESCRIBE]. Known source systems: [LIST, e.g. core case management system, billing system, request intake channel, data warehouse]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. This is for Business data owners, reporting teams and the data engineering team.
+
+**Statement:** Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request:
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries). Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+**Personality:** Keep the language professional, plain-English and appropriate for a business audience. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+**Experiment:** Give me the draft in the format below, then offer one alternative structure and say when you would use it instead.
+
+**Format:** Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-race" aria-labelledby="tab-race" tabindex="0">
+  <h3 class="panel-heading">RACE</h3>
+  <p class="muted">Compact four-slot format. Keeps guardrails and audience; drops the worked example and the whole G.E.T. validation step. Converting costs 6 rubric point(s) &mdash; this rendering scores 13/20, losing: Example, Explain step, Test step.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-race"
+            data-copy-status="copy-status-race" hidden>Copy RACE prompt</button>
+    <span class="copy-status" id="copy-status-race" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-race"><code>**Role:** I am a business analyst (Business BA).
+
+**Action:** Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request:
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries).
+
+**Context:** Business area and decisions the data must support: [DESCRIBE]. Known source systems: [LIST, e.g. core case management system, billing system, request intake channel, data warehouse]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Audience: Business data owners, reporting teams and the data engineering team.
+
+**Expectation:** Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-rtf" aria-labelledby="tab-rtf" tabindex="0">
+  <h3 class="panel-heading">RTF</h3>
+  <p class="muted">Minimal. Fine for a quick one-off; strips every verification and safety rule. Converting costs 10 rubric point(s) &mdash; this rendering scores 9/20, losing: Example, Explain step, Test step, Anti-fabrication, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-rtf"
+            data-copy-status="copy-status-rtf" hidden>Copy RTF prompt</button>
+    <span class="copy-status" id="copy-status-rtf" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-rtf"><code>**Role:** A business analyst (Business BA), writing for Business data owners, reporting teams and the data engineering team.
+
+**Task:** Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request:
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries).
+
+**Format:** Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-ape" aria-labelledby="tab-ape" tabindex="0">
+  <h3 class="panel-heading">APE</h3>
+  <p class="muted">Purpose-led and very short. No role, audience or example. Converting costs 10 rubric point(s) &mdash; this rendering scores 9/20, losing: Context, Example, Explain step, Test step, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-ape"
+            data-copy-status="copy-status-ape" hidden>Copy APE prompt</button>
+    <span class="copy-status" id="copy-status-ape" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-ape"><code>**Action:** Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request:
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries).
+
+**Purpose:** So that Business data owners, reporting teams and the data engineering team can review and act on it.
+
+**Expectation:** Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-bab" aria-labelledby="tab-bab" tabindex="0">
+  <h3 class="panel-heading">BAB</h3>
+  <p class="muted">Persuasive narrative shape. A poor fit for deliverable prompts - use it to pitch the work, not to produce it. Converting costs 10 rubric point(s) &mdash; this rendering scores 9/20, losing: Example, Explain step, Test step, Data safety, Right-sized.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-bab"
+            data-copy-status="copy-status-bab" hidden>Copy BAB prompt</button>
+    <span class="copy-status" id="copy-status-bab" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-bab"><code>**Before:** I am a business analyst (Business BA). Business area and decisions the data must support: [DESCRIBE]. Known source systems: [LIST, e.g. core case management system, billing system, request intake channel, data warehouse]. Right now this work is unstructured and cannot be reviewed.
+
+**After:** Business data owners, reporting teams and the data engineering team has a reviewable draft: Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element.
+
+**Bridge:** Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request:
+1. data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation).
+2. source-to-target data mapping tables.
+3. reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions).
+4. KPI definitions.
+5. for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries). Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-chat" aria-labelledby="tab-chat" tabindex="0">
+  <h3 class="panel-heading">Compact chat</h3>
+  <p class="muted">One paragraph for short-context chat boxes. Deliberately lossy. Converting costs 8 rubric point(s) &mdash; this rendering scores 11/20, losing: Example, Explain step, Test step, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-chat"
+            data-copy-status="copy-status-chat" hidden>Copy Compact chat prompt</button>
+    <span class="copy-status" id="copy-status-chat" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-chat"><code>Act as a business analyst (Business BA) writing for Business data owners, reporting teams and the data engineering team. Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers. Format: Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact. Finish by listing your assumptions and which claims came from my inputs versus your own knowledge.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-skill" aria-labelledby="tab-skill" tabindex="0">
+  <h3 class="panel-heading">Agent skill</h3>
+  <p class="muted">The prompt rebuilt as an agent skill: the modes become steps, the clarifying questions become a gate before drafting, and the validation block becomes a hand-back checklist. Save as <code>SKILL.md</code>.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-skill"
+            data-copy-status="copy-status-skill" hidden>Copy Agent skill prompt</button>
+    <span class="copy-status" id="copy-status-skill" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-skill"><code>---
+name: ba-data-and-reporting-analysis
+description: &#x27;Use when the user is working on data &amp; reporting analysis and needs data requirements, data mapping, reporting requirements, kpi definitions. Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produces a reviewable first draft for business data owners, reporting teams and the data engineering team.&#x27;
+license: CC-BY-4.0
+---
+
+# Master – Data &amp; Reporting Analysis
+
+Derived from `BB-04-M` in the BA Prompt Forge library
+(Business BA / Data &amp; Reporting Analysis, scored 19/20
+against the CARE + G.E.T. rubric).
+
+## When to use this
+
+The user is doing data &amp; reporting analysis work and needs one of:
+- Data Requirements
+- Data Mapping
+- Reporting Requirements
+- KPI Definitions
+
+The audience for whatever you produce is: **Business data owners, reporting teams and the data engineering team**.
+
+## Before you start
+
+The user&#x27;s work must respect the user&#x27;s organisation&#x27;s privacy, information-security and data-residency obligations. Everything the user pastes is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert them before proceeding.
+
+Collect these inputs from the user. Do not guess them:
+
+1. `[PROJECT NAME AND ONE-LINE DESCRIPTION]`
+2. `[DESCRIBE]`
+3. `[LIST, e.g. core case management system, billing system, request intake channel, data warehouse]`
+
+Then ask up to 5 clarifying questions about anything still
+missing, and **wait for the answers** before drafting.
+
+## What to produce
+
+- data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation)
+- source-to-target data mapping tables
+- reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions)
+- KPI definitions
+- for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries)
+
+Format the output exactly as follows:
+
+&gt; Structured, evidence-based business analysis writing aligned to BABOK good practice. Use clear headings, numbered requirements and tables where they aid scanning. Plain English; expand every acronym on first use; no marketing language. Business language first; add technical detail (types, validation) only after meaning is agreed. Where the data includes personal or otherwise sensitive information, flag the classification per element.
+
+Keep the language professional, plain-English and appropriate for a business audience.
+
+## Rules
+
+- Do not invent facts or figures: mark anything you could not verify from the user&#x27;s inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for the user&#x27;s review, not a finished artefact.
+- Do not ask the user to paste real personal or sensitive data.
+
+## Worked example to imitate
+
+Example element row: &quot;Entity: Request | Element: request_severity | Definition: initial severity band assigned at lodgement (1–4) per triage matrix | Classification: internal | Quality expectation: mandatory at creation, single value, revalidated at assessment&quot;.
+
+## Before you hand it back
+
+1. **Explain** - break down, step by step, the logic you used: how you interpreted
+   each input and why you structured the output the way you did.
+2. **Test** - list the sources you drew on (the user&#x27;s inputs, earlier turns, or
+   your own general knowledge; label which is which), cross-reference the key facts
+   against them, flag anything that does not trace back to a source, and list every
+   assumption you made so the user can verify or correct it.
+</code></pre>
+</div>
+</div>
+
+<h2 id="scorecard">Scorecard</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Marks out of 2 against the ten-criterion CARE + G.E.T. rubric."><table><caption>Marks out of 2 against the ten-criterion CARE + G.E.T. rubric.</caption><thead><tr><th scope="col">Criterion</th><th scope="col">Mark</th><th scope="col">Decided by</th></tr></thead><tbody>
+<tr><th scope="row">Context</th><td>2</td><td>Judgement</td></tr>
+<tr><th scope="row">Action</th><td>1</td><td>Judgement</td></tr>
+<tr><th scope="row">Result / Format</th><td>2</td><td>Judgement</td></tr>
+<tr><th scope="row">Example</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Explain step</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Test step</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Anti-fabrication</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Data safety</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Reusability</th><td>2</td><td>Machine-checked</td></tr>
+<tr><th scope="row">Right-sized</th><td>2</td><td>Judgement</td></tr>
+</tbody></table></div>
+<p><strong>Total: 19/20 &mdash; Library-ready.</strong>
+<br>Action 1/2: a menu of modes, not one task — deliberate flexibility, but costs single-task clarity. Fix: for repeated use of one mode, use the matching Deliverable prompt instead.</p>
+<p class="muted">A high score means the prompt is well-formed, not that it is effective.
+<a href="../scoring/">How scoring works</a>.</p>
+
+<h2 id="contexts">Used in these delivery contexts</h2>
+<ul>
+<li><a href="../contexts/#9-data-warehouse">9. Data – Warehouse</a></li>
+</ul>
+
+<h2 id="provenance">Provenance</h2>
+<ul>
+  <li><strong>Author:</strong> Business Analyst Services</li>
+  <li><strong>Source:</strong> BA_Prompt_Library_CARE_GET_v1_0_Portable.xlsx (v1.0 portable edition)</li>
+  <li><strong>Added:</strong> 2026-09-12</li>
+  <li><strong>Licence:</strong> CC-BY-4.0</li>
+</ul>
+<p>Improved this prompt, or used it on real work?
+<a href="../contribute/">Contribute it back</a> &mdash; you keep the credit.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

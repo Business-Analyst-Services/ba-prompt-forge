@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contribute &middot; BA Prompt Forge</title>
+<meta name="description" content="How to contribute a prompt, keep the credit, upvote others, and report what happened when you used one.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">Delivery contexts</a></li>
+          <li><a href="../frameworks/">Frameworks</a></li>
+          <li><a href="../scoring/">Scoring</a></li>
+          <li><a href="../skills/">Skills</a></li>
+          <li><a href="../contribute/" aria-current="page">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<h1>Contribute</h1>
+<p class="lede">Prompts are better when written by the people doing the work. If you have one
+that works, it can get in &mdash; and you keep the credit.</p>
+
+<div class="panel">
+  <h2>The bar is 17/20</h2>
+  <p>That is the published threshold on the <a href="../scoring/">rubric</a>, not a
+  preference: below it, outputs are unreliable enough that sharing the prompt does more harm
+  than good. A prompt under 17 is not rejected &mdash; it comes back with the specific fixes,
+  and you keep authorship on the resubmission.</p>
+</div>
+
+<div class="prose"><p>Prompts are better when written by the people doing the work. This repo is built
+so that a business analyst who has a prompt that genuinely works can get it in,
+keep the credit, and find out whether it helped anyone else.</p>
+<h2>The bar</h2>
+<p><strong>17/20 on the <a href="../scoring/">rubric</a>.</strong> That is the published
+threshold, not a preference — below it, outputs are unreliable enough that
+sharing the prompt does more harm than good. Nothing else about your prompt has
+to match house style.</p>
+<p>A prompt below 17 is not rejected, it is returned with the specific fixes. You
+keep authorship on the resubmission.</p>
+<h2>Adding a prompt</h2>
+<p><strong>1. Check it doesn't exist.</strong> Search <code>catalogue.json</code> by service and target
+deliverable. 42 services are covered; duplicating a 20/20 prompt helps nobody.
+The exception is a genuinely better prompt for the same job — say so explicitly
+in the PR and we will compare them.</p>
+<p><strong>2. Write it as fields, not prose.</strong> Copy a neighbouring file in
+<code>library/&lt;role&gt;/&lt;service&gt;/</code>, or start from
+<a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/blob/main/schema/prompt.schema.json"><code>schema/prompt.schema.json</code></a>. The YAML front-matter
+<em>is</em> the prompt; the body is generated. Writing it as one blob of text means it
+cannot be converted, scored field by field, or diffed — so the schema forbids it.</p>
+<p>Easiest route: ask an agent to run
+<a href="../skills/ba-prompt-forge.html"><code>skills/ba-prompt-forge</code></a>, which walks the
+fields in rubric order.</p>
+<p><strong>3. Pick an ID.</strong> <code>&lt;RR&gt;-&lt;NN&gt;-&lt;M|Dn&gt;</code> — role prefix (<code>BB</code> Business BA, <code>BT</code>
+Business/Tech BA, <code>TB</code> Technical BA, <code>AB</code> Agile BA, <code>LB</code> Lead BA, <code>PL</code> Practice
+Lead), service number, then <code>M</code> for a Master or <code>D1</code>/<code>D2</code> for a deliverable
+prompt. Use the next free number in that service.</p>
+<p><strong>4. Build and score:</strong></p>
+<pre tabindex="0"><code class="language-bash">pip install -r requirements.txt
+python tools/build.py                        # render body, index, catalogue
+python tools/lint.py library/.../YOUR-ID.md  # score it
+</code></pre>
+<p>Fix anything the linter marks down. For the four criteria it flags <code>?</code> — Context,
+Action, Result/Format, Right-sized — use
+<a href="../skills/ba-prompt-scorer.html"><code>skills/ba-prompt-scorer</code></a> or score them
+yourself and put the marks in the <code>score</code> block.</p>
+<p><strong>5. Open the pull request.</strong> The template asks for the score, one sentence on
+where it came from, and — the part reviewers care about most — whether you have
+actually run it.</p>
+<h2>What review checks</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table: What review checks"><table>
+<thead>
+<tr>
+<th scope="col">Checked by</th>
+<th scope="col">What it checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CI, automatically</strong></td>
+<td>Schema valid; <code>tools/build.py --check</code> clean; <code>tools/lint.py</code> passes; declared score matches the machine check on all six machine-decidable criteria</td>
+</tr>
+<tr>
+<td><strong>A human</strong></td>
+<td>Not a duplicate; the four judgement criteria; the worked example is concrete and synthetic; the prompt is portable</td>
+</tr>
+</tbody>
+</table></div>
+<p>A mismatch between your declared score and the machine check fails CI. That is
+deliberate: the scorecard is only worth something if it cannot be self-awarded.</p>
+<h2>Three rules that are not negotiable</h2>
+<p>These are what make the library safe to hand to a stranger.</p>
+<ol>
+<li><strong>No real data, anywhere.</strong> Worked examples must be synthetic. Never paste a
+   real case number, name, address, health or financial detail into an example —
+   not even lightly disguised. Every prompt must keep its de-identification
+   instruction.</li>
+<li><strong>No invented facts.</strong> Every prompt must forbid fabrication <em>and</em> give a
+   flagging convention: <code>[TBC]</code> for unverified, <code>[PROPOSED — VALIDATE]</code> for
+   values the model proposes.</li>
+<li><strong>Portable.</strong> No employer names, sectors, named legislation or
+   jurisdiction-specific rules. Project specifics become <code>[MARKED PLACEHOLDERS]</code>.
+   Someone in another country in another industry has to be able to use it.</li>
+</ol>
+<h2>Credit</h2>
+<p>Your name goes in <code>provenance.author</code> (and <code>author_github</code> if you want it
+linked). That field travels with the prompt into every converted framework and
+every generated skill — so credit survives the conversion, which is the only
+kind of credit worth having in a prompt library.</p>
+<p>Accepted contributors are listed in <a href="../about/#contributors">CONTRIBUTORS.md</a>.</p>
+<p>If you would rather not be named, say so in the PR and we will use the handle you
+choose, or none.</p>
+<h2>Upvoting</h2>
+<p>Each accepted prompt gets a thread in
+<a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/discussions">Discussions</a>.
+👍 on the thread is the vote; the comments are where
+people say what they changed to make it work in their context. Reaction counts
+feed the "most used" view, and they surface the gap between <em>scored well</em> and
+<em>actually used</em> — which is the more interesting number.</p>
+<h2>Impact</h2>
+<p>A rubric score says a prompt is well-formed. A field report says it worked.</p>
+<p>If you have used a prompt on real work, add a short structured note to
+<a href="../contribute/#field-reports"><code>field-reports/</code></a> — which prompt, what you were doing, what it
+produced, what you had to change, and whether you would use it again. Copy
+<a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/blob/main/field-reports/TEMPLATE.md"><code>field-reports/TEMPLATE.md</code></a>.</p>
+<p>Negative reports are more valuable than positive ones and are never edited out. A
+prompt that scores 20/20 and fails in practice is the single most useful thing
+this repo could learn.</p>
+<p><strong>De-identify field reports the same way you de-identify prompt inputs.</strong> No
+client names, no real figures, no quotable extracts from real artefacts.</p>
+<h2>Improving the tooling</h2>
+<p>Bug reports and PRs on <code>tools/</code> are welcome. Two things to know:</p>
+<ul>
+<li><code>tools/build.py --check</code> must stay clean — CI fails if generated output has
+  drifted from the front-matter.</li>
+<li>When adding a framework to <code>tools/formats.py</code>, register it in <code>FORMATS</code> with
+  the honest set of criteria its slots can carry. Claiming a framework carries a
+  criterion it has no slot for makes the fidelity report lie, and the fidelity
+  report is the point.</li>
+</ul>
+<h2>Code of conduct</h2>
+<p>Be decent. Critique prompts, not people. Reviewers: a prompt someone wrote at
+work and offered for free deserves specific, fixable feedback, not a verdict.</p></div>
+
+<h2 id="field-reports">Field reports</h2>
+<p>A rubric score says a prompt is <strong>well-formed</strong>. A field report says it
+<strong>worked</strong>. The second is harder to get and worth more.</p>
+<div class="prose"><p>A rubric score says a prompt is <strong>well-formed</strong>. A field report says it
+<strong>worked</strong>. The second is harder to get and worth more.</p>
+<p>The library scores a mean of 19.62/20, and that number should be treated with
+suspicion: the prompts were written against the rubric that scores them. Paper
+scores measure the author's discipline, not the prompt's effect on real work.
+This folder is the correction.</p>
+<h2>Adding one</h2>
+<p>Copy <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/blob/main/field-reports/TEMPLATE.md"><code>TEMPLATE.md</code></a> to <code>&lt;PROMPT-ID&gt;-&lt;yyyy-mm&gt;-&lt;your-handle&gt;.md</code>
+and fill it in. One prompt, one use, a few minutes to write.</p>
+<pre tabindex="0"><code>field-reports/BB-01-D1-2026-09-jdoe.md
+</code></pre>
+<h2>What makes a report useful</h2>
+<ul>
+<li><strong>What you changed.</strong> The single most valuable field. If you had to rewrite the
+  example or add three sentences of context before it worked, that is a defect in
+  the prompt, and it is fixable.</li>
+<li><strong>What it cost.</strong> Turns to a usable draft, and how much editing after.</li>
+<li><strong>Whether you would use it again.</strong> A plain yes/no, before the caveats.</li>
+</ul>
+<h2>Negative reports</h2>
+<p>Wanted, kept, and never edited out. A prompt that scores 20/20 and fails in
+practice is the most useful thing this repo could learn. If a prompt wasted your
+afternoon, say so - the fix starts there.</p>
+<h2>De-identification</h2>
+<p>Same rule as the prompts themselves, and it matters more here because you are
+writing about real work:</p>
+<ul>
+<li>No client, employer or project names. "A state government agency" is enough.</li>
+<li>No real figures, case numbers, names or dates that could identify a matter.</li>
+<li>No quotable extracts from real artefacts - describe the shape, not the content.</li>
+</ul>
+<p>If you cannot describe what happened without identifying the work, do not file
+the report.</p></div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

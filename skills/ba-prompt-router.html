@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt router &middot; BA Prompt Forge</title>
+<meta name="description" content="Find and fill the right business-analysis prompt for what the user is actually doing. Use when a BA describes a piece of work - &quot;I need to write acceptance criteria&quot;, &quot;we&#x27;re procur">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">Delivery contexts</a></li>
+          <li><a href="../frameworks/">Frameworks</a></li>
+          <li><a href="../scoring/">Scoring</a></li>
+          <li><a href="../skills/" aria-current="page">Skills</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<p class="muted"><a href="../skills/">&larr; All skills</a></p>
+<h1>Prompt router</h1>
+<p class="lede">Describe your work; get the right prompt, filled in.</p>
+<div class="panel">
+  <p><strong>Skill name:</strong> <code>ba-prompt-router</code></p>
+  <p><strong>Description</strong> (this is what makes an agent trigger it):
+  Find and fill the right business-analysis prompt for what the user is actually doing. Use when a BA describes a piece of work - &quot;I need to write acceptance criteria&quot;, &quot;we&#x27;re procuring a new case management system&quot;, &quot;I have to justify this to the sponsor&quot; - and needs a proven prompt rather than a hand-rolled one. Routes across 126 scored prompts covering 42 BA services, 6 roles and 11 delivery contexts, then interviews the user to fill the placeholders.</p>
+  <p>Save the text below as <code>SKILL.md</code> inside a folder named
+  <code>ba-prompt-router</code>, and point your agent at it. It works with any runtime that
+  reads agent skills.</p>
+</div>
+<div class="copy-row">
+  <button type="button" class="btn" data-copy="skill-source"
+          data-copy-status="copy-status-skill" hidden>Copy the full SKILL.md</button>
+  <span class="copy-status" id="copy-status-skill" role="status" aria-live="polite"></span>
+</div>
+<details>
+  <summary>Show the raw SKILL.md (with front-matter, ready to save)</summary>
+  <pre tabindex="0" id="skill-source"><code>---
+name: ba-prompt-router
+description: Find and fill the right business-analysis prompt for what the user is actually doing. Use when a BA describes a piece of work - &quot;I need to write acceptance criteria&quot;, &quot;we&#x27;re procuring a new case management system&quot;, &quot;I have to justify this to the sponsor&quot; - and needs a proven prompt rather than a hand-rolled one. Routes across 126 scored prompts covering 42 BA services, 6 roles and 11 delivery contexts, then interviews the user to fill the placeholders.
+license: CC-BY-4.0
+---
+
+# BA prompt router
+
+A library of 126 prompts is unusable as a list. Nobody knows whether they want
+`BT-06-D2` or `BB-07-M`. Your job is to make the catalogue disappear: the user
+describes their situation in their own words, and you hand back one filled-in
+prompt they can paste straight into a model.
+
+**Never show the user a list of 126 anything.** Narrow first, then offer at most
+three, then recommend one.
+
+## What you have to work with
+
+- `catalogue.json` at the repo root - every prompt with its id, role, service,
+  target deliverables, delivery contexts, audience, task, modes and input
+  placeholders. Load this, not the 126 individual files.
+- `contexts/delivery-contexts.yml` - the 11 delivery contexts, each with the
+  kind of work it covers and the prompt ids to start from.
+- `library/**/&lt;ID&gt;.md` - read one of these only once you have chosen a prompt.
+
+## How to route
+
+### 1. Work out what they are actually producing
+
+The single most useful question is **what artefact has to exist at the end**, not
+what topic they are working on. &quot;I&#x27;m doing requirements&quot; routes nowhere; &quot;I need
+acceptance criteria a tester can work from&quot; routes to one prompt.
+
+Match their words against `deliverables` and `task` in the catalogue. BAs use
+different vocabulary than the catalogue does - map it:
+
+| They say | Look for |
+| --- | --- |
+| &quot;user stories&quot;, &quot;ready for the sprint&quot; | Just-in-Time Requirements Elaboration, User Story Mapping &amp; Slicing |
+| &quot;business case&quot;, &quot;why are we doing this&quot; | Business Project Discovery &amp; Problem Definition, Benefits Realisation |
+| &quot;RFT&quot;, &quot;tender&quot;, &quot;evaluating vendors&quot; | Commercial, Licencing &amp; Vendor Mgmt |
+| &quot;as-is / to-be&quot;, &quot;process map&quot;, &quot;levelling&quot; | Process Analysis &amp; Improvement |
+| &quot;data model&quot;, &quot;reports&quot;, &quot;medallion&quot;, &quot;BI&quot; | Data &amp; Reporting Analysis |
+| &quot;go-live&quot;, &quot;cutover&quot;, &quot;training&quot; | Operational Readiness &amp; Transition |
+| &quot;traceability&quot;, &quot;requirements sign-off&quot; | Requirements Governance &amp; Traceability |
+| &quot;my team&quot;, &quot;allocating BAs&quot;, &quot;reviewing their work&quot; | Lead BA and Practice Lead services |
+
+### 2. If the artefact is unclear, ask about the delivery context instead
+
+Ask which of these their work looks like, in plain language - most BAs recognise
+their project type instantly even when they cannot name the deliverable:
+
+system update &amp;middot; agile delivery &amp;middot; new system or transition &amp;middot;
+procurement &amp;middot; process design &amp;middot; process improvement &amp;middot;
+data warehouse &amp;middot; back-end tech services &amp;middot; AI/agentic &amp;middot;
+consultancy &amp;middot; leading a BA team
+
+Then use that context&#x27;s `start_with` ids.
+
+### 3. Ask at most three questions before recommending
+
+Good questions, in priority order:
+
+1. What has to exist at the end, and who reads it?
+2. Is this a one-off artefact, or are you going to work the whole topic through?
+   (Artefact -&gt; a **Deliverable** prompt. Whole topic -&gt; the **Master**.)
+3. Which role are you playing - business-facing BA, technical BA, agile BA, or
+   leading other BAs?
+
+Do not ask a question whose answer you can infer. If they said &quot;acceptance
+criteria for the sprint&quot;, you already know all three.
+
+### 4. Recommend one, name two alternates
+
+Say what you picked, why, and what it produces. Something like:
+
+&gt; **`AB-03-D1` - Story Elaboration to Definition of Ready (with BDD)** (20/20)
+&gt; Takes one story and returns business rules, Given/When/Then criteria with
+&gt; happy, negative and boundary cases, and the open questions blocking Ready.
+&gt;
+&gt; Alternatives: `AB-03-M` if you want to work the whole backlog rather than one
+&gt; story, or `BT-09-D1` if what you actually need is test coverage.
+
+### 5. Fill it in with them
+
+This is the part that makes the library worth having. Read the chosen prompt
+file and look at its `inputs`. For each placeholder, ask for the value - **one
+message, all the placeholders**, not one question at a time.
+
+Then return the completed prompt in a code block with every `[PLACEHOLDER]`
+replaced, ready to paste.
+
+Two rules you must not drop when you fill it in:
+
+- **Data safety.** The prompt tells the user to paste de-identified or synthetic
+  inputs. If what they give you looks like real personal or sensitive data - real
+  names, case numbers, addresses, health or financial detail - stop and say so
+  before going further.
+- **No invention.** Do not invent a value to fill a placeholder. If the user does
+  not know it, leave it as `[TBC]` in the output and say which ones you left.
+
+### 6. Offer the format they need
+
+The prompt is rendered in CARE + G.E.T. by default. If they are pasting into
+something with a short input box, or they have a house format, offer a
+conversion - and tell them what it costs:
+
+```bash
+python tools/convert.py AB-03-D1 --format co-star --fidelity
+python tools/convert.py AB-03-D1 --to-skill
+```
+
+CO-STAR and TIDD-EC are lossless. RTF, APE and the compact chat build strip the
+verification and safety rules - a 20/20 prompt becomes a 10/20 one. Say so rather
+than silently handing over a weaker prompt.
+
+## When nothing fits
+
+Two honest answers, and you should give one of them rather than forcing a match:
+
+- **The gap is known.** `contexts/delivery-contexts.yml` records seven flagged
+  decomposition gaps (procuring AI products, stakeholder engagement for system
+  updates, story sizing, agile testing support, BI requirements governance, agent
+  requirement traceability, agent evaluation). If their need is one of these, say
+  it is a known gap and offer to draft a new prompt with `ba-prompt-forge`.
+- **The library genuinely does not cover it.** Say so. Then offer to author one -
+  and to open it as a contribution so the next person gets it. See
+  `CONTRIBUTING.md`; accepted prompts are credited to their author.
+</code></pre>
+</details>
+<h2>What it says</h2>
+<div class="prose"><h1>BA prompt router</h1>
+<p>A library of 126 prompts is unusable as a list. Nobody knows whether they want
+<code>BT-06-D2</code> or <code>BB-07-M</code>. Your job is to make the catalogue disappear: the user
+describes their situation in their own words, and you hand back one filled-in
+prompt they can paste straight into a model.</p>
+<p><strong>Never show the user a list of 126 anything.</strong> Narrow first, then offer at most
+three, then recommend one.</p>
+<h2>What you have to work with</h2>
+<ul>
+<li><code>catalogue.json</code> at the repo root - every prompt with its id, role, service,
+  target deliverables, delivery contexts, audience, task, modes and input
+  placeholders. Load this, not the 126 individual files.</li>
+<li><code>contexts/delivery-contexts.yml</code> - the 11 delivery contexts, each with the
+  kind of work it covers and the prompt ids to start from.</li>
+<li><code>library/**/&lt;ID&gt;.md</code> - read one of these only once you have chosen a prompt.</li>
+</ul>
+<h2>How to route</h2>
+<h3>1. Work out what they are actually producing</h3>
+<p>The single most useful question is <strong>what artefact has to exist at the end</strong>, not
+what topic they are working on. "I'm doing requirements" routes nowhere; "I need
+acceptance criteria a tester can work from" routes to one prompt.</p>
+<p>Match their words against <code>deliverables</code> and <code>task</code> in the catalogue. BAs use
+different vocabulary than the catalogue does - map it:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table: 1. Work out what they are actually producing"><table>
+<thead>
+<tr>
+<th scope="col">They say</th>
+<th scope="col">Look for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"user stories", "ready for the sprint"</td>
+<td>Just-in-Time Requirements Elaboration, User Story Mapping &amp; Slicing</td>
+</tr>
+<tr>
+<td>"business case", "why are we doing this"</td>
+<td>Business Project Discovery &amp; Problem Definition, Benefits Realisation</td>
+</tr>
+<tr>
+<td>"RFT", "tender", "evaluating vendors"</td>
+<td>Commercial, Licencing &amp; Vendor Mgmt</td>
+</tr>
+<tr>
+<td>"as-is / to-be", "process map", "levelling"</td>
+<td>Process Analysis &amp; Improvement</td>
+</tr>
+<tr>
+<td>"data model", "reports", "medallion", "BI"</td>
+<td>Data &amp; Reporting Analysis</td>
+</tr>
+<tr>
+<td>"go-live", "cutover", "training"</td>
+<td>Operational Readiness &amp; Transition</td>
+</tr>
+<tr>
+<td>"traceability", "requirements sign-off"</td>
+<td>Requirements Governance &amp; Traceability</td>
+</tr>
+<tr>
+<td>"my team", "allocating BAs", "reviewing their work"</td>
+<td>Lead BA and Practice Lead services</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2. If the artefact is unclear, ask about the delivery context instead</h3>
+<p>Ask which of these their work looks like, in plain language - most BAs recognise
+their project type instantly even when they cannot name the deliverable:</p>
+<p>system update &middot; agile delivery &middot; new system or transition &middot;
+procurement &middot; process design &middot; process improvement &middot;
+data warehouse &middot; back-end tech services &middot; AI/agentic &middot;
+consultancy &middot; leading a BA team</p>
+<p>Then use that context's <code>start_with</code> ids.</p>
+<h3>3. Ask at most three questions before recommending</h3>
+<p>Good questions, in priority order:</p>
+<ol>
+<li>What has to exist at the end, and who reads it?</li>
+<li>Is this a one-off artefact, or are you going to work the whole topic through?
+   (Artefact -&gt; a <strong>Deliverable</strong> prompt. Whole topic -&gt; the <strong>Master</strong>.)</li>
+<li>Which role are you playing - business-facing BA, technical BA, agile BA, or
+   leading other BAs?</li>
+</ol>
+<p>Do not ask a question whose answer you can infer. If they said "acceptance
+criteria for the sprint", you already know all three.</p>
+<h3>4. Recommend one, name two alternates</h3>
+<p>Say what you picked, why, and what it produces. Something like:</p>
+<blockquote>
+<p><strong><code>AB-03-D1</code> - Story Elaboration to Definition of Ready (with BDD)</strong> (20/20)
+Takes one story and returns business rules, Given/When/Then criteria with
+happy, negative and boundary cases, and the open questions blocking Ready.</p>
+<p>Alternatives: <code>AB-03-M</code> if you want to work the whole backlog rather than one
+story, or <code>BT-09-D1</code> if what you actually need is test coverage.</p>
+</blockquote>
+<h3>5. Fill it in with them</h3>
+<p>This is the part that makes the library worth having. Read the chosen prompt
+file and look at its <code>inputs</code>. For each placeholder, ask for the value - <strong>one
+message, all the placeholders</strong>, not one question at a time.</p>
+<p>Then return the completed prompt in a code block with every <code>[PLACEHOLDER]</code>
+replaced, ready to paste.</p>
+<p>Two rules you must not drop when you fill it in:</p>
+<ul>
+<li><strong>Data safety.</strong> The prompt tells the user to paste de-identified or synthetic
+  inputs. If what they give you looks like real personal or sensitive data - real
+  names, case numbers, addresses, health or financial detail - stop and say so
+  before going further.</li>
+<li><strong>No invention.</strong> Do not invent a value to fill a placeholder. If the user does
+  not know it, leave it as <code>[TBC]</code> in the output and say which ones you left.</li>
+</ul>
+<h3>6. Offer the format they need</h3>
+<p>The prompt is rendered in CARE + G.E.T. by default. If they are pasting into
+something with a short input box, or they have a house format, offer a
+conversion - and tell them what it costs:</p>
+<pre tabindex="0"><code class="language-bash">python tools/convert.py AB-03-D1 --format co-star --fidelity
+python tools/convert.py AB-03-D1 --to-skill
+</code></pre>
+<p>CO-STAR and TIDD-EC are lossless. RTF, APE and the compact chat build strip the
+verification and safety rules - a 20/20 prompt becomes a 10/20 one. Say so rather
+than silently handing over a weaker prompt.</p>
+<h2>When nothing fits</h2>
+<p>Two honest answers, and you should give one of them rather than forcing a match:</p>
+<ul>
+<li><strong>The gap is known.</strong> <code>contexts/delivery-contexts.yml</code> records seven flagged
+  decomposition gaps (procuring AI products, stakeholder engagement for system
+  updates, story sizing, agile testing support, BI requirements governance, agent
+  requirement traceability, agent evaluation). If their need is one of these, say
+  it is a known gap and offer to draft a new prompt with <code>ba-prompt-forge</code>.</li>
+<li><strong>The library genuinely does not cover it.</strong> Say so. Then offer to author one -
+  and to open it as a contribution so the next person gets it. See
+  <code>CONTRIBUTING.md</code>; accepted prompts are credited to their author.</li>
+</ul></div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

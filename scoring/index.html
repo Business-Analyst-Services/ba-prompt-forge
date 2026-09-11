@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scoring &middot; BA Prompt Forge</title>
+<meta name="description" content="The ten-criterion CARE + G.E.T. rubric, the scoring bands, and what a high score does and does not mean.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">Delivery contexts</a></li>
+          <li><a href="../frameworks/">Frameworks</a></li>
+          <li><a href="../scoring/" aria-current="page">Scoring</a></li>
+          <li><a href="../skills/">Skills</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<h1>Scoring</h1>
+<p class="lede">Every prompt carries a mark out of 20 against a ten-criterion rubric.
+Six of those criteria a machine can decide; four need judgement. The difference matters
+more than the number.</p>
+
+<h2 id="criteria">The ten criteria</h2>
+<p>Each is scored 0 (absent), 1 (partial) or 2 (met).</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="The CARE + G.E.T. quality scorecard, version 1.0."><table><caption>The CARE + G.E.T. quality scorecard, version 1.0.</caption><thead><tr><th scope="col">Criterion</th><th scope="col">Group</th><th scope="col">What good looks like</th><th scope="col">Scoring anchors</th><th scope="col">Decided by</th></tr></thead><tbody>
+<tr><th scope="row">1. Context</th><td>CARE structure</td><td>States who you are (role + organisation) and who the audience for the output is.</td><td>0 = neither; 1 = role or audience only; 2 = both, plus relevant constraints (e.g. privacy, residency).</td><td>Judgement</td></tr>
+<tr><th scope="row">2. Action</th><td>CARE structure</td><td>One clear task with a strong verb; inputs the AI will receive are identified.</td><td>0 = vague (&#x27;help me with...&#x27;); 1 = clear task but inputs/scope unclear; 2 = clear task, named inputs, explicit scope.</td><td>Judgement</td></tr>
+<tr><th scope="row">3. Result / Format</th><td>CARE structure</td><td>Output structure is specific enough that you could check compliance (sections, table columns, length).</td><td>0 = no format; 1 = loose (&#x27;a summary&#x27;, &#x27;a table&#x27;); 2 = exact structure a reviewer could tick off.</td><td>Judgement</td></tr>
+<tr><th scope="row">4. Example</th><td>CARE structure</td><td>Gives a concrete reference point — a sample row, snippet, or &#x27;in the style of&#x27; anchor.</td><td>0 = none; 1 = abstract description of an example; 2 = a real, concrete sample the AI can imitate.</td><td>Machine</td></tr>
+<tr><th scope="row">5. Explain step</th><td>BA validation (G.E.T.)</td><td>Asks the AI to break down the logic used to synthesise the answer.</td><td>0 = absent; 1 = generic &#x27;explain yourself&#x27;; 2 = explicit step-by-step reasoning tied to the inputs.</td><td>Machine</td></tr>
+<tr><th scope="row">6. Test step</th><td>BA validation (G.E.T.)</td><td>Asks for source references, cross-referencing of facts, and a list of assumptions made.</td><td>0 = absent; 1 = sources or assumptions, not both; 2 = sources + cross-reference + assumptions.</td><td>Machine</td></tr>
+<tr><th scope="row">7. Anti-fabrication</th><td>BA validation (G.E.T.)</td><td>Forbids invented facts/figures; unknowns must be flagged (e.g. [TBC], [PROPOSED — VALIDATE]).</td><td>0 = silent; 1 = implied; 2 = explicit prohibition + a flagging convention.</td><td>Machine</td></tr>
+<tr><th scope="row">8. Data safety</th><td>Safety &amp; reuse</td><td>Does not require sensitive data; tells the user to de-identify inputs where relevant.</td><td>0 = invites pasting sensitive data; 1 = silent; 2 = explicit de-identification guidance.</td><td>Machine</td></tr>
+<tr><th scope="row">9. Reusability</th><td>Safety &amp; reuse</td><td>Placeholders are [MARKED]; the prompt works beyond one project or person.</td><td>0 = hard-wired to one case; 1 = partly generic; 2 = fully parameterised with marked placeholders.</td><td>Machine</td></tr>
+<tr><th scope="row">10. Right-sized</th><td>Safety &amp; reuse</td><td>Every sentence changes the output; nothing is decoration (&#x27;would deleting this line change anything?&#x27;).</td><td>0 = padded or rambling; 1 = some dead weight; 2 = every element earns its place (long is fine if load-bearing).</td><td>Judgement</td></tr>
+</tbody></table></div>
+
+<h2 id="bands">Bands</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table of score"><table><thead><tr><th scope="col">Score</th><th scope="col">Verdict</th><th scope="col">What to do</th></tr></thead><tbody>
+<tr><th scope="row">17&ndash;20</th><td>Library-ready</td><td>Publish to the shared library with version and date.</td></tr>
+<tr><th scope="row">12&ndash;16</th><td>Usable - refine first</td><td>Works for personal use; fix the 0-score criteria before sharing.</td></tr>
+<tr><th scope="row">0&ndash;11</th><td>Rework</td><td>Re-draft against CARE before using - outputs will be unreliable.</td></tr>
+</tbody></table></div>
+
+<h2 id="split">What a machine can and cannot decide</h2>
+<p>Six criteria are mechanically decidable, and the repository's linter decides them: is there
+a real worked example, does the anti-fabrication rule name a flagging convention, is there a
+marked placeholder, does the prompt carry an explicit de-identification instruction.</p>
+<p>Four need a human: <strong>Context</strong>, <strong>Action</strong>,
+<strong>Result/Format</strong> and <strong>Right-sized</strong>. For these the linter offers
+only a provisional mark and flags it for review.</p>
+<p>That split is the whole design. A score claiming machine precision on judgement criteria is
+worse than no score, because it gets trusted. Four useful tests for the judgement four:</p>
+<ul>
+  <li><strong>Context</strong> &mdash; cover the role and the audience with your thumb. Does
+  the prompt still say who is writing and who reads it?</li>
+  <li><strong>Action</strong> &mdash; count the deliverables asked for. More than one is a
+  menu, not a task.</li>
+  <li><strong>Result/Format</strong> &mdash; could a reviewer hold the output against the
+  prompt and tick each requirement off?</li>
+  <li><strong>Right-sized</strong> &mdash; delete each sentence in turn. Would the output
+  change?</li>
+</ul>
+
+<h2 id="self-award">Scores are checked, not taken</h2>
+<p>The repository's continuous integration compares each prompt's declared score against the
+machine findings and <strong>fails on any disagreement about a machine-decidable
+criterion</strong>. A self-awarded scorecard is worth nothing; six of the ten cannot be
+self-awarded here.</p>
+
+<h2 id="caveat">What a 20/20 does not mean</h2>
+<div class="panel">
+  <p>This library was written against this rubric. Its mean of 19.67/20 measures the
+  author's discipline in applying a template &mdash; not the prompts' effect on real work.</p>
+</div>
+<p>Stronger evidence, in order:</p>
+<ol>
+  <li><strong>Dry run</strong> on real de-identified work. Did it produce the promised shape?</li>
+  <li><strong>Consistency.</strong> Run it twice. Does it give you the same structure?</li>
+  <li><strong>Hand-off.</strong> Give the output to someone who was not in the room. Can they
+  use it without asking you what it means?</li>
+</ol>
+<p>That is what <a href="../contribute/#field-reports">field reports</a> are for.
+One field report is worth more than a point of rubric score.</p>
+
+<h2 id="disagreements">Two disagreements on the record</h2>
+<p>Building the tooling surfaced two places where the machine and the original author differ.
+Both are recorded rather than tuned away.</p>
+<ul>
+  <li><strong>One prompt, criterion 2.</strong> <code>BB-03-M</code> opens &ldquo;Help me
+  define the real problem&hellip;&rdquo;. A naive check flags any &ldquo;help me&rdquo; as the
+  rubric's vague 0-anchor. It is not &mdash; there is a strong verb and an object. The check
+  was narrowed. The same false positive will bite anyone scoring by keyword.</li>
+  <li><strong>Six prompts, criterion 3.</strong> The machine cannot see checkable structure in
+  six output formats the author marked 2/2. They are left flagged for review rather than
+  resolved by either side.</li>
+</ul>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

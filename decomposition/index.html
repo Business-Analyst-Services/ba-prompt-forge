@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decomposition &middot; BA Prompt Forge</title>
+<meta name="description" content="Why a multi-mode prompt cannot be tested, and the 188 single-task units that fix it.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">Delivery contexts</a></li>
+          <li><a href="../frameworks/">Frameworks</a></li>
+          <li><a href="../scoring/">Scoring</a></li>
+          <li><a href="../skills/">Skills</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/" aria-current="page">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<h1>Decomposition</h1>
+<p class="lede">Why a multi-mode prompt cannot be tested, and the 188 single-task units that fix it.</p>
+<div class="prose"><h2>The problem</h2>
+<p>All 42 Master prompts in this library score 19/20, and they all lose the same
+point — criterion 2, Action:</p>
+<blockquote>
+<p>Action 1/2: a menu of modes, not one task — deliberate flexibility, but costs
+single-task clarity.</p>
+</blockquote>
+<p>That is an honest note from the source workbook, not a defect introduced here. A
+Master prompt is a working session across a whole BA service, and offering three
+modes is the right design for that.</p>
+<p>But it has a consequence: <strong>a menu cannot be tested.</strong> A regression test needs
+one input and one expected shape of output. A prompt that might produce a
+benefits map, or a KPI table, or a value assessment, depending on what you ask
+for next, has no single expected shape.</p>
+<h2>Units</h2>
+<p><code>tools/decompose.py</code> turns each mode into a single-task unit prompt:</p>
+<pre tabindex="0"><code>$ python tools/decompose.py BB-01-M
+BB-01-U1     20/20 (+1 vs BB-01-M)  A benefits map linking initiative outputs to outcomes to benefits
+BB-01-U2     20/20 (+1 vs BB-01-M)  A KPI definition table (KPI, definition, formula, baseline...)
+BB-01-U3     20/20 (+1 vs BB-01-M)  A value realisation assessment comparing actuals to targets...
+</code></pre>
+<p>The unit's task is rewritten as <em>"Produce exactly one artefact and nothing else:
+..."</em>, which scores 2/2 on Action — and, more usefully, can carry a test.</p>
+<p>Across the library: <strong>188 candidate units from 42 Masters.</strong></p>
+<h2>Why they are proposals, not library prompts</h2>
+<p>Generated units land in <code>proposals/</code>, which is gitignored. They are drafts, and
+three fields are wrong on arrival:</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table: Why they are proposals, not library prompts"><table>
+<thead>
+<tr>
+<th scope="col">Field</th>
+<th scope="col">Why it is wrong</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>output_format</code></td>
+<td>Still the parent's — it describes artefacts this unit does not produce</td>
+</tr>
+<tr>
+<td><code>example</code></td>
+<td>Inherited from the parent, so usually the wrong example for a narrower task</td>
+</tr>
+<tr>
+<td><code>situation</code> / <code>inputs</code></td>
+<td>May carry inputs this single task does not need</td>
+</tr>
+</tbody>
+</table></div>
+<p>The second matters most. The worked example is the field that most shapes output
+quality, so a unit with an inherited example is a prompt that scores 20/20 and
+performs worse than its parent. Promoting these unreviewed would raise the mean
+score and lower the library's quality — exactly the failure mode the rubric is
+supposed to prevent.</p>
+<p><code>tools/decompose.py</code> writes the fixes into each proposal's <code>review_needed</code> list.</p>
+<h2>The workflow</h2>
+<pre tabindex="0"><code class="language-bash">python tools/decompose.py BB-01-M --write
+</code></pre>
+<p>Then edit <code>proposals/business-ba/BB-01-U2.md</code>:</p>
+<ul>
+<li>narrow <code>output_format</code> to this one artefact</li>
+<li>write a new worked example, with synthetic values</li>
+<li>trim inputs the task does not need</li>
+<li>run it once on real de-identified work</li>
+</ul>
+<p>Then promote it:</p>
+<pre tabindex="0"><code class="language-bash">mv proposals/business-ba/BB-01-U2.md library/business-ba/&lt;service&gt;/
+python tools/build.py
+python tools/lint.py library/business-ba/&lt;service&gt;/BB-01-U2.md
+</code></pre>
+<p>Log what happened in <a href="../contribute/#field-reports"><code>field-reports/</code></a> — a unit's whole
+reason for existing is that it can be evaluated, so evaluate it.</p>
+<h2>Keep the Masters</h2>
+<p>Units do not replace Masters. They are different tools:</p>
+<ul>
+<li><strong>Master</strong> — you are working the whole service and want a partner across it.
+  Multi-mode is the feature.</li>
+<li><strong>Deliverable</strong> — you know the artefact you need.</li>
+<li><strong>Unit</strong> — you need the artefact <em>and</em> you want to test the prompt, measure it,
+  or wire it into something automated.</li>
+</ul></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

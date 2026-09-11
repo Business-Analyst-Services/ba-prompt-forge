@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadmap &middot; BA Prompt Forge</title>
+<meta name="description" content="What is shipped, what is next, and what is deliberately not planned.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">Delivery contexts</a></li>
+          <li><a href="../frameworks/">Frameworks</a></li>
+          <li><a href="../scoring/">Scoring</a></li>
+          <li><a href="../skills/">Skills</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/" aria-current="page">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+<h1>Roadmap</h1>
+<p class="lede">What is shipped, what is next, and what is deliberately not planned.</p>
+<div class="prose"><h2>Shipped</h2>
+<ul>
+<li>126 prompts as structured fields, schema-validated</li>
+<li>Ten prompt frameworks with a per-framework fidelity report</li>
+<li>Prompt-to-skill conversion; all 126 pre-built</li>
+<li>Deterministic scoring with a declared machine/judgement split, enforced in CI</li>
+<li>Master decomposition into 188 testable single-task units</li>
+<li>Three hand-written skills: router, scorer, forge</li>
+<li>Contribution, credit, upvoting and impact, all GitHub-native</li>
+</ul>
+<h2>Next</h2>
+<p><strong>Regression tests for unit prompts.</strong> Units exist so prompts can be tested;
+nothing yet runs them. A test would be a fixture of synthetic input plus
+assertions on the output shape — does the KPI table have all nine columns, is
+every unverified value flagged <code>[TBC]</code>. Shape assertions are cheap and catch real
+regressions when a prompt is edited.</p>
+<p><strong>Close the seven flagged gaps.</strong> <code>contexts/delivery-contexts.yml</code> records seven
+areas the source catalogue never decomposed: procuring AI products, stakeholder
+engagement for system updates, story sizing and estimation, agile testing
+support, BI requirements governance, agent requirement traceability, agent
+evaluation. Each is a known hole.</p>
+<p><strong>A second scorer.</strong> Every score in <code>library/</code> is the original author's
+self-assessment, checked by machine on six criteria. An independent pass on the
+four judgement criteria would be the first real external validation.</p>
+<h2>Under consideration</h2>
+<p><strong>A hosted front end.</strong> The GitHub-native approach was chosen deliberately —
+credit in a field, votes as reactions, impact as files — because it works from
+day one with nothing to run. A hosted app would add ranking that combines votes
+with field-report outcomes, search across services, and per-prompt usage
+telemetry.</p>
+<p>It would also add hosting, moderation and an account system, and it would move
+the credit record out of the prompt file. Worth doing when enough contributions
+and field reports exist that ranking them is a real problem. Not yet.</p>
+<p><strong>Impact tracking beyond self-report.</strong> Field reports are voluntary and
+self-selected, which makes them better than rubric scores and still weak
+evidence. Stronger would be a structured before/after: time to first usable
+draft, edits required, whether the artefact passed review unchanged. That needs
+people willing to measure their own work — a bigger ask than a pull request.</p>
+<p><strong>Multi-language.</strong> The prompts are British-English and BABOK-aligned. The field
+structure would survive translation; the worked examples would need rewriting per
+locale, not translating.</p>
+<h2>Not planned</h2>
+<p><strong>More prompts for their own sake.</strong> 126 across 42 services is already past the
+point where browsing works. The router handles the volume; more volume without a
+decomposition gap to fill makes routing harder and the library worse.</p>
+<p><strong>Prompts for non-BA work.</strong> The rubric assumes an analyst producing a reviewable
+artefact for a named audience. General-purpose prompt libraries exist and are
+better at being general-purpose.</p></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
