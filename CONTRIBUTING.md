@@ -93,8 +93,8 @@ choose, or none.
 ## Upvoting
 
 Each accepted prompt gets a thread in
-[Discussions](https://github.com/Business-Analyst-Services/ba-prompt-forge/discussions)
-under **Prompt library**. 👍 on the thread is the vote; the comments are where
+[Discussions](https://github.com/Business-Analyst-Services/ba-prompt-forge/discussions).
+👍 on the thread is the vote; the comments are where
 people say what they changed to make it work in their context. Reaction counts
 feed the "most used" view, and they surface the gap between *scored well* and
 *actually used* — which is the more interesting number.

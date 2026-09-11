@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: Upvote or discuss a prompt
-    url: https://github.com/Business-Analyst-Services/ba-prompt-forge/discussions/categories/prompt-library
+    url: https://github.com/Business-Analyst-Services/ba-prompt-forge/discussions
     about: Every accepted prompt has a thread. A thumbs-up is the vote; comments are where people say what they changed to make it work.
   - name: Contribute a prompt
     url: https://github.com/Business-Analyst-Services/ba-prompt-forge/blob/main/CONTRIBUTING.md
