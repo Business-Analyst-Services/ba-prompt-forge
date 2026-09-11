@@ -72,6 +72,7 @@ equivalent, and `catalogue.json` is there if you are building something on top.
 ```bash
 python tools/build_site.py           # rebuild the site into site/
 python tools/build_site.py --serve   # preview at http://localhost:8000
+python tools/publish_site.py --push  # publish to the gh-pages branch
 ```
 
 The site build fails if any colour pair drops below its WCAG 2.1 AA contrast
