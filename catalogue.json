@@ -1,0 +1,3664 @@
+{
+  "version": "1.0",
+  "count": 126,
+  "frameworks": {
+    "care": {
+      "label": "CARE + G.E.T.",
+      "note": "The library's native format. Context, Action, Result/Format, Example, plus Generate -> Explain -> Test."
+    },
+    "co-star": {
+      "label": "CO-STAR",
+      "note": "Splits CARE's Result into Style/Tone/Response and promotes Audience to its own slot. Lossless."
+    },
+    "tidd-ec": {
+      "label": "TIDD-EC",
+      "note": "The only common format with an explicit DONT slot, so anti-fabrication and data-safety rules land naturally."
+    },
+    "risen": {
+      "label": "RISEN",
+      "note": "Strong for multi-step work. No Example slot, so the worked example is lost."
+    },
+    "crispe": {
+      "label": "CRISPE",
+      "note": "Its Experiment slot asks for alternatives rather than verification, and there is no Example slot."
+    },
+    "race": {
+      "label": "RACE",
+      "note": "Compact four-slot format. Keeps guardrails and audience; drops the worked example and the whole G.E.T. validation step."
+    },
+    "rtf": {
+      "label": "RTF",
+      "note": "Minimal. Fine for a quick one-off; strips every verification and safety rule."
+    },
+    "ape": {
+      "label": "APE",
+      "note": "Purpose-led and very short. No role, audience or example."
+    },
+    "bab": {
+      "label": "BAB",
+      "note": "Persuasive narrative shape. A poor fit for deliverable prompts - use it to pitch the work, not to produce it."
+    },
+    "chat": {
+      "label": "Compact chat",
+      "note": "One paragraph for short-context chat boxes. Deliberately lossy."
+    }
+  },
+  "prompts": [
+    {
+      "id": "AB-01-D1",
+      "name": "Refinement Session Pack",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Agile Ceremony Facilitation & Support",
+      "deliverables": [
+        "Refined User Stories",
+        "Updated Acceptance Criteria",
+        "Refinement Outcomes"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Squad members attending refinement; product owner deciding priorities",
+      "task": "Prepare the refinement session so every minute goes to decisions, not reading. Draft the pack. Flag stories not worth refining yet (too vague, blocked) with what must happen first.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE STORIES",
+        "DURATION"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/agile-ceremony-facilitation-and-support/AB-01-D1.md"
+    },
+    {
+      "id": "AB-01-D2",
+      "name": "Showcase & Retrospective Pack",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Agile Ceremony Facilitation & Support",
+      "deliverables": [
+        "Showcase Materials",
+        "Stakeholder Feedback Log",
+        "Retrospective Actions"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Showcase: stakeholders and sponsor. Retro: the squad",
+      "task": "Prepare the showcase narrative and turn retro inputs into actions that actually land. Draft both. In the retro analysis, distinguish what the squad controls from what needs escalation.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "WHAT WAS DELIVERED",
+        "WHO ATTENDS",
+        "PASTE TEAM NOTES / SURVEY IF ANY"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/agile-ceremony-facilitation-and-support/AB-01-D2.md"
+    },
+    {
+      "id": "AB-01-M",
+      "name": "Master – Agile Ceremony Facilitation & Support",
+      "type": "master",
+      "role": "Agile BA",
+      "service": "Agile Ceremony Facilitation & Support",
+      "deliverables": [
+        "Refinement Session Outputs",
+        "Sprint Planning Inputs",
+        "Showcase Materials",
+        "Retrospective Actions"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "The squad (developers, testers, product owner) and attending stakeholders",
+      "task": "Support and contribute to sprint ceremonies so the squad stays aligned and informed: prepare refinement sessions, support sprint planning and goal setting, and support showcases and retrospectives. Produce on request",
+      "modes": [
+        "refinement session prep (candidate stories with open questions, assumptions and dependency notes; DoR check per story)",
+        "sprint planning inputs (prioritised backlog summary, capacity check, draft sprint goal options)",
+        "showcase pack (storyboard, demo scenarios in business language, anticipated questions)",
+        "retrospective support (theme analysis of my notes, candidate actions with owners, follow-through check on last retro's actions)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "REFINEMENT / SPRINT PLANNING / SHOWCASE / RETROSPECTIVE"
+      ],
+      "score": 19,
+      "path": "library/agile-ba/agile-ceremony-facilitation-and-support/AB-01-M.md"
+    },
+    {
+      "id": "AB-02-D1",
+      "name": "Story Map from a User Journey",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "User Story Mapping & Slicing",
+      "deliverables": [
+        "Story Maps",
+        "Walking Skeleton",
+        "Release Slices"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Squad (build sequencing) and stakeholders (scope conversations)",
+      "task": "Build the story map: backbone, stories, walking skeleton and release slices. Draft the map. List the assumptions you made about journey order and persona goals for me to verify.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE JOURNEY / PROCESS NOTES",
+        "LIST",
+        "N RELEASES OR 'PROPOSE'"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/user-story-mapping-and-slicing/AB-02-D1.md"
+    },
+    {
+      "id": "AB-02-D2",
+      "name": "Feature Slicing & MVP Definition",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "User Story Mapping & Slicing",
+      "deliverables": [
+        "Sliced User Stories",
+        "MVP/MMP Definitions",
+        "Slice Sequencing"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Product owner (scope decisions) and squad (build)",
+      "task": "Slice the feature vertically, define the thinnest valuable slice, and set MVP/MMP boundaries. Draft slices and MVP. Mark compliance-driven items that cannot be descoped regardless of value logic.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE FEATURE + REQUIREMENTS/RULES",
+        "DEADLINE, DEPENDENCIES, COMPLIANCE MUSTS"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/user-story-mapping-and-slicing/AB-02-D2.md"
+    },
+    {
+      "id": "AB-02-M",
+      "name": "Master – User Story Mapping & Slicing",
+      "type": "master",
+      "role": "Agile BA",
+      "service": "User Story Mapping & Slicing",
+      "deliverables": [
+        "Story Maps",
+        "Sliced User Stories",
+        "Acceptance Criteria",
+        "MVP/MMP Definitions"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Squad and product owner; story map doubles as a stakeholder communication artefact",
+      "task": "Decompose features into thin, valuable vertical slices: build story maps around the user journey, slice features vertically, define the MVP/MMP, and write acceptance criteria with concrete examples. Produce on request",
+      "modes": [
+        "story map (backbone of user activities left-to-right, stories beneath by priority, walking skeleton marked)",
+        "slicing options for a feature (each slice: value delivered, what's deliberately excluded, dependency notes) with a recommended sequence",
+        "MVP/MMP definition (in/out with rationale per item)",
+        "acceptance criteria with Given/When/Then plus concrete example data"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "DESCRIBE THE USER JOURNEY OR FEATURE",
+        "LIST — e.g. case officer, customer, field officer"
+      ],
+      "score": 19,
+      "path": "library/agile-ba/user-story-mapping-and-slicing/AB-02-M.md"
+    },
+    {
+      "id": "AB-03-D1",
+      "name": "Story Elaboration to Definition of Ready (with BDD)",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Just-in-Time Requirements Elaboration",
+      "deliverables": [
+        "Elaborated User Stories",
+        "Acceptance Criteria",
+        "BDD/Gherkin Scenarios"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Developers and testers picking the story up; product owner confirming intent",
+      "task": "Elaborate the story to genuinely Ready: rules, criteria and BDD scenarios a developer and tester can work from without re-asking. Elaborate, then run the DoR checklist over your own output and state pass/fail per criterion.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE STORY + ANY NOTES/RULES",
+        "SPRINT"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/just-in-time-requirements-elaboration/AB-03-D1.md"
+    },
+    {
+      "id": "AB-03-D2",
+      "name": "Spike Definition & Outcome Record",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Just-in-Time Requirements Elaboration",
+      "deliverables": [
+        "Spike Outcomes",
+        "Decision Records",
+        "De-risked Stories"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Squad (running the spike), product owner (accepting the decision)",
+      "task": "Define a sharp spike before it runs, and turn its findings into a decision record afterwards. Draft whichever half I ask for. Reject spike questions that are really two questions — split them.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "WHAT WE DON'T KNOW",
+        "IDS",
+        "E.G. 2 DAYS"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/just-in-time-requirements-elaboration/AB-03-D2.md"
+    },
+    {
+      "id": "AB-03-M",
+      "name": "Master – Just-in-Time Requirements Elaboration",
+      "type": "master",
+      "role": "Agile BA",
+      "service": "Just-in-Time Requirements Elaboration",
+      "deliverables": [
+        "Definition of Ready Compliance",
+        "Elaborated User Stories",
+        "Acceptance Criteria",
+        "Example/BDD Scenarios"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Squad (build and test from the stories), product owner (readiness decisions)",
+      "task": "Progressively elaborate requirements on cadence so stories are ready ahead of each sprint: manage Definition of Ready compliance, elaborate just-in-time (right detail now, defer the rest), and run spikes for uncertainty. Produce on request",
+      "modes": [
+        "readiness assessment of pasted stories against the DoR (met/not met per criterion, blocking gaps, who can close each)",
+        "story elaboration (description, business rules, acceptance criteria, BDD example scenarios with data)",
+        "'now vs later' analysis — what detail is needed this sprint vs deferrable",
+        "spike definitions (question to answer, timebox, done-means, decision the outcome feeds)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "E.G. STORIES FOR NEXT 1-2 SPRINTS",
+        "PASTE OR REFERENCE"
+      ],
+      "score": 19,
+      "path": "library/agile-ba/just-in-time-requirements-elaboration/AB-03-M.md"
+    },
+    {
+      "id": "AB-04-D1",
+      "name": "Release Plan & Scope Sequencing",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Iteration & Release Planning Support",
+      "deliverables": [
+        "Release Plans",
+        "Release Scope Definitions"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Product owner and stakeholders; roadmap consumers",
+      "task": "Draft a release plan that unlocks value earliest and survives contact with dependencies. Draft the plan. Show one alternative sequencing and why you rejected it.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE WITH ROUGH SIZES",
+        "LIST",
+        "WHAT THE BUSINESS NEEDS EARLIEST"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/iteration-and-release-planning-support/AB-04-D1.md"
+    },
+    {
+      "id": "AB-04-D2",
+      "name": "Sprint Capacity & Dependency Inputs",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Iteration & Release Planning Support",
+      "deliverables": [
+        "Sprint/Iteration Plans",
+        "Dependency Registers"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Squad and product owner in sprint planning",
+      "task": "Prepare the capacity and dependency inputs that make sprint planning a 30-minute decision. Draft the inputs. Flag overcommitment explicitly if candidates exceed capacity — do not quietly stretch the numbers.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE STORIES WITH ESTIMATES",
+        "POINTS/DAYS, LEAVE, MEETINGS, SUPPORT LOAD",
+        "LIST KNOWN"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/iteration-and-release-planning-support/AB-04-D2.md"
+    },
+    {
+      "id": "AB-04-M",
+      "name": "Master – Iteration & Release Planning Support",
+      "type": "master",
+      "role": "Agile BA",
+      "service": "Iteration & Release Planning Support",
+      "deliverables": [
+        "Release Plans",
+        "Sprint Goals",
+        "Capacity & Scope Inputs",
+        "Roadmap Inputs"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Product owner and delivery lead (decisions); squad (commitment); stakeholders (roadmap view)",
+      "task": "Support iteration and release planning by shaping scope, sequencing and sprint goals: release scope options, capacity and dependency inputs, and roadmap alignment with explicit trade-offs. Produce on request",
+      "modes": [
+        "release scope options (what each release contains, value delivered, sequencing rationale, risk)",
+        "sprint plan inputs (candidate scope vs capacity with buffer, draft sprint goal options, DoR status)",
+        "dependency register for the plan (dependency, type, owner, needed-by, risk if late)",
+        "roadmap view and trade-off records when dates move"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "SPRINT / QUARTER / RELEASE",
+        "PASTE",
+        "SQUAD SIZE, LEAVE, COMMITMENTS",
+        "REGULATORY/BUSINESS DEADLINES"
+      ],
+      "score": 19,
+      "path": "library/agile-ba/iteration-and-release-planning-support/AB-04-M.md"
+    },
+    {
+      "id": "AB-05-D1",
+      "name": "Flow & Bottleneck Analysis",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Agile Metrics & Flow Analysis",
+      "deliverables": [
+        "Cumulative Flow Analysis",
+        "Cycle Time Reports",
+        "Bottleneck Assessments"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Squad (owns the fixes) and delivery lead",
+      "task": "Find where work actually gets stuck, and test whether the data supports the squad's intuition. Run the analysis. Where the data contradicts the squad's felt pain, say so and explain the gap.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE CYCLE TIME PER STAGE / CFD EXPORT / TICKET TIMESTAMPS",
+        "LIST BOARD COLUMNS",
+        "WHAT THE SQUAD SAYS IS SLOW"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/agile-metrics-and-flow-analysis/AB-05-D1.md"
+    },
+    {
+      "id": "AB-05-D2",
+      "name": "Delivery Forecast with Confidence",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Agile Metrics & Flow Analysis",
+      "deliverables": [
+        "Delivery Forecasts",
+        "Confidence Assessments"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Delivery lead and stakeholders asking 'when will it be done?'",
+      "task": "Forecast when the remaining scope will complete, as a defensible range. Produce the forecast. If my history is under 4 sprints, say the forecast is low-confidence and what to do instead.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "ITEMS/POINTS REMAINING",
+        "PASTE THROUGHPUT/VELOCITY PER SPRINT, LAST 6+ SPRINTS",
+        "DATE"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/agile-metrics-and-flow-analysis/AB-05-D2.md"
+    },
+    {
+      "id": "AB-05-M",
+      "name": "Master – Agile Metrics & Flow Analysis",
+      "type": "master",
+      "role": "Agile BA",
+      "service": "Agile Metrics & Flow Analysis",
+      "deliverables": [
+        "Velocity & Burn-down Reports",
+        "Cumulative Flow Analysis",
+        "Cycle Time Analysis",
+        "Delivery Forecasts"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Squad and delivery lead primarily; summarised views for stakeholders",
+      "task": "Analyse velocity, throughput and flow to inform forecasting and delivery improvement: track velocity and burn, find bottlenecks, and produce forecasts with honest confidence ranges. Produce on request",
+      "modes": [
+        "velocity/burn analysis (trend, variance, drivers — scope change vs estimation vs interruptions)",
+        "flow analysis (where work waits, WIP vs limits, cycle time by stage, bottleneck hypothesis with evidence)",
+        "delivery forecast (range with confidence, method stated, assumptions listed, what would change it)",
+        "improvement suggestions tied to the specific bottleneck found"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE VELOCITY HISTORY / CYCLE TIMES / CFD DATA / THROUGHPUT — OR DESCRIBE WHAT JIRA CAN EXPORT",
+        "E.G. 'WILL WE HIT THE SEPTEMBER RELEASE?'"
+      ],
+      "score": 19,
+      "path": "library/agile-ba/agile-metrics-and-flow-analysis/AB-05-M.md"
+    },
+    {
+      "id": "AB-06-D1",
+      "name": "Definition of Ready / Done Uplift",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Agile Ways of Working Uplift",
+      "deliverables": [
+        "Definition of Ready",
+        "Definition of Done",
+        "Working Agreements"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "The squad, who must own and apply it every sprint",
+      "task": "Draft an uplifted DoR and DoD that would have caught the recent failures, sized to the squad's maturity. Draft both definitions. For each recent failure I gave, point to the criterion that now catches it — and admit any failure your draft still wouldn't catch.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE OR 'NONE'",
+        "E.G. STORIES BOUNCED MID-SPRINT, DEFECTS FROM UNCLEAR CRITERIA"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/agile-ways-of-working-uplift/AB-06-D1.md"
+    },
+    {
+      "id": "AB-06-D2",
+      "name": "Improvement Backlog & Experiments",
+      "type": "deliverable",
+      "role": "Agile BA",
+      "service": "Agile Ways of Working Uplift",
+      "deliverables": [
+        "Improvement Backlog",
+        "Experiment Outcomes",
+        "Practice Uplift Plans"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "The squad; delivery lead sponsoring the time",
+      "task": "Turn improvement themes into a prioritised backlog of small experiments with clear success signals. Draft the backlog. Reject vague improvements ('communicate better') — restate each as a concrete, trialable change.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "PASTE RETRO THEMES / PAIN POINTS / METRIC SIGNALS",
+        "E.G. ONE EXPERIMENT PER SPRINT"
+      ],
+      "score": 20,
+      "path": "library/agile-ba/agile-ways-of-working-uplift/AB-06-D2.md"
+    },
+    {
+      "id": "AB-06-M",
+      "name": "Master – Agile Ways of Working Uplift",
+      "type": "master",
+      "role": "Agile BA",
+      "service": "Agile Ways of Working Uplift",
+      "deliverables": [
+        "Definition of Ready/Done",
+        "Analysis Ways of Working Guidelines",
+        "Team Onboarding Materials"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "The squad (owners of their ways of working); Lead BA/practice interested in patterns",
+      "task": "Embed and improve analysis practices within the squad: uplift Definitions of Ready and Done, improve how analysis supports flow, and run continuous improvement that actually sticks. Produce on request",
+      "modes": [
+        "DoR/DoD drafts tailored to the squad's context and pain points (each criterion: what it means, why it's there, how checked)",
+        "analysis ways-of-working guidelines (how analysis feeds the flow: elaboration cadence, BA involvement per ceremony, artefact expectations)",
+        "practice gap analysis from my description (gap, consequence seen, candidate practice, effort)",
+        "improvement backlog with experiments (hypothesis, trial period, success signal)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SQUAD NAME, PRODUCT/SYSTEM, CADENCE e.g. 2-week sprints, TOOL e.g. Jira",
+        "PASTE OR 'STANDARD'",
+        "DoR/DoD / ANALYSIS PRACTICES / CONTINUOUS IMPROVEMENT",
+        "WHAT'S NOT WORKING",
+        "PASTE EXISTING DoR/DoD/WORKING AGREEMENTS IF ANY"
+      ],
+      "score": 19,
+      "path": "library/agile-ba/agile-ways-of-working-uplift/AB-06-M.md"
+    },
+    {
+      "id": "BB-01-D1",
+      "name": "KPI Definitions & Measures Table",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Benefits Realisation & KPI Management",
+      "deliverables": [
+        "Benefits Measures",
+        "KPI Definitions"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement",
+        "10. AI – Agentic"
+      ],
+      "audience": "Benefit owners and the reporting/data team who must build the measures",
+      "task": "Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE BENEFITS STATEMENTS OR BUSINESS CASE EXTRACT"
+      ],
+      "score": 20,
+      "path": "library/business-ba/benefits-realisation-and-kpi-management/BB-01-D1.md"
+    },
+    {
+      "id": "BB-01-D2",
+      "name": "Value Realisation Assessment",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Benefits Realisation & KPI Management",
+      "deliverables": [
+        "Value Realisation Assessments",
+        "KPI Reports"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement",
+        "10. AI – Agentic"
+      ],
+      "audience": "Sponsor and steering committee",
+      "task": "Assess realised value against plan, explain variances, and recommend optimisation actions. Draft the assessment (max 2 pages equivalent). Where data is insufficient to judge a benefit, say so explicitly rather than inferring success.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE",
+        "PASTE KPI ACTUALS / EXTRACT"
+      ],
+      "score": 20,
+      "path": "library/business-ba/benefits-realisation-and-kpi-management/BB-01-D2.md"
+    },
+    {
+      "id": "BB-01-M",
+      "name": "Master – Benefits Realisation & KPI Management",
+      "type": "master",
+      "role": "Business BA",
+      "service": "Benefits Realisation & KPI Management",
+      "deliverables": [
+        "Benefits Measures",
+        "KPI Reports",
+        "Value Realisation Assessments"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement",
+        "10. AI – Agentic"
+      ],
+      "audience": "Benefit owners, the project sponsor and the PMO; summaries may be lifted into executive and board reporting",
+      "task": "Act as my analysis partner for benefits realisation: define measurable benefits, design the KPIs and measures that evidence them, and assess whether value is actually being delivered, so the organisation can report outcomes credibly and identify optimisation opportunities. Produce, as I request them",
+      "modes": [
+        "a benefits map linking initiative outputs to outcomes to benefits",
+        "a KPI definition table (KPI, definition, formula, baseline, target, data source, frequency, owner)",
+        "a value realisation assessment comparing actuals to targets with root causes and optimisation recommendations"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "LIST EXPECTED BENEFITS FROM THE BUSINESS CASE",
+        "WHAT IS MEASURED TODAY, OR 'UNKNOWN'"
+      ],
+      "score": 19,
+      "path": "library/business-ba/benefits-realisation-and-kpi-management/BB-01-M.md"
+    },
+    {
+      "id": "BB-02-D1",
+      "name": "Discovery Workshop Plan & Question Set",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Business Needs Assessments (Initial and High Level Requirements)",
+      "deliverables": [
+        "Workshop Outputs"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design"
+      ],
+      "audience": "Workshop attendees (agenda) and the facilitating BA (question set and rationale)",
+      "task": "Design a discovery workshop that elicits business needs efficiently and surfaces disagreement early. Draft agenda + questions, plus a 'facilitation risks' list (dominant voices, scope drift, sensitive topics such as team performance) with mitigations.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "TOPIC",
+        "ROLES",
+        "LENGTH",
+        "SUMMARY"
+      ],
+      "score": 20,
+      "path": "library/business-ba/business-needs-assessments-initial-and-high-level-requirements/BB-02-D1.md"
+    },
+    {
+      "id": "BB-02-D2",
+      "name": "Raw Notes → Business Needs Statements",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Business Needs Assessments (Initial and High Level Requirements)",
+      "deliverables": [
+        "Business Needs Statements",
+        "Discovery Notes"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design"
+      ],
+      "audience": "Stakeholders who will validate the needs; the delivery team consuming them downstream",
+      "task": "Convert the raw notes into clean, attributed business needs statements ready for validation. Draft the table. Do not invent needs that lack support in the notes — flag gaps instead.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE MEETING NOTES / TRANSCRIPT / EMAIL THREADS"
+      ],
+      "score": 20,
+      "path": "library/business-ba/business-needs-assessments-initial-and-high-level-requirements/BB-02-D2.md"
+    },
+    {
+      "id": "BB-02-M",
+      "name": "Master – Business Needs Assessment",
+      "type": "master",
+      "role": "Business BA",
+      "service": "Business Needs Assessments (Initial and High Level Requirements)",
+      "deliverables": [
+        "Discovery Notes",
+        "Workshop Outputs",
+        "Business Needs Statements"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design"
+      ],
+      "audience": "Business stakeholders and SMEs contributing needs; outputs feed the project brief and requirements backlog",
+      "task": "Support end-to-end elicitation of business needs and high-level requirements: plan discovery sessions, generate strong questions, convert raw notes into structured needs statements, and expose conflicts and gaps between stakeholders. Support these modes on request",
+      "modes": [
+        "workshop/interview plan with 8-12 questions sequenced broad-to-specific including conflict-testing questions",
+        "structure raw notes into business needs statements ('The business needs the ability to [capability] so that [outcome]')",
+        "simulate a named stakeholder so I can practise elicitation, then critique which questions I missed"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "NEW INITIATIVE / EXISTING PROBLEM",
+        "PASTE ANY BRIEFS, EMAILS OR NOTES"
+      ],
+      "score": 19,
+      "path": "library/business-ba/business-needs-assessments-initial-and-high-level-requirements/BB-02-M.md"
+    },
+    {
+      "id": "BB-03-D1",
+      "name": "Problem Statement & Opportunity Assessment",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Business Project Discovery & Problem Definition",
+      "deliverables": [
+        "Problem Statements",
+        "Opportunity Assessments"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "8. Consultancy"
+      ],
+      "audience": "Sponsor and investment governance",
+      "task": "Produce a sharp problem statement and opportunity assessment that would survive challenge at an investment committee. Apply 5 Whys to my symptoms first and show the chain, then draft both artefacts. Mark every unquantified impact '[TO BE QUANTIFIED]'.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE NOTES, DATA POINTS, COMPLAINTS, AUDIT FINDINGS",
+        "TO BE QUANTIFIED"
+      ],
+      "score": 20,
+      "path": "library/business-ba/business-project-discovery-and-problem-definition/BB-03-D1.md"
+    },
+    {
+      "id": "BB-03-D2",
+      "name": "Business Case Inputs & Strategic Alignment",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Business Project Discovery & Problem Definition",
+      "deliverables": [
+        "Business Case Inputs",
+        "Strategic Alignment Assessments"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "8. Consultancy"
+      ],
+      "audience": "Business case author and finance reviewers",
+      "task": "Draft the BA-owned inputs to the business case: benefits, costs categories, alignment narrative and assumptions. Draft the inputs. Never fabricate dollar figures — provide the structure and mark '[FINANCE TO ESTIMATE]'.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE",
+        "FINANCE TO ESTIMATE"
+      ],
+      "score": 20,
+      "path": "library/business-ba/business-project-discovery-and-problem-definition/BB-03-D2.md"
+    },
+    {
+      "id": "BB-03-M",
+      "name": "Master – Discovery & Problem Definition",
+      "type": "master",
+      "role": "Business BA",
+      "service": "Business Project Discovery & Problem Definition",
+      "deliverables": [
+        "Problem Statements",
+        "Opportunity Assessments",
+        "Business Needs Statements",
+        "Business Case Inputs",
+        "Strategic Alignment Assessments",
+        "Risk Assessment Support"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "8. Consultancy"
+      ],
+      "audience": "Sponsor, business case authors and investment governance forums",
+      "task": "Help me define the real problem and the case for change: separate symptoms from root causes, quantify impact, frame the opportunity, test strategic alignment, and draft business case inputs and initial risk assessments. Produce on request",
+      "modes": [
+        "a problem statement (situation, impact, magnitude, consequence of inaction)",
+        "an opportunity assessment with options at a high level",
+        "strategic alignment assessment against the organisation's objectives",
+        "an initial risk list (risk, cause, consequence, likelihood, impact, mitigation)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "WHAT PROMPTED IT — incident, audit, strategy, pain point",
+        "LIST",
+        "PASTE, OR 'NONE SUPPLIED'",
+        "TO BE QUANTIFIED"
+      ],
+      "score": 19,
+      "path": "library/business-ba/business-project-discovery-and-problem-definition/BB-03-M.md"
+    },
+    {
+      "id": "BB-04-D1",
+      "name": "Data Requirements & Dictionary",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Data & Reporting Analysis",
+      "deliverables": [
+        "Data Requirements",
+        "Data Mapping"
+      ],
+      "delivery_contexts": [
+        "9. Data – Warehouse"
+      ],
+      "audience": "Data owners for validation; engineers for implementation",
+      "task": "Produce a business data dictionary and requirements table for the fields in scope. Draft the dictionary, then list the top data-quality and privacy risks (e.g. health information exposure in reporting) with mitigations.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE FIELD LIST, FORM, OR API EXTRACT",
+        "DESCRIBE"
+      ],
+      "score": 20,
+      "path": "library/business-ba/data-and-reporting-analysis/BB-04-D1.md"
+    },
+    {
+      "id": "BB-04-D2",
+      "name": "Reporting Requirements Specification",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Data & Reporting Analysis",
+      "deliverables": [
+        "Reporting Requirements",
+        "KPI Definitions"
+      ],
+      "delivery_contexts": [
+        "9. Data – Warehouse"
+      ],
+      "audience": "Report consumers for validation; BI/reporting developers for build",
+      "task": "Specify the reports and KPIs so a BI developer could build them without re-eliciting. Draft the specification for each report I describe. Challenge me where a report has no clear decision attached to it.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "WHO NEEDS TO KNOW WHAT, TO MAKE WHICH DECISION",
+        "DESCRIBE"
+      ],
+      "score": 20,
+      "path": "library/business-ba/data-and-reporting-analysis/BB-04-D2.md"
+    },
+    {
+      "id": "BB-04-M",
+      "name": "Master – Data & Reporting Analysis",
+      "type": "master",
+      "role": "Business BA",
+      "service": "Data & Reporting Analysis",
+      "deliverables": [
+        "Data Requirements",
+        "Data Mapping",
+        "Reporting Requirements",
+        "KPI Definitions"
+      ],
+      "delivery_contexts": [
+        "9. Data – Warehouse"
+      ],
+      "audience": "Business data owners, reporting teams and the data engineering team",
+      "task": "Define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and KPIs it must feed. Produce on request",
+      "modes": [
+        "data requirements catalogue (entity, element, business definition, classification incl. personal/health info, quality expectation)",
+        "source-to-target data mapping tables",
+        "reporting requirements (report, purpose, audience, KPIs, dimensions, frequency, access restrictions)",
+        "KPI definitions",
+        "for data warehouse / BI work: a business question catalogue (what/why/how/when/who per question), MECE validation of question themes, business logic and refresh-frequency definitions, and BI technical specification structure (sources, joins, logic — flagged for peer review via validation queries)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "LIST, e.g. core case management system, billing system, request intake channel, data warehouse"
+      ],
+      "score": 19,
+      "path": "library/business-ba/data-and-reporting-analysis/BB-04-M.md"
+    },
+    {
+      "id": "BB-05-D1",
+      "name": "Defect Impact & Urgency Assessment",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Defect & Work-around Analysis",
+      "deliverables": [
+        "Defect Analysis"
+      ],
+      "delivery_contexts": [
+        "3. IT System – Update",
+        "7. Process – Improvement"
+      ],
+      "audience": "Product owner and prioritisation forum; business stakeholders affected",
+      "task": "Translate the technical defect into a business impact and urgency assessment that supports a prioritisation decision. Draft the assessment. Where impact data is missing, state what evidence would settle it.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE DEFECT TICKET / ERROR DESCRIPTION",
+        "DESCRIBE"
+      ],
+      "score": 20,
+      "path": "library/business-ba/defect-and-work-around-analysis/BB-05-D1.md"
+    },
+    {
+      "id": "BB-05-D2",
+      "name": "Fix Change Assessment & Requirement Updates",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Defect & Work-around Analysis",
+      "deliverables": [
+        "Defect Change Assessment",
+        "Requirement Updates",
+        "End-state Process Maps"
+      ],
+      "delivery_contexts": [
+        "3. IT System – Update",
+        "7. Process – Improvement"
+      ],
+      "audience": "Delivery team, testers and the documentation owner",
+      "task": "Assess the ripple effect of the fix and draft the updated requirements and end-state process narrative. Draft all three parts, then run a consistency check between the new requirements and the end-state process and flag contradictions.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "PASTE",
+        "PASTE OR DESCRIBE"
+      ],
+      "score": 20,
+      "path": "library/business-ba/defect-and-work-around-analysis/BB-05-D2.md"
+    },
+    {
+      "id": "BB-05-M",
+      "name": "Master – Defect & Work-around Analysis",
+      "type": "master",
+      "role": "Business BA",
+      "service": "Defect & Work-around Analysis",
+      "deliverables": [
+        "Defect Analysis",
+        "Defect Change Assessment",
+        "Requirement Updates",
+        "End-state Process Maps"
+      ],
+      "delivery_contexts": [
+        "3. IT System – Update",
+        "7. Process – Improvement"
+      ],
+      "audience": "Product owner, support teams and the delivery team fixing the defect",
+      "task": "Analyse the defect and its work-around from a business standpoint: impact, root cause hypotheses, options for resolution, and the flow-on changes to existing requirements and processes when a fix lands. Produce on request",
+      "modes": [
+        "defect analysis (symptom, affected process step, business impact, urgency rating with rationale)",
+        "work-around assessment (steps, cost, risk, sustainability)",
+        "change assessment for the proposed fix (which requirements and process maps change, regression risk)",
+        "updated requirement wording and end-state process description"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE DEFECT, SYSTEM, ERROR BEHAVIOUR",
+        "DESCRIBE OR 'NONE'",
+        "DESCRIBE"
+      ],
+      "score": 19,
+      "path": "library/business-ba/defect-and-work-around-analysis/BB-05-M.md"
+    },
+    {
+      "id": "BB-06-D1",
+      "name": "Feature & Functional Requirements Draft",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Functional Requirements Analysis & Refinement",
+      "deliverables": [
+        "Feature Definition",
+        "Functional Requirements"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition"
+      ],
+      "audience": "Stakeholders for sign-off; delivery team for build",
+      "task": "Draft the feature definitions and numbered functional requirements for the pasted needs. Draft features, requirements and business rules. Flag every place you had to assume, as 'ASSUMPTION:' inline.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE",
+        "PASTE OR 'NONE PROVIDED'"
+      ],
+      "score": 20,
+      "path": "library/business-ba/functional-requirements-analysis-and-refinement/BB-06-D1.md"
+    },
+    {
+      "id": "BB-06-D2",
+      "name": "Non-Functional Requirements Elicitation & Draft",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Functional Requirements Analysis & Refinement",
+      "deliverables": [
+        "Non-Functional Requirements"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition"
+      ],
+      "audience": "Business owners (targets), architects and testers (verification)",
+      "task": "Elicit and draft a measurable NFR set appropriate to a system of this type. Ask me the checklist questions I can answer now, then draft the NFRs from my answers. Do not silently invent targets — every unvalidated number gets the '[PROPOSED — VALIDATE]' flag.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "USERS, PEAK LOADS, GROWTH IF KNOWN"
+      ],
+      "score": 20,
+      "path": "library/business-ba/functional-requirements-analysis-and-refinement/BB-06-D2.md"
+    },
+    {
+      "id": "BB-06-M",
+      "name": "Master – Functional Requirements Analysis",
+      "type": "master",
+      "role": "Business BA",
+      "service": "Functional Requirements Analysis & Refinement",
+      "deliverables": [
+        "Feature Definition",
+        "Functional Requirements",
+        "Non-Functional Requirements"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition"
+      ],
+      "audience": "Business stakeholders (validation), designers and developers (build), testers (verification)",
+      "task": "Elaborate business needs into well-formed features, functional requirements and non-functional requirements across business and system layers, then quality-review them for ambiguity, testability, completeness and consistency. Produce on request",
+      "modes": [
+        "feature definitions (name, description, business need served, in/out of scope)",
+        "functional requirements per feature ('The system shall...' with acceptance criteria)",
+        "NFR set covering performance, availability, security, privacy, accessibility (WCAG 2.2 AA), auditability, usability",
+        "a quality review pass flagging vague words, untestable items and gaps with suggested rewrites"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE BUSINESS NEEDS STATEMENTS",
+        "NEW BUILD / CONFIGURING PRODUCT / ENHANCEMENT — NAME SYSTEM IF KNOWN"
+      ],
+      "score": 19,
+      "path": "library/business-ba/functional-requirements-analysis-and-refinement/BB-06-M.md"
+    },
+    {
+      "id": "BB-07-D1",
+      "name": "As-Is Process Map (from description)",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Process Analysis & Improvement",
+      "deliverables": [
+        "As-Is Process Maps"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement"
+      ],
+      "audience": "Process performers who will validate it step by step",
+      "task": "Convert my rough description into a structured as-is process map ready for stakeholder validation. Draft the map. List every step where my description was ambiguous or incomplete as targeted validation questions.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE INTERVIEW NOTES OR DESCRIPTION"
+      ],
+      "score": 20,
+      "path": "library/business-ba/process-analysis-and-improvement/BB-07-D1.md"
+    },
+    {
+      "id": "BB-07-D2",
+      "name": "To-Be Design & Gap Analysis",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Process Analysis & Improvement",
+      "deliverables": [
+        "To-Be Process Maps",
+        "Gap Analysis"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement"
+      ],
+      "audience": "Improvement sponsor (decision) and delivery/change teams (planning)",
+      "task": "Design the to-be process and quantify the gap from the as-is. Draft to-be and gap analysis. Respect my constraints — do not design changes to systems I flagged as fixed.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE",
+        "LIST",
+        "BUDGET, SYSTEMS THAT CANNOT CHANGE, POLICY/LEGISLATIVE CONSTRAINTS",
+        "CHANGED",
+        "NEW",
+        "REMOVED"
+      ],
+      "score": 20,
+      "path": "library/business-ba/process-analysis-and-improvement/BB-07-D2.md"
+    },
+    {
+      "id": "BB-07-M",
+      "name": "Master – Process Analysis & Improvement",
+      "type": "master",
+      "role": "Business BA",
+      "service": "Process Analysis & Improvement",
+      "deliverables": [
+        "As-Is Process Maps",
+        "To-Be Process Maps",
+        "Gap Analysis"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement"
+      ],
+      "audience": "Process owners and performers (validation), improvement sponsors (decisions), delivery team (implementation)",
+      "task": "Analyse and improve the business process end-to-end: capture the as-is accurately, diagnose pain points to root cause, design a to-be that resolves them, and produce the gap analysis between the two. Produce on request",
+      "modes": [
+        "as-is process narrative from my description with pain points annotated at the step where they occur",
+        "root cause analysis of key pain points",
+        "to-be process that addresses each pain point, with the change and its rationale marked per step",
+        "gap analysis table (as-is step, to-be step, change type, impact on people/process/technology, transition need)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROCESS NAME AND PURPOSE",
+        "ROLES, INCLUDING AGENTS/EXTERNAL PARTIES",
+        "LIST"
+      ],
+      "score": 19,
+      "path": "library/business-ba/process-analysis-and-improvement/BB-07-M.md"
+    },
+    {
+      "id": "BB-08-D1",
+      "name": "Capability Assessment & Audit Report",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Strategic Business Analysis & Advisory",
+      "deliverables": [
+        "Capability Analysis",
+        "Audit Reports"
+      ],
+      "delivery_contexts": [
+        "8. Consultancy"
+      ],
+      "audience": "Executive sponsor of the assessment; the assessed area's leadership (so findings must be specific and fair)",
+      "task": "Assess the capability of the business area against what it needs to deliver, and report gaps with uplift priorities. Draft the assessment from my evidence. Where evidence is thin for a rating, rate it 'insufficient evidence' rather than guessing.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "AREA",
+        "DRIVER — audit, investment case, restructure",
+        "PASTE INTERVIEWS, METRICS, SURVEY RESULTS, PRIOR REVIEWS"
+      ],
+      "score": 20,
+      "path": "library/business-ba/strategic-business-analysis-and-advisory/BB-08-D1.md"
+    },
+    {
+      "id": "BB-08-D2",
+      "name": "Decision Support Paper (Options Analysis)",
+      "type": "deliverable",
+      "role": "Business BA",
+      "service": "Strategic Business Analysis & Advisory",
+      "deliverables": [
+        "Decision Support Papers",
+        "Options Assessments",
+        "Strategic Cost Analysis inputs"
+      ],
+      "delivery_contexts": [
+        "8. Consultancy"
+      ],
+      "audience": "The decision forum (executives); written so a member who reads only page one can decide",
+      "task": "Produce a decision support paper that lets the forum decide in one sitting: clear question, evidenced options, explicit trade-offs, recommendation with conditions. Draft the paper. Include a 'challenge' paragraph: the strongest argument against your own recommendation.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "STATE THE QUESTION",
+        "LIST OR 'GENERATE 3-4'",
+        "WHAT MATTERS — cost, risk, speed, capability, workforce impact",
+        "FORUM, DATE",
+        "FINANCE TO ESTIMATE where unknown"
+      ],
+      "score": 20,
+      "path": "library/business-ba/strategic-business-analysis-and-advisory/BB-08-D2.md"
+    },
+    {
+      "id": "BB-08-M",
+      "name": "Master – Strategic Business Analysis & Advisory",
+      "type": "master",
+      "role": "Business BA",
+      "service": "Strategic Business Analysis & Advisory",
+      "deliverables": [
+        "Operating Model Analysis",
+        "Capability Analysis",
+        "Business Architecture",
+        "Strategic Alignment Analysis",
+        "Hypothesis & Problem Analysis",
+        "Decision Support"
+      ],
+      "delivery_contexts": [
+        "8. Consultancy"
+      ],
+      "audience": "Executives and senior business leaders; secondary: strategy, portfolio and architecture teams",
+      "task": "Act as my strategic-analysis partner for executive advisory work: assess internal capability, frame hypotheses and problems, support decisions with options analysis, assess organisational impact and strategic alignment, and develop business architecture views (capability models, value streams, operating model views). Produce on request",
+      "modes": [
+        "capability assessment (capability, current maturity, evidence, gap, uplift priority)",
+        "hypothesis and problem analysis (hypothesis, evidence for/against, tests to run)",
+        "decision support paper (question, options, criteria, analysis, recommendation with conditions)",
+        "organisational impact assessment (people, structure, ways of working, operating model deltas)",
+        "strategic alignment analysis",
+        "business architecture views described in text and Mermaid diagrams (capability model, value stream)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "WHAT LEADERSHIP HAS ASKED FOR — capability audit, decision support, costing, organisational impact, strategic alignment, business architecture",
+        "WHO — e.g. deputy CEO, divisional executive, CIO",
+        "PASTE STRATEGY EXTRACT OR 'NONE SUPPLIED'"
+      ],
+      "score": 19,
+      "path": "library/business-ba/strategic-business-analysis-and-advisory/BB-08-M.md"
+    },
+    {
+      "id": "BT-01-D1",
+      "name": "AI Use Case Definition",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "AI Transformation",
+      "deliverables": [
+        "AI use case definitions"
+      ],
+      "delivery_contexts": [
+        "10. AI – Agentic"
+      ],
+      "audience": "AI governance forum and the business owner",
+      "task": "Define the candidate AI use case rigorously enough for a governance forum to assess it. Draft the definition. Challenge the use case where the value hypothesis is weak or a non-AI fix would do.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE — e.g. summarising case correspondence, triaging incoming requests, drafting field reports",
+        "DESCRIBE, FLAG PERSONAL OR SENSITIVE DATA"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/ai-transformation/BT-01-D1.md"
+    },
+    {
+      "id": "BT-01-D2",
+      "name": "AI Guardrails & Evaluation Criteria",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "AI Transformation",
+      "deliverables": [
+        "Guardrails and controls",
+        "evaluation criteria"
+      ],
+      "delivery_contexts": [
+        "10. AI – Agentic"
+      ],
+      "audience": "Engineering (implementation), risk and governance (assurance)",
+      "task": "Specify the guardrails, controls and evaluation criteria that make this AI use case safe to operate. Draft both tables scaled to the risk rating. Mark thresholds '[PROPOSED — VALIDATE WITH BUSINESS OWNER]'.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE USE CASE DEFINITION",
+        "LOW/MEDIUM/HIGH"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/ai-transformation/BT-01-D2.md"
+    },
+    {
+      "id": "BT-01-M",
+      "name": "Master – AI Transformation Analysis",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "AI Transformation",
+      "deliverables": [
+        "AI use case definitions",
+        "agent capability models",
+        "prompt/intent specifications",
+        "input/output definitions",
+        "guardrails and controls",
+        "evaluation criteria"
+      ],
+      "delivery_contexts": [
+        "10. AI – Agentic"
+      ],
+      "audience": "Business owners, AI governance forum, and the engineering team building the solution",
+      "task": "Shape AI-enabled solutions that are aligned to business objectives and governable: define use cases, agent capabilities, prompt/intent specifications, input/output contracts, guardrails and evaluation criteria. Produce on request",
+      "modes": [
+        "AI use case definition and concept brief (problem, users, value/ROI hypothesis, human-in-the-loop model, risk rating with rationale)",
+        "AI suitability and assurance assessment against the applicable AI assurance framework, including whether rules-based automation is the simpler answer",
+        "agent capability and behaviour model (capability, inputs, outputs, tools/data accessed, trigger conditions, autonomy boundaries, escalation path to human, error handling when a data source is unavailable)",
+        "model selection requirements (accuracy vs cost vs latency trade-offs, cost per transaction)",
+        "prompt/intent specifications and grounding/RAG data requirements (knowledge sources, permissions, hallucination controls)",
+        "guardrails and controls (input filtering, output constraints, monitoring, human review points, consumption/cost controls for runaway tasks)",
+        "evaluation criteria and sustainability requirements (accuracy, safety, fairness thresholds; model drift testing and RAG refresh cadence; decision gates to refine, retire or scale)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE THE AI OPPORTUNITY OR CANDIDATE USE CASE",
+        "PRODUCTIVITY / ACTION / AUTOMATION / TBD",
+        "ALWAYS / FOR HIGH-RISK DECISIONS / TBD"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/ai-transformation/BT-01-M.md"
+    },
+    {
+      "id": "BT-02-D1",
+      "name": "Epic → Stories Breakdown with Acceptance Criteria",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Backlog Management (Agile)",
+      "deliverables": [
+        "Epics",
+        "Features",
+        "User Stories",
+        "Acceptance Criteria"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Scrum team (build and test) and product owner (prioritisation)",
+      "task": "Break the epic into sprint-ready user stories with complete acceptance criteria. Draft the breakdown, then review your own stories against INVEST and flag any that fail, with suggested fixes.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE EPIC DESCRIPTION AND ANY REQUIREMENTS"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/backlog-management-agile/BT-02-D1.md"
+    },
+    {
+      "id": "BT-02-D2",
+      "name": "Backlog Refinement & Prioritisation Review",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Backlog Management (Agile)",
+      "deliverables": [
+        "Refined backlog",
+        "prioritisation"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Product owner and delivery lead",
+      "task": "Review the pasted backlog for readiness and produce a defensible prioritisation. Deliver both tables and a short list of themes (recurring quality problems) to fix at the source.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE STORIES/ITEMS",
+        "CAPACITY, DEADLINES, DEPENDENCIES",
+        "MoSCoW / WSJF / VALUE-EFFORT"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/backlog-management-agile/BT-02-D2.md"
+    },
+    {
+      "id": "BT-02-M",
+      "name": "Master – Agile Backlog Management",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "Backlog Management (Agile)",
+      "deliverables": [
+        "Epics",
+        "Features",
+        "User Stories",
+        "Acceptance Criteria"
+      ],
+      "delivery_contexts": [
+        "4. IT System – Agile"
+      ],
+      "audience": "Product owner, scrum team and stakeholders reading the backlog",
+      "task": "Keep the delivery backlog healthy on cadence: break epics into features and stories, write acceptance criteria, refine and prioritise, and keep items meeting the Definition of Ready. Produce on request",
+      "modes": [
+        "epic → feature → story breakdowns",
+        "acceptance criteria for pasted stories",
+        "refinement review of pasted backlog items flagging vagueness, missing criteria, oversized stories with suggested splits",
+        "MoSCoW or WSJF prioritisation with one-line rationale each. After drafting stories, self-critique for vague criteria and missing edge cases, then fix them"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "TEAM, CADENCE, TOOL e.g. Jira",
+        "PASTE OR DESCRIBE",
+        "PASTE OR 'STANDARD'"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/backlog-management-agile/BT-02-M.md"
+    },
+    {
+      "id": "BT-03-D1",
+      "name": "RFI/RFT Question Framework",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Commercial, Licencing & Vendor Mgmt",
+      "deliverables": [
+        "RFI document inputs",
+        "RFT Part D inputs"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "10. AI – Agentic"
+      ],
+      "audience": "Vendors (questions) and the evaluation panel (guidance columns)",
+      "task": "Draft the vendor-facing question framework that will elicit comparable, evaluable responses. Draft the framework. Flag any question that invites marketing rather than evidence, and tighten it.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "RFI OR RFT",
+        "PASTE HIGH-LEVEL REQUIREMENTS",
+        "LIST"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/commercial-licencing-and-vendor-mgmt/BT-03-D1.md"
+    },
+    {
+      "id": "BT-03-D2",
+      "name": "Vendor Evaluation Scoring Matrix",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Commercial, Licencing & Vendor Mgmt",
+      "deliverables": [
+        "Evaluation scoring and analysis reports"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "10. AI – Agentic"
+      ],
+      "audience": "Evaluation panel and probity advisor",
+      "task": "Build the weighted scoring model and comparative analysis structure for a defensible vendor evaluation. Draft the matrix and template. Sanity-check the weights against my stated priorities and flag mismatches.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "WHAT IS BEING EVALUATED",
+        "PASTE OR 'PROPOSE'",
+        "ROLES"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/commercial-licencing-and-vendor-mgmt/BT-03-D2.md"
+    },
+    {
+      "id": "BT-03-M",
+      "name": "Master – Procurement & Vendor Analysis",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "Commercial, Licencing & Vendor Mgmt",
+      "deliverables": [
+        "Vendor assessments",
+        "product evaluations",
+        "licensing analysis",
+        "commercial requirements",
+        "procurement inputs"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "10. AI – Agentic"
+      ],
+      "audience": "Procurement team, evaluation panel, and delegates approving the recommendation",
+      "task": "Support vendor selection and commercial decision-making across the procurement lifecycle: approach strategy, RFI/RFT content, market scans, pricing and licensing analysis, evaluation frameworks and recommendation support. Produce on request",
+      "modes": [
+        "procurement approach comparison (RFI vs RFT vs direct, with rationale)",
+        "RFI/RFT question frameworks mapped to requirements",
+        "vendor capability criteria",
+        "pricing model and licensing analysis (perpetual vs subscription vs consumption; scaling scenarios)",
+        "weighted evaluation scoring framework",
+        "comparative analysis and recommendation structure"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRE-MARKET / RFI / RFT / EVALUATION / NEGOTIATION",
+        "DESCRIBE"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/commercial-licencing-and-vendor-mgmt/BT-03-M.md"
+    },
+    {
+      "id": "BT-04-D1",
+      "name": "Transition Requirements & Readiness Checklist",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Operational Readiness & Transition",
+      "deliverables": [
+        "System Transition Plan",
+        "Operational Readiness support"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design"
+      ],
+      "audience": "Readiness leads (execution) and go-live decision forum (go/no-go)",
+      "task": "Define what must be true before go-live: transition requirements plus a verifiable readiness checklist. Draft requirements and checklist. Flag the items most commonly missed (access provisioning lead times, support knowledge articles, external party comms).",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "LIST",
+        "DATES, BLACKOUT PERIODS, PARALLEL RUN?"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/operational-readiness-and-transition/BT-04-D1.md"
+    },
+    {
+      "id": "BT-04-D2",
+      "name": "Showcase & Desk Check Pack",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Operational Readiness & Transition",
+      "deliverables": [
+        "Showcases",
+        "Dev walkthroughs",
+        "Desk checks"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design"
+      ],
+      "audience": "Business SMEs and stakeholders attending; BA facilitating",
+      "task": "Design the showcase session and desk check scripts that let the business validate the build against their needs. Draft both packs. Ensure scenarios cover the highest-risk and highest-frequency paths first, and say why you ranked them so.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE FEATURES/STORIES",
+        "BUSINESS SMEs / SUPPORT / SPONSOR"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/operational-readiness-and-transition/BT-04-D2.md"
+    },
+    {
+      "id": "BT-04-M",
+      "name": "Master – Operational Readiness & Transition",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "Operational Readiness & Transition",
+      "deliverables": [
+        "Showcases",
+        "Dev walkthroughs",
+        "Desk checks",
+        "System Transition Plan",
+        "Operational Readiness support"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "6. Process – Design"
+      ],
+      "audience": "Business readiness leads, support teams, change managers and the go-live decision forum",
+      "task": "Elaborate the process and technology transition requirements and support change management so the business and support teams are genuinely ready at go-live. Produce on request",
+      "modes": [
+        "transition requirements (process cutover, data cutover dependencies, access, training, support)",
+        "showcase/walkthrough session designs with scenarios to demonstrate",
+        "desk check scripts for business validation",
+        "system transition plan structure (phases, entry/exit criteria, rollback triggers)",
+        "operational readiness checklist with owner and evidence per item"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "DATE",
+        "BUSINESS TEAMS, SUPPORT TEAMS, AGENTS",
+        "WHAT CHANGES FOR WHOM"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/operational-readiness-and-transition/BT-04-M.md"
+    },
+    {
+      "id": "BT-05-D1",
+      "name": "Traceability Matrix Build & Gap Report",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Requirements Governance & Traceability",
+      "deliverables": [
+        "Traceability Matrix"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update"
+      ],
+      "audience": "BA and test lead (fix gaps); governance (assurance)",
+      "task": "Build the traceability matrix from the pasted artefacts and report every gap. Build matrix and gap report. Do not force-fit doubtful links — mark them 'UNCERTAIN — CONFIRM' instead.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE BUSINESS NEEDS",
+        "PASTE REQUIREMENTS/STORIES",
+        "PASTE TEST CASES OR 'NONE YET'"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/requirements-governance-and-traceability/BT-05-D1.md"
+    },
+    {
+      "id": "BT-05-D2",
+      "name": "Decision Log Entries from Meeting Notes",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Requirements Governance & Traceability",
+      "deliverables": [
+        "Decision Log"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update"
+      ],
+      "audience": "Governance forums and future team members needing the 'why'",
+      "task": "Extract and formalise every decision into audit-ready decision log entries. Extract the entries. Where the notes imply but do not state a decision, put it in the 'not decided' table with a question to close it out.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/requirements-governance-and-traceability/BT-05-D2.md"
+    },
+    {
+      "id": "BT-05-M",
+      "name": "Master – Requirements Governance & Traceability",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "Requirements Governance & Traceability",
+      "deliverables": [
+        "Traceability Matrix",
+        "Decision Log",
+        "Information Governance Artefacts"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update"
+      ],
+      "audience": "Project governance, auditors, and the delivery team relying on a single source of truth",
+      "task": "Maintain control of requirements and decisions: traceability from business need through to test, a disciplined decision log, change control support and consistency checking across artefacts. Produce on request",
+      "modes": [
+        "traceability matrix structure and population from pasted artefacts (need → requirement → story → test, with gaps flagged)",
+        "decision log entries from meeting notes (decision, date, decider, rationale, alternatives rejected, impacts)",
+        "scope creep review of new requests against the baseline (within scope / beyond scope / ambiguous, with recommended action)",
+        "cross-artefact consistency check flagging contradictions"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "LIST — needs, requirements, stories, designs, tests",
+        "DESCRIBE OR 'STANDARD'",
+        "BASELINED ON DATE / NOT YET"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/requirements-governance-and-traceability/BT-05-M.md"
+    },
+    {
+      "id": "BT-06-D1",
+      "name": "BA Plan & Estimates",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Sizing, Estimation, Dependency and Prioritisation Management",
+      "deliverables": [
+        "BA Plan",
+        "Estimates",
+        "Assumptions",
+        "Resource Forecasts"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update"
+      ],
+      "audience": "PM (planning), resource managers (forecast), BA team (execution)",
+      "task": "Draft the BA plan with estimated effort and an explicit assumptions log. Draft the plan. Challenge scope items that look under- or over-invested relative to their risk.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE PHASES/DELIVERABLES EXPECTED",
+        "WHO, AVAILABILITY"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/sizing-estimation-dependency-and-prioritisation-management/BT-06-D1.md"
+    },
+    {
+      "id": "BT-06-D2",
+      "name": "Dependency Map & Prioritisation",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Sizing, Estimation, Dependency and Prioritisation Management",
+      "deliverables": [
+        "Prioritisation",
+        "Dependency management"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update"
+      ],
+      "audience": "Delivery leads and prioritisation forum",
+      "task": "Map dependencies and produce a defensible priority order. Deliver map, diagram and prioritisation. Flag circular or fragile dependency chains explicitly.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE REQUIREMENTS/FEATURES/WORK ITEMS",
+        "DATES, TEAMS, TECHNICAL DEPENDENCIES"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/sizing-estimation-dependency-and-prioritisation-management/BT-06-D2.md"
+    },
+    {
+      "id": "BT-06-M",
+      "name": "Master – Sizing, Estimation & Prioritisation",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "Sizing, Estimation, Dependency and Prioritisation Management",
+      "deliverables": [
+        "BA Plan",
+        "Estimates",
+        "Assumptions",
+        "Resource Forecasts",
+        "Prioritisation",
+        "Dependency management"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update"
+      ],
+      "audience": "Project manager, delivery leads and resource managers",
+      "task": "Support definition and prioritisation of requirements and BA work based on business and technical needs and dependencies: BA planning, estimation with explicit assumptions, dependency mapping and prioritisation. Produce on request",
+      "modes": [
+        "BA plan (activities, deliverables, approach, estimate range, dependencies per phase)",
+        "estimation breakdowns with assumptions log",
+        "dependency map (item, depends on, type, criticality, risk if late) plus a suggested sequence",
+        "prioritisation using MoSCoW or value/effort with rationale and deferral risks"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE SCOPE",
+        "BA RESOURCES, AVAILABILITY",
+        "LIST"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/sizing-estimation-dependency-and-prioritisation-management/BT-06-M.md"
+    },
+    {
+      "id": "BT-07-D1",
+      "name": "Solution Options Assessment",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Solution Analysis & Design Support",
+      "deliverables": [
+        "Solution Options Assessment"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "10. AI – Agentic"
+      ],
+      "audience": "Design authority / steering committee deciding",
+      "task": "Produce an options assessment that makes the trade-offs explicit and recommends defensibly. Propose criteria and weights from my priorities, ask me to confirm, then assess. State every assumption behind a score.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "STATE THE DESIGN QUESTION",
+        "LIST 2-4 OPTIONS WITH A LINE EACH",
+        "WHAT MATTERS MOST — COST/SPEED/RISK/CAPABILITY"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/solution-analysis-and-design-support/BT-07-D1.md"
+    },
+    {
+      "id": "BT-07-D2",
+      "name": "Regulatory & Policy Compliance Assessment",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Solution Analysis & Design Support",
+      "deliverables": [
+        "Regulatory & Policy Compliance Assessments",
+        "Business Rules"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "10. AI – Agentic"
+      ],
+      "audience": "Design team (remediation), legal/privacy advisors (confirmation), governance (assurance)",
+      "task": "Assess the solution against each obligation and derive the business rules and requirements needed for compliance. Draft the assessment and rules. Mark every interpretation that needs legal/privacy confirmation.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE WHAT THE SOLUTION DOES, DATA IT TOUCHES",
+        "LIST — e.g. privacy legislation, legislation covering health or other sensitive information, information security standards, sector regulation, records legislation"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/solution-analysis-and-design-support/BT-07-D2.md"
+    },
+    {
+      "id": "BT-07-M",
+      "name": "Master – Solution Analysis & Design Support",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "Solution Analysis & Design Support",
+      "deliverables": [
+        "Solution Options Assessment",
+        "Regulatory & Policy Compliance Assessments",
+        "Business Rules"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "10. AI – Agentic"
+      ],
+      "audience": "Solution designers, architects, design authority and business owners",
+      "task": "Assess solution options and compliance needs so design decisions are made with clear business analysis: option assessments, regulatory and policy compliance assessments, and the business rules the solution must honour. Produce on request",
+      "modes": [
+        "solution options assessment (criteria and weights, option scores with rationale, sensitivity check, recommendation)",
+        "compliance assessment (obligation, requirement it creates, solution behaviour, gap, remediation)",
+        "business rules extraction and categorisation (constraint / computation / derivation / inference) with ambiguity flags"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "LIST OR 'TO BE GENERATED'",
+        "PRIVACY / INFORMATION SECURITY / SECTOR REGULATION / ACCESSIBILITY / RECORDS — LIST KNOWN"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/solution-analysis-and-design-support/BT-07-M.md"
+    },
+    {
+      "id": "BT-08-D1",
+      "name": "Stakeholder Register & Engagement Plan",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Stakeholder Analysis & Engagement",
+      "deliverables": [
+        "Stakeholder Register",
+        "Stakeholder/SME Engagement Plan"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement",
+        "9. Data – Warehouse"
+      ],
+      "audience": "BA and project leadership — treat as internally sensitive",
+      "task": "Build the stakeholder register and a specific, actionable engagement plan. Ask me 3-4 questions about dynamics first, then draft. Flag likely missing stakeholders based on the initiative type (e.g. employee representatives, privacy officer, records management, delivery partners).",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "LIST WITH ROLES",
+        "BRIEF NOTES",
+        "NOTES",
+        "PERIOD"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/stakeholder-analysis-and-engagement/BT-08-D1.md"
+    },
+    {
+      "id": "BT-08-D2",
+      "name": "Workshop / Showcase Session Design",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Stakeholder Analysis & Engagement",
+      "deliverables": [
+        "Workshops",
+        "Showcases"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement",
+        "9. Data – Warehouse"
+      ],
+      "audience": "Attendees (agenda) and facilitator (full design)",
+      "task": "Design a session that achieves its stated outputs and keeps a mixed-attitude audience engaged. Draft the design. Note where resistant stakeholders need specific handling and how.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "ALIGNMENT / ELICITATION / VALIDATION / SHOWCASE",
+        "ROLES AND ATTITUDES",
+        "LENGTH",
+        "LIST"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/stakeholder-analysis-and-engagement/BT-08-D2.md"
+    },
+    {
+      "id": "BT-08-M",
+      "name": "Master – Stakeholder Analysis & Engagement",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "Stakeholder Analysis & Engagement",
+      "deliverables": [
+        "Stakeholder Register",
+        "Stakeholder/SME Engagement Plan",
+        "Workshops",
+        "Showcases"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "5. IT System – New / Transition",
+        "6. Process – Design",
+        "7. Process – Improvement",
+        "9. Data – Warehouse"
+      ],
+      "audience": "BA and project leadership using the plan; some outputs (comms) go direct to stakeholders",
+      "task": "Identify contributing stakeholders and manage engagement and alignment: registers, interest/influence mapping, engagement plans, RACI, conflict resolution strategies and engagement communications. Produce on request",
+      "modes": [
+        "stakeholder register (name/role, area, interest, influence, attitude, needs, engagement approach, cadence, owner)",
+        "interest/influence matrix with tailored strategies, alliances and risk flags",
+        "RACI for pasted activities with bottleneck checks (3+ Consulted, missing Accountable)",
+        "conflict resolution strategy for two named positions (underlying needs, 3 approaches, recommended talking points)",
+        "audience-tailored update messages. Ask me about organisational dynamics before mapping"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "LIST KNOWN STAKEHOLDERS/AREAS, INTERNAL AND EXTERNAL — e.g. operations teams, field staff, delivery partners, employee representatives, customer groups, IT, vendors",
+        "ANY KNOWN POLITICS OR HISTORY"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/stakeholder-analysis-and-engagement/BT-08-M.md"
+    },
+    {
+      "id": "BT-09-D1",
+      "name": "UAT Scenarios & Scripts from Requirements",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Testing & Requirements Validation Support",
+      "deliverables": [
+        "UAT Support"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "9. Data – Warehouse"
+      ],
+      "audience": "Business SMEs executing UAT; test lead tracking coverage",
+      "task": "Produce UAT scenarios and step-by-step scripts business users can execute unaided. Draft catalogue and scripts. Then self-review: list requirements with thin coverage and edge cases you could not derive without more information.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE",
+        "BUSINESS ROLES",
+        "NOTES — e.g. masked production data only"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/testing-and-requirements-validation-support/BT-09-D1.md"
+    },
+    {
+      "id": "BT-09-D2",
+      "name": "Requirements Validation & Coverage Review",
+      "type": "deliverable",
+      "role": "Business/Tech BA",
+      "service": "Testing & Requirements Validation Support",
+      "deliverables": [
+        "Requirements Validation",
+        "Solution Reviews"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "9. Data – Warehouse"
+      ],
+      "audience": "Test lead and BA (fixes); governance (assurance)",
+      "task": "Validate that the test set genuinely proves the requirements, and that requirements remain internally consistent. Run the review and deliver findings. Rank by risk to business outcome, not by count.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE",
+        "PASTE OR 'NONE'"
+      ],
+      "score": 20,
+      "path": "library/business-tech-ba/testing-and-requirements-validation-support/BT-09-D2.md"
+    },
+    {
+      "id": "BT-09-M",
+      "name": "Master – Testing & Requirements Validation",
+      "type": "master",
+      "role": "Business/Tech BA",
+      "service": "Testing & Requirements Validation Support",
+      "deliverables": [
+        "Requirements Validation",
+        "UAT Support",
+        "Desk Checks",
+        "Solution Reviews"
+      ],
+      "delivery_contexts": [
+        "2. Procurement – Enablement",
+        "3. IT System – Update",
+        "5. IT System – New / Transition",
+        "9. Data – Warehouse"
+      ],
+      "audience": "Test lead and testers; business SMEs performing UAT; delivery team receiving defects",
+      "task": "Support testers and the business to confirm the solution meets business needs: derive test scenarios from requirements, validate coverage, support UAT execution and review solution behaviour against intent. Produce on request",
+      "modes": [
+        "UAT scenarios and scripts from pasted requirements (scenario, preconditions/data, steps, expected result, requirement ref) covering happy, negative and edge paths",
+        "coverage review flagging requirements with no scenario and scenarios with no requirement",
+        "desk check scripts for business users",
+        "defect descriptions rewritten so developers can reproduce (steps, expected vs actual, impact)",
+        "solution review checklists against original intent"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PASTE OR REFERENCE",
+        "SIT / UAT / DESK CHECK / BUSINESS VERIFICATION",
+        "WHO — TESTERS, BUSINESS SMEs"
+      ],
+      "score": 19,
+      "path": "library/business-tech-ba/testing-and-requirements-validation-support/BT-09-M.md"
+    },
+    {
+      "id": "LB-01-D1",
+      "name": "BA Approach & Analysis Scope Definition",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "BA Engagement Planning & Estimation",
+      "deliverables": [
+        "BA Plan"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "PM and steering (endorsement), BA team (execution)",
+      "task": "Draft the BA approach and scope so every stakeholder knows what analysis happens, when, to what depth, and why. Draft approach and scope. Challenge any area where my stated depth doesn't match its risk.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "DESCRIBE",
+        "LIST",
+        "WHERE AMBIGUITY IS HIGHEST"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/ba-engagement-planning-and-estimation/LB-01-D1.md"
+    },
+    {
+      "id": "LB-01-D2",
+      "name": "BA Effort Estimate & Resource Forecast",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "BA Engagement Planning & Estimation",
+      "deliverables": [
+        "Resource Forecasts",
+        "Engagement Estimates",
+        "Assumptions log"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Resource managers and PM; finance for cost inputs",
+      "task": "Estimate BA effort per package and forecast the resourcing profile over time. Draft estimates and forecast. State which packages are most likely to blow out and the early-warning sign for each.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "LIST WITH ROUGH SHAPE",
+        "NAMES/LEVELS OR 'TO BE HIRED'",
+        "DATES"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/ba-engagement-planning-and-estimation/LB-01-D2.md"
+    },
+    {
+      "id": "LB-01-M",
+      "name": "Master – BA Engagement Planning & Estimation",
+      "type": "master",
+      "role": "Lead BA",
+      "service": "BA Engagement Planning & Estimation",
+      "deliverables": [
+        "BA Plan",
+        "BA Estimates & Assumptions",
+        "Resource Forecasts",
+        "RAID Inputs"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Project/program manager (plan integration), resource managers (forecast), the BA team (their roadmap)",
+      "task": "Define the BA approach, effort and resourcing across the project or program: analysis scope, approach and techniques per phase, estimates with assumptions, resource forecasts, and RAID inputs for the engagement. Produce on request",
+      "modes": [
+        "BA approach summary (analysis needed per phase, techniques, deliverables, governance touchpoints)",
+        "analysis scope definition (in/out, depth per area, justification)",
+        "estimates (range + confidence per package, assumptions log with impact-if-wrong)",
+        "resource forecast by sprint/month with skills mix",
+        "RAID inputs specific to analysis (e.g. SME availability, requirements churn)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "SCOPE SUMMARY, TIMEFRAME, KNOWN CONSTRAINTS"
+      ],
+      "score": 19,
+      "path": "library/lead-ba/ba-engagement-planning-and-estimation/LB-01-M.md"
+    },
+    {
+      "id": "LB-02-D1",
+      "name": "Work Allocation Plan",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "BA Team Leadership & Work Allocation",
+      "deliverables": [
+        "Work Allocation Plans"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Lead BA (decision), then discussed with each BA",
+      "task": "Allocate packages to BAs with explicit rationale, balanced load and managed risk. Draft the allocation. Where a stretch assignment carries delivery risk, propose the support structure that makes it safe.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "LIST WITH SKILL NEEDS AND EFFORT",
+        "ROLE-LABELLED BAs: LEVEL, STRENGTHS, CURRENT LOAD, DEVELOPMENT GOALS"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/ba-team-leadership-and-work-allocation/LB-02-D1.md"
+    },
+    {
+      "id": "LB-02-D2",
+      "name": "BA Delivery Status Report",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "BA Team Leadership & Work Allocation",
+      "deliverables": [
+        "BA Delivery Status Reports"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "PM or steering, per my stated cadence",
+      "task": "Turn raw team inputs into an exception-focused status report the audience can act on. Draft the report. If my notes hide a risk in polite language, surface it plainly in the attention section.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "PASTE PER-PACKAGE NOTES / STANDUP SUMMARIES",
+        "PM WEEKLY / STEERING MONTHLY"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/ba-team-leadership-and-work-allocation/LB-02-D2.md"
+    },
+    {
+      "id": "LB-02-M",
+      "name": "Master – BA Team Leadership & Work Allocation",
+      "type": "master",
+      "role": "Lead BA",
+      "service": "BA Team Leadership & Work Allocation",
+      "deliverables": [
+        "Work Allocation Plans",
+        "BA Delivery Status Reports",
+        "Team Performance Feedback"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "The Lead BA (private working documents), PM (status), individual BAs (feedback)",
+      "task": "Lead and coordinate BAs across workstreams: allocate and balance work against skills and development goals, track delivery, surface risks early, and prepare fair, specific performance feedback. Produce on request",
+      "modes": [
+        "work allocation plan (package → BA, rationale: skills fit, load, development; risks like key-person dependency)",
+        "delivery status report (progress by package, RAG with the reason, risks/issues, decisions needed)",
+        "load-balance review when priorities shift",
+        "performance feedback drafts (specific observed behaviours, impact, growth suggestion — never personality judgements)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "BAs WITH LEVELS/STRENGTHS, de-identified or role-labelled",
+        "PACKAGES IN FLIGHT"
+      ],
+      "score": 19,
+      "path": "library/lead-ba/ba-team-leadership-and-work-allocation/LB-02-M.md"
+    },
+    {
+      "id": "LB-03-D1",
+      "name": "Artefact Peer Review (Senior BA lens)",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "Requirements Quality Assurance & Review",
+      "deliverables": [
+        "Peer Review Records",
+        "Review Outcomes"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "The artefact author; review record kept for assurance",
+      "task": "Review the artefact as a senior BA would: specific findings, prioritised, with rewrites — calibrated to develop the author. Run the review. Every 'blocker' must state the concrete downstream failure it would cause.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "PASTE THE ARTEFACT",
+        "PASTE OR 'STANDARD REQUIREMENTS QUALITY CRITERIA'",
+        "FOR FEEDBACK CALIBRATION"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/requirements-quality-assurance-and-review/LB-03-D1.md"
+    },
+    {
+      "id": "LB-03-D2",
+      "name": "Quality Framework & Review Cadence",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "Requirements Quality Assurance & Review",
+      "deliverables": [
+        "Quality Framework",
+        "Review Cadence",
+        "Quality Checklists"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "The BA team (daily use), governance (assurance model)",
+      "task": "Define the quality framework: checklists per artefact type, review levels, and a cadence the team can sustain. Draft the framework. Justify every mandatory review step by the failure it prevents — cut any that can't be justified.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "LIST",
+        "NUMBERS/LEVELS",
+        "WHAT'S GONE WRONG BEFORE"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/requirements-quality-assurance-and-review/LB-03-D2.md"
+    },
+    {
+      "id": "LB-03-M",
+      "name": "Master – Requirements Quality Assurance & Review",
+      "type": "master",
+      "role": "Lead BA",
+      "service": "Requirements Quality Assurance & Review",
+      "deliverables": [
+        "Peer Review Records",
+        "Quality Checklists",
+        "Artefact Sign-offs"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Artefact authors (fixes), Lead BA (assurance view), governance (sign-off evidence)",
+      "task": "Review and assure the quality, consistency and completeness of BA artefacts across the engagement: define the quality bar, run reviews with specific findings, and track sign-offs. Produce on request",
+      "modes": [
+        "quality checklist per artefact type (criterion, what good looks like, common failure)",
+        "artefact review (finding, location, severity, suggested rewrite; summary grade against the checklist)",
+        "cross-artefact consistency review",
+        "review cadence and sign-off tracking structure",
+        "themes-to-coach report (recurring issues across the team's artefacts, anonymised)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "REQUIREMENTS / STORIES / PROCESS MAPS / SPECS",
+        "PASTE QUALITY CHECKLIST OR 'PROPOSE ONE'"
+      ],
+      "score": 19,
+      "path": "library/lead-ba/requirements-quality-assurance-and-review/LB-03-M.md"
+    },
+    {
+      "id": "LB-04-D1",
+      "name": "Cross-Stream Dependency Register",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "Cross-Stream Scope & Dependency Coordination",
+      "deliverables": [
+        "Dependency Registers"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Stream leads (management), program leadership (the watch-list)",
+      "task": "Build the cross-stream dependency register and expose the chains that threaten the program. Build the register from my inputs and infer likely missing dependencies from the stream scopes — marking inferred rows 'INFERRED — CONFIRM'.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "PASTE STREAM SCOPES/MILESTONES",
+        "LIST WHAT'S ALREADY KNOWN"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/cross-stream-scope-and-dependency-coordination/LB-04-D1.md"
+    },
+    {
+      "id": "LB-04-D2",
+      "name": "Scope Overlap Resolution & Alignment Record",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "Cross-Stream Scope & Dependency Coordination",
+      "deliverables": [
+        "Scope Alignment Records",
+        "Cross-stream Impact Assessments"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "The two stream leads and the program forum ratifying it",
+      "task": "Analyse the overlap, recommend a single-owner resolution, and draft the alignment record that prevents relitigating. Draft analysis and record. If the split option creates a fragile seam, say so plainly even if it is the politically easy answer.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "DESCRIBE — e.g. both streams writing requirements for the same interface",
+        "SUMMARISE"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/cross-stream-scope-and-dependency-coordination/LB-04-D2.md"
+    },
+    {
+      "id": "LB-04-M",
+      "name": "Master – Cross-Stream Scope & Dependency Coordination",
+      "type": "master",
+      "role": "Lead BA",
+      "service": "Cross-Stream Scope & Dependency Coordination",
+      "deliverables": [
+        "Dependency Registers",
+        "Scope Alignment Records",
+        "Cross-stream Impact Assessments"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Stream leads and PMs; escalation summaries for program leadership",
+      "task": "Coordinate requirements scope, dependencies and impacts across teams and workstreams: map boundaries, find overlaps and gaps, maintain the dependency register, and assess cross-stream impacts of changes. Produce on request",
+      "modes": [
+        "scope boundary map (per stream: owns / consumes / explicitly not covered) with overlap and gap findings",
+        "dependency register (item, from-stream, to-stream, type, needed-by, status, risk if late)",
+        "cross-stream impact assessment for a proposed change (streams affected, requirement/artefact impacts, effort, sequencing consequence)",
+        "alignment session designs and the record of what was agreed"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "LIST WORKSTREAMS AND THEIR SCOPE IN ONE LINE EACH",
+        "WHERE OVERLAPS OR GAPS ARE SUSPECTED"
+      ],
+      "score": 19,
+      "path": "library/lead-ba/cross-stream-scope-and-dependency-coordination/LB-04-M.md"
+    },
+    {
+      "id": "LB-05-D1",
+      "name": "Escalation / Decision Paper",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "Senior Stakeholder & Sponsor Engagement",
+      "deliverables": [
+        "Escalation Papers",
+        "Decision Records",
+        "Escalation Outcomes"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "The named decision maker; copied to the steering forum",
+      "task": "Draft an escalation paper that gets a decision at first reading. Draft the paper. Strip every sentence that doesn't move the decision — then list what you cut in case I disagree.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "DESCRIBE, INCLUDING TECHNICAL DETAIL IF ANY",
+        "WHO",
+        "WHY NOW",
+        "TO BE QUANTIFIED"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/senior-stakeholder-and-sponsor-engagement/LB-05-D1.md"
+    },
+    {
+      "id": "LB-05-D2",
+      "name": "Steering Committee Pack Input",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "Senior Stakeholder & Sponsor Engagement",
+      "deliverables": [
+        "Steering Committee Packs",
+        "Engagement Summaries"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Steering committee members reading in the 10 minutes before the meeting",
+      "task": "Prepare the analysis slice of the steering pack: status they can trust, decisions framed for a yes/no, risks worth executive attention. Draft the input. Flag anything in my raw notes that a committee member would probe, with a suggested holding answer.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "PERIOD",
+        "PASTE STATUS NOTES, RISKS, DECISIONS NEEDED",
+        "WHAT THEY ASKED LAST TIME"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/senior-stakeholder-and-sponsor-engagement/LB-05-D2.md"
+    },
+    {
+      "id": "LB-05-M",
+      "name": "Master – Senior Stakeholder & Sponsor Engagement",
+      "type": "master",
+      "role": "Lead BA",
+      "service": "Senior Stakeholder & Sponsor Engagement",
+      "deliverables": [
+        "Steering Committee Inputs",
+        "Escalation Papers",
+        "Decision Records",
+        "Engagement Summaries"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Sponsors, steering committees, executive stakeholders",
+      "task": "Manage alignment, escalations and decision-making with senior stakeholders and sponsors: prepare escalation papers, steering inputs, decision records and engagement summaries that respect executive attention. Produce on request",
+      "modes": [
+        "escalation paper (issue, impact quantified where possible, options with consequences, the specific ask, needed-by date)",
+        "steering committee input (status headline, decisions sought with recommendations, risks worth their attention)",
+        "decision record (decision, decider, rationale, alternatives rejected, impacts)",
+        "engagement summary after key meetings (what was agreed, positions shifted, follow-ups)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "ROLES — e.g. sponsor, EGM, CIO — and what each cares about",
+        "LIVE DECISIONS, ESCALATIONS, SENSITIVITIES"
+      ],
+      "score": 19,
+      "path": "library/lead-ba/senior-stakeholder-and-sponsor-engagement/LB-05-M.md"
+    },
+    {
+      "id": "LB-06-D1",
+      "name": "Mentoring Plan & Development Goals",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "BA Mentoring & Capability Development",
+      "deliverables": [
+        "Mentoring Plans",
+        "Development Goals"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Mentee (co-owner of the plan) and Lead BA",
+      "task": "Draft a mentoring plan with concrete goals tied to real work, not abstract competencies. Draft the plan. If my growth areas and their aspiration conflict, name the tension and propose how to sequence both.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "ROLE LABEL, LEVEL, STRENGTHS, GROWTH AREAS, THEIR STATED ASPIRATION",
+        "UPCOMING WORK THAT COULD STRETCH THEM"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/ba-mentoring-and-capability-development/LB-06-D1.md"
+    },
+    {
+      "id": "LB-06-D2",
+      "name": "Skills Gap Analysis (Team)",
+      "type": "deliverable",
+      "role": "Lead BA",
+      "service": "BA Mentoring & Capability Development",
+      "deliverables": [
+        "Skills gap analysis",
+        "Capability Uplift Actions"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Lead BA and resource/practice managers",
+      "task": "Map the team's skills against what the engagement needs, and plan the uplift that closes delivery-critical gaps. Draft matrix and uplift plan. Single-person coverage of a critical skill is a risk even with no gap — flag those too.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "LIST",
+        "ROLE-LABELLED: LEVELS, RECENT WORK, KNOWN STRENGTHS/GAPS"
+      ],
+      "score": 20,
+      "path": "library/lead-ba/ba-mentoring-and-capability-development/LB-06-D2.md"
+    },
+    {
+      "id": "LB-06-M",
+      "name": "Master – BA Mentoring & Capability Development",
+      "type": "master",
+      "role": "Lead BA",
+      "service": "BA Mentoring & Capability Development",
+      "deliverables": [
+        "Mentoring Plans",
+        "Development Goals",
+        "Coaching & Feedback Records"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "The Lead BA (preparation, private) and the mentee (plans and feedback shared with them)",
+      "task": "Mentor and coach BAs to lift analysis capability: mentoring plans, development goals, coaching conversation preparation, feedback drafting, and engagement-level capability building. Produce on request",
+      "modes": [
+        "mentoring plan (goals from X-to-Y, activities: stretch work, shadowing, courses; check-in cadence; evidence of progress)",
+        "coaching conversation prep (opening, questions that let them self-assess first, the feedback in behaviour-impact form, agreed-actions frame)",
+        "skills gap analysis (skill, required level for the work, current evidence, gap, development route)",
+        "capability uplift actions at engagement level"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PROGRAM/PROJECT, NUMBER OF BAs AND WORKSTREAMS, DELIVERY METHOD",
+        "ROLE-LABELLED — LEVEL, STRENGTHS, GROWTH AREAS, ASPIRATIONS; de-identified",
+        "SKILLS THE WORK DEMANDS"
+      ],
+      "score": 19,
+      "path": "library/lead-ba/ba-mentoring-and-capability-development/LB-06-M.md"
+    },
+    {
+      "id": "PL-01-D1",
+      "name": "Practice Strategy on a Page",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "BA Practice Strategy & Operating Model",
+      "deliverables": [
+        "Practice Strategy"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice sponsor (endorsement) and all practice BAs (direction)",
+      "task": "Distil a practice strategy onto one page that both leadership and every practice BA can quote. Draft the page. Test each priority against 'would a BA change what they do tomorrow because of this?' — rewrite any that fail.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "PASTE ORG STRATEGY EXTRACTS, PRACTICE PAIN POINTS, STAKEHOLDER FEEDBACK"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/ba-practice-strategy-and-operating-model/PL-01-D1.md"
+    },
+    {
+      "id": "PL-01-D2",
+      "name": "Operating Model & Service Catalogue Definition",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "BA Practice Strategy & Operating Model",
+      "deliverables": [
+        "Operating Model",
+        "Service Catalogue",
+        "Practice Roadmap"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice sponsor and PMO (agreement); delivery leaders (the customer view)",
+      "task": "Design how the practice engages with delivery and formalise the service catalogue around the L3 services. Draft model and catalogue. State the failure mode of the recommended model and the guardrail against it.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "HOW BAs GET ASSIGNED TODAY",
+        "WHAT'S NOT WORKING",
+        "REFERENCE — 42 services across Business/Business-Tech/Technical/Agile/Lead/Practice roles"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/ba-practice-strategy-and-operating-model/PL-01-D2.md"
+    },
+    {
+      "id": "PL-01-M",
+      "name": "Master – BA Practice Strategy & Operating Model",
+      "type": "master",
+      "role": "Practice Lead",
+      "service": "BA Practice Strategy & Operating Model",
+      "deliverables": [
+        "Practice Strategy",
+        "Operating Model",
+        "Practice Roadmap"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice sponsor and IT/business leadership (endorsement); the practice (direction)",
+      "task": "Define the practice vision, operating model and roadmap: what role the BA practice plays in the organisation, how it engages with delivery, what services it offers, and the roadmap to get there. Produce on request",
+      "modes": [
+        "practice vision and strategy on a page (vision, priorities, measures, horizon)",
+        "operating model options and recommendation (engagement model with delivery, funding model, decision rights, span)",
+        "service catalogue positioning (which L3 services lead, grow, or hold)",
+        "practice roadmap (initiatives sequenced over [HORIZON], dependencies, quick wins first)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "WHAT'S CHANGING — org strategy, demand shifts, AI, funding",
+        "HOW THE PRACTICE OPERATES TODAY",
+        "HORIZON"
+      ],
+      "score": 19,
+      "path": "library/practice-lead/ba-practice-strategy-and-operating-model/PL-01-M.md"
+    },
+    {
+      "id": "PL-02-D1",
+      "name": "Playbook / Standard Draft",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Standards, Methods & Templates",
+      "deliverables": [
+        "BA Playbooks",
+        "Standards & Guidelines",
+        "Method Guidance"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice BAs at all levels; Lead BAs reviewing against it",
+      "task": "Draft the playbook chapter or standard so a mid-level BA can apply it unaided. Draft it. Every MUST that lacks a named failure gets demoted to SHOULD — show me which ones you demoted.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "TOPIC — e.g. requirements writing, process levelling (L1-L6 hierarchy), story slicing",
+        "PASTE FRAGMENTS/CURRENT PRACTICE",
+        "LIST REAL EXAMPLES"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/standards-methods-and-templates/PL-02-D1.md"
+    },
+    {
+      "id": "PL-02-D2",
+      "name": "Template with Embedded Quality Criteria",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Standards, Methods & Templates",
+      "deliverables": [
+        "Templates",
+        "Quality Frameworks"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "BAs completing it; reviewers judging against it",
+      "task": "Design the template: structure, per-section guidance, quality criteria, and a completed example. Draft the template. Mark sections optional-for-small-work explicitly — template bloat is the main adoption killer.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "ARTEFACT TYPE — e.g. business needs statement, options paper, interface spec",
+        "PASTE ONE OR TWO GOOD ONES IF AVAILABLE"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/standards-methods-and-templates/PL-02-D2.md"
+    },
+    {
+      "id": "PL-02-M",
+      "name": "Master – Standards, Methods & Templates",
+      "type": "master",
+      "role": "Practice Lead",
+      "service": "Standards, Methods & Templates",
+      "deliverables": [
+        "BA Playbooks",
+        "Templates & Standards",
+        "Method Guidance",
+        "Quality Frameworks"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice BAs (users), Lead BAs (enforcers), governance (assurance)",
+      "task": "Define and maintain BA standards, methods, templates and quality expectations: playbooks that BAs actually use, templates with embedded guidance, and method guidance matched to delivery contexts. Produce on request",
+      "modes": [
+        "playbook chapters (when this applies, method steps, artefact standards, worked example, common failures)",
+        "template designs (sections, per-section guidance, embedded quality criteria, example content)",
+        "standard definitions (mandatory vs recommended, justification each)",
+        "method guidance per delivery context",
+        "adoption plan (rollout, feedback loop, retirement of superseded material)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "WHAT EXISTS, WHAT'S MISSING, WHAT'S IGNORED",
+        "E.G. REQUIREMENTS STANDARD, PROCESS MAPPING STANDARD, AGILE ANALYSIS METHOD"
+      ],
+      "score": 19,
+      "path": "library/practice-lead/standards-methods-and-templates/PL-02-M.md"
+    },
+    {
+      "id": "PL-03-D1",
+      "name": "Competency Framework (Levels & Behaviours)",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Capability & Competency Management",
+      "deliverables": [
+        "Competency Frameworks",
+        "Career Pathways"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "All practice BAs and assessors; HR for role profiles",
+      "task": "Draft the competency framework: areas × levels with behavioural anchors that make assessment consistent. Draft the framework. Anchors must discriminate: if the same evidence could satisfy two adjacent levels, sharpen it — show me the cells you found hardest to separate.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "LIST",
+        "PROPOSE FROM THE L3 CATALOGUE OR LIST — e.g. elicitation, analysis & modelling, technical analysis, agile delivery, stakeholder management, strategic advisory, AI-augmented analysis",
+        "E.G. SFIA / IIBA OR 'NONE'"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/capability-and-competency-management/PL-03-D1.md"
+    },
+    {
+      "id": "PL-03-D2",
+      "name": "Practice Capability Assessment & Development Plan",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Capability & Competency Management",
+      "deliverables": [
+        "Capability Assessments",
+        "Training & Development Plans"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice leadership and sponsor; anonymised summary shareable with the practice",
+      "task": "Roll up individual assessments into a practice capability picture and plan the development that closes the gaps that matter. Draft heat map narrative and plan. Where assessment inputs look inflated (everyone expert), flag the calibration risk and how to fix it.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "PASTE OR REFERENCE",
+        "DE-IDENTIFIED SELF/LEAD ASSESSMENTS, WORK EVIDENCE",
+        "SKILLS THE PORTFOLIO WILL NEED"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/capability-and-competency-management/PL-03-D2.md"
+    },
+    {
+      "id": "PL-03-M",
+      "name": "Master – Capability & Competency Management",
+      "type": "master",
+      "role": "Practice Lead",
+      "service": "Capability & Competency Management",
+      "deliverables": [
+        "Competency Frameworks",
+        "Capability Assessments",
+        "Training & Development Plans",
+        "Career Pathways"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice BAs (their pathway), Lead BAs (assessment), HR/leadership (workforce planning)",
+      "task": "Define competency frameworks, assess capability and plan development across the practice: what each level requires, where the practice stands, career pathways, and the development plan that closes practice-wide gaps. Produce on request",
+      "modes": [
+        "competency framework (competency areas × levels, behavioural anchors per cell, including emerging AI-augmented analysis skills)",
+        "capability assessment approach and practice-wide roll-up (heat map by competency, de-identified)",
+        "career pathways (level to level: what must be demonstrated, typical routes)",
+        "training and development plan targeting the practice-wide gaps"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "E.G. ASSOCIATE / BA / SENIOR / LEAD / PRACTICE LEAD",
+        "WHY NOW — growth, attrition, capability gaps, AI shift"
+      ],
+      "score": 19,
+      "path": "library/practice-lead/capability-and-competency-management/PL-03-M.md"
+    },
+    {
+      "id": "PL-04-D1",
+      "name": "Demand & Supply Forecast",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Workforce & Resource Management",
+      "deliverables": [
+        "Demand Forecasts",
+        "Resourcing Plans"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice sponsor and finance; PMO for expectation-setting",
+      "task": "Forecast BA demand against supply and surface the gaps early enough to act. Build the forecast. Highlight the single most dangerous month and what must be decided now to survive it.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "PASTE INITIATIVES: STAGE, LIKELY BA NEED, TIMING",
+        "HEADCOUNT, LEVELS, DEPARTURES, CONTRACT END DATES",
+        "ESTIMATE — VALIDATE WITH SPONSOR"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/workforce-and-resource-management/PL-04-D1.md"
+    },
+    {
+      "id": "PL-04-D2",
+      "name": "Role Description & Onboarding Pack",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Workforce & Resource Management",
+      "deliverables": [
+        "Recruitment Packs",
+        "Onboarding Guides"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Candidates and recruiters (role description); the new starter and their buddy (onboarding)",
+      "task": "Draft the role description and the onboarding pack that gets the hire productive fast. Draft both. Cut any 'requirement' that's really a wish — inflated musts shrink the candidate pool for nothing.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "LEVEL AND FOCUS — e.g. Senior Technical BA",
+        "PASTE RELEVANT COLUMN OR 'STANDARD'",
+        "CONTEXT"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/workforce-and-resource-management/PL-04-D2.md"
+    },
+    {
+      "id": "PL-04-M",
+      "name": "Master – Workforce & Resource Management",
+      "type": "master",
+      "role": "Practice Lead",
+      "service": "Workforce & Resource Management",
+      "deliverables": [
+        "Demand Forecasts",
+        "Resourcing Plans",
+        "Recruitment & Onboarding Materials"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice sponsor and finance (investment), PMO (allocation), HR (recruitment)",
+      "task": "Manage BA demand, supply, recruitment and allocation across the portfolio: forecast demand, plan supply (hire/contract/develop), and prepare recruitment and onboarding materials. Produce on request",
+      "modes": [
+        "demand forecast (FTE by level by month under committed/likely/possible scenarios, assumptions listed)",
+        "supply plan (current trajectory vs demand, gap analysis, response per gap with lead times and cost feel)",
+        "role descriptions (level, competencies from the framework, organisational context)",
+        "onboarding guide structure (week-by-week ramp, practice standards to learn, buddy model)",
+        "allocation principles when demand exceeds supply"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "KNOWN/LIKELY INITIATIVES AND TIMING",
+        "HEADCOUNT BY LEVEL, PERM/CONTRACT MIX, KNOWN DEPARTURES"
+      ],
+      "score": 19,
+      "path": "library/practice-lead/workforce-and-resource-management/PL-04-M.md"
+    },
+    {
+      "id": "PL-05-D1",
+      "name": "Practice KPIs & Maturity Assessment",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Practice Performance & Continuous Improvement",
+      "deliverables": [
+        "Practice KPIs",
+        "Maturity Assessments",
+        "KPI Reports"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice leadership; sponsor for the performance conversation",
+      "task": "Define a small honest KPI set and run a maturity self-assessment the practice can repeat yearly. Draft both. Reject any KPI I can't actually source data for — offer the nearest measurable proxy instead.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "WHAT CAN BE MEASURED WITHOUT HEROICS",
+        "E.G. 5-LEVEL, OR 'PROPOSE'",
+        "TO BE MEASURED"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/practice-performance-and-continuous-improvement/PL-05-D1.md"
+    },
+    {
+      "id": "PL-05-D2",
+      "name": "Improvement Initiative Charter",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Practice Performance & Continuous Improvement",
+      "deliverables": [
+        "Improvement Initiatives",
+        "Benefits Tracking"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Initiative owner and practice leadership",
+      "task": "Charter the improvement initiative tightly enough that in three months we'll know if it worked. Draft the charter. If the problem evidence is anecdote-only, add a 'first, baseline it' step before the change.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "DESCRIBE WITH EVIDENCE — metric, complaint theme, incident",
+        "WHO CAN WORK ON IT, HOW MUCH TIME"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/practice-performance-and-continuous-improvement/PL-05-D2.md"
+    },
+    {
+      "id": "PL-05-M",
+      "name": "Master – Practice Performance & Continuous Improvement",
+      "type": "master",
+      "role": "Practice Lead",
+      "service": "Practice Performance & Continuous Improvement",
+      "deliverables": [
+        "Practice KPIs",
+        "Maturity Assessments",
+        "Improvement Initiatives"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice sponsor (performance story), the practice (improvement ownership)",
+      "task": "Measure practice performance and maturity, and drive continuous improvement: KPIs that reflect value (not activity), maturity assessment, and improvement initiatives with tracked benefits. Produce on request",
+      "modes": [
+        "practice KPI set (KPI, why it matters to delivery partners, formula, source, target [PROPOSED — VALIDATE], gaming risk)",
+        "maturity assessment (dimension, level with evidence, next-level behaviours)",
+        "improvement initiative charters (problem, hypothesis, approach, benefit measure, review date)",
+        "quarterly performance narrative from my raw data"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "CURRENT METRICS OR 'NOTHING FORMAL'",
+        "WHAT DELIVERY PARTNERS SAY ABOUT THE PRACTICE"
+      ],
+      "score": 19,
+      "path": "library/practice-lead/practice-performance-and-continuous-improvement/PL-05-M.md"
+    },
+    {
+      "id": "PL-06-D1",
+      "name": "CoP Session Plan & Topic Backlog",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Community of Practice & Knowledge Management",
+      "deliverables": [
+        "Community of Practice Sessions"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice BAs; session hosts",
+      "task": "Plan the next quarter of CoP sessions people choose to attend, plus the prioritised topic backlog. Draft plan and backlog. Every session must produce a takeaway artefact for the knowledge base — no takeaway, redesign the session.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "ATTENDANCE HISTORY, WHAT LANDED WELL",
+        "LIST OR 'MINE FROM RECENT DELIVERY PAIN'"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/community-of-practice-and-knowledge-management/PL-06-D1.md"
+    },
+    {
+      "id": "PL-06-D2",
+      "name": "Knowledge Base Structure & Contribution Guidelines",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Community of Practice & Knowledge Management",
+      "deliverables": [
+        "Knowledge Base",
+        "Lessons Learned Register"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "All practice BAs (contributors and searchers); curators",
+      "task": "Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a 'deprecation' rule — stale trusted content is worse than no content.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "WHERE THINGS LIVE, WHAT'S FINDABLE, WHAT'S DUPLICATED",
+        "E.G. CONFLUENCE",
+        "WHEN DO BAs GO LOOKING — LIST OR 'PROPOSE'"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/community-of-practice-and-knowledge-management/PL-06-D2.md"
+    },
+    {
+      "id": "PL-06-M",
+      "name": "Master – Community of Practice & Knowledge Management",
+      "type": "master",
+      "role": "Practice Lead",
+      "service": "Community of Practice & Knowledge Management",
+      "deliverables": [
+        "Community of Practice Sessions",
+        "Knowledge Base",
+        "Lessons Learned Register"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice BAs (the community), Practice Lead (curation)",
+      "task": "Foster the BA community, knowledge sharing and reuse of practice assets: community sessions people attend by choice, a knowledge base people actually search first, and lessons that change behaviour rather than filling a register. Produce on request",
+      "modes": [
+        "CoP session plans (topic, format — case clinic, artefact teardown, lightning talks; prep; the takeaway artefact)",
+        "topic backlog from my pain points, prioritised by reuse value",
+        "knowledge base structure (organised by delivery context and L3 service, with contribution guidelines and quality bar for reusable assets)",
+        "lessons-learned entries rewritten from my raw material into next-time guidance, tagged for retrieval"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "ACTIVE / SPUTTERING / NONE",
+        "WHERE ARTEFACTS AND LESSONS LIVE TODAY, e.g. Confluence spaces",
+        "WHAT KNOWLEDGE KEEPS GETTING LOST OR RE-CREATED"
+      ],
+      "score": 19,
+      "path": "library/practice-lead/community-of-practice-and-knowledge-management/PL-06-M.md"
+    },
+    {
+      "id": "PL-07-D1",
+      "name": "Tool / AI Capability Evaluation",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Tooling & AI Enablement",
+      "deliverables": [
+        "Tool Evaluations",
+        "Recommendations"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice sponsor and IT/security; the BAs who trialled it",
+      "task": "Evaluate the candidate against real BA use cases and recommend adopt / trial / decline with evidence. Draft the evaluation (design before trial, findings after). Weight validation effort honestly — a tool that generates fast but validates slow may net negative.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "NAME AND WHAT IT CLAIMS",
+        "LIST FROM THE CATALOGUE — e.g. meeting-notes-to-requirements, process map generation",
+        "SECURITY POSTURE, DATA RULES, BUDGET",
+        "VERIFY WITH VENDOR DOCUMENTATION"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/tooling-and-ai-enablement/PL-07-D1.md"
+    },
+    {
+      "id": "PL-07-D2",
+      "name": "AI Adoption Guidelines & Guardrails (Practice)",
+      "type": "deliverable",
+      "role": "Practice Lead",
+      "service": "Tooling & AI Enablement",
+      "deliverables": [
+        "Tooling Standards",
+        "AI Adoption Guidelines & Guardrails"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "All practice BAs; endorsed by security/privacy and the sponsor",
+      "task": "Draft the practice's AI adoption guidelines: what BAs may use AI for, what they must never do, and the validation discipline that makes outputs trustworthy. Draft the guidelines. Where my organisational policy is stricter than these defaults, follow the policy and note it; where it is silent, mark the gap for the policy owner.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "LIST",
+        "PASTE OR REFERENCE",
+        "ANY"
+      ],
+      "score": 20,
+      "path": "library/practice-lead/tooling-and-ai-enablement/PL-07-D2.md"
+    },
+    {
+      "id": "PL-07-M",
+      "name": "Master – Tooling & AI Enablement",
+      "type": "master",
+      "role": "Practice Lead",
+      "service": "Tooling & AI Enablement",
+      "deliverables": [
+        "Tool Evaluations",
+        "Tooling Standards",
+        "AI Adoption Guidelines & Guardrails"
+      ],
+      "delivery_contexts": [
+        "11. Leadership"
+      ],
+      "audience": "Practice BAs (guidelines), IT/security (alignment), sponsor (investment)",
+      "task": "Evaluate and embed analysis tooling and AI-enabled ways of working across the practice: tool evaluations, tooling standards, and AI adoption guidelines with guardrails that keep use safe and consistent — including the practice prompt library and G.E.T. validation discipline. Produce on request",
+      "modes": [
+        "tool/AI capability evaluation (use cases served, evaluation criteria, trial design, cost model, recommendation)",
+        "tooling standards (which tool for which job, data rules per tool)",
+        "AI adoption guidelines (approved uses by task type, prohibited uses, data rules — de-identified inputs only, validation duty via Generate→Explain→Test, prompt library usage, quality scorecard for new prompts)",
+        "adoption plan with capability building (training, champions, office hours) and success measures"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE",
+        "CURRENT TOOLS — e.g. Jira, Confluence, Copilot, modelling tools",
+        "WHAT'S APPROVED, WHAT'S BEING PILOTED",
+        "PRODUCTIVITY TARGETS, RISK CONCERNS"
+      ],
+      "score": 19,
+      "path": "library/practice-lead/tooling-and-ai-enablement/PL-07-M.md"
+    },
+    {
+      "id": "TB-01-D1",
+      "name": "Environment & Access Requirements Matrix",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Environment Access & DevOps Enablement",
+      "deliverables": [
+        "Environment requirements",
+        "access requirements"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "Platform engineers and security reviewers",
+      "task": "Define the environment set and the role-based access matrix with approval and audit requirements. Draft both tables. Flag risky patterns explicitly (shared accounts, vendor admin access, prod data in test).",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "LIST OR 'PROPOSE STANDARD SET'",
+        "LIST — INCLUDE VENDORS/CONTRACTORS",
+        "WHAT DATA APPEARS IN WHICH ENVIRONMENT"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/environment-access-and-devops-enablement/TB-01-D1.md"
+    },
+    {
+      "id": "TB-01-D2",
+      "name": "Release Process & CI/CD Pipeline Requirements",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Environment Access & DevOps Enablement",
+      "deliverables": [
+        "Release process definitions",
+        "pipeline requirements"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "DevOps engineers (implementation) and change governance (approval)",
+      "task": "Define release governance and CI/CD pipeline requirements that balance delivery speed with public-sector change control. Draft both. Note where a requirement trades speed against control and offer the option.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "E.G. FORTNIGHTLY / ON-DEMAND",
+        "CAB, CHANGE WINDOWS, SEGREGATION RULES",
+        "E.G. AZURE DEVOPS, GITHUB — OR 'TBD'"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/environment-access-and-devops-enablement/TB-01-D2.md"
+    },
+    {
+      "id": "TB-01-M",
+      "name": "Master – Environment Access & DevOps Enablement",
+      "type": "master",
+      "role": "Technical BA",
+      "service": "Environment Access & DevOps Enablement",
+      "deliverables": [
+        "Environment requirements",
+        "deployment requirements",
+        "access requirements",
+        "release process definitions",
+        "pipeline requirements"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "Platform/DevOps engineers (build), security (approval), delivery teams (consumers)",
+      "task": "Define the requirements for environments, access, deployment and release processes and CI/CD enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. Produce on request",
+      "modes": [
+        "environment requirements (environment, purpose, users, data class allowed — e.g. masked only outside prod, prod-likeness, availability window)",
+        "access matrix (role vs environment vs permission level, with approval workflow and audit needs)",
+        "deployment and runtime topology requirements",
+        "release process definition (stages, entry/exit criteria, approvals, rollback expectations)",
+        "CI/CD pipeline requirements (build, test gates, security scanning, deployment automation)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "DEV, TEST, VENDOR, SUPPORT",
+        "DESCRIBE OR 'UNKNOWN'",
+        "CHANGE FREEZE WINDOWS, CAB REQUIREMENTS"
+      ],
+      "score": 19,
+      "path": "library/technical-ba/environment-access-and-devops-enablement/TB-01-M.md"
+    },
+    {
+      "id": "TB-02-D1",
+      "name": "Interface Specification",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Integration, Data & Migration",
+      "deliverables": [
+        "Interface specifications",
+        "integration mappings"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "5. IT System – New / Transition",
+        "9. Data – Warehouse"
+      ],
+      "audience": "Integration designers and developers; reviewed by data owners",
+      "task": "Draft a complete interface specification for designer/developer consumption. Draft the specification. Mark unknowns '[TBC — OWNER]' rather than inventing values, and list the questions that close them.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SOURCE SYSTEM",
+        "TARGET SYSTEM",
+        "WHY DATA MOVES",
+        "TRIGGER, FREQUENCY, VOLUMES IF KNOWN",
+        "TBC — OWNER"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/integration-data-and-migration/TB-02-D1.md"
+    },
+    {
+      "id": "TB-02-D2",
+      "name": "Migration Approach & Reconciliation Requirements",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Integration, Data & Migration",
+      "deliverables": [
+        "Migration requirements",
+        "data reconciliation requirements"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "5. IT System – New / Transition",
+        "9. Data – Warehouse"
+      ],
+      "audience": "Migration lead and data engineers; business owners signing off data completeness",
+      "task": "Define migration scope, approach considerations and the reconciliation requirements that prove the migration succeeded. Draft all sections. Call out the riskiest entities (quality, volume, transformation complexity) and why.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SOURCE",
+        "TARGET",
+        "ENTITIES, VOLUMES, HISTORY DEPTH NEEDED",
+        "CUTOVER WINDOW, COEXISTENCE, REGULATORY RETENTION"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/integration-data-and-migration/TB-02-D2.md"
+    },
+    {
+      "id": "TB-02-M",
+      "name": "Master – Integration, Data & Migration",
+      "type": "master",
+      "role": "Technical BA",
+      "service": "Integration, Data & Migration",
+      "deliverables": [
+        "Interface specifications",
+        "integration mappings",
+        "migration requirements",
+        "transformation rules",
+        "data reconciliation requirements"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "5. IT System – New / Transition",
+        "9. Data – Warehouse"
+      ],
+      "audience": "Integration designers, data engineers and migration teams; business data owners for validation",
+      "task": "Define system integration, data movement and migration requirements: how data moves between systems, what transforms it needs, and how a migration is scoped, sequenced, validated and reconciled. Produce on request",
+      "modes": [
+        "interface catalogue and specifications (interface, systems, direction, trigger, frequency/latency expectation, volumes, data payload, error handling, ownership)",
+        "source-to-target mapping with transformation rules",
+        "migration requirements (scope catalogue, migrate/archive/retire decisions, sequencing and dependencies, cutover tolerance, volume/throughput expectations)",
+        "reconciliation and validation requirements (counts, balances, sampling, acceptance thresholds)",
+        "the business-level answers to design questions (sync vs async, big bang vs phased, where transformation sits) as an options analysis"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "SOURCE AND TARGET SYSTEMS",
+        "DESCRIBE",
+        "PERSONAL/HEALTH DATA FLAGS",
+        "CUTOVER WINDOWS, COEXISTENCE NEEDS"
+      ],
+      "score": 19,
+      "path": "library/technical-ba/integration-data-and-migration/TB-02-M.md"
+    },
+    {
+      "id": "TB-03-D1",
+      "name": "Monitoring, Logging & Alerting Requirements",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Operational Engineering & Observability",
+      "deliverables": [
+        "Monitoring requirements",
+        "alerting requirements",
+        "logging requirements"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "Operations engineers implementing; service management defining response",
+      "task": "Define what must be monitored, logged and alerted, grounded in business impact. Draft the tables. Flag over-alerting risks and any log content that would breach privacy expectations.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "NOTES",
+        "E.G. SPLUNK"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/operational-engineering-and-observability/TB-03-D1.md"
+    },
+    {
+      "id": "TB-03-D2",
+      "name": "Availability, DR & Performance Requirements",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Operational Engineering & Observability",
+      "deliverables": [
+        "Availability requirements",
+        "DR/backup expectations",
+        "performance and scalability requirements"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "Platform/infrastructure teams (design), business owners (target sign-off)",
+      "task": "Define availability, disaster recovery, backup and performance requirements with business justification. Ask me the impact-of-outage questions you need, then draft. Show the cost-vs-availability trade-off where targets look expensive.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "LIST WITH CRITICALITY",
+        "USERS, PEAKS, SEASONALITY",
+        "PASTE OR 'NONE'"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/operational-engineering-and-observability/TB-03-D2.md"
+    },
+    {
+      "id": "TB-03-M",
+      "name": "Master – Operational Engineering & Observability",
+      "type": "master",
+      "role": "Technical BA",
+      "service": "Operational Engineering & Observability",
+      "deliverables": [
+        "Monitoring requirements",
+        "alerting requirements",
+        "event management",
+        "logging requirements",
+        "support models",
+        "operational dashboards"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "Operations engineers, platform teams, service management; business owners validating targets",
+      "task": "Define monitoring, logging, alerting and operational support requirements: what needs watching, what events matter, availability and resilience needs, DR/backup expectations, and performance/scalability requirements. Produce on request",
+      "modes": [
+        "monitoring requirements (what to monitor, why it matters to the business, threshold, alert severity, response expectation)",
+        "logging and audit requirements (event, data captured, retention, privacy constraints on logged personal data)",
+        "availability and resilience requirements (uptime targets by business period, failure scenarios and tolerance)",
+        "DR and backup requirements (RTO/RPO per business function with justification, recovery scenarios)",
+        "performance and scalability requirements (load, peaks — e.g. seasonal volume spikes — growth, response-time targets)",
+        "operational dashboard definitions"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "WHAT BREAKS FOR WHOM WHEN THIS FAILS",
+        "E.G. SPLUNK, SERVICENOW — OR 'TBD'",
+        "PASTE OR 'TO BE DEFINED'"
+      ],
+      "score": 19,
+      "path": "library/technical-ba/operational-engineering-and-observability/TB-03-M.md"
+    },
+    {
+      "id": "TB-04-D1",
+      "name": "Hosting Model & Data Residency Analysis",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Platform Design & Infrastructure",
+      "deliverables": [
+        "Hosting & deployment model definitions",
+        "data residency compliance inputs"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "Architects (decision), privacy and security (residency confirmation)",
+      "task": "Analyse hosting options (full cloud / hybrid / on-prem) and establish the data residency position. Draft the analysis. Every residency claim about a vendor/cloud service is marked '[VERIFY WITH VENDOR DOCUMENTATION]'.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "CLASSIFICATIONS INCL. PERSONAL/HEALTH",
+        "ON-PREM SYSTEMS, SaaS, PARTNERS",
+        "LIST OR 'NONE KNOWN'",
+        "VERIFY WITH VENDOR DOCUMENTATION"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/platform-design-and-infrastructure/TB-04-D1.md"
+    },
+    {
+      "id": "TB-04-D2",
+      "name": "Licensing & Consumption Model",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Platform Design & Infrastructure",
+      "deliverables": [
+        "Licensing & consumption model definitions",
+        "cost forecast structure"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "Finance and procurement (forecasting), architects (design-to-cost)",
+      "task": "Model how licensing and consumption costs scale with usage so commercial decisions and forecasts are grounded. Draft the model. Never invent dollar figures; build the structure and flag every input finance must supply.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "LIST WITH LICENSING BASIS IF KNOWN — PER USER, PER CORE, CONSUMPTION",
+        "USERS, TRANSACTIONS, STORAGE, GROWTH",
+        "TERM, COMMITTED SPEND, TRUE-UP RULES",
+        "UNIT PRICE"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/platform-design-and-infrastructure/TB-04-D2.md"
+    },
+    {
+      "id": "TB-04-M",
+      "name": "Master – Platform Design & Infrastructure Analysis",
+      "type": "master",
+      "role": "Technical BA",
+      "service": "Platform Design & Infrastructure",
+      "deliverables": [
+        "Platform architecture inputs",
+        "environment topology definitions",
+        "hosting & deployment model definitions",
+        "compute & workload placement",
+        "network topology & connectivity specifications",
+        "licensing & consumption model definitions"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)"
+      ],
+      "audience": "Platform architects and infrastructure engineers (decisions), finance (consumption models), governance (residency and compliance)",
+      "task": "Provide the analysis that platform design decisions need: hosting model, environment strategy, compute and workload placement, network topology and connectivity, licensing and consumption modelling, and solution dependencies. Produce on request",
+      "modes": [
+        "hosting model analysis (cloud/on-prem/hybrid options against data sensitivity, dependencies, latency, residency, continuity)",
+        "environment strategy (environments needed, prod-likeness, data per environment, footprint vs cost)",
+        "compute and workload placement inputs (volumes, concurrency, processing types, variability → placement considerations)",
+        "network topology and connectivity requirements (communication paths, internal/external access, partner connectivity, security boundary expectations)",
+        "licensing and consumption model (drivers, scaling scenarios, cost forecast structure)",
+        "dependency register with contract/vendor constraints"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "TRANSACTION VOLUMES, CONCURRENCY, PROCESSING TYPES, VARIABILITY",
+        "OTHER — EXISTING CLOUD AGREEMENTS, ON-PREM DEPENDENCIES, BUDGET"
+      ],
+      "score": 19,
+      "path": "library/technical-ba/platform-design-and-infrastructure/TB-04-M.md"
+    },
+    {
+      "id": "TB-05-D1",
+      "name": "Security Requirements & RBAC Matrix",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Security, Privacy & Compliance",
+      "deliverables": [
+        "Security requirements",
+        "RBAC/IAM inputs"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "10. AI – Agentic"
+      ],
+      "audience": "Security architects (review), engineers (build), business owners (role sign-off)",
+      "task": "Draft the security requirements and role-based access matrix for the solution. Draft requirements and matrix. Flag every place where my function list was too coarse to set permissions safely.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE — INTERNAL, AGENTS, EXTERNAL USERS",
+        "LIST KEY FUNCTIONS",
+        "E.G. ENTRA ID SSO, MFA POLICY — OR 'TBD'"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/security-privacy-and-compliance/TB-05-D1.md"
+    },
+    {
+      "id": "TB-05-D2",
+      "name": "Privacy Impact Assessment (PIA) Input Pack",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Security, Privacy & Compliance",
+      "deliverables": [
+        "Privacy assessments",
+        "information classification assessments"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "10. AI – Agentic"
+      ],
+      "audience": "Privacy officer (assessment), project (remediation planning)",
+      "task": "Assemble the structured inputs a privacy officer needs to complete a PIA efficiently. Draft the pack. List the questions only the privacy officer or legal can answer, separately from factual gaps I can close.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE WHAT PERSONAL/HEALTH INFORMATION IS COLLECTED, USED, STORED, DISCLOSED",
+        "PASTE OR 'NONE'"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/security-privacy-and-compliance/TB-05-D2.md"
+    },
+    {
+      "id": "TB-05-M",
+      "name": "Master – Security, Privacy & Compliance Analysis",
+      "type": "master",
+      "role": "Technical BA",
+      "service": "Security, Privacy & Compliance",
+      "deliverables": [
+        "Security requirements",
+        "privacy assessments",
+        "compliance controls",
+        "information classification assessments",
+        "audit evidence"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "10. AI – Agentic"
+      ],
+      "audience": "Security architects, privacy officer, compliance and audit; delivery team implementing controls",
+      "task": "Ensure the solution meets security, privacy and regulatory obligations: security requirements, access management and RBAC, identity and trust, data sovereignty, privacy assessment inputs and compliance controls with audit evidence. Produce on request",
+      "modes": [
+        "information classification assessment (data element, classification, handling requirements)",
+        "security requirements (authentication incl. SSO/MFA needs, authorisation, encryption at rest/in transit, logging/audit, vulnerability management)",
+        "RBAC matrix (role vs function vs permission with least-privilege and segregation-of-duties checks)",
+        "privacy assessment inputs (data flows, purposes, consent basis, retention, disclosure, cross-border touchpoints) structured for a PIA",
+        "compliance controls mapping (obligation → control → evidence) for audit"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE, INCLUDING DATA TOUCHED AND USER POPULATIONS",
+        "OTHERS",
+        "KNOWN CONCERNS"
+      ],
+      "score": 19,
+      "path": "library/technical-ba/security-privacy-and-compliance/TB-05-M.md"
+    },
+    {
+      "id": "TB-06-D1",
+      "name": "Support Model & SLA/OLA Definitions",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Service & Operational Readiness",
+      "deliverables": [
+        "Service models",
+        "SLA and OLA definitions"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "10. AI – Agentic"
+      ],
+      "audience": "Service management (ownership), vendors (agreement), business (expectations)",
+      "task": "Define the L1-L3 support model and the SLA/OLA set for the service. Draft the model and tables. Mark targets '[PROPOSED — VALIDATE]' and flag SLA/OLA mismatches.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "LIST WITH CURRENT RESPONSIBILITIES",
+        "WHEN MUST IT WORK, IMPACT OF OUTAGE"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/service-and-operational-readiness/TB-06-D1.md"
+    },
+    {
+      "id": "TB-06-D2",
+      "name": "Operational Readiness Checklist & Handover Pack",
+      "type": "deliverable",
+      "role": "Technical BA",
+      "service": "Service & Operational Readiness",
+      "deliverables": [
+        "Support readiness checklists",
+        "handover pack",
+        "support procedures"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "10. AI – Agentic"
+      ],
+      "audience": "Service transition approver (gate), support teams (receivers)",
+      "task": "Produce the readiness checklist gating service transition and define the handover pack contents. Draft checklist and pack definition. Rank the items by 'pain if missing at 2am during a Sev-1' and say why.",
+      "modes": [],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE",
+        "LIST",
+        "DATE"
+      ],
+      "score": 20,
+      "path": "library/technical-ba/service-and-operational-readiness/TB-06-D2.md"
+    },
+    {
+      "id": "TB-06-M",
+      "name": "Master – Service & Operational Readiness",
+      "type": "master",
+      "role": "Technical BA",
+      "service": "Service & Operational Readiness",
+      "deliverables": [
+        "Support procedures",
+        "service transition assessments",
+        "support readiness checklists",
+        "service models"
+      ],
+      "delivery_contexts": [
+        "1. Tech Services (back-end ICT)",
+        "10. AI – Agentic"
+      ],
+      "audience": "Service management, support teams, vendors and the service transition approver",
+      "task": "Ensure the system, network and platform have an operational support model and are ready for production: support models, SLAs/OLAs, incident and event management, vendor responsibilities, environment governance and handover. Produce on request",
+      "modes": [
+        "support model (L1-L3 responsibilities, escalation paths, hours, incident vs request flows, ITSM tool integration needs)",
+        "SLA and OLA definitions (service, measure, target, measurement method, reporting)",
+        "vendor responsibility RACI with escalation and contract reference points",
+        "service transition assessment (criteria, evidence, gaps, risk rating)",
+        "support readiness checklist and handover pack contents (procedures, known errors, FAQs, training)"
+      ],
+      "inputs": [
+        "PROJECT NAME AND ONE-LINE DESCRIPTION",
+        "DESCRIBE SYSTEM/PLATFORM",
+        "INTERNAL TEAMS, VENDORS, SERVICE DESK TOOL e.g. ServiceNow",
+        "DATE",
+        "SUPPORT SCOPE IF KNOWN"
+      ],
+      "score": 19,
+      "path": "library/technical-ba/service-and-operational-readiness/TB-06-M.md"
+    }
+  ]
+}

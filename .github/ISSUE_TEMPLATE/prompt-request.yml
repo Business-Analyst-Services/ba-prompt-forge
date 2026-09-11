@@ -1,0 +1,59 @@
+name: Request a prompt
+description: A BA job the library does not cover yet
+title: "[prompt] "
+labels: ["prompt-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before opening this, search `catalogue.json` or [INDEX.md](../blob/main/INDEX.md) -
+        42 BA services are already covered and the name may not be what you expect.
+
+        Seven known gaps are already recorded in
+        [`contexts/delivery-contexts.yml`](../blob/main/contexts/delivery-contexts.yml).
+        If yours is one of them, say so and we will prioritise it.
+
+  - type: textarea
+    id: work
+    attributes:
+      label: What are you trying to produce?
+      description: The artefact that has to exist at the end, and who reads it.
+      placeholder: "An AI assurance section for an RFT, read by the evaluation panel and procurement."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Which role is doing this work?
+      options:
+        - Business BA
+        - Business/Tech BA
+        - Technical BA
+        - Agile BA
+        - Lead BA
+        - Practice Lead
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: closest
+    attributes:
+      label: Closest existing prompt
+      description: The nearest ID you found, and why it does not fit.
+      placeholder: "BT-03-M - covers vendor management but nothing on AI assurance criteria"
+
+  - type: textarea
+    id: shape
+    attributes:
+      label: What should the output look like?
+      description: Sections, table columns, counts - whatever a reviewer could tick off.
+
+  - type: checkboxes
+    id: offer
+    attributes:
+      label: Would you write it?
+      options:
+        - label: I would draft this prompt myself if pointed at the process
+        - label: I would test a draft someone else writes

@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+.idea/
+.vscode/
+
+# Machine-generated prompt drafts - see proposals/README.md
+proposals/*
+!proposals/README.md

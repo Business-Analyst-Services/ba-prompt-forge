@@ -1,0 +1,109 @@
+# The scoring rubric. tools/lint.py decides the criteria marked
+# machine_decidable; skills/ba-prompt-scorer judges the rest.
+
+rubric:
+  id: care-get-v1
+  name: BA Prompt Quality Scorecard (CARE + G.E.T.)
+  version: '1.0'
+  max_score: 20
+  scale:
+    0: absent
+    1: partial
+    2: met
+  criteria:
+  - key: c1_context
+    number: 1
+    group: CARE structure
+    name: Context
+    good: States who you are (role + organisation) and who the audience for the output is.
+    anchors: 0 = neither; 1 = role or audience only; 2 = both, plus relevant constraints (e.g. privacy,
+      residency).
+    machine_decidable: false
+  - key: c2_action
+    number: 2
+    group: CARE structure
+    name: Action
+    good: One clear task with a strong verb; inputs the AI will receive are identified.
+    anchors: 0 = vague ('help me with...'); 1 = clear task but inputs/scope unclear; 2 = clear task,
+      named inputs, explicit scope.
+    machine_decidable: false
+  - key: c3_result
+    number: 3
+    group: CARE structure
+    name: Result / Format
+    good: Output structure is specific enough that you could check compliance (sections, table columns,
+      length).
+    anchors: 0 = no format; 1 = loose ('a summary', 'a table'); 2 = exact structure a reviewer could
+      tick off.
+    machine_decidable: false
+  - key: c4_example
+    number: 4
+    group: CARE structure
+    name: Example
+    good: Gives a concrete reference point — a sample row, snippet, or 'in the style of' anchor.
+    anchors: 0 = none; 1 = abstract description of an example; 2 = a real, concrete sample the AI
+      can imitate.
+    machine_decidable: true
+  - key: c5_explain
+    number: 5
+    group: BA validation (G.E.T.)
+    name: Explain step
+    good: Asks the AI to break down the logic used to synthesise the answer.
+    anchors: 0 = absent; 1 = generic 'explain yourself'; 2 = explicit step-by-step reasoning tied
+      to the inputs.
+    machine_decidable: true
+  - key: c6_test
+    number: 6
+    group: BA validation (G.E.T.)
+    name: Test step
+    good: Asks for source references, cross-referencing of facts, and a list of assumptions made.
+    anchors: 0 = absent; 1 = sources or assumptions, not both; 2 = sources + cross-reference + assumptions.
+    machine_decidable: true
+  - key: c7_anti_fabrication
+    number: 7
+    group: BA validation (G.E.T.)
+    name: Anti-fabrication
+    good: Forbids invented facts/figures; unknowns must be flagged (e.g. [TBC], [PROPOSED — VALIDATE]).
+    anchors: 0 = silent; 1 = implied; 2 = explicit prohibition + a flagging convention.
+    machine_decidable: true
+  - key: c8_data_safety
+    number: 8
+    group: Safety & reuse
+    name: Data safety
+    good: Does not require sensitive data; tells the user to de-identify inputs where relevant.
+    anchors: 0 = invites pasting sensitive data; 1 = silent; 2 = explicit de-identification guidance.
+    machine_decidable: true
+  - key: c9_reusability
+    number: 9
+    group: Safety & reuse
+    name: Reusability
+    good: Placeholders are [MARKED]; the prompt works beyond one project or person.
+    anchors: 0 = hard-wired to one case; 1 = partly generic; 2 = fully parameterised with marked
+      placeholders.
+    machine_decidable: true
+  - key: c10_right_sized
+    number: 10
+    group: Safety & reuse
+    name: Right-sized
+    good: Every sentence changes the output; nothing is decoration ('would deleting this line change
+      anything?').
+    anchors: 0 = padded or rambling; 1 = some dead weight; 2 = every element earns its place (long
+      is fine if load-bearing).
+    machine_decidable: false
+  bands:
+  - min: 17
+    max: 20
+    verdict: Library-ready
+    action: Publish to the shared library with version and date.
+  - min: 12
+    max: 16
+    verdict: Usable - refine first
+    action: Works for personal use; fix the 0-score criteria before sharing.
+  - min: 0
+    max: 11
+    verdict: Rework
+    action: Re-draft against CARE before using - outputs will be unreliable.
+  caveat: 'A prompt written against this rubric will score well against this rubric. A high score
+    means well-formed, not effective. Stronger evidence: a dry run on real de-identified work, the
+    same prompt run twice for consistency, and handing the output to someone who was not in the room.
+    Log those in field-reports/.'

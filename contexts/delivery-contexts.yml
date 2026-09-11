@@ -1,0 +1,406 @@
+# The 11 delivery contexts: start here if you know your project type but not
+# which prompt you need. Generated from the source workbook.
+
+contexts:
+- id: 1
+  name: Tech Services (back-end ICT)
+  status: Approved
+  when: 'Back-end, non-business-facing ICT projects: platform, integration, observability, security,
+    environments, service readiness.'
+  services:
+  - Environment Access & DevOps Enablement
+  - Integration, Data & Migration
+  - Operational Engineering & Observability
+  - Platform Design & Infrastructure
+  - Security, Privacy & Compliance
+  - Service & Operational Readiness
+  start_with:
+  - TB-01-M
+  - TB-01-D1
+  - TB-01-D2
+  - TB-02-M
+  - TB-02-D1
+  - TB-02-D2
+  - TB-03-M
+  - TB-03-D1
+  - TB-03-D2
+  - TB-04-M
+  - TB-04-D1
+  - TB-04-D2
+  - TB-05-M
+  - TB-05-D1
+  - TB-05-D2
+  - TB-06-M
+  - TB-06-D1
+  - TB-06-D2
+  gaps: []
+- id: 2
+  name: Procurement – Enablement
+  status: Approved
+  when: 'Procuring a new system or services contract: RFI/RFT lifecycle, evaluation, vendor selection.'
+  services:
+  - Commercial, Licencing & Vendor Mgmt
+  - Business Project Discovery & Problem Definition
+  - Business Needs Assessments (Initial and High Level Requirements)
+  - Process Analysis & Improvement
+  - Functional Requirements Analysis & Refinement
+  - Solution Analysis & Design Support
+  - Stakeholder Analysis & Engagement
+  - Requirements Governance & Traceability
+  - Sizing, Estimation, Dependency and Prioritisation Management
+  - Operational Readiness & Transition
+  - Benefits Realisation & KPI Management
+  - Testing & Requirements Validation Support
+  start_with:
+  - BT-03-M
+  - BT-03-D1
+  - BT-03-D2
+  - BB-03-M
+  - BB-03-D1
+  - BB-03-D2
+  - BB-02-M
+  - BB-02-D1
+  - BB-02-D2
+  - BB-07-M
+  - BB-07-D1
+  - BB-07-D2
+  - BB-06-M
+  - BB-06-D1
+  - BB-06-D2
+  - BT-07-M
+  - BT-07-D1
+  - BT-07-D2
+  - BT-08-M
+  - BT-08-D1
+  - BT-08-D2
+  - BT-05-M
+  - BT-05-D1
+  - BT-05-D2
+  - BT-06-M
+  - BT-06-D1
+  - BT-06-D2
+  - BT-04-M
+  - BT-04-D1
+  - BT-04-D2
+  - BB-01-M
+  - BB-01-D1
+  - BB-01-D2
+  - BT-09-M
+  - BT-09-D1
+  - BT-09-D2
+  gaps:
+  - procuring AI products/services (AI assurance criteria in RFT) not yet decomposed
+- id: 3
+  name: IT System – Update
+  status: Approved
+  when: Updating functions, features or reports in an existing business-facing system.
+  services:
+  - Defect & Work-around Analysis
+  - Business Needs Assessments (Initial and High Level Requirements)
+  - Functional Requirements Analysis & Refinement
+  - Process Analysis & Improvement
+  - Sizing, Estimation, Dependency and Prioritisation Management
+  - Testing & Requirements Validation Support
+  - Operational Readiness & Transition
+  - Requirements Governance & Traceability
+  start_with:
+  - BB-05-M
+  - BB-05-D1
+  - BB-05-D2
+  - BB-02-M
+  - BB-02-D1
+  - BB-02-D2
+  - BB-06-M
+  - BB-06-D1
+  - BB-06-D2
+  - BB-07-M
+  - BB-07-D1
+  - BB-07-D2
+  - BT-06-M
+  - BT-06-D1
+  - BT-06-D2
+  - BT-09-M
+  - BT-09-D1
+  - BT-09-D2
+  - BT-04-M
+  - BT-04-D1
+  - BT-04-D2
+  - BT-05-M
+  - BT-05-D1
+  - BT-05-D2
+  gaps:
+  - stakeholder engagement for system updates not yet decomposed
+- id: 4
+  name: IT System – Agile
+  status: Approved
+  when: Business-facing technology delivery on an agile cadence.
+  services:
+  - Backlog Management (Agile)
+  - Agile Ceremony Facilitation & Support
+  - User Story Mapping & Slicing
+  - Just-in-Time Requirements Elaboration
+  - Iteration & Release Planning Support
+  - Agile Metrics & Flow Analysis
+  - Agile Ways of Working Uplift
+  start_with:
+  - BT-02-M
+  - BT-02-D1
+  - BT-02-D2
+  - AB-01-M
+  - AB-01-D1
+  - AB-01-D2
+  - AB-02-M
+  - AB-02-D1
+  - AB-02-D2
+  - AB-03-M
+  - AB-03-D1
+  - AB-03-D2
+  - AB-04-M
+  - AB-04-D1
+  - AB-04-D2
+  - AB-05-M
+  - AB-05-D1
+  - AB-05-D2
+  - AB-06-M
+  - AB-06-D1
+  - AB-06-D2
+  gaps:
+  - story sizing & estimation
+  - agile testing & validation support not yet decomposed
+- id: 5
+  name: IT System – New / Transition
+  status: Approved
+  when: Transitioning services to a new system, introducing a new system, or digitising a manual
+    process.
+  services:
+  - Business Project Discovery & Problem Definition
+  - Business Needs Assessments (Initial and High Level Requirements)
+  - Process Analysis & Improvement
+  - Functional Requirements Analysis & Refinement
+  - Solution Analysis & Design Support
+  - Integration, Data & Migration
+  - Operational Readiness & Transition
+  - Testing & Requirements Validation Support
+  - Stakeholder Analysis & Engagement
+  - Benefits Realisation & KPI Management
+  start_with:
+  - BB-03-M
+  - BB-03-D1
+  - BB-03-D2
+  - BB-02-M
+  - BB-02-D1
+  - BB-02-D2
+  - BB-07-M
+  - BB-07-D1
+  - BB-07-D2
+  - BB-06-M
+  - BB-06-D1
+  - BB-06-D2
+  - BT-07-M
+  - BT-07-D1
+  - BT-07-D2
+  - TB-02-M
+  - TB-02-D1
+  - TB-02-D2
+  - BT-04-M
+  - BT-04-D1
+  - BT-04-D2
+  - BT-09-M
+  - BT-09-D1
+  - BT-09-D2
+  - BT-08-M
+  - BT-08-D1
+  - BT-08-D2
+  - BB-01-M
+  - BB-01-D1
+  - BB-01-D2
+  gaps: []
+- id: 6
+  name: Process – Design
+  status: Approved
+  when: Re-engineering business processes for new or transformed outcomes or regulatory needs; includes
+    process levelling (L1-L6 hierarchy) validation.
+  services:
+  - Business Project Discovery & Problem Definition
+  - Process Analysis & Improvement
+  - Business Needs Assessments (Initial and High Level Requirements)
+  - Stakeholder Analysis & Engagement
+  - Benefits Realisation & KPI Management
+  - Operational Readiness & Transition
+  start_with:
+  - BB-03-M
+  - BB-03-D1
+  - BB-03-D2
+  - BB-07-M
+  - BB-07-D1
+  - BB-07-D2
+  - BB-02-M
+  - BB-02-D1
+  - BB-02-D2
+  - BT-08-M
+  - BT-08-D1
+  - BT-08-D2
+  - BB-01-M
+  - BB-01-D1
+  - BB-01-D2
+  - BT-04-M
+  - BT-04-D1
+  - BT-04-D2
+  gaps: []
+- id: 7
+  name: Process – Improvement
+  status: Approved
+  when: Assessing and modifying existing processes to rectify risks or improve service outcomes.
+  services:
+  - Process Analysis & Improvement
+  - Defect & Work-around Analysis
+  - Benefits Realisation & KPI Management
+  - Stakeholder Analysis & Engagement
+  start_with:
+  - BB-07-M
+  - BB-07-D1
+  - BB-07-D2
+  - BB-05-M
+  - BB-05-D1
+  - BB-05-D2
+  - BB-01-M
+  - BB-01-D1
+  - BB-01-D2
+  - BT-08-M
+  - BT-08-D1
+  - BT-08-D2
+  gaps: []
+- id: 8
+  name: Consultancy
+  status: Approved
+  when: 'Business consultancy: capability assessment/audit, decision support, strategic costing,
+    organisational impact, strategic alignment, business architecture.'
+  services:
+  - Strategic Business Analysis & Advisory
+  - Business Project Discovery & Problem Definition
+  start_with:
+  - BB-08-M
+  - BB-08-D1
+  - BB-08-D2
+  - BB-03-M
+  - BB-03-D1
+  - BB-03-D2
+  gaps: []
+- id: 9
+  name: Data – Warehouse
+  status: Approved
+  when: 'Data management projects across the medallion Bronze/Silver/Gold layers: business questions,
+    BI specs, layer mapping, legacy analytics platform transition.'
+  services:
+  - Data & Reporting Analysis
+  - Integration, Data & Migration
+  - Testing & Requirements Validation Support
+  - Stakeholder Analysis & Engagement
+  start_with:
+  - BB-04-M
+  - BB-04-D1
+  - BB-04-D2
+  - TB-02-M
+  - TB-02-D1
+  - TB-02-D2
+  - BT-09-M
+  - BT-09-D1
+  - BT-09-D2
+  - BT-08-M
+  - BT-08-D1
+  - BT-08-D2
+  gaps:
+  - governance & traceability of BI requirements not yet decomposed
+- id: 10
+  name: AI – Agentic
+  status: Approved
+  when: 'Solutions delivered on agentic AI platforms: use case & assurance, agent behaviour, grounding/RAG,
+    responsible AI, consumption controls, sustainability.'
+  services:
+  - AI Transformation
+  - Security, Privacy & Compliance
+  - Commercial, Licencing & Vendor Mgmt
+  - Service & Operational Readiness
+  - Benefits Realisation & KPI Management
+  - Solution Analysis & Design Support
+  start_with:
+  - BT-01-M
+  - BT-01-D1
+  - BT-01-D2
+  - TB-05-M
+  - TB-05-D1
+  - TB-05-D2
+  - BT-03-M
+  - BT-03-D1
+  - BT-03-D2
+  - TB-06-M
+  - TB-06-D1
+  - TB-06-D2
+  - BB-01-M
+  - BB-01-D1
+  - BB-01-D2
+  - BT-07-M
+  - BT-07-D1
+  - BT-07-D2
+  gaps:
+  - traceability of agent requirements & decisions
+  - agent evaluation & testing support not yet decomposed
+- id: 11
+  name: Leadership
+  status: Approved
+  when: 'Lead BA and Practice Lead services: planning, leading, assuring and uplifting BA delivery.'
+  services:
+  - BA Engagement Planning & Estimation
+  - BA Team Leadership & Work Allocation
+  - Requirements Quality Assurance & Review
+  - Cross-Stream Scope & Dependency Coordination
+  - Senior Stakeholder & Sponsor Engagement
+  - BA Mentoring & Capability Development
+  - BA Practice Strategy & Operating Model
+  - Standards, Methods & Templates
+  - Capability & Competency Management
+  - Workforce & Resource Management
+  - Practice Performance & Continuous Improvement
+  - Community of Practice & Knowledge Management
+  - Tooling & AI Enablement
+  start_with:
+  - LB-01-M
+  - LB-01-D1
+  - LB-01-D2
+  - LB-02-M
+  - LB-02-D1
+  - LB-02-D2
+  - LB-03-M
+  - LB-03-D1
+  - LB-03-D2
+  - LB-04-M
+  - LB-04-D1
+  - LB-04-D2
+  - LB-05-M
+  - LB-05-D1
+  - LB-05-D2
+  - LB-06-M
+  - LB-06-D1
+  - LB-06-D2
+  - PL-01-M
+  - PL-01-D1
+  - PL-01-D2
+  - PL-02-M
+  - PL-02-D1
+  - PL-02-D2
+  - PL-03-M
+  - PL-03-D1
+  - PL-03-D2
+  - PL-04-M
+  - PL-04-D1
+  - PL-04-D2
+  - PL-05-M
+  - PL-05-D1
+  - PL-05-D2
+  - PL-06-M
+  - PL-06-D1
+  - PL-06-D2
+  - PL-07-M
+  - PL-07-D1
+  - PL-07-D2
+  gaps: []

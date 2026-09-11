@@ -1,0 +1,55 @@
+name: Report a problem with a prompt
+description: A prompt that scores well but does not work
+title: "[problem] "
+labels: ["prompt-problem"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These are the most valuable reports this repo gets. A prompt that scores
+        20/20 and fails in practice is exactly what the rubric cannot catch.
+
+        Used it on real work and have detail to share? Consider a
+        [field report](../blob/main/field-reports/) instead or as well - same
+        information, kept permanently, and credited to you.
+
+  - type: input
+    id: prompt_id
+    attributes:
+      label: Prompt ID
+      placeholder: "BB-01-D1"
+    validations:
+      required: true
+
+  - type: input
+    id: model
+    attributes:
+      label: Model you ran it on
+      placeholder: "Claude Opus 4.5"
+
+  - type: dropdown
+    id: framework
+    attributes:
+      label: Which framework did you use it in?
+      options: [care, co-star, tidd-ec, risen, crispe, race, rtf, ape, bab, chat, as a skill]
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and what you got
+    validations:
+      required: true
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: What would fix it?
+      description: A replacement sentence is worth more than a description of the problem.
+
+  - type: checkboxes
+    id: deident
+    attributes:
+      label: Before you submit
+      options:
+        - label: No client or employer names, real figures, or extracts from real artefacts
+          required: true

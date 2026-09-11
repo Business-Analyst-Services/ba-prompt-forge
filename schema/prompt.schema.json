@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Business-Analyst-Services/ba-prompt-forge/schema/prompt.schema.json",
+  "title": "BA Prompt Forge prompt",
+  "description": "The YAML front-matter of a library/**/*.md file. These fields ARE the prompt: they are format-neutral, and tools/formats.py renders them into CARE, CO-STAR, RISEN, TIDD-EC, RTF and the rest. Never write a prompt as one blob of text - a blob cannot be converted, scored field by field, or diffed in a pull request.",
+  "type": "object",
+  "required": ["id", "name", "type", "role", "service", "persona", "audience", "task", "output_format", "validation", "provenance"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-[0-9]{2}-(M|D[0-9]+|U[0-9]+)$",
+      "description": "Role prefix (BB, BT, TB, AB, LB, PL), service number, then M (Master), Dn (Deliverable) or Un (decomposed unit)."
+    },
+    "name": { "type": "string", "minLength": 4 },
+    "type": { "enum": ["master", "deliverable", "unit"] },
+    "status": { "enum": ["published", "proposal"], "default": "published" },
+    "derived_from": { "type": "string", "description": "Parent prompt id, for decomposed units." },
+    "role": { "enum": ["Business BA", "Business/Tech BA", "Technical BA", "Agile BA", "Lead BA", "Practice Lead"] },
+    "service": { "type": "string", "description": "The L3 BA service this prompt belongs to." },
+    "deliverables": { "type": "array", "items": { "type": "string" } },
+    "delivery_contexts": { "type": "array", "items": { "type": "string" } },
+
+    "persona": { "type": "string", "description": "Criterion 1. Who is writing, e.g. 'an agile business analyst (Agile BA)'." },
+    "audience": { "type": "string", "description": "Criterion 1. Who reads the output. Decides the format - be specific." },
+    "situation": { "type": ["string", "null"], "description": "Standing facts and the inputs the user will paste." },
+    "project_placeholder": { "type": ["string", "null"] },
+    "data_safety": { "type": "string", "description": "Criterion 8. Must give an explicit de-identification instruction, not just mention constraints." },
+
+    "task": { "type": "string", "description": "Criterion 2. One task, strong verb, named inputs." },
+    "modes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Criterion 2. Two or more modes makes this a Master: a menu, not a task. Caps criterion 2 at 1/2 and cannot carry a regression test. Run tools/decompose.py to split it."
+    },
+    "clarifiers": { "type": "integer", "minimum": 0, "maximum": 10, "description": "How many clarifying questions to ask before drafting." },
+
+    "output_format": { "type": "string", "description": "Criterion 3. Must be checkable: named sections, table columns, counts." },
+    "tone": { "type": ["string", "null"] },
+    "guardrails": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Criterion 7. Needs both an explicit prohibition on invention AND a flagging convention ([TBC], [PROPOSED - VALIDATE])."
+    },
+    "example": { "type": "string", "description": "Criterion 4. A real sample to imitate, with synthetic values. Never a description of an example." },
+    "validation": { "enum": ["get", "none"], "description": "Criteria 5 and 6. 'get' renders the standard Generate -> Explain -> Test block." },
+    "inputs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Criterion 9. The [MARKED PLACEHOLDERS] a user fills in. Derived from the text; do not hard-wire project specifics."
+    },
+    "review_needed": { "type": "array", "items": { "type": "string" }, "description": "Open items on a proposal, before it can be promoted into library/." },
+
+    "score": {
+      "type": "object",
+      "description": "Marks against rubric/care-get-v1.yml. tools/lint.py rejects any disagreement on a machine-decidable criterion.",
+      "required": ["total", "verdict"],
+      "properties": {
+        "c1_context": { "$ref": "#/definitions/mark" },
+        "c2_action": { "$ref": "#/definitions/mark" },
+        "c3_result": { "$ref": "#/definitions/mark" },
+        "c4_example": { "$ref": "#/definitions/mark" },
+        "c5_explain": { "$ref": "#/definitions/mark" },
+        "c6_test": { "$ref": "#/definitions/mark" },
+        "c7_anti_fabrication": { "$ref": "#/definitions/mark" },
+        "c8_data_safety": { "$ref": "#/definitions/mark" },
+        "c9_reusability": { "$ref": "#/definitions/mark" },
+        "c10_right_sized": { "$ref": "#/definitions/mark" },
+        "total": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "verdict": { "enum": ["Library-ready", "Usable - refine first", "Rework"] },
+        "notes": { "type": "string" },
+        "scored_by": { "type": "string" }
+      }
+    },
+
+    "provenance": {
+      "type": "object",
+      "description": "Who wrote it. This is the credit record - it travels with the prompt into every converted format and generated skill.",
+      "required": ["author", "license"],
+      "properties": {
+        "author": { "type": "string" },
+        "author_github": { "type": "string" },
+        "source": { "type": "string" },
+        "added": { "type": "string", "format": "date" },
+        "license": { "type": "string", "default": "CC-BY-4.0" }
+      }
+    }
+  },
+  "definitions": {
+    "mark": { "type": "integer", "minimum": 0, "maximum": 2 }
+  }
+}

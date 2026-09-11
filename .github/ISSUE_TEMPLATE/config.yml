@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Upvote or discuss a prompt
+    url: https://github.com/Business-Analyst-Services/ba-prompt-forge/discussions/categories/prompt-library
+    about: Every accepted prompt has a thread. A thumbs-up is the vote; comments are where people say what they changed to make it work.
+  - name: Contribute a prompt
+    url: https://github.com/Business-Analyst-Services/ba-prompt-forge/blob/main/CONTRIBUTING.md
+    about: The bar is 17/20 on the rubric. You keep the credit, in the prompt file itself.
+  - name: Report what happened when you used one
+    url: https://github.com/Business-Analyst-Services/ba-prompt-forge/tree/main/field-reports
+    about: A rubric score says a prompt is well-formed. A field report says it worked. Negative reports especially wanted.
