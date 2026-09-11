@@ -1,5 +1,13 @@
 # BA Prompt Forge
 
+### → **[Read it as a website: business-analyst-services.github.io/ba-prompt-forge](https://business-analyst-services.github.io/ba-prompt-forge/)**
+
+Every prompt, the full rubric, all ten framework renderings, the delivery
+contexts and the skills are published as an accessible website — you never need
+to open this repository to use any of it. This repo is the source that builds it.
+
+---
+
 **126 scored business-analysis prompts you don't browse.** You describe the work;
 an agent finds the prompt, fills it in, and hands it back in whatever framework
 you need.
@@ -55,8 +63,19 @@ python tools/convert.py BB-01-D1 --to-skill             # as an agent skill
 python tools/lint.py library/**/BB-01-D1.md             # score it
 ```
 
-**By reading** — [INDEX.md](INDEX.md), or `catalogue.json` if you are building
-something on top.
+**By reading** — the
+[website](https://business-analyst-services.github.io/ba-prompt-forge/prompts/)
+is the readable form: every prompt with all ten framework renderings, a copy
+button, its scorecard and its provenance. [INDEX.md](INDEX.md) is the in-repo
+equivalent, and `catalogue.json` is there if you are building something on top.
+
+```bash
+python tools/build_site.py           # rebuild the site into site/
+python tools/build_site.py --serve   # preview at http://localhost:8000
+```
+
+The site build fails if any colour pair drops below its WCAG 2.1 AA contrast
+threshold in either theme, so an inaccessible palette cannot ship.
 
 ## How it works
 

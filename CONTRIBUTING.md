@@ -55,7 +55,7 @@ actually run it.
 
 ## What review checks
 
-| | |
+| Checked by | What it checks |
 | --- | --- |
 | **CI, automatically** | Schema valid; `tools/build.py --check` clean; `tools/lint.py` passes; declared score matches the machine check on all six machine-decidable criteria |
 | **A human** | Not a duplicate; the four judgement criteria; the worked example is concrete and synthetic; the prompt is portable |

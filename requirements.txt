@@ -1,3 +1,4 @@
 openpyxl>=3.1    # reading the source workbook (tools/extract_workbook.py only)
 PyYAML>=6.0      # prompt front-matter
 jsonschema>=4.0  # schema/prompt.schema.json validation in tools/lint.py
+Markdown>=3.5    # rendering repo docs into site pages (tools/build_site.py)

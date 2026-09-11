@@ -9,3 +9,6 @@ venv/
 # Machine-generated prompt drafts - see proposals/README.md
 proposals/*
 !proposals/README.md
+
+# Built website - published to the gh-pages branch by tools/build_site.py
+site/

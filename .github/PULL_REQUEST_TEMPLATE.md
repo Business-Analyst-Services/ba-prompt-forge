@@ -9,7 +9,7 @@ Fixing tooling or docs? Delete the prompt sections and just describe the change.
 
 ## Prompt details
 
-| | |
+| Field | Value |
 | --- | --- |
 | **ID** | e.g. `BB-09-D1` |
 | **Role** | Business BA / Business/Tech BA / Technical BA / Agile BA / Lead BA / Practice Lead |
