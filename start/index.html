@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Start here &middot; BA Prompt Forge</title>
+<meta name="description" content="New to using AI at work? The whole thing in five minutes: what you need, how to use a prompt, and what to check before you trust the output.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../start/" aria-current="page">Start here</a></li>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">By project type</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../advanced/">Advanced</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<h1>Start here</h1>
+<p class="lede">If you have never used an AI assistant for work, this page is the
+whole thing in about five minutes. No jargon, no setup, nothing to install.</p>
+
+<h2>What this site is</h2>
+<p>Business analysts write a lot of the same documents: requirements, acceptance
+criteria, process maps, stakeholder registers, business cases. An AI assistant can
+give you a decent first draft of any of them &mdash; but only if you ask well, and
+asking well takes a page of careful instructions.</p>
+<p><strong>This site is those instructions, already written.</strong> 126 of them,
+one for each kind of document. You copy one, fill in a few blanks, paste it in, and
+edit what comes back.</p>
+
+<h2>What you need</h2>
+<p>An <a href="../glossary/#ai-assistant">AI assistant</a> &mdash; Microsoft
+Copilot, ChatGPT, Claude or Google Gemini. If your employer provides one, it is
+most likely Copilot. Any of them works; you do not need a paid tier.</p>
+<p>Check your organisation's rules on using AI at work before you start, especially
+about what information may go into one.</p>
+
+<h2>Use it in three steps</h2>
+<ol class="steps">
+  <li>
+    <h3>1. Find the thing you need to write</h3>
+    <p>Start with <a href="../prompts/">Find a prompt</a> and search for
+    what you are producing &mdash; &ldquo;acceptance criteria&rdquo;, &ldquo;process
+    map&rdquo;, &ldquo;business case&rdquo;. Or pick one of these common ones:</p>
+    <ul>
+<li><a href="../prompts/AB-03-D1.html">Acceptance criteria for a user story</a></li>
+<li><a href="../prompts/BT-02-D1.html">Break an epic into user stories</a></li>
+<li><a href="../prompts/BB-07-D1.html">A map of how a process works today</a></li>
+<li><a href="../prompts/BB-07-D2.html">A redesigned process, and the gaps to get there</a></li>
+<li><a href="../prompts/BB-02-D2.html">Turn messy workshop notes into business needs</a></li>
+<li><a href="../prompts/BB-03-D1.html">A problem statement — what is actually wrong</a></li>
+    </ul>
+  </li>
+  <li>
+    <h3>2. Copy the prompt</h3>
+    <p>Every prompt page has the full text and a <strong>Copy</strong> button. Before
+    you paste it anywhere, replace the bits in
+    <a href="../glossary/#placeholder">[SQUARE BRACKETS]</a> with your own
+    details. They are listed at the top of each page so you know what to have ready.</p>
+    <p>Do not know one of them? Leave it as it is and say so &mdash; the assistant
+    will ask you about it.</p>
+  </li>
+  <li>
+    <h3>3. Paste it into your AI assistant</h3>
+    <p>Paste the whole thing into the message box and send it. <strong>It will ask
+    you questions before it writes anything</strong> &mdash; usually up to five. That
+    is deliberate: answering them is what makes the draft useful rather than generic.</p>
+    <p>Then it produces the document, explains how it put it together, and lists the
+    assumptions it made.</p>
+  </li>
+</ol>
+
+<h2>A worked example</h2>
+<p>Say you need to document how a process works today. You open
+<a href="../prompts/BB-07-D1.html">As-Is Process Map (from description)</a> and
+see it needs two things from you: your project name, and a description of the
+process. You paste the prompt with those filled in.</p>
+<p>The assistant asks you a few questions &mdash; who performs each step, where the
+process starts and stops, what the exceptions are. You answer. It gives you back a
+structured process map you can put into your own template and take to a workshop.</p>
+
+<h2>Three things to know before you trust the output</h2>
+<div class="panel">
+  <h3>It is a first draft, not a deliverable</h3>
+  <p>Read every line before it goes anywhere near a stakeholder. The prompts tell the
+  assistant to say so itself, but the judgement is yours.</p>
+</div>
+<div class="panel">
+  <h3>It will make things up unless you stop it</h3>
+  <p>AI assistants invent plausible detail &mdash; figures, dates, standards &mdash;
+  rather than say they do not know. Every prompt here forbids that and makes the
+  assistant tag anything unverified as <code>[TBC]</code> and anything it suggested
+  itself as <code>[PROPOSED &mdash; VALIDATE]</code>.
+  <strong>Those tags are your to-do list.</strong></p>
+</div>
+<div class="panel">
+  <h3>Do not paste real personal or sensitive data</h3>
+  <p>Take out names, case numbers, addresses and anything else that identifies a real
+  person or matter, or make up an example instead. Every prompt tells the assistant to
+  stop and warn you if it spots real data &mdash; but that is a backstop, not a
+  substitute for checking.</p>
+</div>
+
+<h2>That is genuinely it</h2>
+<p>You now know everything you need. <a href="../prompts/">Find a prompt</a>
+and try one.</p>
+<p>If a word anywhere on this site is unfamiliar, the
+<a href="../glossary/">glossary</a> defines all of them. There is also an
+<a href="../advanced/">advanced section</a> for people building tooling on
+top of this &mdash; you can ignore it entirely.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

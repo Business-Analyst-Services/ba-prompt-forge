@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt scorer &middot; BA Prompt Forge</title>
+<meta name="description" content="Score any prompt against the 10-criterion CARE + G.E.T. quality rubric and say exactly what to fix. Use when someone asks how good a prompt is, wants a prompt reviewed or improved ">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../start/">Start here</a></li>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">By project type</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../advanced/" aria-current="page">Advanced</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<p class="muted"><a href="../skills/">&larr; All skills</a></p>
+<h1>Prompt scorer</h1>
+<p class="lede">Score any prompt out of 20 and fix the deductions.</p>
+<div class="panel">
+  <p><strong>Skill name:</strong> <code>ba-prompt-scorer</code></p>
+  <p><strong>Description</strong> (this is what makes an agent trigger it):
+  Score any prompt against the 10-criterion CARE + G.E.T. quality rubric and say exactly what to fix. Use when someone asks how good a prompt is, wants a prompt reviewed or improved before sharing it, or is submitting a prompt to the BA Prompt Forge library. Produces a criterion-by-criterion score out of 20, a verdict band, and a rewritten prompt that fixes the deductions.</p>
+  <p>Save the text below as <code>SKILL.md</code> inside a folder named
+  <code>ba-prompt-scorer</code>, and point your agent at it. It works with any runtime that
+  reads agent skills.</p>
+</div>
+<div class="copy-row">
+  <button type="button" class="btn" data-copy="skill-source"
+          data-copy-status="copy-status-skill" hidden>Copy the full SKILL.md</button>
+  <span class="copy-status" id="copy-status-skill" role="status" aria-live="polite"></span>
+</div>
+<details>
+  <summary>Show the raw SKILL.md (with front-matter, ready to save)</summary>
+  <pre tabindex="0" id="skill-source"><code>---
+name: ba-prompt-scorer
+description: Score any prompt against the 10-criterion CARE + G.E.T. quality rubric and say exactly what to fix. Use when someone asks how good a prompt is, wants a prompt reviewed or improved before sharing it, or is submitting a prompt to the BA Prompt Forge library. Produces a criterion-by-criterion score out of 20, a verdict band, and a rewritten prompt that fixes the deductions.
+license: CC-BY-4.0
+---
+
+# BA prompt scorer
+
+Score a prompt out of 20 against the rubric in `rubric/care-get-v1.yml`, then fix
+what you found. A score with no rewrite is half a job.
+
+## Run the machine checks first
+
+```bash
+python tools/lint.py path/to/prompt.md
+```
+
+`tools/lint.py` decides six criteria mechanically and will not argue with you
+about them: **Example, Explain, Test, Anti-fabrication, Data safety,
+Reusability**. Take its marks for those.
+
+It also gives a provisional mark on the four it cannot judge - **Context,
+Action, Result/Format, Right-sized** - flagged `?`. Those four are yours. That
+is the whole division of labour: the script counts, you judge.
+
+If the prompt is loose prose rather than a library file, skip the script and
+score all ten yourself.
+
+## The ten criteria
+
+Score each **0 (absent) / 1 (partial) / 2 (met)**.
+
+| # | Criterion | 2 requires |
+| --- | --- | --- |
+| 1 | Context | Role *and* audience stated, plus the constraints that bind the work |
+| 2 | Action | One task, strong verb, named inputs, explicit scope |
+| 3 | Result / Format | A structure a reviewer could tick off - named sections, table columns, counts |
+| 4 | Example | A real sample to imitate, not a description of one |
+| 5 | Explain step | Asks for step-by-step synthesis logic tied to the inputs |
+| 6 | Test step | Asks for sources **and** cross-referencing **and** assumptions |
+| 7 | Anti-fabrication | Explicit prohibition **and** a flagging convention (`[TBC]`, `[PROPOSED - VALIDATE]`) |
+| 8 | Data safety | Explicit de-identification instruction, not silence |
+| 9 | Reusability | Marked `[PLACEHOLDERS]`, nothing hard-wired to one project |
+| 10 | Right-sized | Every sentence changes the output; long is fine if load-bearing |
+
+**Bands:** 17-20 library-ready &amp;middot; 12-16 usable, refine before sharing
+&amp;middot; 0-11 rework.
+
+## How to judge the four that need judgement
+
+These are where scorers disagree, so apply the test, not the vibe.
+
+- **Context (1).** Cover the role and the audience with your thumb. Does the
+  prompt still say who is writing and who reads it? Both, or it is not a 2.
+- **Action (2).** Count the deliverables the prompt asks for. More than one is a
+  menu, not a task - cap at 1. This is the standard deduction on every Master
+  prompt in the library, and it is deliberate there; it is rarely deliberate
+  anywhere else.
+- **Result/Format (3).** Could a reviewer hold the output against the prompt and
+  tick each requirement off? &quot;A summary&quot; and &quot;a table&quot; are 1. &quot;One row per KPI:
+  name; definition; formula; baseline; target; source; frequency; owner&quot; is a 2.
+- **Right-sized (10).** Go sentence by sentence and ask: *would deleting this
+  change the output?* If a whole sentence could go without loss, that is dead
+  weight. Length itself is not the test.
+
+## What to report
+
+1. **The table** - all ten criteria, mark, and one line of reasoning each. Say
+   which marks came from the script and which are your judgement.
+2. **The total and band.**
+3. **The fixes**, cheapest first. Name the criterion, quote the offending text,
+   and give the replacement line. Not &quot;improve the context&quot; - give the sentence.
+4. **The rewritten prompt** at the top of the band, in CARE + G.E.T. unless they
+   asked for another framework.
+
+## Be honest about what a score is worth
+
+Say this when it matters, because it stops the number being over-trusted:
+
+&gt; This rubric rewards prompts written *against* this rubric. A 20/20 means the
+&gt; prompt is well-formed, not that it produces good output. The stronger evidence
+&gt; is a dry run on real de-identified work, the same prompt run twice for
+&gt; consistency, and handing the output to someone who was not in the room.
+
+Where the repo&#x27;s own library scores 19.67/20 on paper, that caveat is the reason
+`field-reports/` exists. If the user has actually run the prompt, push them to
+log the outcome there - that is the evidence the score is not.
+
+## Scoring a contribution
+
+For a pull request against this repo, add:
+
+- Whether it duplicates an existing prompt (check `catalogue.json` by service and
+  target deliverables before anything else).
+- Whether the front-matter `score` block matches what you found, field by field.
+  A mismatch on a machine-decided criterion is a hard fail - `tools/lint.py`
+  will reject it in CI anyway.
+- A recommendation: **merge**, **merge after the listed fixes**, or **decline**,
+  with the reason in one sentence.
+
+Anything below 17/20 does not enter the library. Say so kindly, give the fixes,
+and invite the resubmission - the contributor keeps authorship credit either way.
+</code></pre>
+</details>
+<h2>What it says</h2>
+<div class="prose"><h1>BA prompt scorer</h1>
+<p>Score a prompt out of 20 against the rubric in <code>rubric/care-get-v1.yml</code>, then fix
+what you found. A score with no rewrite is half a job.</p>
+<h2>Run the machine checks first</h2>
+<pre tabindex="0"><code class="language-bash">python tools/lint.py path/to/prompt.md
+</code></pre>
+<p><code>tools/lint.py</code> decides six criteria mechanically and will not argue with you
+about them: <strong>Example, Explain, Test, Anti-fabrication, Data safety,
+Reusability</strong>. Take its marks for those.</p>
+<p>It also gives a provisional mark on the four it cannot judge - <strong>Context,
+Action, Result/Format, Right-sized</strong> - flagged <code>?</code>. Those four are yours. That
+is the whole division of labour: the script counts, you judge.</p>
+<p>If the prompt is loose prose rather than a library file, skip the script and
+score all ten yourself.</p>
+<h2>The ten criteria</h2>
+<p>Score each <strong>0 (absent) / 1 (partial) / 2 (met)</strong>.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table: The ten criteria"><table>
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Criterion</th>
+<th scope="col">2 requires</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Context</td>
+<td>Role <em>and</em> audience stated, plus the constraints that bind the work</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Action</td>
+<td>One task, strong verb, named inputs, explicit scope</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Result / Format</td>
+<td>A structure a reviewer could tick off - named sections, table columns, counts</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Example</td>
+<td>A real sample to imitate, not a description of one</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Explain step</td>
+<td>Asks for step-by-step synthesis logic tied to the inputs</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Test step</td>
+<td>Asks for sources <strong>and</strong> cross-referencing <strong>and</strong> assumptions</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Anti-fabrication</td>
+<td>Explicit prohibition <strong>and</strong> a flagging convention (<code>[TBC]</code>, <code>[PROPOSED - VALIDATE]</code>)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Data safety</td>
+<td>Explicit de-identification instruction, not silence</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Reusability</td>
+<td>Marked <code>[PLACEHOLDERS]</code>, nothing hard-wired to one project</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Right-sized</td>
+<td>Every sentence changes the output; long is fine if load-bearing</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Bands:</strong> 17-20 library-ready &middot; 12-16 usable, refine before sharing
+&middot; 0-11 rework.</p>
+<h2>How to judge the four that need judgement</h2>
+<p>These are where scorers disagree, so apply the test, not the vibe.</p>
+<ul>
+<li><strong>Context (1).</strong> Cover the role and the audience with your thumb. Does the
+  prompt still say who is writing and who reads it? Both, or it is not a 2.</li>
+<li><strong>Action (2).</strong> Count the deliverables the prompt asks for. More than one is a
+  menu, not a task - cap at 1. This is the standard deduction on every Master
+  prompt in the library, and it is deliberate there; it is rarely deliberate
+  anywhere else.</li>
+<li><strong>Result/Format (3).</strong> Could a reviewer hold the output against the prompt and
+  tick each requirement off? "A summary" and "a table" are 1. "One row per KPI:
+  name; definition; formula; baseline; target; source; frequency; owner" is a 2.</li>
+<li><strong>Right-sized (10).</strong> Go sentence by sentence and ask: <em>would deleting this
+  change the output?</em> If a whole sentence could go without loss, that is dead
+  weight. Length itself is not the test.</li>
+</ul>
+<h2>What to report</h2>
+<ol>
+<li><strong>The table</strong> - all ten criteria, mark, and one line of reasoning each. Say
+   which marks came from the script and which are your judgement.</li>
+<li><strong>The total and band.</strong></li>
+<li><strong>The fixes</strong>, cheapest first. Name the criterion, quote the offending text,
+   and give the replacement line. Not "improve the context" - give the sentence.</li>
+<li><strong>The rewritten prompt</strong> at the top of the band, in CARE + G.E.T. unless they
+   asked for another framework.</li>
+</ol>
+<h2>Be honest about what a score is worth</h2>
+<p>Say this when it matters, because it stops the number being over-trusted:</p>
+<blockquote>
+<p>This rubric rewards prompts written <em>against</em> this rubric. A 20/20 means the
+prompt is well-formed, not that it produces good output. The stronger evidence
+is a dry run on real de-identified work, the same prompt run twice for
+consistency, and handing the output to someone who was not in the room.</p>
+</blockquote>
+<p>Where the repo's own library scores 19.67/20 on paper, that caveat is the reason
+<code>field-reports/</code> exists. If the user has actually run the prompt, push them to
+log the outcome there - that is the evidence the score is not.</p>
+<h2>Scoring a contribution</h2>
+<p>For a pull request against this repo, add:</p>
+<ul>
+<li>Whether it duplicates an existing prompt (check <code>catalogue.json</code> by service and
+  target deliverables before anything else).</li>
+<li>Whether the front-matter <code>score</code> block matches what you found, field by field.
+  A mismatch on a machine-decided criterion is a hard fail - <code>tools/lint.py</code>
+  will reject it in CI anyway.</li>
+<li>A recommendation: <strong>merge</strong>, <strong>merge after the listed fixes</strong>, or <strong>decline</strong>,
+  with the reason in one sentence.</li>
+</ul>
+<p>Anything below 17/20 does not enter the library. Say so kindly, give the fixes,
+and invite the resubmission - the contributor keeps authorship credit either way.</p></div>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge Base Structure &amp; Contribution Guidelines &middot; BA Prompt Forge</title>
+<meta name="description" content="A ready-to-use AI prompt that writes: Knowledge Base, Lessons Learned Register. Copy it into Copilot, ChatGPT or Claude.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../start/">Start here</a></li>
+          <li><a href="../prompts/" aria-current="page">Find a prompt</a></li>
+          <li><a href="../contexts/">By project type</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../advanced/">Advanced</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<p class="muted"><a href="../prompts/">&larr; All prompts</a></p>
+<h1>Knowledge Base Structure &amp; Contribution Guidelines</h1>
+
+<p class="lede">Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.</p>
+
+<p class="meta">
+  <span><strong>Writes:</strong> Knowledge Base, Lessons Learned Register</span>
+  <span><strong>For:</strong> All practice BAs (contributors and searchers); curators</span>
+</p>
+<p class="muted small">Produces one document and stops. Filed under
+<a href="../glossary/#ba-service">Community of Practice &amp; Knowledge Management</a> for a
+Practice Lead. Reference <code>PL-06-D2</code>.
+<a href="#quality">Quality score 20/20</a>.</p>
+
+<h2 id="ready">1. Have these ready</h2>
+<p>You will replace each of these in the prompt below:</p>
+<ul>
+<li><code>[PROJECT NAME AND ONE-LINE DESCRIPTION]</code></li>
+<li><code>[PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE]</code></li>
+<li><code>[WHERE THINGS LIVE, WHAT&#x27;S FINDABLE, WHAT&#x27;S DUPLICATED]</code></li>
+<li><code>[E.G. CONFLUENCE]</code></li>
+<li><code>[WHEN DO BAs GO LOOKING — LIST OR &#x27;PROPOSE&#x27;]</code></li>
+</ul>
+<p>Do not know one? Leave it as it is and say so &mdash; the assistant will ask.</p>
+
+<div class="panel">
+  <h3>Before you paste anything in</h3>
+  <p>My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding.</p>
+  <p class="small">In short: take out real names, case numbers and anything else
+  identifying, or make up an example instead. See
+  <a href="../glossary/#de-identified">de-identified data</a>.</p>
+</div>
+
+<h2 id="prompt">2. Copy the prompt</h2>
+<div class="copy-row">
+  <button type="button" class="btn" data-copy="code-main"
+          data-copy-status="copy-status-main" hidden>Copy the prompt</button>
+  <span class="copy-status" id="copy-status-main" role="status" aria-live="polite"></span>
+</div>
+<pre tabindex="0" id="code-main"><code># CONTEXT
+I am a BA practice lead. I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Practice context: [PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE]. Current state: [WHERE THINGS LIVE, WHAT&#x27;S FINDABLE, WHAT&#x27;S DUPLICATED]. Platform: [E.G. CONFLUENCE]. Retrieval moments to serve: [WHEN DO BAs GO LOOKING — LIST OR &#x27;PROPOSE&#x27;]. The audience for this output: All practice BAs (contributors and searchers); curators.
+
+# ACTION
+Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+# RESULT / FORMAT
+Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged. Keep the language professional, plain-English and appropriate for a business audience. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+# EXAMPLE
+Example quality bar: &quot;Worked-example inclusion bar: artefact was actually used in delivery (not composed for the KB); de-identified; author-annotated (3+ callouts on why choices were made); reviewed by a Lead; owner and review date set (12 months). Fails any → contribute to &#x27;raw examples&#x27; area instead.&quot;
+
+# VALIDATION (GENERATE -&gt; EXPLAIN -&gt; TEST)
+Generate: produce the output requested above.
+Explain: then break down, step by step, the logic you used to synthesise your answer - how you interpreted each of my inputs and why you structured the output the way you did.
+Test: list the source references you used (my pasted inputs, earlier turns, or your general knowledge - label which is which); cross-reference the key facts in your output against those sources and flag anything that does not trace back to a source; and list every additional assumption you made so I can verify or correct it.</code></pre>
+
+<h2 id="next">3. Paste it into your AI assistant</h2>
+<p>Copilot, ChatGPT, Claude or Gemini &mdash; any of them. Here is what should
+happen:</p>
+<ol>
+  <li><strong>It asks you questions first</strong> (up to 5).
+  Answer them &mdash; this is what makes the draft about your project rather than
+  a generic one.</li>
+  <li><strong>It writes the document</strong> in the structure the prompt asked for.</li>
+  <li><strong>It explains how it got there</strong> and lists the assumptions it
+  made, so you can check its reasoning and not just its output.</li>
+</ol>
+<p>Anything tagged <code>[TBC]</code> it could not verify. Anything tagged
+<code>[PROPOSED &mdash; VALIDATE]</code> it suggested itself.
+<strong>Those tags are your to-do list.</strong> Treat the whole thing as a first
+draft and read every line before it goes to anyone.</p>
+
+<details class="advanced">
+  <summary>Other formats of this prompt (optional)</summary>
+  <p>The version above is ready to use and works everywhere. These are the same
+  prompt written in other
+  <a href="../glossary/#prompt-framework">prompt frameworks</a>, for people
+  whose tooling or house standard expects one &mdash; plus an
+  <a href="../glossary/#agent-skill">agent skill</a> version. Several drop
+  parts of the original, and each one says what it loses.</p>
+  <div class="tabs full">
+    <div class="tablist" role="tablist" aria-label="Other prompt formats">
+      <button type="button" role="tab" id="tab-co-star" aria-controls="panel-co-star" aria-selected="true" tabindex="0">CO-STAR</button><button type="button" role="tab" id="tab-tidd-ec" aria-controls="panel-tidd-ec" aria-selected="false" tabindex="-1">TIDD-EC</button><button type="button" role="tab" id="tab-risen" aria-controls="panel-risen" aria-selected="false" tabindex="-1">RISEN</button><button type="button" role="tab" id="tab-crispe" aria-controls="panel-crispe" aria-selected="false" tabindex="-1">CRISPE</button><button type="button" role="tab" id="tab-race" aria-controls="panel-race" aria-selected="false" tabindex="-1">RACE</button><button type="button" role="tab" id="tab-rtf" aria-controls="panel-rtf" aria-selected="false" tabindex="-1">RTF</button><button type="button" role="tab" id="tab-ape" aria-controls="panel-ape" aria-selected="false" tabindex="-1">APE</button><button type="button" role="tab" id="tab-bab" aria-controls="panel-bab" aria-selected="false" tabindex="-1">BAB</button><button type="button" role="tab" id="tab-chat" aria-controls="panel-chat" aria-selected="false" tabindex="-1">Compact chat</button><button type="button" role="tab" id="tab-skill" aria-controls="panel-skill" aria-selected="false" tabindex="-1">Agent skill file</button>
+    </div>
+    
+<div class="tabpanel" role="tabpanel" id="panel-co-star" aria-labelledby="tab-co-star" tabindex="0">
+  <h3 class="panel-heading">CO-STAR</h3>
+  <p class="muted">Splits CARE&#x27;s Result into Style/Tone/Response and promotes Audience to its own slot. Lossless. Carries everything the original does.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-co-star"
+            data-copy-status="copy-status-co-star" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-co-star" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-co-star"><code># CONTEXT
+I am a BA practice lead. I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Practice context: [PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE]. Current state: [WHERE THINGS LIVE, WHAT&#x27;S FINDABLE, WHAT&#x27;S DUPLICATED]. Platform: [E.G. CONFLUENCE]. Retrieval moments to serve: [WHEN DO BAs GO LOOKING — LIST OR &#x27;PROPOSE&#x27;]. The audience for this output: All practice BAs (contributors and searchers); curators.
+
+# OBJECTIVE
+Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+# STYLE
+Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged.
+
+# TONE
+Keep the language professional, plain-English and appropriate for a business audience.
+
+# AUDIENCE
+All practice BAs (contributors and searchers); curators.
+
+# RESPONSE
+Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+Worked example to imitate: Example quality bar: &quot;Worked-example inclusion bar: artefact was actually used in delivery (not composed for the KB); de-identified; author-annotated (3+ callouts on why choices were made); reviewed by a Lead; owner and review date set (12 months). Fails any → contribute to &#x27;raw examples&#x27; area instead.&quot;
+
+Generate: produce the output requested above.
+Explain: then break down, step by step, the logic you used to synthesise your answer - how you interpreted each of my inputs and why you structured the output the way you did.
+Test: list the source references you used (my pasted inputs, earlier turns, or your general knowledge - label which is which); cross-reference the key facts in your output against those sources and flag anything that does not trace back to a source; and list every additional assumption you made so I can verify or correct it.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-tidd-ec" aria-labelledby="tab-tidd-ec" tabindex="0">
+  <h3 class="panel-heading">TIDD-EC</h3>
+  <p class="muted">The only common format with an explicit DONT slot, so anti-fabrication and data-safety rules land naturally. Carries everything the original does.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-tidd-ec"
+            data-copy-status="copy-status-tidd-ec" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-tidd-ec" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-tidd-ec"><code># TASK
+Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+
+# INSTRUCTIONS
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+Then generate the output, explain the synthesis logic you used, and test it: cite which parts came from my inputs versus your general knowledge, flag anything that does not trace back to a source, and list the assumptions you made.
+
+# DO
+- Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged.
+- Keep the language professional, plain-English and appropriate for a business audience.
+
+# DONT
+- Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for my review, not a finished artefact.
+- Do not ask me to paste real personal or sensitive data.
+
+# EXAMPLES
+Example quality bar: &quot;Worked-example inclusion bar: artefact was actually used in delivery (not composed for the KB); de-identified; author-annotated (3+ callouts on why choices were made); reviewed by a Lead; owner and review date set (12 months). Fails any → contribute to &#x27;raw examples&#x27; area instead.&quot;
+
+# CONTEXT
+I am a BA practice lead. I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Practice context: [PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE]. Current state: [WHERE THINGS LIVE, WHAT&#x27;S FINDABLE, WHAT&#x27;S DUPLICATED]. Platform: [E.G. CONFLUENCE]. Retrieval moments to serve: [WHEN DO BAs GO LOOKING — LIST OR &#x27;PROPOSE&#x27;]. The audience for this output: All practice BAs (contributors and searchers); curators.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-risen" aria-labelledby="tab-risen" tabindex="0">
+  <h3 class="panel-heading">RISEN</h3>
+  <p class="muted">Strong for multi-step work. No Example slot, so the worked example is lost. Scores 18/20 after conversion, losing: Example.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-risen"
+            data-copy-status="copy-status-risen" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-risen" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-risen"><code>**Role:** A BA practice lead.
+
+**Instructions:** Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+
+**Steps:**
+1. Ask the clarifying questions below and wait for my answers.
+2. Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+3. Self-check the draft against the constraints before returning it.
+
+**End goal:** A reviewable first draft that All practice BAs (contributors and searchers); curators can act on.
+
+**Narrowing (constraints):**
+- Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged.
+- Keep the language professional, plain-English and appropriate for a business audience.
+- Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for my review, not a finished artefact.
+- My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding.
+- Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-crispe" aria-labelledby="tab-crispe" tabindex="0">
+  <h3 class="panel-heading">CRISPE</h3>
+  <p class="muted">Its Experiment slot asks for alternatives rather than verification, and there is no Example slot. Scores 16/20 after conversion, losing: Example, Test step.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-crispe"
+            data-copy-status="copy-status-crispe" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-crispe" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-crispe"><code>**Capacity / Role:** Act as a BA practice lead.
+
+**Insight:** Practice context: [PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE]. Current state: [WHERE THINGS LIVE, WHAT&#x27;S FINDABLE, WHAT&#x27;S DUPLICATED]. Platform: [E.G. CONFLUENCE]. Retrieval moments to serve: [WHEN DO BAs GO LOOKING — LIST OR &#x27;PROPOSE&#x27;]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. This is for All practice BAs (contributors and searchers); curators.
+
+**Statement:** Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content. Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+**Personality:** Keep the language professional, plain-English and appropriate for a business audience. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+**Experiment:** Give me the draft in the format below, then offer one alternative structure and say when you would use it instead.
+
+**Format:** Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-race" aria-labelledby="tab-race" tabindex="0">
+  <h3 class="panel-heading">RACE</h3>
+  <p class="muted">Compact four-slot format. Keeps guardrails and audience; drops the worked example and the whole G.E.T. validation step. Scores 14/20 after conversion, losing: Example, Explain step, Test step.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-race"
+            data-copy-status="copy-status-race" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-race" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-race"><code>**Role:** I am a BA practice lead.
+
+**Action:** Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+
+**Context:** Practice context: [PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE]. Current state: [WHERE THINGS LIVE, WHAT&#x27;S FINDABLE, WHAT&#x27;S DUPLICATED]. Platform: [E.G. CONFLUENCE]. Retrieval moments to serve: [WHEN DO BAs GO LOOKING — LIST OR &#x27;PROPOSE&#x27;]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Audience: All practice BAs (contributors and searchers); curators.
+
+**Expectation:** Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-rtf" aria-labelledby="tab-rtf" tabindex="0">
+  <h3 class="panel-heading">RTF</h3>
+  <p class="muted">Minimal. Fine for a quick one-off; strips every verification and safety rule. Scores 10/20 after conversion, losing: Example, Explain step, Test step, Anti-fabrication, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-rtf"
+            data-copy-status="copy-status-rtf" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-rtf" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-rtf"><code>**Role:** A BA practice lead, writing for All practice BAs (contributors and searchers); curators.
+
+**Task:** Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+
+**Format:** Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-ape" aria-labelledby="tab-ape" tabindex="0">
+  <h3 class="panel-heading">APE</h3>
+  <p class="muted">Purpose-led and very short. No role, audience or example. Scores 10/20 after conversion, losing: Context, Example, Explain step, Test step, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-ape"
+            data-copy-status="copy-status-ape" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-ape" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-ape"><code>**Action:** Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+
+**Purpose:** So that All practice BAs (contributors and searchers); curators can review and act on it.
+
+**Expectation:** Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-bab" aria-labelledby="tab-bab" tabindex="0">
+  <h3 class="panel-heading">BAB</h3>
+  <p class="muted">Persuasive narrative shape. A poor fit for deliverable prompts - use it to pitch the work, not to produce it. Scores 10/20 after conversion, losing: Example, Explain step, Test step, Data safety, Right-sized.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-bab"
+            data-copy-status="copy-status-bab" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-bab" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-bab"><code>**Before:** I am a BA practice lead. Practice context: [PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE]. Current state: [WHERE THINGS LIVE, WHAT&#x27;S FINDABLE, WHAT&#x27;S DUPLICATED]. Platform: [E.G. CONFLUENCE]. Retrieval moments to serve: [WHEN DO BAs GO LOOKING — LIST OR &#x27;PROPOSE&#x27;]. Right now this work is unstructured and cannot be reviewed.
+
+**After:** All practice BAs (contributors and searchers); curators has a reviewable draft: Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged.
+
+**Bridge:** Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content. Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-chat" aria-labelledby="tab-chat" tabindex="0">
+  <h3 class="panel-heading">Compact chat</h3>
+  <p class="muted">One paragraph for short-context chat boxes. Deliberately lossy. Scores 12/20 after conversion, losing: Example, Explain step, Test step, Data safety.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-chat"
+            data-copy-status="copy-status-chat" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-chat" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-chat"><code>Act as a BA practice lead writing for All practice BAs (contributors and searchers); curators. Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content. Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers. Format: Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact. Finish by listing your assumptions and which claims came from my inputs versus your own knowledge.</code></pre>
+</div>
+<div class="tabpanel" role="tabpanel" id="panel-skill" aria-labelledby="tab-skill" tabindex="0">
+  <h3 class="panel-heading">Agent skill file</h3>
+  <p class="muted">The same prompt rebuilt as an <a href="../glossary/#agent-skill">agent skill</a> file, so an AI agent can follow it without you pasting anything. Save it as <code>SKILL.md</code>.</p>
+  <div class="copy-row">
+    <button type="button" class="btn" data-copy="code-skill"
+            data-copy-status="copy-status-skill" hidden>Copy this version</button>
+    <span class="copy-status" id="copy-status-skill" role="status" aria-live="polite"></span>
+  </div>
+  <pre tabindex="0" id="code-skill"><code>---
+name: ba-knowledge-base-structure-and-contribution-guidelines
+description: Use when the user is working on community of practice &amp; knowledge management and needs knowledge base, lessons learned register. Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Produces a reviewable first draft for all practice bas (contributors and searchers).
+license: CC-BY-4.0
+---
+
+# Knowledge Base Structure &amp; Contribution Guidelines
+
+Derived from `PL-06-D2` in the BA Prompt Forge library
+(Practice Lead / Community of Practice &amp; Knowledge Management, scored 20/20
+against the CARE + G.E.T. rubric).
+
+## When to use this
+
+The user is doing community of practice &amp; knowledge management work and needs one of:
+- Knowledge Base
+- Lessons Learned Register
+
+The audience for whatever you produce is: **All practice BAs (contributors and searchers); curators**.
+
+## Before you start
+
+The user&#x27;s work must respect the user&#x27;s organisation&#x27;s privacy, information-security and data-residency obligations. Everything the user pastes is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert them before proceeding.
+
+Collect these inputs from the user. Do not guess them:
+
+1. `[PROJECT NAME AND ONE-LINE DESCRIPTION]`
+2. `[PRACTICE SIZE, MIX OF PERMANENT/CONTRACT, DELIVERY PORTFOLIO SHAPE]`
+3. `[WHERE THINGS LIVE, WHAT&#x27;S FINDABLE, WHAT&#x27;S DUPLICATED]`
+4. `[E.G. CONFLUENCE]`
+5. `[WHEN DO BAs GO LOOKING — LIST OR &#x27;PROPOSE&#x27;]`
+
+Then ask up to 5 clarifying questions about anything still
+missing, and **wait for the answers** before drafting.
+
+## What to produce
+
+- Design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. Draft structure and guidelines. Include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content.
+
+Format the output exactly as follows:
+
+&gt; Structure: organised by delivery context (system update, agile, transition, procurement, data warehouse, AI agentic) and L3 service, mirroring the catalogue; per asset type (template, worked example, lesson, decision guide): quality bar for inclusion, metadata/tags, owner and review date. Contribution guidelines: what to contribute, the 10-minute contribution path, curation model (who prunes, cadence). Lessons register format: situation → what we&#x27;d do differently → reusable rule, tagged.
+
+Keep the language professional, plain-English and appropriate for a business audience.
+
+## Rules
+
+- Do not invent facts or figures: mark anything you could not verify from the user&#x27;s inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for the user&#x27;s review, not a finished artefact.
+- Do not ask the user to paste real personal or sensitive data.
+
+## Worked example to imitate
+
+Example quality bar: &quot;Worked-example inclusion bar: artefact was actually used in delivery (not composed for the KB); de-identified; author-annotated (3+ callouts on why choices were made); reviewed by a Lead; owner and review date set (12 months). Fails any → contribute to &#x27;raw examples&#x27; area instead.&quot;
+
+## Before you hand it back
+
+1. **Explain** - break down, step by step, the logic you used: how you interpreted
+   each input and why you structured the output the way you did.
+2. **Test** - list the sources you drew on (the user&#x27;s inputs, earlier turns, or
+   your own general knowledge; label which is which), cross-reference the key facts
+   against them, flag anything that does not trace back to a source, and list every
+   assumption you made so the user can verify or correct it.
+</code></pre>
+</div>
+  </div>
+</details>
+
+<details class="advanced" id="quality">
+  <summary>Quality score: 20/20 &mdash; Library-ready</summary>
+  <p>Every prompt here is marked against
+  <a href="../scoring/">ten criteria</a> before publication, and 17 out of
+  20 is the minimum to be published at all. You do not need to care about the
+  number &mdash; it exists so contributors know the standard.</p>
+  <div class="table-scroll" role="region" tabindex="0" aria-label="Marks out of 2 against the ten-criterion quality standard."><table><caption>Marks out of 2 against the ten-criterion quality standard.</caption><thead><tr><th scope="col">Criterion</th><th scope="col">Mark</th><th scope="col">Decided by</th></tr></thead><tbody>
+<tr><th scope="row">Context</th><td>2</td><td>Human judgement</td></tr>
+<tr><th scope="row">Action</th><td>2</td><td>Human judgement</td></tr>
+<tr><th scope="row">Result / Format</th><td>2</td><td>Human judgement</td></tr>
+<tr><th scope="row">Example</th><td>2</td><td>Checked automatically</td></tr>
+<tr><th scope="row">Explain step</th><td>2</td><td>Checked automatically</td></tr>
+<tr><th scope="row">Test step</th><td>2</td><td>Checked automatically</td></tr>
+<tr><th scope="row">Anti-fabrication</th><td>2</td><td>Checked automatically</td></tr>
+<tr><th scope="row">Data safety</th><td>2</td><td>Checked automatically</td></tr>
+<tr><th scope="row">Reusability</th><td>2</td><td>Checked automatically</td></tr>
+<tr><th scope="row">Right-sized</th><td>2</td><td>Human judgement</td></tr>
+</tbody></table></div>
+  <p>No deductions.</p>
+  <p class="muted">A high score means the prompt is well built, not that it worked.
+  If you use it for real, <a href="../contribute/#field-reports">tell us
+  what happened</a> &mdash; that is worth more than the score.</p>
+</details>
+
+<h2 id="contexts">Used on these kinds of project</h2>
+<ul>
+<li><a href="../contexts/#11-leadership">11. Leadership</a></li>
+</ul>
+
+<h2 id="provenance">Who wrote it</h2>
+<ul>
+  <li><strong>Author:</strong> Business Analyst Services</li>
+  <li><strong>Added:</strong> 2026-09-12</li>
+  <li><strong>Licence:</strong> CC-BY-4.0 &mdash; use it
+  at work, adapt it, keep the attribution.</li>
+</ul>
+<p>Improved it, or found that it did not work?
+<a href="../contribute/">Send it back</a> &mdash; you keep the credit.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

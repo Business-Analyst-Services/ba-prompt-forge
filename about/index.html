@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About &middot; BA Prompt Forge</title>
+<meta name="description" content="Provenance, statistics, contributors, licence and the accessibility commitments of BA Prompt Forge.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../start/">Start here</a></li>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">By project type</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../advanced/">Advanced</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/" aria-current="page">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<h1>About</h1>
+<p class="lede">Where this library came from, what is in it, who wrote it, and what you may
+do with it.</p>
+
+<h2 id="provenance">Provenance</h2>
+<p>The library originates from the <em>BA Services AI Prompt Library (CARE + G.E.T.) v1.0 &mdash;
+Portable edition</em> by <a href="https://business-analyst.services">Business Analyst
+Services</a>: 126 prompts across 42 level-3 BA services and six roles, each scored by its
+author against the ten-criterion scorecard.</p>
+<p>It is deliberately organisation-neutral &mdash; no client names, no sector framing, no
+jurisdiction-specific legislation, and every worked example rewritten in a generic
+case-management domain. Two edits make it yours: extend the context block with your own
+organisation and sector, and replace each worked example with one from your own domain. The
+example is the field that most shapes output quality.</p>
+
+<h2 id="statistics">Statistics</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table of measure"><table><thead><tr><th scope="col">Measure</th><th scope="col">Value</th></tr></thead><tbody>
+<tr><th scope="row">Prompts</th><td>126</td></tr>
+<tr><th scope="row">BA services</th><td>42</td></tr>
+<tr><th scope="row">Roles</th><td>6</td></tr>
+<tr><th scope="row">Mean rubric score</th><td>19.67 / 20</td></tr>
+<tr><th scope="row">Prompt frameworks supported</th><td>10</td></tr>
+<tr><th scope="row">Multi-mode prompts awaiting decomposition</th><td>42 (188 candidate single-task units)</td></tr>
+</tbody></table></div>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Prompts by role."><table><caption>Prompts by role.</caption><thead><tr><th scope="col">Role</th><th scope="col">Prompts</th></tr></thead><tbody>
+<tr><th scope="row">Agile BA</th><td>18</td></tr>
+<tr><th scope="row">Business BA</th><td>24</td></tr>
+<tr><th scope="row">Business/Tech BA</th><td>27</td></tr>
+<tr><th scope="row">Lead BA</th><td>18</td></tr>
+<tr><th scope="row">Practice Lead</th><td>21</td></tr>
+<tr><th scope="row">Technical BA</th><td>18</td></tr>
+</tbody></table></div>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Score distribution. Paper scores skew high - the library was written against the rubric that scores it."><table><caption>Score distribution. Paper scores skew high - the library was written against the rubric that scores it.</caption><thead><tr><th scope="col">Score</th><th scope="col">Prompts</th></tr></thead><tbody>
+<tr><th scope="row">20/20</th><td>84</td></tr>
+<tr><th scope="row">19/20</th><td>42</td></tr>
+</tbody></table></div>
+
+<h2 id="contributors">Contributors</h2>
+<div class="prose"><p>Every prompt in <code>library/</code> records its author in <code>provenance.author</code>, and that
+field travels with the prompt into every converted framework and every generated
+skill. This file is the roll-up.</p>
+<h2>Library authors</h2>
+<div class="table-scroll" role="region" tabindex="0" aria-label="Table: Library authors"><table>
+<thead>
+<tr>
+<th scope="col">Contributor</th>
+<th scope="col">Prompts</th>
+<th scope="col">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Business-Analyst-Services">Business Analyst Services</a></td>
+<td>126</td>
+<td>The founding library: <em>BA Services AI Prompt Library (CARE + G.E.T.) v1.0 - Portable edition</em></td>
+</tr>
+</tbody>
+</table></div>
+<h2>How to get on this list</h2>
+<p>Open a pull request with a prompt that scores 17+ on the
+<a href="../scoring/">rubric</a>. See <a href="../contribute/">CONTRIBUTING.md</a>.</p>
+<p>Prefer not to be named? Say so in the PR and we will use a handle of your choice,
+or leave the author field as <code>Anonymous</code>.</p>
+<h2>Field reports</h2>
+<p>The people who report what actually happened when they used a prompt are doing
+the harder and more useful work. They are credited in their own reports under
+<a href="../contribute/#field-reports"><code>field-reports/</code></a>, and negative reports count for more than
+positive ones.</p></div>
+
+<h2 id="licence">Licence</h2>
+<p>The prompts, rubric and documentation are licensed
+<a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0</a>:
+use them at work, adapt them, ship them inside a product &mdash; keep the attribution. Each
+prompt names its own author in its provenance, and that is the attribution to keep.</p>
+<p>The tooling that builds this site is MIT licensed. Everything is on
+<a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+
+<h2 id="accessibility">Accessibility</h2>
+<p>This site targets <strong>WCAG 2.1 level AA</strong>. In practice that means:</p>
+<ul>
+  <li>Every page works with JavaScript disabled &mdash; all prompt framework renderings are in
+  the HTML, and script only hides, filters and copies.</li>
+  <li>Colour pairs are contrast-tested at build time in both light and dark themes; the build
+  fails if a pair drops below its threshold.</li>
+  <li>Semantic landmarks, one <code>h1</code> per page, ordered headings, a skip link, and a
+  visible focus ring on every interactive element.</li>
+  <li>Framework tabs follow the ARIA tabs pattern with full arrow-key, Home and End support.
+  Filter results are announced to screen readers.</li>
+  <li>Tables carry header scope; form controls carry real labels; nothing relies on colour
+  alone &mdash; score badges always carry their number.</li>
+  <li>Content reflows to 320&nbsp;px, respects <code>prefers-reduced-motion</code>, and follows
+  your system light or dark setting unless you override it.</li>
+</ul>
+<p>If something here is unusable for you, that is a bug and will be treated as one:
+<a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">open an issue</a>.</p>
+
+<h2 id="further">Further reading</h2>
+<ul>
+  <li><a href="../decomposition/">Decomposition</a> &mdash; why Master prompts cannot
+  be tested, and the 188 single-task units that fix it.</li>
+  <li><a href="../roadmap/">Roadmap</a> &mdash; what is next, what is under
+  consideration, and what is deliberately not planned.</li>
+</ul>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

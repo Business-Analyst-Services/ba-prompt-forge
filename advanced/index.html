@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advanced &middot; BA Prompt Forge</title>
+<meta name="description" content="Optional material for people building on the library: agent skills, other prompt frameworks, the quality standard, and the data.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../start/">Start here</a></li>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">By project type</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../advanced/" aria-current="page">Advanced</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<h1>Advanced</h1>
+<p class="lede">Everything on this page is optional. If you came here to get a
+document written, you do not need any of it &mdash;
+<a href="../prompts/">find a prompt</a> instead.</p>
+
+<p>This section is for people who want to build on the library rather than just use
+it: integrate it into tooling, re-render the prompts in a different format, apply the
+quality standard to their own prompts, or contribute.</p>
+
+<ul class="cards">
+  <li class="card">
+    <h2><a href="../skills/">Use it with an AI agent</a></h2>
+    <p>Install the library as <a href="../glossary/#agent-skill">agent
+    skills</a> so an assistant picks and fills the right prompt for you, instead of
+    you copying and pasting.</p>
+  </li>
+  <li class="card">
+    <h2><a href="../frameworks/">Other prompt formats</a></h2>
+    <p>Every prompt can be re-rendered in nine other
+    <a href="../glossary/#prompt-framework">prompt frameworks</a> &mdash;
+    CO-STAR, RISEN, TIDD-EC and the rest &mdash; and the site reports what each
+    conversion costs.</p>
+  </li>
+  <li class="card">
+    <h2><a href="../scoring/">The quality standard</a></h2>
+    <p>The ten-criterion <a href="../glossary/#rubric">rubric</a> every
+    prompt is marked against, what a machine can and cannot judge, and why a high
+    score is weaker evidence than one person saying it worked.</p>
+  </li>
+  <li class="card">
+    <h2><a href="../decomposition/">Testable prompt units</a></h2>
+    <p>Why a prompt that offers several options cannot carry a regression test, and
+    the 188 single-task units generated to fix that.</p>
+  </li>
+  <li class="card">
+    <h2><a href="../roadmap/">Roadmap</a></h2>
+    <p>What is next, what is under consideration, and what is deliberately not
+    planned.</p>
+  </li>
+  <li class="card">
+    <h2><a href="../catalogue.json">catalogue.json</a></h2>
+    <p>The whole library as machine-readable data &mdash; every prompt with its
+    identifier, area of work, target documents and score. Start here if you are
+    building something on top.</p>
+  </li>
+</ul>
+
+<h2>How the library is put together</h2>
+<p>Each prompt is stored as <strong>separate fields</strong> &mdash; who is writing,
+who the audience is, the one task, the required output structure, the rules, the
+worked example &mdash; rather than as one block of text.</p>
+<p>That is the decision everything else rests on. A block of text cannot be
+re-rendered in another framework, marked criterion by criterion, compared in a pull
+request, or converted into an agent skill. A set of fields can.</p>
+<p>The source, the tooling that builds this site, and the full contribution process
+are on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

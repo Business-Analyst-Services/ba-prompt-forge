@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt frameworks &middot; BA Prompt Forge</title>
+<meta name="description" content="Ten prompt frameworks - CARE, CO-STAR, TIDD-EC, RISEN, CRISPE, RACE, RTF, APE, BAB - and what each conversion costs.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../start/">Start here</a></li>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">By project type</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../advanced/" aria-current="page">Advanced</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<h1>Prompt frameworks</h1>
+<p class="lede">You can ignore this page. The ready-to-use version on every prompt
+page already works in Copilot, ChatGPT and Claude &mdash; this is for people whose
+tooling or house standard expects a particular format.</p>
+
+<div class="panel">
+  <p>A <a href="../glossary/#prompt-framework">prompt framework</a> is just
+  a standard running order for the parts of a prompt: context first, then the task,
+  then the required output, and so on. CARE, CO-STAR, RISEN and the rest are
+  different running orders, named after their initials. None of them is magic and
+  the differences rarely matter to someone simply using a prompt.</p>
+</div>
+
+<p>This library is written in
+<a href="../glossary/#care-get">CARE + G.E.T.</a>, but that is a storage
+decision, not a commitment: every prompt can be re-rendered in any of ten
+frameworks, or as an agent skill.</p>
+
+<h2>Why that is possible</h2>
+<p>Each prompt is stored as <strong>fields, not as a blob of text</strong>: who is writing,
+who reads it, the one task, the checkable output format, the guardrails, the worked example.
+A blob cannot be re-rendered into another framework, scored criterion by criterion, or turned
+into a skill. Fields can.</p>
+
+<h2>Conversion is lossy, and we say by how much</h2>
+<p>A framework with no Example slot cannot carry the worked example. A framework with no place
+for verification rules drops them. Each renderer declares which of the
+<a href="../scoring/">ten rubric criteria</a> its slots can actually carry, so the
+cost of a conversion is a number rather than a shrug.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-label="BB-01-D1 scores 20/20 in CARE. Its score in each other framework:"><table><caption>BB-01-D1 scores 20/20 in CARE. Its score in each other framework:</caption><thead><tr><th scope="col">Flag</th><th scope="col">Framework</th><th scope="col">Score after conversion</th><th scope="col">Criteria lost</th></tr></thead><tbody>
+<tr><th scope="row"><code>care</code></th><td>CARE + G.E.T.</td><td>20 / 20</td><td>&mdash;</td></tr>
+<tr><th scope="row"><code>co-star</code></th><td>CO-STAR</td><td>20 / 20</td><td>&mdash;</td></tr>
+<tr><th scope="row"><code>tidd-ec</code></th><td>TIDD-EC</td><td>20 / 20</td><td>&mdash;</td></tr>
+<tr><th scope="row"><code>risen</code></th><td>RISEN</td><td>18 / 20</td><td>Example</td></tr>
+<tr><th scope="row"><code>crispe</code></th><td>CRISPE</td><td>16 / 20</td><td>Example, Test step</td></tr>
+<tr><th scope="row"><code>race</code></th><td>RACE</td><td>14 / 20</td><td>Example, Explain step, Test step</td></tr>
+<tr><th scope="row"><code>rtf</code></th><td>RTF</td><td>10 / 20</td><td>Example, Explain step, Test step, Anti-fabrication, Data safety</td></tr>
+<tr><th scope="row"><code>ape</code></th><td>APE</td><td>10 / 20</td><td>Context, Example, Explain step, Test step, Data safety</td></tr>
+<tr><th scope="row"><code>bab</code></th><td>BAB</td><td>10 / 20</td><td>Example, Explain step, Test step, Data safety, Right-sized</td></tr>
+<tr><th scope="row"><code>chat</code></th><td>Compact chat</td><td>12 / 20</td><td>Example, Explain step, Test step, Data safety</td></tr>
+</tbody></table></div>
+<p>Picking a lossy framework is fine &mdash; for a short input box, or a house standard.
+Picking one without knowing is not.</p>
+
+<h2>Converting a prompt into an agent skill</h2>
+<p>A prompt is one turn; a skill is a procedure. The conversion is not a copy-paste: the modes
+become steps, the clarifying questions become a gate before drafting, the validation block
+becomes a hand-back checklist, and first-person wording is shifted to address the agent about
+the user. Every prompt page carries its skill build under the
+<strong>Agent skill</strong> tab, and <a href="../skills/">all 126 are listed
+here</a>.</p>
+
+
+<h2 id="care">CARE + G.E.T.</h2>
+<p>The library&#x27;s native format. Context, Action, Result/Format, Example, plus Generate -&gt; Explain -&gt; Test.</p>
+<p><strong>BB-01-D1 rendered as CARE + G.E.T.</strong> &mdash; scores
+20/20.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code># CONTEXT
+I am a business analyst (Business BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Benefits to be measured: [PASTE BENEFITS STATEMENTS OR BUSINESS CASE EXTRACT]. The audience for this output: Benefit owners and the reporting/data team who must build the measures.
+
+# ACTION
+Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.
+
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+# RESULT / FORMAT
+One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured. Keep the language professional, plain-English and appropriate for a business audience. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+# EXAMPLE
+Example row: &quot;KPI: Cases resolved within 26 weeks | Definition: % of accepted cases closed within 26 weeks of lodgement | Formula: (cases closed ≤26wks ÷ accepted cases) × 100 | Baseline: [TO BE QUANTIFIED] | Target: +3pp on baseline | Source: case management system | Frequency: quarterly | Owner: Service Delivery Lead&quot;.
+
+# VALIDATION (GENERATE -&gt; EXPLAIN -&gt; TEST)
+Generate: produce the output requested above.
+Explain: then break down, step by step, the logic you used to synthesise your answer - how you interpreted each of my inputs and why you structured the output the way you did.
+Test: list the source references you used (my pasted inputs, earlier turns, or your general knowledge - label which is which); cross-reference the key facts in your output against those sources and flag anything that does not trace back to a source; and list every additional assumption you made so I can verify or correct it.</code></pre>
+</details>
+<h2 id="co-star">CO-STAR</h2>
+<p>Splits CARE&#x27;s Result into Style/Tone/Response and promotes Audience to its own slot. Lossless.</p>
+<p><strong>BB-01-D1 rendered as CO-STAR</strong> &mdash; scores
+20/20.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code># CONTEXT
+I am a business analyst (Business BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Benefits to be measured: [PASTE BENEFITS STATEMENTS OR BUSINESS CASE EXTRACT]. The audience for this output: Benefit owners and the reporting/data team who must build the measures.
+
+# OBJECTIVE
+Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.
+
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+# STYLE
+One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured.
+
+# TONE
+Keep the language professional, plain-English and appropriate for a business audience.
+
+# AUDIENCE
+Benefit owners and the reporting/data team who must build the measures.
+
+# RESPONSE
+Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+Worked example to imitate: Example row: &quot;KPI: Cases resolved within 26 weeks | Definition: % of accepted cases closed within 26 weeks of lodgement | Formula: (cases closed ≤26wks ÷ accepted cases) × 100 | Baseline: [TO BE QUANTIFIED] | Target: +3pp on baseline | Source: case management system | Frequency: quarterly | Owner: Service Delivery Lead&quot;.
+
+Generate: produce the output requested above.
+Explain: then break down, step by step, the logic you used to synthesise your answer - how you interpreted each of my inputs and why you structured the output the way you did.
+Test: list the source references you used (my pasted inputs, earlier turns, or your general knowledge - label which is which); cross-reference the key facts in your output against those sources and flag anything that does not trace back to a source; and list every additional assumption you made so I can verify or correct it.</code></pre>
+</details>
+<h2 id="tidd-ec">TIDD-EC</h2>
+<p>The only common format with an explicit DONT slot, so anti-fabrication and data-safety rules land naturally.</p>
+<p><strong>BB-01-D1 rendered as TIDD-EC</strong> &mdash; scores
+20/20.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code># TASK
+Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.
+
+# INSTRUCTIONS
+Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+Then generate the output, explain the synthesis logic you used, and test it: cite which parts came from my inputs versus your general knowledge, flag anything that does not trace back to a source, and list the assumptions you made.
+
+# DO
+- One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured.
+- Keep the language professional, plain-English and appropriate for a business audience.
+
+# DONT
+- Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for my review, not a finished artefact.
+- Do not ask me to paste real personal or sensitive data.
+
+# EXAMPLES
+Example row: &quot;KPI: Cases resolved within 26 weeks | Definition: % of accepted cases closed within 26 weeks of lodgement | Formula: (cases closed ≤26wks ÷ accepted cases) × 100 | Baseline: [TO BE QUANTIFIED] | Target: +3pp on baseline | Source: case management system | Frequency: quarterly | Owner: Service Delivery Lead&quot;.
+
+# CONTEXT
+I am a business analyst (Business BA). I am working on [PROJECT NAME AND ONE-LINE DESCRIPTION]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Benefits to be measured: [PASTE BENEFITS STATEMENTS OR BUSINESS CASE EXTRACT]. The audience for this output: Benefit owners and the reporting/data team who must build the measures.</code></pre>
+</details>
+<h2 id="risen">RISEN</h2>
+<p>Strong for multi-step work. No Example slot, so the worked example is lost.</p>
+<p><strong>BB-01-D1 rendered as RISEN</strong> &mdash; scores
+18/20, losing Example.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code>**Role:** A business analyst (Business BA).
+
+**Instructions:** Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.
+
+**Steps:**
+1. Ask the clarifying questions below and wait for my answers.
+2. Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.
+3. Self-check the draft against the constraints before returning it.
+
+**End goal:** A reviewable first draft that Benefit owners and the reporting/data team who must build the measures can act on.
+
+**Narrowing (constraints):**
+- One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured.
+- Keep the language professional, plain-English and appropriate for a business audience.
+- Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE].
+- Treat the output as a first draft for my review, not a finished artefact.
+- My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding.
+- Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.</code></pre>
+</details>
+<h2 id="crispe">CRISPE</h2>
+<p>Its Experiment slot asks for alternatives rather than verification, and there is no Example slot.</p>
+<p><strong>BB-01-D1 rendered as CRISPE</strong> &mdash; scores
+16/20, losing Example, Test step.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code>**Capacity / Role:** Act as a business analyst (Business BA).
+
+**Insight:** Benefits to be measured: [PASTE BENEFITS STATEMENTS OR BUSINESS CASE EXTRACT]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. This is for Benefit owners and the reporting/data team who must build the measures.
+
+**Statement:** Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI. Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers.
+
+**Personality:** Keep the language professional, plain-English and appropriate for a business audience. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.
+
+**Experiment:** Give me the draft in the format below, then offer one alternative structure and say when you would use it instead.
+
+**Format:** One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured.</code></pre>
+</details>
+<h2 id="race">RACE</h2>
+<p>Compact four-slot format. Keeps guardrails and audience; drops the worked example and the whole G.E.T. validation step.</p>
+<p><strong>BB-01-D1 rendered as RACE</strong> &mdash; scores
+14/20, losing Example, Explain step, Test step.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code>**Role:** I am a business analyst (Business BA).
+
+**Action:** Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.
+
+**Context:** Benefits to be measured: [PASTE BENEFITS STATEMENTS OR BUSINESS CASE EXTRACT]. My work must respect my organisation&#x27;s privacy, information-security and data-residency obligations. Everything I paste is de-identified or synthetic — if any input appears to contain real personal or sensitive data, stop and alert me before proceeding. Audience: Benefit owners and the reporting/data team who must build the measures.
+
+**Expectation:** One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</details>
+<h2 id="rtf">RTF</h2>
+<p>Minimal. Fine for a quick one-off; strips every verification and safety rule.</p>
+<p><strong>BB-01-D1 rendered as RTF</strong> &mdash; scores
+10/20, losing Example, Explain step, Test step, Anti-fabrication, Data safety.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code>**Role:** A business analyst (Business BA), writing for Benefit owners and the reporting/data team who must build the measures.
+
+**Task:** Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.
+
+**Format:** One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured.</code></pre>
+</details>
+<h2 id="ape">APE</h2>
+<p>Purpose-led and very short. No role, audience or example.</p>
+<p><strong>BB-01-D1 rendered as APE</strong> &mdash; scores
+10/20, losing Context, Example, Explain step, Test step, Data safety.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code>**Action:** Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI.
+
+**Purpose:** So that Benefit owners and the reporting/data team who must build the measures can review and act on it.
+
+**Expectation:** One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</details>
+<h2 id="bab">BAB</h2>
+<p>Persuasive narrative shape. A poor fit for deliverable prompts - use it to pitch the work, not to produce it.</p>
+<p><strong>BB-01-D1 rendered as BAB</strong> &mdash; scores
+10/20, losing Example, Explain step, Test step, Data safety, Right-sized.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code>**Before:** I am a business analyst (Business BA). Benefits to be measured: [PASTE BENEFITS STATEMENTS OR BUSINESS CASE EXTRACT]. Right now this work is unstructured and cannot be reviewed.
+
+**After:** Benefit owners and the reporting/data team who must build the measures has a reviewable draft: One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured.
+
+**Bridge:** Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI. Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact.</code></pre>
+</details>
+<h2 id="chat">Compact chat</h2>
+<p>One paragraph for short-context chat boxes. Deliberately lossy.</p>
+<p><strong>BB-01-D1 rendered as Compact chat</strong> &mdash; scores
+12/20, losing Example, Explain step, Test step, Data safety.</p>
+<details>
+  <summary>Show the rendering</summary>
+  <pre tabindex="0"><code>Act as a business analyst (Business BA) writing for Benefit owners and the reporting/data team who must build the measures. Turn the listed benefits into a rigorous KPI definition table that reporting teams could implement without further interpretation. Draft the table, then list measurement risks (gaming, lag, data quality) per KPI. Before drafting, ask me up to 5 clarifying questions about anything missing, then wait for my answers. Format: One table, one row per KPI: KPI name; plain-English definition; calculation formula; unit; baseline; target and target date; data source system; collection frequency; accountable owner (role, not name). Flag any KPI that cannot currently be measured. Do not invent facts or figures: mark anything you could not verify from my inputs as [TBC] and any value you propose yourself as [PROPOSED — VALIDATE]. Treat the output as a first draft for my review, not a finished artefact. Finish by listing your assumptions and which claims came from my inputs versus your own knowledge.</code></pre>
+</details>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glossary &middot; BA Prompt Forge</title>
+<meta name="description" content="Plain-English definitions of every term used on this site: prompt, AI assistant, agent skill, rubric, RAG and the rest.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../start/">Start here</a></li>
+          <li><a href="../prompts/">Find a prompt</a></li>
+          <li><a href="../contexts/">By project type</a></li>
+          <li><a href="../glossary/" aria-current="page">Glossary</a></li>
+          <li><a href="../advanced/">Advanced</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<h1>Glossary</h1>
+<p class="lede">Every term this site uses, in plain English. If something here is
+still unclear, that is a fault in the writing &mdash; please
+<a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">tell us</a>.</p>
+
+<div class="panel">
+  <p><strong>The short version:</strong> a <a href="#prompt">prompt</a> is text you
+  paste into an <a href="#ai-assistant">AI assistant</a> like Copilot or ChatGPT.
+  This site has 126 of them, already written, for documents business analysts
+  produce. Everything else on this page is optional detail.</p>
+</div>
+
+<nav aria-labelledby="terms-heading">
+  <h2 id="terms-heading">Terms</h2>
+  <ul>
+<li><a href="#ai-assistant">AI assistant</a></li>
+<li><a href="#prompt">Prompt</a></li>
+<li><a href="#placeholder">Placeholder</a></li>
+<li><a href="#first-draft">First draft</a></li>
+<li><a href="#hallucination">Made-up facts (hallucination)</a></li>
+<li><a href="#de-identified">De-identified / synthetic data</a></li>
+<li><a href="#deliverable-prompt">Deliverable prompt</a></li>
+<li><a href="#master-prompt">Master prompt</a></li>
+<li><a href="#ba-service">BA service</a></li>
+<li><a href="#delivery-context">Delivery context</a></li>
+<li><a href="#prompt-framework">Prompt framework</a></li>
+<li><a href="#care-get">CARE + G.E.T.</a></li>
+<li><a href="#rubric">Rubric / quality score</a></li>
+<li><a href="#agent">AI agent</a></li>
+<li><a href="#agent-skill">Agent skill</a></li>
+<li><a href="#router-skill">Router skill</a></li>
+<li><a href="#agentic-ai">Agentic AI</a></li>
+<li><a href="#rag">RAG (retrieval-augmented generation)</a></li>
+<li><a href="#grounding">Grounding</a></li>
+<li><a href="#bdd">BDD / Gherkin / Given-When-Then</a></li>
+<li><a href="#dor">Definition of Ready / Definition of Done</a></li>
+<li><a href="#uat">UAT (user acceptance testing)</a></li>
+<li><a href="#babok">BABOK</a></li>
+  </ul>
+</nav>
+
+<h2 id="ai-assistant">AI assistant</h2>
+<p>A tool you type a question into and get written text back: Microsoft Copilot, ChatGPT, Claude or Google Gemini are the common ones. If your employer gives you one, it is probably Copilot.</p>
+<p>Everything on this site works with any of them. You do not need a special one, a subscription tier, or anything installed.</p>
+<h2 id="prompt">Prompt</h2>
+<p>The instructions you give an AI assistant. That is all a prompt is — text you paste into the box.</p>
+<p>A good prompt says who you are, what you want, what shape the answer should take, and what the assistant must not do. Writing all that out every time is tedious, which is why this site exists: the prompts here are already written.</p>
+<h2 id="placeholder">Placeholder</h2>
+<p>The bits in [SQUARE BRACKETS AND CAPITALS] that you replace with your own details before you send the prompt — your project name, the process you are mapping, the notes you are working from.</p>
+<p>If you do not know one, leave it and say so; the assistant will ask.</p>
+<h2 id="first-draft">First draft</h2>
+<p>What an AI assistant gives you back. It is a starting point to edit, not something to forward to your sponsor.</p>
+<p>Every prompt here says this to the assistant explicitly, so the output arrives labelled as a draft rather than dressed up as finished work.</p>
+<h2 id="hallucination">Made-up facts (hallucination)</h2>
+<p>AI assistants will invent plausible-sounding detail — a figure, a date, a standard, a citation — rather than admit they do not know. This is the single biggest risk in using them for BA work.</p>
+<p>Every prompt here forbids it and tells the assistant to mark anything it could not verify as [TBC], and anything it suggested itself as [PROPOSED — VALIDATE]. When you see those tags, that is the prompt working. Check them before the document goes anywhere.</p>
+<h2 id="de-identified">De-identified / synthetic data</h2>
+<p>De-identified means you removed the details that identify a real person or case before pasting: names, case numbers, addresses, dates of birth. Synthetic means you made the example up entirely.</p>
+<p>Every prompt here tells the assistant to stop and warn you if what you pasted looks like real personal data. Treat that as a backstop, not a substitute for checking first — and follow your own organisation's rules about what may go into an AI tool at all.</p>
+<h2 id="deliverable-prompt">Deliverable prompt</h2>
+<p>A prompt that produces one specific thing — a traceability matrix, a set of acceptance criteria, a stakeholder register.</p>
+<p>Most of the time this is what you want. 84 of the 126 prompts here are deliverable prompts.</p>
+<h2 id="master-prompt">Master prompt</h2>
+<p>A prompt that sets an assistant up to work with you across a whole area for a while, offering several things it can produce, rather than producing one artefact and stopping.</p>
+<p>Useful when you are working a topic through over an afternoon. If you just need one document, use a deliverable prompt instead.</p>
+<h2 id="ba-service">BA service</h2>
+<p>A named area of business-analysis work — 'Process Analysis & Improvement', 'Requirements Governance & Traceability'. This site covers 42 of them.</p>
+<p>It is how the prompts are filed. If the names mean nothing to you, ignore them and search by what you are writing instead.</p>
+<h2 id="delivery-context">Delivery context</h2>
+<p>The kind of project you are on: an agile delivery, a procurement, a data warehouse build, a go-live. There are eleven here.</p>
+<p>Useful when you know your project type but not which document you need yet.</p>
+<h2 id="prompt-framework">Prompt framework</h2>
+<p>A standard running order for the parts of a prompt — context first, then the task, then the output format, and so on. CARE, CO-STAR, RISEN, TIDD-EC, RACE, CRISPE, RTF, APE and BAB are all just different running orders, usually named after their initials.</p>
+<p>They matter to people building prompt tooling. As someone using a prompt, you can ignore them completely — the ready-to-use version on every prompt page is already in a good one.</p>
+<h2 id="care-get">CARE + G.E.T.</h2>
+<p>The framework these prompts are written in. CARE is Context, Action, Result/Format, Example. G.E.T. is what the prompt asks the assistant to do afterwards: Generate the answer, Explain how it reached it, and Test it by listing its sources and assumptions.</p>
+<p>That last part is the useful bit for BA work — it is what turns output you have to trust into output you can check.</p>
+<h2 id="rubric">Rubric / quality score</h2>
+<p>A checklist used to mark each prompt out of 20 against ten criteria: does it say who the audience is, does it give a worked example, does it forbid made-up facts, and so on.</p>
+<p>You do not need to care about the number. Everything published here scored 17 or higher, which is the bar for being published at all. The score is there so contributors know the standard and reviewers can apply it consistently.</p>
+<h2 id="agent">AI agent</h2>
+<p>An AI assistant that can take several steps on its own — read a file, decide what to do next, come back to you — rather than answering one question at a time.</p>
+<p>Nothing on this site requires one.</p>
+<h2 id="agent-skill">Agent skill</h2>
+<p>A file of instructions (named SKILL.md) that you give to an AI agent once, so it knows how to do a job properly every time you ask, without you pasting a prompt.</p>
+<p>Think of it as a prompt you install rather than paste. Optional — the copy-and-paste route works perfectly well.</p>
+<h2 id="router-skill">Router skill</h2>
+<p>One particular agent skill on this site. You tell it what you are working on in your own words — 'I need acceptance criteria a tester can actually work from' — and it picks the right prompt out of the 126, asks you for the details it needs, and hands back a finished prompt.</p>
+<p>It exists because 126 is too many to browse. It is a convenience, not a requirement.</p>
+<h2 id="agentic-ai">Agentic AI</h2>
+<p>A way of building systems where AI agents carry out multi-step tasks with some independence, rather than just answering questions.</p>
+<p>It appears on this site only as the name of one delivery context — for BAs whose project happens to be building such a system. It is not something you need to understand to use the prompts.</p>
+<h2 id="rag">RAG (retrieval-augmented generation)</h2>
+<p>A technique for making an AI assistant answer from a specific set of documents — your policies, your knowledge base — rather than from whatever it learned in training. The system looks up relevant documents first, then answers using them.</p>
+<p>Same as above: it appears here only because some BAs are asked to write requirements for systems that use it.</p>
+<h2 id="grounding">Grounding</h2>
+<p>Tying an AI assistant's answers to real, checkable sources so it is less free to invent. RAG is one way of doing it.</p>
+<h2 id="bdd">BDD / Gherkin / Given-When-Then</h2>
+<p>A way of writing acceptance criteria as concrete scenarios in a fixed shape: Given some starting situation, When someone does something, Then this should happen. Gherkin is the name of that shape; BDD (behaviour-driven development) is the practice of using it.</p>
+<p>It is popular because the same scenario is readable by a business stakeholder and usable by a tester.</p>
+<h2 id="dor">Definition of Ready / Definition of Done</h2>
+<p>Two checklists an agile team agrees between themselves. Definition of Ready is what a piece of work needs before the team will start it; Definition of Done is what it needs before they will call it finished.</p>
+<h2 id="uat">UAT (user acceptance testing)</h2>
+<p>The testing done by the people who will actually use a system, to confirm it does what the business needed — as opposed to testing that it works technically.</p>
+<h2 id="babok">BABOK</h2>
+<p>A Guide to the Business Analysis Body of Knowledge, published by IIBA. The reference text most BA practice is described against.</p>
+<p>Some prompts mention it so the assistant writes in a style a BA audience will recognise. You do not need a copy.</p>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>

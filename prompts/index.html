@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find a prompt &middot; BA Prompt Forge</title>
+<meta name="description" content="Filter 126 scored business-analysis prompts by role, type and service.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../">BA Prompt Forge</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+          <li><a href="../start/">Start here</a></li>
+          <li><a href="../prompts/" aria-current="page">Find a prompt</a></li>
+          <li><a href="../contexts/">By project type</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../advanced/">Advanced</a></li>
+          <li><a href="../contribute/">Contribute</a></li>
+          <li><a href="../about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="theme-toggle" aria-pressed="false" hidden>Dark theme</button>
+  </div>
+</header>
+<main id="main" class="wrap" tabindex="-1">
+
+<h1>Find a prompt</h1>
+<p class="lede">Each prompt writes one thing. Search for what you need to
+produce &mdash; &ldquo;acceptance criteria&rdquo;, &ldquo;process map&rdquo;,
+&ldquo;business case&rdquo;, &ldquo;test scripts&rdquo;.</p>
+
+<p>Once you have found one: copy it, replace the bits in [SQUARE BRACKETS] with
+your own details, and paste it into Copilot, ChatGPT or Claude. New to this?
+<a href="../start/">Start here</a> first.</p>
+
+<details class="advanced">
+  <summary>What do &ldquo;Master&rdquo; and &ldquo;Deliverable&rdquo; mean in the table?</summary>
+  <p><strong>Deliverable</strong> prompts produce one document and stop. That is
+  almost always what you want, and 84 of the 126 are this kind.</p>
+  <p><strong>Master</strong> prompts set the assistant up to work with you across a
+  whole area of BA work over a longer session, offering several things it can
+  produce rather than just one.</p>
+  <p><strong>Area of work</strong> is how the prompts are filed &mdash; 42 named
+  areas of business analysis. If the names mean nothing to you, ignore that column
+  and search by what you are writing instead.</p>
+</details>
+
+<form class="filters full" role="search" aria-label="Filter prompts"
+      onsubmit="return false;">
+  <div class="field">
+    <label for="filter-search">Search</label>
+    <input type="search" id="filter-search" autocomplete="off"
+           placeholder="acceptance criteria, process map, test scripts&hellip;">
+  </div>
+  <div class="field">
+    <label for="filter-role">Your BA role</label>
+    <select id="filter-role" data-filter="role"><option value="">All roles</option><option value="Agile BA">Agile BA</option><option value="Business BA">Business BA</option><option value="Business/Tech BA">Business/Tech BA</option><option value="Lead BA">Lead BA</option><option value="Practice Lead">Practice Lead</option><option value="Technical BA">Technical BA</option></select>
+  </div>
+  <div class="field">
+    <label for="filter-type">Prompt type</label>
+    <select id="filter-type" data-filter="type"><option value="">All types</option><option value="deliverable">Deliverable</option><option value="master">Master</option></select>
+  </div>
+  <div class="field">
+    <label for="filter-service">Area of work</label>
+    <select id="filter-service" data-filter="service"><option value="">All services</option><option value="AI Transformation">AI Transformation</option><option value="Agile Ceremony Facilitation &amp; Support">Agile Ceremony Facilitation &amp; Support</option><option value="Agile Metrics &amp; Flow Analysis">Agile Metrics &amp; Flow Analysis</option><option value="Agile Ways of Working Uplift">Agile Ways of Working Uplift</option><option value="BA Engagement Planning &amp; Estimation">BA Engagement Planning &amp; Estimation</option><option value="BA Mentoring &amp; Capability Development">BA Mentoring &amp; Capability Development</option><option value="BA Practice Strategy &amp; Operating Model">BA Practice Strategy &amp; Operating Model</option><option value="BA Team Leadership &amp; Work Allocation">BA Team Leadership &amp; Work Allocation</option><option value="Backlog Management (Agile)">Backlog Management (Agile)</option><option value="Benefits Realisation &amp; KPI Management">Benefits Realisation &amp; KPI Management</option><option value="Business Needs Assessments (Initial and High Level Requirements)">Business Needs Assessments (Initial and High Level Requirements)</option><option value="Business Project Discovery &amp; Problem Definition">Business Project Discovery &amp; Problem Definition</option><option value="Capability &amp; Competency Management">Capability &amp; Competency Management</option><option value="Commercial, Licencing &amp; Vendor Mgmt">Commercial, Licencing &amp; Vendor Mgmt</option><option value="Community of Practice &amp; Knowledge Management">Community of Practice &amp; Knowledge Management</option><option value="Cross-Stream Scope &amp; Dependency Coordination">Cross-Stream Scope &amp; Dependency Coordination</option><option value="Data &amp; Reporting Analysis">Data &amp; Reporting Analysis</option><option value="Defect &amp; Work-around Analysis">Defect &amp; Work-around Analysis</option><option value="Environment Access &amp; DevOps Enablement">Environment Access &amp; DevOps Enablement</option><option value="Functional Requirements Analysis &amp; Refinement">Functional Requirements Analysis &amp; Refinement</option><option value="Integration, Data &amp; Migration">Integration, Data &amp; Migration</option><option value="Iteration &amp; Release Planning Support">Iteration &amp; Release Planning Support</option><option value="Just-in-Time Requirements Elaboration">Just-in-Time Requirements Elaboration</option><option value="Operational Engineering &amp; Observability">Operational Engineering &amp; Observability</option><option value="Operational Readiness &amp; Transition">Operational Readiness &amp; Transition</option><option value="Platform Design &amp; Infrastructure">Platform Design &amp; Infrastructure</option><option value="Practice Performance &amp; Continuous Improvement">Practice Performance &amp; Continuous Improvement</option><option value="Process Analysis &amp; Improvement">Process Analysis &amp; Improvement</option><option value="Requirements Governance &amp; Traceability">Requirements Governance &amp; Traceability</option><option value="Requirements Quality Assurance &amp; Review">Requirements Quality Assurance &amp; Review</option><option value="Security, Privacy &amp; Compliance">Security, Privacy &amp; Compliance</option><option value="Senior Stakeholder &amp; Sponsor Engagement">Senior Stakeholder &amp; Sponsor Engagement</option><option value="Service &amp; Operational Readiness">Service &amp; Operational Readiness</option><option value="Sizing, Estimation, Dependency and Prioritisation Management">Sizing, Estimation, Dependency and Prioritisation Management</option><option value="Solution Analysis &amp; Design Support">Solution Analysis &amp; Design Support</option><option value="Stakeholder Analysis &amp; Engagement">Stakeholder Analysis &amp; Engagement</option><option value="Standards, Methods &amp; Templates">Standards, Methods &amp; Templates</option><option value="Strategic Business Analysis &amp; Advisory">Strategic Business Analysis &amp; Advisory</option><option value="Testing &amp; Requirements Validation Support">Testing &amp; Requirements Validation Support</option><option value="Tooling &amp; AI Enablement">Tooling &amp; AI Enablement</option><option value="User Story Mapping &amp; Slicing">User Story Mapping &amp; Slicing</option><option value="Workforce &amp; Resource Management">Workforce &amp; Resource Management</option></select>
+  </div>
+  <div class="field">
+    <span aria-hidden="true"></span>
+    <button type="button" class="btn" id="filter-reset" hidden>Clear filters</button>
+  </div>
+</form>
+
+<p class="result-count" id="result-count" role="status" aria-live="polite">Showing all 126 prompts.</p>
+<p id="no-results" hidden>No prompts match those filters. Try clearing one, or
+<a href="../contribute/">propose the prompt that is missing</a>.</p>
+
+<div class="table-scroll full">
+<table id="prompt-list">
+  <caption>Every prompt, with the role it suits, what kind it is, its area of work and its quality score.</caption>
+  <thead><tr>
+    <th scope="col">Prompt</th><th scope="col">Role</th><th scope="col">Type</th>
+    <th scope="col">Area of work</th><th scope="col">Score</th>
+  </tr></thead>
+  <tbody>
+<tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Agile Ceremony Facilitation &amp; Support" data-haystack="ab-01-d1 refinement session pack agile ceremony facilitation &amp; support agile ba prepare the refinement session so every minute goes to decisions, not reading. draft the pack. flag stories not worth refining yet (too vague, blocked) with what must happen first. refined user stories updated acceptance criteria refinement outcomes 4. it system – agile">
+<th scope="row"><a href="AB-01-D1.html">Refinement Session Pack</a><br>
+<small class="muted"><code>AB-01-D1</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Agile Ceremony Facilitation &amp; Support</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Agile Ceremony Facilitation &amp; Support" data-haystack="ab-01-d2 showcase &amp; retrospective pack agile ceremony facilitation &amp; support agile ba prepare the showcase narrative and turn retro inputs into actions that actually land. draft both. in the retro analysis, distinguish what the squad controls from what needs escalation. showcase materials stakeholder feedback log retrospective actions 4. it system – agile">
+<th scope="row"><a href="AB-01-D2.html">Showcase &amp; Retrospective Pack</a><br>
+<small class="muted"><code>AB-01-D2</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Agile Ceremony Facilitation &amp; Support</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="master"
+ data-service="Agile Ceremony Facilitation &amp; Support" data-haystack="ab-01-m master – agile ceremony facilitation &amp; support agile ceremony facilitation &amp; support agile ba support and contribute to sprint ceremonies so the squad stays aligned and informed: prepare refinement sessions, support sprint planning and goal setting, and support showcases and retrospectives. produce on request refinement session outputs sprint planning inputs showcase materials retrospective actions 4. it system – agile">
+<th scope="row"><a href="AB-01-M.html">Master – Agile Ceremony Facilitation &amp; Support</a><br>
+<small class="muted"><code>AB-01-M</code></small></th>
+<td>Agile BA</td><td>Master</td><td>Agile Ceremony Facilitation &amp; Support</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="User Story Mapping &amp; Slicing" data-haystack="ab-02-d1 story map from a user journey user story mapping &amp; slicing agile ba build the story map: backbone, stories, walking skeleton and release slices. draft the map. list the assumptions you made about journey order and persona goals for me to verify. story maps walking skeleton release slices 4. it system – agile">
+<th scope="row"><a href="AB-02-D1.html">Story Map from a User Journey</a><br>
+<small class="muted"><code>AB-02-D1</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>User Story Mapping &amp; Slicing</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="User Story Mapping &amp; Slicing" data-haystack="ab-02-d2 feature slicing &amp; mvp definition user story mapping &amp; slicing agile ba slice the feature vertically, define the thinnest valuable slice, and set mvp/mmp boundaries. draft slices and mvp. mark compliance-driven items that cannot be descoped regardless of value logic. sliced user stories mvp/mmp definitions slice sequencing 4. it system – agile">
+<th scope="row"><a href="AB-02-D2.html">Feature Slicing &amp; MVP Definition</a><br>
+<small class="muted"><code>AB-02-D2</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>User Story Mapping &amp; Slicing</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="master"
+ data-service="User Story Mapping &amp; Slicing" data-haystack="ab-02-m master – user story mapping &amp; slicing user story mapping &amp; slicing agile ba decompose features into thin, valuable vertical slices: build story maps around the user journey, slice features vertically, define the mvp/mmp, and write acceptance criteria with concrete examples. produce on request story maps sliced user stories acceptance criteria mvp/mmp definitions 4. it system – agile">
+<th scope="row"><a href="AB-02-M.html">Master – User Story Mapping &amp; Slicing</a><br>
+<small class="muted"><code>AB-02-M</code></small></th>
+<td>Agile BA</td><td>Master</td><td>User Story Mapping &amp; Slicing</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Just-in-Time Requirements Elaboration" data-haystack="ab-03-d1 story elaboration to definition of ready (with bdd) just-in-time requirements elaboration agile ba elaborate the story to genuinely ready: rules, criteria and bdd scenarios a developer and tester can work from without re-asking. elaborate, then run the dor checklist over your own output and state pass/fail per criterion. elaborated user stories acceptance criteria bdd/gherkin scenarios 4. it system – agile">
+<th scope="row"><a href="AB-03-D1.html">Story Elaboration to Definition of Ready (with BDD)</a><br>
+<small class="muted"><code>AB-03-D1</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Just-in-Time Requirements Elaboration</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Just-in-Time Requirements Elaboration" data-haystack="ab-03-d2 spike definition &amp; outcome record just-in-time requirements elaboration agile ba define a sharp spike before it runs, and turn its findings into a decision record afterwards. draft whichever half i ask for. reject spike questions that are really two questions — split them. spike outcomes decision records de-risked stories 4. it system – agile">
+<th scope="row"><a href="AB-03-D2.html">Spike Definition &amp; Outcome Record</a><br>
+<small class="muted"><code>AB-03-D2</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Just-in-Time Requirements Elaboration</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="master"
+ data-service="Just-in-Time Requirements Elaboration" data-haystack="ab-03-m master – just-in-time requirements elaboration just-in-time requirements elaboration agile ba progressively elaborate requirements on cadence so stories are ready ahead of each sprint: manage definition of ready compliance, elaborate just-in-time (right detail now, defer the rest), and run spikes for uncertainty. produce on request definition of ready compliance elaborated user stories acceptance criteria example/bdd scenarios 4. it system – agile">
+<th scope="row"><a href="AB-03-M.html">Master – Just-in-Time Requirements Elaboration</a><br>
+<small class="muted"><code>AB-03-M</code></small></th>
+<td>Agile BA</td><td>Master</td><td>Just-in-Time Requirements Elaboration</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Iteration &amp; Release Planning Support" data-haystack="ab-04-d1 release plan &amp; scope sequencing iteration &amp; release planning support agile ba draft a release plan that unlocks value earliest and survives contact with dependencies. draft the plan. show one alternative sequencing and why you rejected it. release plans release scope definitions 4. it system – agile">
+<th scope="row"><a href="AB-04-D1.html">Release Plan &amp; Scope Sequencing</a><br>
+<small class="muted"><code>AB-04-D1</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Iteration &amp; Release Planning Support</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Iteration &amp; Release Planning Support" data-haystack="ab-04-d2 sprint capacity &amp; dependency inputs iteration &amp; release planning support agile ba prepare the capacity and dependency inputs that make sprint planning a 30-minute decision. draft the inputs. flag overcommitment explicitly if candidates exceed capacity — do not quietly stretch the numbers. sprint/iteration plans dependency registers 4. it system – agile">
+<th scope="row"><a href="AB-04-D2.html">Sprint Capacity &amp; Dependency Inputs</a><br>
+<small class="muted"><code>AB-04-D2</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Iteration &amp; Release Planning Support</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="master"
+ data-service="Iteration &amp; Release Planning Support" data-haystack="ab-04-m master – iteration &amp; release planning support iteration &amp; release planning support agile ba support iteration and release planning by shaping scope, sequencing and sprint goals: release scope options, capacity and dependency inputs, and roadmap alignment with explicit trade-offs. produce on request release plans sprint goals capacity &amp; scope inputs roadmap inputs 4. it system – agile">
+<th scope="row"><a href="AB-04-M.html">Master – Iteration &amp; Release Planning Support</a><br>
+<small class="muted"><code>AB-04-M</code></small></th>
+<td>Agile BA</td><td>Master</td><td>Iteration &amp; Release Planning Support</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Agile Metrics &amp; Flow Analysis" data-haystack="ab-05-d1 flow &amp; bottleneck analysis agile metrics &amp; flow analysis agile ba find where work actually gets stuck, and test whether the data supports the squad&#x27;s intuition. run the analysis. where the data contradicts the squad&#x27;s felt pain, say so and explain the gap. cumulative flow analysis cycle time reports bottleneck assessments 4. it system – agile">
+<th scope="row"><a href="AB-05-D1.html">Flow &amp; Bottleneck Analysis</a><br>
+<small class="muted"><code>AB-05-D1</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Agile Metrics &amp; Flow Analysis</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Agile Metrics &amp; Flow Analysis" data-haystack="ab-05-d2 delivery forecast with confidence agile metrics &amp; flow analysis agile ba forecast when the remaining scope will complete, as a defensible range. produce the forecast. if my history is under 4 sprints, say the forecast is low-confidence and what to do instead. delivery forecasts confidence assessments 4. it system – agile">
+<th scope="row"><a href="AB-05-D2.html">Delivery Forecast with Confidence</a><br>
+<small class="muted"><code>AB-05-D2</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Agile Metrics &amp; Flow Analysis</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="master"
+ data-service="Agile Metrics &amp; Flow Analysis" data-haystack="ab-05-m master – agile metrics &amp; flow analysis agile metrics &amp; flow analysis agile ba analyse velocity, throughput and flow to inform forecasting and delivery improvement: track velocity and burn, find bottlenecks, and produce forecasts with honest confidence ranges. produce on request velocity &amp; burn-down reports cumulative flow analysis cycle time analysis delivery forecasts 4. it system – agile">
+<th scope="row"><a href="AB-05-M.html">Master – Agile Metrics &amp; Flow Analysis</a><br>
+<small class="muted"><code>AB-05-M</code></small></th>
+<td>Agile BA</td><td>Master</td><td>Agile Metrics &amp; Flow Analysis</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Agile Ways of Working Uplift" data-haystack="ab-06-d1 definition of ready / done uplift agile ways of working uplift agile ba draft an uplifted dor and dod that would have caught the recent failures, sized to the squad&#x27;s maturity. draft both definitions. for each recent failure i gave, point to the criterion that now catches it — and admit any failure your draft still wouldn&#x27;t catch. definition of ready definition of done working agreements 4. it system – agile">
+<th scope="row"><a href="AB-06-D1.html">Definition of Ready / Done Uplift</a><br>
+<small class="muted"><code>AB-06-D1</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Agile Ways of Working Uplift</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="deliverable"
+ data-service="Agile Ways of Working Uplift" data-haystack="ab-06-d2 improvement backlog &amp; experiments agile ways of working uplift agile ba turn improvement themes into a prioritised backlog of small experiments with clear success signals. draft the backlog. reject vague improvements (&#x27;communicate better&#x27;) — restate each as a concrete, trialable change. improvement backlog experiment outcomes practice uplift plans 4. it system – agile">
+<th scope="row"><a href="AB-06-D2.html">Improvement Backlog &amp; Experiments</a><br>
+<small class="muted"><code>AB-06-D2</code></small></th>
+<td>Agile BA</td><td>Deliverable</td><td>Agile Ways of Working Uplift</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Agile BA" data-type="master"
+ data-service="Agile Ways of Working Uplift" data-haystack="ab-06-m master – agile ways of working uplift agile ways of working uplift agile ba embed and improve analysis practices within the squad: uplift definitions of ready and done, improve how analysis supports flow, and run continuous improvement that actually sticks. produce on request definition of ready/done analysis ways of working guidelines team onboarding materials 4. it system – agile">
+<th scope="row"><a href="AB-06-M.html">Master – Agile Ways of Working Uplift</a><br>
+<small class="muted"><code>AB-06-M</code></small></th>
+<td>Agile BA</td><td>Master</td><td>Agile Ways of Working Uplift</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Benefits Realisation &amp; KPI Management" data-haystack="bb-01-d1 kpi definitions &amp; measures table benefits realisation &amp; kpi management business ba turn the listed benefits into a rigorous kpi definition table that reporting teams could implement without further interpretation. draft the table, then list measurement risks (gaming, lag, data quality) per kpi. benefits measures kpi definitions 2. procurement – enablement 5. it system – new / transition 6. process – design 7. process – improvement 10. ai – agentic">
+<th scope="row"><a href="BB-01-D1.html">KPI Definitions &amp; Measures Table</a><br>
+<small class="muted"><code>BB-01-D1</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Benefits Realisation &amp; KPI Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Benefits Realisation &amp; KPI Management" data-haystack="bb-01-d2 value realisation assessment benefits realisation &amp; kpi management business ba assess realised value against plan, explain variances, and recommend optimisation actions. draft the assessment (max 2 pages equivalent). where data is insufficient to judge a benefit, say so explicitly rather than inferring success. value realisation assessments kpi reports 2. procurement – enablement 5. it system – new / transition 6. process – design 7. process – improvement 10. ai – agentic">
+<th scope="row"><a href="BB-01-D2.html">Value Realisation Assessment</a><br>
+<small class="muted"><code>BB-01-D2</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Benefits Realisation &amp; KPI Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="master"
+ data-service="Benefits Realisation &amp; KPI Management" data-haystack="bb-01-m master – benefits realisation &amp; kpi management benefits realisation &amp; kpi management business ba act as my analysis partner for benefits realisation: define measurable benefits, design the kpis and measures that evidence them, and assess whether value is actually being delivered, so the organisation can report outcomes credibly and identify optimisation opportunities. produce, as i request them benefits measures kpi reports value realisation assessments 2. procurement – enablement 5. it system – new / transition 6. process – design 7. process – improvement 10. ai – agentic">
+<th scope="row"><a href="BB-01-M.html">Master – Benefits Realisation &amp; KPI Management</a><br>
+<small class="muted"><code>BB-01-M</code></small></th>
+<td>Business BA</td><td>Master</td><td>Benefits Realisation &amp; KPI Management</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Business Needs Assessments (Initial and High Level Requirements)" data-haystack="bb-02-d1 discovery workshop plan &amp; question set business needs assessments (initial and high level requirements) business ba design a discovery workshop that elicits business needs efficiently and surfaces disagreement early. draft agenda + questions, plus a &#x27;facilitation risks&#x27; list (dominant voices, scope drift, sensitive topics such as team performance) with mitigations. workshop outputs 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design">
+<th scope="row"><a href="BB-02-D1.html">Discovery Workshop Plan &amp; Question Set</a><br>
+<small class="muted"><code>BB-02-D1</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Business Needs Assessments (Initial and High Level Requirements)</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Business Needs Assessments (Initial and High Level Requirements)" data-haystack="bb-02-d2 raw notes → business needs statements business needs assessments (initial and high level requirements) business ba convert the raw notes into clean, attributed business needs statements ready for validation. draft the table. do not invent needs that lack support in the notes — flag gaps instead. business needs statements discovery notes 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design">
+<th scope="row"><a href="BB-02-D2.html">Raw Notes → Business Needs Statements</a><br>
+<small class="muted"><code>BB-02-D2</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Business Needs Assessments (Initial and High Level Requirements)</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="master"
+ data-service="Business Needs Assessments (Initial and High Level Requirements)" data-haystack="bb-02-m master – business needs assessment business needs assessments (initial and high level requirements) business ba support end-to-end elicitation of business needs and high-level requirements: plan discovery sessions, generate strong questions, convert raw notes into structured needs statements, and expose conflicts and gaps between stakeholders. support these modes on request discovery notes workshop outputs business needs statements 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design">
+<th scope="row"><a href="BB-02-M.html">Master – Business Needs Assessment</a><br>
+<small class="muted"><code>BB-02-M</code></small></th>
+<td>Business BA</td><td>Master</td><td>Business Needs Assessments (Initial and High Level Requirements)</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Business Project Discovery &amp; Problem Definition" data-haystack="bb-03-d1 problem statement &amp; opportunity assessment business project discovery &amp; problem definition business ba produce a sharp problem statement and opportunity assessment that would survive challenge at an investment committee. apply 5 whys to my symptoms first and show the chain, then draft both artefacts. mark every unquantified impact &#x27;[to be quantified]&#x27;. problem statements opportunity assessments 2. procurement – enablement 5. it system – new / transition 6. process – design 8. consultancy">
+<th scope="row"><a href="BB-03-D1.html">Problem Statement &amp; Opportunity Assessment</a><br>
+<small class="muted"><code>BB-03-D1</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Business Project Discovery &amp; Problem Definition</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Business Project Discovery &amp; Problem Definition" data-haystack="bb-03-d2 business case inputs &amp; strategic alignment business project discovery &amp; problem definition business ba draft the ba-owned inputs to the business case: benefits, costs categories, alignment narrative and assumptions. draft the inputs. never fabricate dollar figures — provide the structure and mark &#x27;[finance to estimate]&#x27;. business case inputs strategic alignment assessments 2. procurement – enablement 5. it system – new / transition 6. process – design 8. consultancy">
+<th scope="row"><a href="BB-03-D2.html">Business Case Inputs &amp; Strategic Alignment</a><br>
+<small class="muted"><code>BB-03-D2</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Business Project Discovery &amp; Problem Definition</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="master"
+ data-service="Business Project Discovery &amp; Problem Definition" data-haystack="bb-03-m master – discovery &amp; problem definition business project discovery &amp; problem definition business ba help me define the real problem and the case for change: separate symptoms from root causes, quantify impact, frame the opportunity, test strategic alignment, and draft business case inputs and initial risk assessments. produce on request problem statements opportunity assessments business needs statements business case inputs strategic alignment assessments risk assessment support 2. procurement – enablement 5. it system – new / transition 6. process – design 8. consultancy">
+<th scope="row"><a href="BB-03-M.html">Master – Discovery &amp; Problem Definition</a><br>
+<small class="muted"><code>BB-03-M</code></small></th>
+<td>Business BA</td><td>Master</td><td>Business Project Discovery &amp; Problem Definition</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Data &amp; Reporting Analysis" data-haystack="bb-04-d1 data requirements &amp; dictionary data &amp; reporting analysis business ba produce a business data dictionary and requirements table for the fields in scope. draft the dictionary, then list the top data-quality and privacy risks (e.g. health information exposure in reporting) with mitigations. data requirements data mapping 9. data – warehouse">
+<th scope="row"><a href="BB-04-D1.html">Data Requirements &amp; Dictionary</a><br>
+<small class="muted"><code>BB-04-D1</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Data &amp; Reporting Analysis</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Data &amp; Reporting Analysis" data-haystack="bb-04-d2 reporting requirements specification data &amp; reporting analysis business ba specify the reports and kpis so a bi developer could build them without re-eliciting. draft the specification for each report i describe. challenge me where a report has no clear decision attached to it. reporting requirements kpi definitions 9. data – warehouse">
+<th scope="row"><a href="BB-04-D2.html">Reporting Requirements Specification</a><br>
+<small class="muted"><code>BB-04-D2</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Data &amp; Reporting Analysis</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="master"
+ data-service="Data &amp; Reporting Analysis" data-haystack="bb-04-m master – data &amp; reporting analysis data &amp; reporting analysis business ba define the business data, information and reporting requirements for this initiative: what data is needed, what it means, where it comes from, and what reports and kpis it must feed. produce on request data requirements data mapping reporting requirements kpi definitions 9. data – warehouse">
+<th scope="row"><a href="BB-04-M.html">Master – Data &amp; Reporting Analysis</a><br>
+<small class="muted"><code>BB-04-M</code></small></th>
+<td>Business BA</td><td>Master</td><td>Data &amp; Reporting Analysis</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Defect &amp; Work-around Analysis" data-haystack="bb-05-d1 defect impact &amp; urgency assessment defect &amp; work-around analysis business ba translate the technical defect into a business impact and urgency assessment that supports a prioritisation decision. draft the assessment. where impact data is missing, state what evidence would settle it. defect analysis 3. it system – update 7. process – improvement">
+<th scope="row"><a href="BB-05-D1.html">Defect Impact &amp; Urgency Assessment</a><br>
+<small class="muted"><code>BB-05-D1</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Defect &amp; Work-around Analysis</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Defect &amp; Work-around Analysis" data-haystack="bb-05-d2 fix change assessment &amp; requirement updates defect &amp; work-around analysis business ba assess the ripple effect of the fix and draft the updated requirements and end-state process narrative. draft all three parts, then run a consistency check between the new requirements and the end-state process and flag contradictions. defect change assessment requirement updates end-state process maps 3. it system – update 7. process – improvement">
+<th scope="row"><a href="BB-05-D2.html">Fix Change Assessment &amp; Requirement Updates</a><br>
+<small class="muted"><code>BB-05-D2</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Defect &amp; Work-around Analysis</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="master"
+ data-service="Defect &amp; Work-around Analysis" data-haystack="bb-05-m master – defect &amp; work-around analysis defect &amp; work-around analysis business ba analyse the defect and its work-around from a business standpoint: impact, root cause hypotheses, options for resolution, and the flow-on changes to existing requirements and processes when a fix lands. produce on request defect analysis defect change assessment requirement updates end-state process maps 3. it system – update 7. process – improvement">
+<th scope="row"><a href="BB-05-M.html">Master – Defect &amp; Work-around Analysis</a><br>
+<small class="muted"><code>BB-05-M</code></small></th>
+<td>Business BA</td><td>Master</td><td>Defect &amp; Work-around Analysis</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Functional Requirements Analysis &amp; Refinement" data-haystack="bb-06-d1 feature &amp; functional requirements draft functional requirements analysis &amp; refinement business ba draft the feature definitions and numbered functional requirements for the pasted needs. draft features, requirements and business rules. flag every place you had to assume, as &#x27;assumption:&#x27; inline. feature definition functional requirements 2. procurement – enablement 3. it system – update 5. it system – new / transition">
+<th scope="row"><a href="BB-06-D1.html">Feature &amp; Functional Requirements Draft</a><br>
+<small class="muted"><code>BB-06-D1</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Functional Requirements Analysis &amp; Refinement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Functional Requirements Analysis &amp; Refinement" data-haystack="bb-06-d2 non-functional requirements elicitation &amp; draft functional requirements analysis &amp; refinement business ba elicit and draft a measurable nfr set appropriate to a system of this type. ask me the checklist questions i can answer now, then draft the nfrs from my answers. do not silently invent targets — every unvalidated number gets the &#x27;[proposed — validate]&#x27; flag. non-functional requirements 2. procurement – enablement 3. it system – update 5. it system – new / transition">
+<th scope="row"><a href="BB-06-D2.html">Non-Functional Requirements Elicitation &amp; Draft</a><br>
+<small class="muted"><code>BB-06-D2</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Functional Requirements Analysis &amp; Refinement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="master"
+ data-service="Functional Requirements Analysis &amp; Refinement" data-haystack="bb-06-m master – functional requirements analysis functional requirements analysis &amp; refinement business ba elaborate business needs into well-formed features, functional requirements and non-functional requirements across business and system layers, then quality-review them for ambiguity, testability, completeness and consistency. produce on request feature definition functional requirements non-functional requirements 2. procurement – enablement 3. it system – update 5. it system – new / transition">
+<th scope="row"><a href="BB-06-M.html">Master – Functional Requirements Analysis</a><br>
+<small class="muted"><code>BB-06-M</code></small></th>
+<td>Business BA</td><td>Master</td><td>Functional Requirements Analysis &amp; Refinement</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Process Analysis &amp; Improvement" data-haystack="bb-07-d1 as-is process map (from description) process analysis &amp; improvement business ba convert my rough description into a structured as-is process map ready for stakeholder validation. draft the map. list every step where my description was ambiguous or incomplete as targeted validation questions. as-is process maps 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design 7. process – improvement">
+<th scope="row"><a href="BB-07-D1.html">As-Is Process Map (from description)</a><br>
+<small class="muted"><code>BB-07-D1</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Process Analysis &amp; Improvement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Process Analysis &amp; Improvement" data-haystack="bb-07-d2 to-be design &amp; gap analysis process analysis &amp; improvement business ba design the to-be process and quantify the gap from the as-is. draft to-be and gap analysis. respect my constraints — do not design changes to systems i flagged as fixed. to-be process maps gap analysis 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design 7. process – improvement">
+<th scope="row"><a href="BB-07-D2.html">To-Be Design &amp; Gap Analysis</a><br>
+<small class="muted"><code>BB-07-D2</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Process Analysis &amp; Improvement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="master"
+ data-service="Process Analysis &amp; Improvement" data-haystack="bb-07-m master – process analysis &amp; improvement process analysis &amp; improvement business ba analyse and improve the business process end-to-end: capture the as-is accurately, diagnose pain points to root cause, design a to-be that resolves them, and produce the gap analysis between the two. produce on request as-is process maps to-be process maps gap analysis 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design 7. process – improvement">
+<th scope="row"><a href="BB-07-M.html">Master – Process Analysis &amp; Improvement</a><br>
+<small class="muted"><code>BB-07-M</code></small></th>
+<td>Business BA</td><td>Master</td><td>Process Analysis &amp; Improvement</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Strategic Business Analysis &amp; Advisory" data-haystack="bb-08-d1 capability assessment &amp; audit report strategic business analysis &amp; advisory business ba assess the capability of the business area against what it needs to deliver, and report gaps with uplift priorities. draft the assessment from my evidence. where evidence is thin for a rating, rate it &#x27;insufficient evidence&#x27; rather than guessing. capability analysis audit reports 8. consultancy">
+<th scope="row"><a href="BB-08-D1.html">Capability Assessment &amp; Audit Report</a><br>
+<small class="muted"><code>BB-08-D1</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Strategic Business Analysis &amp; Advisory</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="deliverable"
+ data-service="Strategic Business Analysis &amp; Advisory" data-haystack="bb-08-d2 decision support paper (options analysis) strategic business analysis &amp; advisory business ba produce a decision support paper that lets the forum decide in one sitting: clear question, evidenced options, explicit trade-offs, recommendation with conditions. draft the paper. include a &#x27;challenge&#x27; paragraph: the strongest argument against your own recommendation. decision support papers options assessments strategic cost analysis inputs 8. consultancy">
+<th scope="row"><a href="BB-08-D2.html">Decision Support Paper (Options Analysis)</a><br>
+<small class="muted"><code>BB-08-D2</code></small></th>
+<td>Business BA</td><td>Deliverable</td><td>Strategic Business Analysis &amp; Advisory</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business BA" data-type="master"
+ data-service="Strategic Business Analysis &amp; Advisory" data-haystack="bb-08-m master – strategic business analysis &amp; advisory strategic business analysis &amp; advisory business ba act as my strategic-analysis partner for executive advisory work: assess internal capability, frame hypotheses and problems, support decisions with options analysis, assess organisational impact and strategic alignment, and develop business architecture views (capability models, value streams, operating model views). produce on request operating model analysis capability analysis business architecture strategic alignment analysis hypothesis &amp; problem analysis decision support 8. consultancy">
+<th scope="row"><a href="BB-08-M.html">Master – Strategic Business Analysis &amp; Advisory</a><br>
+<small class="muted"><code>BB-08-M</code></small></th>
+<td>Business BA</td><td>Master</td><td>Strategic Business Analysis &amp; Advisory</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="AI Transformation" data-haystack="bt-01-d1 ai use case definition ai transformation business/tech ba define the candidate ai use case rigorously enough for a governance forum to assess it. draft the definition. challenge the use case where the value hypothesis is weak or a non-ai fix would do. ai use case definitions 10. ai – agentic">
+<th scope="row"><a href="BT-01-D1.html">AI Use Case Definition</a><br>
+<small class="muted"><code>BT-01-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>AI Transformation</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="AI Transformation" data-haystack="bt-01-d2 ai guardrails &amp; evaluation criteria ai transformation business/tech ba specify the guardrails, controls and evaluation criteria that make this ai use case safe to operate. draft both tables scaled to the risk rating. mark thresholds &#x27;[proposed — validate with business owner]&#x27;. guardrails and controls evaluation criteria 10. ai – agentic">
+<th scope="row"><a href="BT-01-D2.html">AI Guardrails &amp; Evaluation Criteria</a><br>
+<small class="muted"><code>BT-01-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>AI Transformation</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="AI Transformation" data-haystack="bt-01-m master – ai transformation analysis ai transformation business/tech ba shape ai-enabled solutions that are aligned to business objectives and governable: define use cases, agent capabilities, prompt/intent specifications, input/output contracts, guardrails and evaluation criteria. produce on request ai use case definitions agent capability models prompt/intent specifications input/output definitions guardrails and controls evaluation criteria 10. ai – agentic">
+<th scope="row"><a href="BT-01-M.html">Master – AI Transformation Analysis</a><br>
+<small class="muted"><code>BT-01-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>AI Transformation</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Backlog Management (Agile)" data-haystack="bt-02-d1 epic → stories breakdown with acceptance criteria backlog management (agile) business/tech ba break the epic into sprint-ready user stories with complete acceptance criteria. draft the breakdown, then review your own stories against invest and flag any that fail, with suggested fixes. epics features user stories acceptance criteria 4. it system – agile">
+<th scope="row"><a href="BT-02-D1.html">Epic → Stories Breakdown with Acceptance Criteria</a><br>
+<small class="muted"><code>BT-02-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Backlog Management (Agile)</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Backlog Management (Agile)" data-haystack="bt-02-d2 backlog refinement &amp; prioritisation review backlog management (agile) business/tech ba review the pasted backlog for readiness and produce a defensible prioritisation. deliver both tables and a short list of themes (recurring quality problems) to fix at the source. refined backlog prioritisation 4. it system – agile">
+<th scope="row"><a href="BT-02-D2.html">Backlog Refinement &amp; Prioritisation Review</a><br>
+<small class="muted"><code>BT-02-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Backlog Management (Agile)</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="Backlog Management (Agile)" data-haystack="bt-02-m master – agile backlog management backlog management (agile) business/tech ba keep the delivery backlog healthy on cadence: break epics into features and stories, write acceptance criteria, refine and prioritise, and keep items meeting the definition of ready. produce on request epics features user stories acceptance criteria 4. it system – agile">
+<th scope="row"><a href="BT-02-M.html">Master – Agile Backlog Management</a><br>
+<small class="muted"><code>BT-02-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>Backlog Management (Agile)</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Commercial, Licencing &amp; Vendor Mgmt" data-haystack="bt-03-d1 rfi/rft question framework commercial, licencing &amp; vendor mgmt business/tech ba draft the vendor-facing question framework that will elicit comparable, evaluable responses. draft the framework. flag any question that invites marketing rather than evidence, and tighten it. rfi document inputs rft part d inputs 2. procurement – enablement 10. ai – agentic">
+<th scope="row"><a href="BT-03-D1.html">RFI/RFT Question Framework</a><br>
+<small class="muted"><code>BT-03-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Commercial, Licencing &amp; Vendor Mgmt</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Commercial, Licencing &amp; Vendor Mgmt" data-haystack="bt-03-d2 vendor evaluation scoring matrix commercial, licencing &amp; vendor mgmt business/tech ba build the weighted scoring model and comparative analysis structure for a defensible vendor evaluation. draft the matrix and template. sanity-check the weights against my stated priorities and flag mismatches. evaluation scoring and analysis reports 2. procurement – enablement 10. ai – agentic">
+<th scope="row"><a href="BT-03-D2.html">Vendor Evaluation Scoring Matrix</a><br>
+<small class="muted"><code>BT-03-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Commercial, Licencing &amp; Vendor Mgmt</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="Commercial, Licencing &amp; Vendor Mgmt" data-haystack="bt-03-m master – procurement &amp; vendor analysis commercial, licencing &amp; vendor mgmt business/tech ba support vendor selection and commercial decision-making across the procurement lifecycle: approach strategy, rfi/rft content, market scans, pricing and licensing analysis, evaluation frameworks and recommendation support. produce on request vendor assessments product evaluations licensing analysis commercial requirements procurement inputs 2. procurement – enablement 10. ai – agentic">
+<th scope="row"><a href="BT-03-M.html">Master – Procurement &amp; Vendor Analysis</a><br>
+<small class="muted"><code>BT-03-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>Commercial, Licencing &amp; Vendor Mgmt</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Operational Readiness &amp; Transition" data-haystack="bt-04-d1 transition requirements &amp; readiness checklist operational readiness &amp; transition business/tech ba define what must be true before go-live: transition requirements plus a verifiable readiness checklist. draft requirements and checklist. flag the items most commonly missed (access provisioning lead times, support knowledge articles, external party comms). system transition plan operational readiness support 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design">
+<th scope="row"><a href="BT-04-D1.html">Transition Requirements &amp; Readiness Checklist</a><br>
+<small class="muted"><code>BT-04-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Operational Readiness &amp; Transition</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Operational Readiness &amp; Transition" data-haystack="bt-04-d2 showcase &amp; desk check pack operational readiness &amp; transition business/tech ba design the showcase session and desk check scripts that let the business validate the build against their needs. draft both packs. ensure scenarios cover the highest-risk and highest-frequency paths first, and say why you ranked them so. showcases dev walkthroughs desk checks 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design">
+<th scope="row"><a href="BT-04-D2.html">Showcase &amp; Desk Check Pack</a><br>
+<small class="muted"><code>BT-04-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Operational Readiness &amp; Transition</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="Operational Readiness &amp; Transition" data-haystack="bt-04-m master – operational readiness &amp; transition operational readiness &amp; transition business/tech ba elaborate the process and technology transition requirements and support change management so the business and support teams are genuinely ready at go-live. produce on request showcases dev walkthroughs desk checks system transition plan operational readiness support 2. procurement – enablement 3. it system – update 5. it system – new / transition 6. process – design">
+<th scope="row"><a href="BT-04-M.html">Master – Operational Readiness &amp; Transition</a><br>
+<small class="muted"><code>BT-04-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>Operational Readiness &amp; Transition</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Requirements Governance &amp; Traceability" data-haystack="bt-05-d1 traceability matrix build &amp; gap report requirements governance &amp; traceability business/tech ba build the traceability matrix from the pasted artefacts and report every gap. build matrix and gap report. do not force-fit doubtful links — mark them &#x27;uncertain — confirm&#x27; instead. traceability matrix 2. procurement – enablement 3. it system – update">
+<th scope="row"><a href="BT-05-D1.html">Traceability Matrix Build &amp; Gap Report</a><br>
+<small class="muted"><code>BT-05-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Requirements Governance &amp; Traceability</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Requirements Governance &amp; Traceability" data-haystack="bt-05-d2 decision log entries from meeting notes requirements governance &amp; traceability business/tech ba extract and formalise every decision into audit-ready decision log entries. extract the entries. where the notes imply but do not state a decision, put it in the &#x27;not decided&#x27; table with a question to close it out. decision log 2. procurement – enablement 3. it system – update">
+<th scope="row"><a href="BT-05-D2.html">Decision Log Entries from Meeting Notes</a><br>
+<small class="muted"><code>BT-05-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Requirements Governance &amp; Traceability</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="Requirements Governance &amp; Traceability" data-haystack="bt-05-m master – requirements governance &amp; traceability requirements governance &amp; traceability business/tech ba maintain control of requirements and decisions: traceability from business need through to test, a disciplined decision log, change control support and consistency checking across artefacts. produce on request traceability matrix decision log information governance artefacts 2. procurement – enablement 3. it system – update">
+<th scope="row"><a href="BT-05-M.html">Master – Requirements Governance &amp; Traceability</a><br>
+<small class="muted"><code>BT-05-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>Requirements Governance &amp; Traceability</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Sizing, Estimation, Dependency and Prioritisation Management" data-haystack="bt-06-d1 ba plan &amp; estimates sizing, estimation, dependency and prioritisation management business/tech ba draft the ba plan with estimated effort and an explicit assumptions log. draft the plan. challenge scope items that look under- or over-invested relative to their risk. ba plan estimates assumptions resource forecasts 2. procurement – enablement 3. it system – update">
+<th scope="row"><a href="BT-06-D1.html">BA Plan &amp; Estimates</a><br>
+<small class="muted"><code>BT-06-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Sizing, Estimation, Dependency and Prioritisation Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Sizing, Estimation, Dependency and Prioritisation Management" data-haystack="bt-06-d2 dependency map &amp; prioritisation sizing, estimation, dependency and prioritisation management business/tech ba map dependencies and produce a defensible priority order. deliver map, diagram and prioritisation. flag circular or fragile dependency chains explicitly. prioritisation dependency management 2. procurement – enablement 3. it system – update">
+<th scope="row"><a href="BT-06-D2.html">Dependency Map &amp; Prioritisation</a><br>
+<small class="muted"><code>BT-06-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Sizing, Estimation, Dependency and Prioritisation Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="Sizing, Estimation, Dependency and Prioritisation Management" data-haystack="bt-06-m master – sizing, estimation &amp; prioritisation sizing, estimation, dependency and prioritisation management business/tech ba support definition and prioritisation of requirements and ba work based on business and technical needs and dependencies: ba planning, estimation with explicit assumptions, dependency mapping and prioritisation. produce on request ba plan estimates assumptions resource forecasts prioritisation dependency management 2. procurement – enablement 3. it system – update">
+<th scope="row"><a href="BT-06-M.html">Master – Sizing, Estimation &amp; Prioritisation</a><br>
+<small class="muted"><code>BT-06-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>Sizing, Estimation, Dependency and Prioritisation Management</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Solution Analysis &amp; Design Support" data-haystack="bt-07-d1 solution options assessment solution analysis &amp; design support business/tech ba produce an options assessment that makes the trade-offs explicit and recommends defensibly. propose criteria and weights from my priorities, ask me to confirm, then assess. state every assumption behind a score. solution options assessment 2. procurement – enablement 5. it system – new / transition 10. ai – agentic">
+<th scope="row"><a href="BT-07-D1.html">Solution Options Assessment</a><br>
+<small class="muted"><code>BT-07-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Solution Analysis &amp; Design Support</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Solution Analysis &amp; Design Support" data-haystack="bt-07-d2 regulatory &amp; policy compliance assessment solution analysis &amp; design support business/tech ba assess the solution against each obligation and derive the business rules and requirements needed for compliance. draft the assessment and rules. mark every interpretation that needs legal/privacy confirmation. regulatory &amp; policy compliance assessments business rules 2. procurement – enablement 5. it system – new / transition 10. ai – agentic">
+<th scope="row"><a href="BT-07-D2.html">Regulatory &amp; Policy Compliance Assessment</a><br>
+<small class="muted"><code>BT-07-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Solution Analysis &amp; Design Support</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="Solution Analysis &amp; Design Support" data-haystack="bt-07-m master – solution analysis &amp; design support solution analysis &amp; design support business/tech ba assess solution options and compliance needs so design decisions are made with clear business analysis: option assessments, regulatory and policy compliance assessments, and the business rules the solution must honour. produce on request solution options assessment regulatory &amp; policy compliance assessments business rules 2. procurement – enablement 5. it system – new / transition 10. ai – agentic">
+<th scope="row"><a href="BT-07-M.html">Master – Solution Analysis &amp; Design Support</a><br>
+<small class="muted"><code>BT-07-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>Solution Analysis &amp; Design Support</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Stakeholder Analysis &amp; Engagement" data-haystack="bt-08-d1 stakeholder register &amp; engagement plan stakeholder analysis &amp; engagement business/tech ba build the stakeholder register and a specific, actionable engagement plan. ask me 3-4 questions about dynamics first, then draft. flag likely missing stakeholders based on the initiative type (e.g. employee representatives, privacy officer, records management, delivery partners). stakeholder register stakeholder/sme engagement plan 2. procurement – enablement 5. it system – new / transition 6. process – design 7. process – improvement 9. data – warehouse">
+<th scope="row"><a href="BT-08-D1.html">Stakeholder Register &amp; Engagement Plan</a><br>
+<small class="muted"><code>BT-08-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Stakeholder Analysis &amp; Engagement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Stakeholder Analysis &amp; Engagement" data-haystack="bt-08-d2 workshop / showcase session design stakeholder analysis &amp; engagement business/tech ba design a session that achieves its stated outputs and keeps a mixed-attitude audience engaged. draft the design. note where resistant stakeholders need specific handling and how. workshops showcases 2. procurement – enablement 5. it system – new / transition 6. process – design 7. process – improvement 9. data – warehouse">
+<th scope="row"><a href="BT-08-D2.html">Workshop / Showcase Session Design</a><br>
+<small class="muted"><code>BT-08-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Stakeholder Analysis &amp; Engagement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="Stakeholder Analysis &amp; Engagement" data-haystack="bt-08-m master – stakeholder analysis &amp; engagement stakeholder analysis &amp; engagement business/tech ba identify contributing stakeholders and manage engagement and alignment: registers, interest/influence mapping, engagement plans, raci, conflict resolution strategies and engagement communications. produce on request stakeholder register stakeholder/sme engagement plan workshops showcases 2. procurement – enablement 5. it system – new / transition 6. process – design 7. process – improvement 9. data – warehouse">
+<th scope="row"><a href="BT-08-M.html">Master – Stakeholder Analysis &amp; Engagement</a><br>
+<small class="muted"><code>BT-08-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>Stakeholder Analysis &amp; Engagement</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Testing &amp; Requirements Validation Support" data-haystack="bt-09-d1 uat scenarios &amp; scripts from requirements testing &amp; requirements validation support business/tech ba produce uat scenarios and step-by-step scripts business users can execute unaided. draft catalogue and scripts. then self-review: list requirements with thin coverage and edge cases you could not derive without more information. uat support 2. procurement – enablement 3. it system – update 5. it system – new / transition 9. data – warehouse">
+<th scope="row"><a href="BT-09-D1.html">UAT Scenarios &amp; Scripts from Requirements</a><br>
+<small class="muted"><code>BT-09-D1</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Testing &amp; Requirements Validation Support</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="deliverable"
+ data-service="Testing &amp; Requirements Validation Support" data-haystack="bt-09-d2 requirements validation &amp; coverage review testing &amp; requirements validation support business/tech ba validate that the test set genuinely proves the requirements, and that requirements remain internally consistent. run the review and deliver findings. rank by risk to business outcome, not by count. requirements validation solution reviews 2. procurement – enablement 3. it system – update 5. it system – new / transition 9. data – warehouse">
+<th scope="row"><a href="BT-09-D2.html">Requirements Validation &amp; Coverage Review</a><br>
+<small class="muted"><code>BT-09-D2</code></small></th>
+<td>Business/Tech BA</td><td>Deliverable</td><td>Testing &amp; Requirements Validation Support</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Business/Tech BA" data-type="master"
+ data-service="Testing &amp; Requirements Validation Support" data-haystack="bt-09-m master – testing &amp; requirements validation testing &amp; requirements validation support business/tech ba support testers and the business to confirm the solution meets business needs: derive test scenarios from requirements, validate coverage, support uat execution and review solution behaviour against intent. produce on request requirements validation uat support desk checks solution reviews 2. procurement – enablement 3. it system – update 5. it system – new / transition 9. data – warehouse">
+<th scope="row"><a href="BT-09-M.html">Master – Testing &amp; Requirements Validation</a><br>
+<small class="muted"><code>BT-09-M</code></small></th>
+<td>Business/Tech BA</td><td>Master</td><td>Testing &amp; Requirements Validation Support</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="BA Engagement Planning &amp; Estimation" data-haystack="lb-01-d1 ba approach &amp; analysis scope definition ba engagement planning &amp; estimation lead ba draft the ba approach and scope so every stakeholder knows what analysis happens, when, to what depth, and why. draft approach and scope. challenge any area where my stated depth doesn&#x27;t match its risk. ba plan 11. leadership">
+<th scope="row"><a href="LB-01-D1.html">BA Approach &amp; Analysis Scope Definition</a><br>
+<small class="muted"><code>LB-01-D1</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>BA Engagement Planning &amp; Estimation</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="BA Engagement Planning &amp; Estimation" data-haystack="lb-01-d2 ba effort estimate &amp; resource forecast ba engagement planning &amp; estimation lead ba estimate ba effort per package and forecast the resourcing profile over time. draft estimates and forecast. state which packages are most likely to blow out and the early-warning sign for each. resource forecasts engagement estimates assumptions log 11. leadership">
+<th scope="row"><a href="LB-01-D2.html">BA Effort Estimate &amp; Resource Forecast</a><br>
+<small class="muted"><code>LB-01-D2</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>BA Engagement Planning &amp; Estimation</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="master"
+ data-service="BA Engagement Planning &amp; Estimation" data-haystack="lb-01-m master – ba engagement planning &amp; estimation ba engagement planning &amp; estimation lead ba define the ba approach, effort and resourcing across the project or program: analysis scope, approach and techniques per phase, estimates with assumptions, resource forecasts, and raid inputs for the engagement. produce on request ba plan ba estimates &amp; assumptions resource forecasts raid inputs 11. leadership">
+<th scope="row"><a href="LB-01-M.html">Master – BA Engagement Planning &amp; Estimation</a><br>
+<small class="muted"><code>LB-01-M</code></small></th>
+<td>Lead BA</td><td>Master</td><td>BA Engagement Planning &amp; Estimation</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="BA Team Leadership &amp; Work Allocation" data-haystack="lb-02-d1 work allocation plan ba team leadership &amp; work allocation lead ba allocate packages to bas with explicit rationale, balanced load and managed risk. draft the allocation. where a stretch assignment carries delivery risk, propose the support structure that makes it safe. work allocation plans 11. leadership">
+<th scope="row"><a href="LB-02-D1.html">Work Allocation Plan</a><br>
+<small class="muted"><code>LB-02-D1</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>BA Team Leadership &amp; Work Allocation</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="BA Team Leadership &amp; Work Allocation" data-haystack="lb-02-d2 ba delivery status report ba team leadership &amp; work allocation lead ba turn raw team inputs into an exception-focused status report the audience can act on. draft the report. if my notes hide a risk in polite language, surface it plainly in the attention section. ba delivery status reports 11. leadership">
+<th scope="row"><a href="LB-02-D2.html">BA Delivery Status Report</a><br>
+<small class="muted"><code>LB-02-D2</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>BA Team Leadership &amp; Work Allocation</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="master"
+ data-service="BA Team Leadership &amp; Work Allocation" data-haystack="lb-02-m master – ba team leadership &amp; work allocation ba team leadership &amp; work allocation lead ba lead and coordinate bas across workstreams: allocate and balance work against skills and development goals, track delivery, surface risks early, and prepare fair, specific performance feedback. produce on request work allocation plans ba delivery status reports team performance feedback 11. leadership">
+<th scope="row"><a href="LB-02-M.html">Master – BA Team Leadership &amp; Work Allocation</a><br>
+<small class="muted"><code>LB-02-M</code></small></th>
+<td>Lead BA</td><td>Master</td><td>BA Team Leadership &amp; Work Allocation</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="Requirements Quality Assurance &amp; Review" data-haystack="lb-03-d1 artefact peer review (senior ba lens) requirements quality assurance &amp; review lead ba review the artefact as a senior ba would: specific findings, prioritised, with rewrites — calibrated to develop the author. run the review. every &#x27;blocker&#x27; must state the concrete downstream failure it would cause. peer review records review outcomes 11. leadership">
+<th scope="row"><a href="LB-03-D1.html">Artefact Peer Review (Senior BA lens)</a><br>
+<small class="muted"><code>LB-03-D1</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>Requirements Quality Assurance &amp; Review</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="Requirements Quality Assurance &amp; Review" data-haystack="lb-03-d2 quality framework &amp; review cadence requirements quality assurance &amp; review lead ba define the quality framework: checklists per artefact type, review levels, and a cadence the team can sustain. draft the framework. justify every mandatory review step by the failure it prevents — cut any that can&#x27;t be justified. quality framework review cadence quality checklists 11. leadership">
+<th scope="row"><a href="LB-03-D2.html">Quality Framework &amp; Review Cadence</a><br>
+<small class="muted"><code>LB-03-D2</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>Requirements Quality Assurance &amp; Review</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="master"
+ data-service="Requirements Quality Assurance &amp; Review" data-haystack="lb-03-m master – requirements quality assurance &amp; review requirements quality assurance &amp; review lead ba review and assure the quality, consistency and completeness of ba artefacts across the engagement: define the quality bar, run reviews with specific findings, and track sign-offs. produce on request peer review records quality checklists artefact sign-offs 11. leadership">
+<th scope="row"><a href="LB-03-M.html">Master – Requirements Quality Assurance &amp; Review</a><br>
+<small class="muted"><code>LB-03-M</code></small></th>
+<td>Lead BA</td><td>Master</td><td>Requirements Quality Assurance &amp; Review</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="Cross-Stream Scope &amp; Dependency Coordination" data-haystack="lb-04-d1 cross-stream dependency register cross-stream scope &amp; dependency coordination lead ba build the cross-stream dependency register and expose the chains that threaten the program. build the register from my inputs and infer likely missing dependencies from the stream scopes — marking inferred rows &#x27;inferred — confirm&#x27;. dependency registers 11. leadership">
+<th scope="row"><a href="LB-04-D1.html">Cross-Stream Dependency Register</a><br>
+<small class="muted"><code>LB-04-D1</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>Cross-Stream Scope &amp; Dependency Coordination</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="Cross-Stream Scope &amp; Dependency Coordination" data-haystack="lb-04-d2 scope overlap resolution &amp; alignment record cross-stream scope &amp; dependency coordination lead ba analyse the overlap, recommend a single-owner resolution, and draft the alignment record that prevents relitigating. draft analysis and record. if the split option creates a fragile seam, say so plainly even if it is the politically easy answer. scope alignment records cross-stream impact assessments 11. leadership">
+<th scope="row"><a href="LB-04-D2.html">Scope Overlap Resolution &amp; Alignment Record</a><br>
+<small class="muted"><code>LB-04-D2</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>Cross-Stream Scope &amp; Dependency Coordination</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="master"
+ data-service="Cross-Stream Scope &amp; Dependency Coordination" data-haystack="lb-04-m master – cross-stream scope &amp; dependency coordination cross-stream scope &amp; dependency coordination lead ba coordinate requirements scope, dependencies and impacts across teams and workstreams: map boundaries, find overlaps and gaps, maintain the dependency register, and assess cross-stream impacts of changes. produce on request dependency registers scope alignment records cross-stream impact assessments 11. leadership">
+<th scope="row"><a href="LB-04-M.html">Master – Cross-Stream Scope &amp; Dependency Coordination</a><br>
+<small class="muted"><code>LB-04-M</code></small></th>
+<td>Lead BA</td><td>Master</td><td>Cross-Stream Scope &amp; Dependency Coordination</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="Senior Stakeholder &amp; Sponsor Engagement" data-haystack="lb-05-d1 escalation / decision paper senior stakeholder &amp; sponsor engagement lead ba draft an escalation paper that gets a decision at first reading. draft the paper. strip every sentence that doesn&#x27;t move the decision — then list what you cut in case i disagree. escalation papers decision records escalation outcomes 11. leadership">
+<th scope="row"><a href="LB-05-D1.html">Escalation / Decision Paper</a><br>
+<small class="muted"><code>LB-05-D1</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>Senior Stakeholder &amp; Sponsor Engagement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="Senior Stakeholder &amp; Sponsor Engagement" data-haystack="lb-05-d2 steering committee pack input senior stakeholder &amp; sponsor engagement lead ba prepare the analysis slice of the steering pack: status they can trust, decisions framed for a yes/no, risks worth executive attention. draft the input. flag anything in my raw notes that a committee member would probe, with a suggested holding answer. steering committee packs engagement summaries 11. leadership">
+<th scope="row"><a href="LB-05-D2.html">Steering Committee Pack Input</a><br>
+<small class="muted"><code>LB-05-D2</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>Senior Stakeholder &amp; Sponsor Engagement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="master"
+ data-service="Senior Stakeholder &amp; Sponsor Engagement" data-haystack="lb-05-m master – senior stakeholder &amp; sponsor engagement senior stakeholder &amp; sponsor engagement lead ba manage alignment, escalations and decision-making with senior stakeholders and sponsors: prepare escalation papers, steering inputs, decision records and engagement summaries that respect executive attention. produce on request steering committee inputs escalation papers decision records engagement summaries 11. leadership">
+<th scope="row"><a href="LB-05-M.html">Master – Senior Stakeholder &amp; Sponsor Engagement</a><br>
+<small class="muted"><code>LB-05-M</code></small></th>
+<td>Lead BA</td><td>Master</td><td>Senior Stakeholder &amp; Sponsor Engagement</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="BA Mentoring &amp; Capability Development" data-haystack="lb-06-d1 mentoring plan &amp; development goals ba mentoring &amp; capability development lead ba draft a mentoring plan with concrete goals tied to real work, not abstract competencies. draft the plan. if my growth areas and their aspiration conflict, name the tension and propose how to sequence both. mentoring plans development goals 11. leadership">
+<th scope="row"><a href="LB-06-D1.html">Mentoring Plan &amp; Development Goals</a><br>
+<small class="muted"><code>LB-06-D1</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>BA Mentoring &amp; Capability Development</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="deliverable"
+ data-service="BA Mentoring &amp; Capability Development" data-haystack="lb-06-d2 skills gap analysis (team) ba mentoring &amp; capability development lead ba map the team&#x27;s skills against what the engagement needs, and plan the uplift that closes delivery-critical gaps. draft matrix and uplift plan. single-person coverage of a critical skill is a risk even with no gap — flag those too. skills gap analysis capability uplift actions 11. leadership">
+<th scope="row"><a href="LB-06-D2.html">Skills Gap Analysis (Team)</a><br>
+<small class="muted"><code>LB-06-D2</code></small></th>
+<td>Lead BA</td><td>Deliverable</td><td>BA Mentoring &amp; Capability Development</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Lead BA" data-type="master"
+ data-service="BA Mentoring &amp; Capability Development" data-haystack="lb-06-m master – ba mentoring &amp; capability development ba mentoring &amp; capability development lead ba mentor and coach bas to lift analysis capability: mentoring plans, development goals, coaching conversation preparation, feedback drafting, and engagement-level capability building. produce on request mentoring plans development goals coaching &amp; feedback records 11. leadership">
+<th scope="row"><a href="LB-06-M.html">Master – BA Mentoring &amp; Capability Development</a><br>
+<small class="muted"><code>LB-06-M</code></small></th>
+<td>Lead BA</td><td>Master</td><td>BA Mentoring &amp; Capability Development</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="BA Practice Strategy &amp; Operating Model" data-haystack="pl-01-d1 practice strategy on a page ba practice strategy &amp; operating model practice lead distil a practice strategy onto one page that both leadership and every practice ba can quote. draft the page. test each priority against &#x27;would a ba change what they do tomorrow because of this?&#x27; — rewrite any that fail. practice strategy 11. leadership">
+<th scope="row"><a href="PL-01-D1.html">Practice Strategy on a Page</a><br>
+<small class="muted"><code>PL-01-D1</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>BA Practice Strategy &amp; Operating Model</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="BA Practice Strategy &amp; Operating Model" data-haystack="pl-01-d2 operating model &amp; service catalogue definition ba practice strategy &amp; operating model practice lead design how the practice engages with delivery and formalise the service catalogue around the l3 services. draft model and catalogue. state the failure mode of the recommended model and the guardrail against it. operating model service catalogue practice roadmap 11. leadership">
+<th scope="row"><a href="PL-01-D2.html">Operating Model &amp; Service Catalogue Definition</a><br>
+<small class="muted"><code>PL-01-D2</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>BA Practice Strategy &amp; Operating Model</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="master"
+ data-service="BA Practice Strategy &amp; Operating Model" data-haystack="pl-01-m master – ba practice strategy &amp; operating model ba practice strategy &amp; operating model practice lead define the practice vision, operating model and roadmap: what role the ba practice plays in the organisation, how it engages with delivery, what services it offers, and the roadmap to get there. produce on request practice strategy operating model practice roadmap 11. leadership">
+<th scope="row"><a href="PL-01-M.html">Master – BA Practice Strategy &amp; Operating Model</a><br>
+<small class="muted"><code>PL-01-M</code></small></th>
+<td>Practice Lead</td><td>Master</td><td>BA Practice Strategy &amp; Operating Model</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Standards, Methods &amp; Templates" data-haystack="pl-02-d1 playbook / standard draft standards, methods &amp; templates practice lead draft the playbook chapter or standard so a mid-level ba can apply it unaided. draft it. every must that lacks a named failure gets demoted to should — show me which ones you demoted. ba playbooks standards &amp; guidelines method guidance 11. leadership">
+<th scope="row"><a href="PL-02-D1.html">Playbook / Standard Draft</a><br>
+<small class="muted"><code>PL-02-D1</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Standards, Methods &amp; Templates</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Standards, Methods &amp; Templates" data-haystack="pl-02-d2 template with embedded quality criteria standards, methods &amp; templates practice lead design the template: structure, per-section guidance, quality criteria, and a completed example. draft the template. mark sections optional-for-small-work explicitly — template bloat is the main adoption killer. templates quality frameworks 11. leadership">
+<th scope="row"><a href="PL-02-D2.html">Template with Embedded Quality Criteria</a><br>
+<small class="muted"><code>PL-02-D2</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Standards, Methods &amp; Templates</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="master"
+ data-service="Standards, Methods &amp; Templates" data-haystack="pl-02-m master – standards, methods &amp; templates standards, methods &amp; templates practice lead define and maintain ba standards, methods, templates and quality expectations: playbooks that bas actually use, templates with embedded guidance, and method guidance matched to delivery contexts. produce on request ba playbooks templates &amp; standards method guidance quality frameworks 11. leadership">
+<th scope="row"><a href="PL-02-M.html">Master – Standards, Methods &amp; Templates</a><br>
+<small class="muted"><code>PL-02-M</code></small></th>
+<td>Practice Lead</td><td>Master</td><td>Standards, Methods &amp; Templates</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Capability &amp; Competency Management" data-haystack="pl-03-d1 competency framework (levels &amp; behaviours) capability &amp; competency management practice lead draft the competency framework: areas × levels with behavioural anchors that make assessment consistent. draft the framework. anchors must discriminate: if the same evidence could satisfy two adjacent levels, sharpen it — show me the cells you found hardest to separate. competency frameworks career pathways 11. leadership">
+<th scope="row"><a href="PL-03-D1.html">Competency Framework (Levels &amp; Behaviours)</a><br>
+<small class="muted"><code>PL-03-D1</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Capability &amp; Competency Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Capability &amp; Competency Management" data-haystack="pl-03-d2 practice capability assessment &amp; development plan capability &amp; competency management practice lead roll up individual assessments into a practice capability picture and plan the development that closes the gaps that matter. draft heat map narrative and plan. where assessment inputs look inflated (everyone expert), flag the calibration risk and how to fix it. capability assessments training &amp; development plans 11. leadership">
+<th scope="row"><a href="PL-03-D2.html">Practice Capability Assessment &amp; Development Plan</a><br>
+<small class="muted"><code>PL-03-D2</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Capability &amp; Competency Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="master"
+ data-service="Capability &amp; Competency Management" data-haystack="pl-03-m master – capability &amp; competency management capability &amp; competency management practice lead define competency frameworks, assess capability and plan development across the practice: what each level requires, where the practice stands, career pathways, and the development plan that closes practice-wide gaps. produce on request competency frameworks capability assessments training &amp; development plans career pathways 11. leadership">
+<th scope="row"><a href="PL-03-M.html">Master – Capability &amp; Competency Management</a><br>
+<small class="muted"><code>PL-03-M</code></small></th>
+<td>Practice Lead</td><td>Master</td><td>Capability &amp; Competency Management</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Workforce &amp; Resource Management" data-haystack="pl-04-d1 demand &amp; supply forecast workforce &amp; resource management practice lead forecast ba demand against supply and surface the gaps early enough to act. build the forecast. highlight the single most dangerous month and what must be decided now to survive it. demand forecasts resourcing plans 11. leadership">
+<th scope="row"><a href="PL-04-D1.html">Demand &amp; Supply Forecast</a><br>
+<small class="muted"><code>PL-04-D1</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Workforce &amp; Resource Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Workforce &amp; Resource Management" data-haystack="pl-04-d2 role description &amp; onboarding pack workforce &amp; resource management practice lead draft the role description and the onboarding pack that gets the hire productive fast. draft both. cut any &#x27;requirement&#x27; that&#x27;s really a wish — inflated musts shrink the candidate pool for nothing. recruitment packs onboarding guides 11. leadership">
+<th scope="row"><a href="PL-04-D2.html">Role Description &amp; Onboarding Pack</a><br>
+<small class="muted"><code>PL-04-D2</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Workforce &amp; Resource Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="master"
+ data-service="Workforce &amp; Resource Management" data-haystack="pl-04-m master – workforce &amp; resource management workforce &amp; resource management practice lead manage ba demand, supply, recruitment and allocation across the portfolio: forecast demand, plan supply (hire/contract/develop), and prepare recruitment and onboarding materials. produce on request demand forecasts resourcing plans recruitment &amp; onboarding materials 11. leadership">
+<th scope="row"><a href="PL-04-M.html">Master – Workforce &amp; Resource Management</a><br>
+<small class="muted"><code>PL-04-M</code></small></th>
+<td>Practice Lead</td><td>Master</td><td>Workforce &amp; Resource Management</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Practice Performance &amp; Continuous Improvement" data-haystack="pl-05-d1 practice kpis &amp; maturity assessment practice performance &amp; continuous improvement practice lead define a small honest kpi set and run a maturity self-assessment the practice can repeat yearly. draft both. reject any kpi i can&#x27;t actually source data for — offer the nearest measurable proxy instead. practice kpis maturity assessments kpi reports 11. leadership">
+<th scope="row"><a href="PL-05-D1.html">Practice KPIs &amp; Maturity Assessment</a><br>
+<small class="muted"><code>PL-05-D1</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Practice Performance &amp; Continuous Improvement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Practice Performance &amp; Continuous Improvement" data-haystack="pl-05-d2 improvement initiative charter practice performance &amp; continuous improvement practice lead charter the improvement initiative tightly enough that in three months we&#x27;ll know if it worked. draft the charter. if the problem evidence is anecdote-only, add a &#x27;first, baseline it&#x27; step before the change. improvement initiatives benefits tracking 11. leadership">
+<th scope="row"><a href="PL-05-D2.html">Improvement Initiative Charter</a><br>
+<small class="muted"><code>PL-05-D2</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Practice Performance &amp; Continuous Improvement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="master"
+ data-service="Practice Performance &amp; Continuous Improvement" data-haystack="pl-05-m master – practice performance &amp; continuous improvement practice performance &amp; continuous improvement practice lead measure practice performance and maturity, and drive continuous improvement: kpis that reflect value (not activity), maturity assessment, and improvement initiatives with tracked benefits. produce on request practice kpis maturity assessments improvement initiatives 11. leadership">
+<th scope="row"><a href="PL-05-M.html">Master – Practice Performance &amp; Continuous Improvement</a><br>
+<small class="muted"><code>PL-05-M</code></small></th>
+<td>Practice Lead</td><td>Master</td><td>Practice Performance &amp; Continuous Improvement</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Community of Practice &amp; Knowledge Management" data-haystack="pl-06-d1 cop session plan &amp; topic backlog community of practice &amp; knowledge management practice lead plan the next quarter of cop sessions people choose to attend, plus the prioritised topic backlog. draft plan and backlog. every session must produce a takeaway artefact for the knowledge base — no takeaway, redesign the session. community of practice sessions 11. leadership">
+<th scope="row"><a href="PL-06-D1.html">CoP Session Plan &amp; Topic Backlog</a><br>
+<small class="muted"><code>PL-06-D1</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Community of Practice &amp; Knowledge Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Community of Practice &amp; Knowledge Management" data-haystack="pl-06-d2 knowledge base structure &amp; contribution guidelines community of practice &amp; knowledge management practice lead design the knowledge base around retrieval moments, with contribution guidelines that keep quality up and duplication down. draft structure and guidelines. include a &#x27;deprecation&#x27; rule — stale trusted content is worse than no content. knowledge base lessons learned register 11. leadership">
+<th scope="row"><a href="PL-06-D2.html">Knowledge Base Structure &amp; Contribution Guidelines</a><br>
+<small class="muted"><code>PL-06-D2</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Community of Practice &amp; Knowledge Management</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="master"
+ data-service="Community of Practice &amp; Knowledge Management" data-haystack="pl-06-m master – community of practice &amp; knowledge management community of practice &amp; knowledge management practice lead foster the ba community, knowledge sharing and reuse of practice assets: community sessions people attend by choice, a knowledge base people actually search first, and lessons that change behaviour rather than filling a register. produce on request community of practice sessions knowledge base lessons learned register 11. leadership">
+<th scope="row"><a href="PL-06-M.html">Master – Community of Practice &amp; Knowledge Management</a><br>
+<small class="muted"><code>PL-06-M</code></small></th>
+<td>Practice Lead</td><td>Master</td><td>Community of Practice &amp; Knowledge Management</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Tooling &amp; AI Enablement" data-haystack="pl-07-d1 tool / ai capability evaluation tooling &amp; ai enablement practice lead evaluate the candidate against real ba use cases and recommend adopt / trial / decline with evidence. draft the evaluation (design before trial, findings after). weight validation effort honestly — a tool that generates fast but validates slow may net negative. tool evaluations recommendations 11. leadership">
+<th scope="row"><a href="PL-07-D1.html">Tool / AI Capability Evaluation</a><br>
+<small class="muted"><code>PL-07-D1</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Tooling &amp; AI Enablement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="deliverable"
+ data-service="Tooling &amp; AI Enablement" data-haystack="pl-07-d2 ai adoption guidelines &amp; guardrails (practice) tooling &amp; ai enablement practice lead draft the practice&#x27;s ai adoption guidelines: what bas may use ai for, what they must never do, and the validation discipline that makes outputs trustworthy. draft the guidelines. where my organisational policy is stricter than these defaults, follow the policy and note it; where it is silent, mark the gap for the policy owner. tooling standards ai adoption guidelines &amp; guardrails 11. leadership">
+<th scope="row"><a href="PL-07-D2.html">AI Adoption Guidelines &amp; Guardrails (Practice)</a><br>
+<small class="muted"><code>PL-07-D2</code></small></th>
+<td>Practice Lead</td><td>Deliverable</td><td>Tooling &amp; AI Enablement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Practice Lead" data-type="master"
+ data-service="Tooling &amp; AI Enablement" data-haystack="pl-07-m master – tooling &amp; ai enablement tooling &amp; ai enablement practice lead evaluate and embed analysis tooling and ai-enabled ways of working across the practice: tool evaluations, tooling standards, and ai adoption guidelines with guardrails that keep use safe and consistent — including the practice prompt library and g.e.t. validation discipline. produce on request tool evaluations tooling standards ai adoption guidelines &amp; guardrails 11. leadership">
+<th scope="row"><a href="PL-07-M.html">Master – Tooling &amp; AI Enablement</a><br>
+<small class="muted"><code>PL-07-M</code></small></th>
+<td>Practice Lead</td><td>Master</td><td>Tooling &amp; AI Enablement</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Environment Access &amp; DevOps Enablement" data-haystack="tb-01-d1 environment &amp; access requirements matrix environment access &amp; devops enablement technical ba define the environment set and the role-based access matrix with approval and audit requirements. draft both tables. flag risky patterns explicitly (shared accounts, vendor admin access, prod data in test). environment requirements access requirements 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-01-D1.html">Environment &amp; Access Requirements Matrix</a><br>
+<small class="muted"><code>TB-01-D1</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Environment Access &amp; DevOps Enablement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Environment Access &amp; DevOps Enablement" data-haystack="tb-01-d2 release process &amp; ci/cd pipeline requirements environment access &amp; devops enablement technical ba define release governance and ci/cd pipeline requirements that balance delivery speed with public-sector change control. draft both. note where a requirement trades speed against control and offer the option. release process definitions pipeline requirements 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-01-D2.html">Release Process &amp; CI/CD Pipeline Requirements</a><br>
+<small class="muted"><code>TB-01-D2</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Environment Access &amp; DevOps Enablement</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="master"
+ data-service="Environment Access &amp; DevOps Enablement" data-haystack="tb-01-m master – environment access &amp; devops enablement environment access &amp; devops enablement technical ba define the requirements for environments, access, deployment and release processes and ci/cd enablement — answering who can access which environment, how the solution is deployed, and how releases are governed. produce on request environment requirements deployment requirements access requirements release process definitions pipeline requirements 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-01-M.html">Master – Environment Access &amp; DevOps Enablement</a><br>
+<small class="muted"><code>TB-01-M</code></small></th>
+<td>Technical BA</td><td>Master</td><td>Environment Access &amp; DevOps Enablement</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Integration, Data &amp; Migration" data-haystack="tb-02-d1 interface specification integration, data &amp; migration technical ba draft a complete interface specification for designer/developer consumption. draft the specification. mark unknowns &#x27;[tbc — owner]&#x27; rather than inventing values, and list the questions that close them. interface specifications integration mappings 1. tech services (back-end ict) 5. it system – new / transition 9. data – warehouse">
+<th scope="row"><a href="TB-02-D1.html">Interface Specification</a><br>
+<small class="muted"><code>TB-02-D1</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Integration, Data &amp; Migration</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Integration, Data &amp; Migration" data-haystack="tb-02-d2 migration approach &amp; reconciliation requirements integration, data &amp; migration technical ba define migration scope, approach considerations and the reconciliation requirements that prove the migration succeeded. draft all sections. call out the riskiest entities (quality, volume, transformation complexity) and why. migration requirements data reconciliation requirements 1. tech services (back-end ict) 5. it system – new / transition 9. data – warehouse">
+<th scope="row"><a href="TB-02-D2.html">Migration Approach &amp; Reconciliation Requirements</a><br>
+<small class="muted"><code>TB-02-D2</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Integration, Data &amp; Migration</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="master"
+ data-service="Integration, Data &amp; Migration" data-haystack="tb-02-m master – integration, data &amp; migration integration, data &amp; migration technical ba define system integration, data movement and migration requirements: how data moves between systems, what transforms it needs, and how a migration is scoped, sequenced, validated and reconciled. produce on request interface specifications integration mappings migration requirements transformation rules data reconciliation requirements 1. tech services (back-end ict) 5. it system – new / transition 9. data – warehouse">
+<th scope="row"><a href="TB-02-M.html">Master – Integration, Data &amp; Migration</a><br>
+<small class="muted"><code>TB-02-M</code></small></th>
+<td>Technical BA</td><td>Master</td><td>Integration, Data &amp; Migration</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Operational Engineering &amp; Observability" data-haystack="tb-03-d1 monitoring, logging &amp; alerting requirements operational engineering &amp; observability technical ba define what must be monitored, logged and alerted, grounded in business impact. draft the tables. flag over-alerting risks and any log content that would breach privacy expectations. monitoring requirements alerting requirements logging requirements 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-03-D1.html">Monitoring, Logging &amp; Alerting Requirements</a><br>
+<small class="muted"><code>TB-03-D1</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Operational Engineering &amp; Observability</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Operational Engineering &amp; Observability" data-haystack="tb-03-d2 availability, dr &amp; performance requirements operational engineering &amp; observability technical ba define availability, disaster recovery, backup and performance requirements with business justification. ask me the impact-of-outage questions you need, then draft. show the cost-vs-availability trade-off where targets look expensive. availability requirements dr/backup expectations performance and scalability requirements 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-03-D2.html">Availability, DR &amp; Performance Requirements</a><br>
+<small class="muted"><code>TB-03-D2</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Operational Engineering &amp; Observability</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="master"
+ data-service="Operational Engineering &amp; Observability" data-haystack="tb-03-m master – operational engineering &amp; observability operational engineering &amp; observability technical ba define monitoring, logging, alerting and operational support requirements: what needs watching, what events matter, availability and resilience needs, dr/backup expectations, and performance/scalability requirements. produce on request monitoring requirements alerting requirements event management logging requirements support models operational dashboards 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-03-M.html">Master – Operational Engineering &amp; Observability</a><br>
+<small class="muted"><code>TB-03-M</code></small></th>
+<td>Technical BA</td><td>Master</td><td>Operational Engineering &amp; Observability</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Platform Design &amp; Infrastructure" data-haystack="tb-04-d1 hosting model &amp; data residency analysis platform design &amp; infrastructure technical ba analyse hosting options (full cloud / hybrid / on-prem) and establish the data residency position. draft the analysis. every residency claim about a vendor/cloud service is marked &#x27;[verify with vendor documentation]&#x27;. hosting &amp; deployment model definitions data residency compliance inputs 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-04-D1.html">Hosting Model &amp; Data Residency Analysis</a><br>
+<small class="muted"><code>TB-04-D1</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Platform Design &amp; Infrastructure</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Platform Design &amp; Infrastructure" data-haystack="tb-04-d2 licensing &amp; consumption model platform design &amp; infrastructure technical ba model how licensing and consumption costs scale with usage so commercial decisions and forecasts are grounded. draft the model. never invent dollar figures; build the structure and flag every input finance must supply. licensing &amp; consumption model definitions cost forecast structure 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-04-D2.html">Licensing &amp; Consumption Model</a><br>
+<small class="muted"><code>TB-04-D2</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Platform Design &amp; Infrastructure</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="master"
+ data-service="Platform Design &amp; Infrastructure" data-haystack="tb-04-m master – platform design &amp; infrastructure analysis platform design &amp; infrastructure technical ba provide the analysis that platform design decisions need: hosting model, environment strategy, compute and workload placement, network topology and connectivity, licensing and consumption modelling, and solution dependencies. produce on request platform architecture inputs environment topology definitions hosting &amp; deployment model definitions compute &amp; workload placement network topology &amp; connectivity specifications licensing &amp; consumption model definitions 1. tech services (back-end ict)">
+<th scope="row"><a href="TB-04-M.html">Master – Platform Design &amp; Infrastructure Analysis</a><br>
+<small class="muted"><code>TB-04-M</code></small></th>
+<td>Technical BA</td><td>Master</td><td>Platform Design &amp; Infrastructure</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Security, Privacy &amp; Compliance" data-haystack="tb-05-d1 security requirements &amp; rbac matrix security, privacy &amp; compliance technical ba draft the security requirements and role-based access matrix for the solution. draft requirements and matrix. flag every place where my function list was too coarse to set permissions safely. security requirements rbac/iam inputs 1. tech services (back-end ict) 10. ai – agentic">
+<th scope="row"><a href="TB-05-D1.html">Security Requirements &amp; RBAC Matrix</a><br>
+<small class="muted"><code>TB-05-D1</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Security, Privacy &amp; Compliance</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Security, Privacy &amp; Compliance" data-haystack="tb-05-d2 privacy impact assessment (pia) input pack security, privacy &amp; compliance technical ba assemble the structured inputs a privacy officer needs to complete a pia efficiently. draft the pack. list the questions only the privacy officer or legal can answer, separately from factual gaps i can close. privacy assessments information classification assessments 1. tech services (back-end ict) 10. ai – agentic">
+<th scope="row"><a href="TB-05-D2.html">Privacy Impact Assessment (PIA) Input Pack</a><br>
+<small class="muted"><code>TB-05-D2</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Security, Privacy &amp; Compliance</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="master"
+ data-service="Security, Privacy &amp; Compliance" data-haystack="tb-05-m master – security, privacy &amp; compliance analysis security, privacy &amp; compliance technical ba ensure the solution meets security, privacy and regulatory obligations: security requirements, access management and rbac, identity and trust, data sovereignty, privacy assessment inputs and compliance controls with audit evidence. produce on request security requirements privacy assessments compliance controls information classification assessments audit evidence 1. tech services (back-end ict) 10. ai – agentic">
+<th scope="row"><a href="TB-05-M.html">Master – Security, Privacy &amp; Compliance Analysis</a><br>
+<small class="muted"><code>TB-05-M</code></small></th>
+<td>Technical BA</td><td>Master</td><td>Security, Privacy &amp; Compliance</td>
+<td><span class="badge badge-good">19/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Service &amp; Operational Readiness" data-haystack="tb-06-d1 support model &amp; sla/ola definitions service &amp; operational readiness technical ba define the l1-l3 support model and the sla/ola set for the service. draft the model and tables. mark targets &#x27;[proposed — validate]&#x27; and flag sla/ola mismatches. service models sla and ola definitions 1. tech services (back-end ict) 10. ai – agentic">
+<th scope="row"><a href="TB-06-D1.html">Support Model &amp; SLA/OLA Definitions</a><br>
+<small class="muted"><code>TB-06-D1</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Service &amp; Operational Readiness</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="deliverable"
+ data-service="Service &amp; Operational Readiness" data-haystack="tb-06-d2 operational readiness checklist &amp; handover pack service &amp; operational readiness technical ba produce the readiness checklist gating service transition and define the handover pack contents. draft checklist and pack definition. rank the items by &#x27;pain if missing at 2am during a sev-1&#x27; and say why. support readiness checklists handover pack support procedures 1. tech services (back-end ict) 10. ai – agentic">
+<th scope="row"><a href="TB-06-D2.html">Operational Readiness Checklist &amp; Handover Pack</a><br>
+<small class="muted"><code>TB-06-D2</code></small></th>
+<td>Technical BA</td><td>Deliverable</td><td>Service &amp; Operational Readiness</td>
+<td><span class="badge badge-good">20/20</span></td></tr><tr data-prompt data-role="Technical BA" data-type="master"
+ data-service="Service &amp; Operational Readiness" data-haystack="tb-06-m master – service &amp; operational readiness service &amp; operational readiness technical ba ensure the system, network and platform have an operational support model and are ready for production: support models, slas/olas, incident and event management, vendor responsibilities, environment governance and handover. produce on request support procedures service transition assessments support readiness checklists service models 1. tech services (back-end ict) 10. ai – agentic">
+<th scope="row"><a href="TB-06-M.html">Master – Service &amp; Operational Readiness</a><br>
+<small class="muted"><code>TB-06-M</code></small></th>
+<td>Technical BA</td><td>Master</td><td>Service &amp; Operational Readiness</td>
+<td><span class="badge badge-good">19/20</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p><strong>BA Prompt Forge</strong> &mdash; 126 scored business-analysis prompts,
+    convertible into ten prompt frameworks or into agent skills.</p>
+    <p>Prompts, rubric and documentation are licensed
+    <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; the tooling is MIT.
+    Each prompt names its own author &mdash; see <a href="../about/">About</a>.
+    Source on <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge">GitHub</a>.</p>
+    <p>Built to WCAG 2.1 AA. Found something unusable?
+    <a href="https://github.com/Business-Analyst-Services/ba-prompt-forge/issues/new">Tell us</a> &mdash; accessibility defects are treated as bugs.</p>
+  </div>
+</footer>
+<script src="../assets/site.js"></script>
+</body>
+</html>
