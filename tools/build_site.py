@@ -39,13 +39,199 @@ BLOB = f"{REPO}/blob/main/"
 BASE = "/ba-prompt-forge/"  # project-site path, used only by 404.html
 
 NAV = [
+    ("start/", "Start here"),
     ("prompts/", "Find a prompt"),
-    ("contexts/", "Delivery contexts"),
-    ("frameworks/", "Frameworks"),
-    ("scoring/", "Scoring"),
-    ("skills/", "Skills"),
+    ("contexts/", "By project type"),
+    ("glossary/", "Glossary"),
+    ("advanced/", "Advanced"),
     ("contribute/", "Contribute"),
     ("about/", "About"),
+]
+
+# The fastest path in: what a BA is actually trying to write, in their words,
+# mapped to one prompt. Hand-curated - the catalogue's own 226 deliverable names
+# are too many and still written in catalogue language.
+QUICK_PICKS = [
+    ("Acceptance criteria for a user story", "AB-03-D1"),
+    ("Break an epic into user stories", "BT-02-D1"),
+    ("A map of how a process works today", "BB-07-D1"),
+    ("A redesigned process, and the gaps to get there", "BB-07-D2"),
+    ("Turn messy workshop notes into business needs", "BB-02-D2"),
+    ("A problem statement — what is actually wrong", "BB-03-D1"),
+    ("Functional requirements for a feature", "BB-06-D1"),
+    ("Non-functional requirements (performance, security)", "BB-06-D2"),
+    ("KPIs that prove the benefits", "BB-01-D1"),
+    ("A stakeholder register and engagement plan", "BT-08-D1"),
+    ("UAT scenarios and test scripts", "BT-09-D1"),
+    ("An options paper for a decision", "BB-08-D2"),
+]
+
+# Plain-English definitions. Every term Chale flagged as unexplained, plus the
+# ones the library itself introduces. Definitions must not use jargon that is
+# not itself defined here.
+GLOSSARY = [
+    ("ai-assistant", "AI assistant", [
+        "A tool you type a question into and get written text back: Microsoft "
+        "Copilot, ChatGPT, Claude or Google Gemini are the common ones. If your "
+        "employer gives you one, it is probably Copilot.",
+        "Everything on this site works with any of them. You do not need a "
+        "special one, a subscription tier, or anything installed.",
+    ]),
+    ("prompt", "Prompt", [
+        "The instructions you give an AI assistant. That is all a prompt is — "
+        "text you paste into the box.",
+        "A good prompt says who you are, what you want, what shape the answer "
+        "should take, and what the assistant must not do. Writing all that out "
+        "every time is tedious, which is why this site exists: the prompts here "
+        "are already written.",
+    ]),
+    ("placeholder", "Placeholder", [
+        "The bits in [SQUARE BRACKETS AND CAPITALS] that you replace with your "
+        "own details before you send the prompt — your project name, the "
+        "process you are mapping, the notes you are working from.",
+        "If you do not know one, leave it and say so; the assistant will ask.",
+    ]),
+    ("first-draft", "First draft", [
+        "What an AI assistant gives you back. It is a starting point to edit, "
+        "not something to forward to your sponsor.",
+        "Every prompt here says this to the assistant explicitly, so the output "
+        "arrives labelled as a draft rather than dressed up as finished work.",
+    ]),
+    ("hallucination", "Made-up facts (hallucination)", [
+        "AI assistants will invent plausible-sounding detail — a figure, a "
+        "date, a standard, a citation — rather than admit they do not know. "
+        "This is the single biggest risk in using them for BA work.",
+        "Every prompt here forbids it and tells the assistant to mark anything "
+        "it could not verify as [TBC], and anything it suggested itself as "
+        "[PROPOSED — VALIDATE]. When you see those tags, that is the prompt "
+        "working. Check them before the document goes anywhere.",
+    ]),
+    ("de-identified", "De-identified / synthetic data", [
+        "De-identified means you removed the details that identify a real "
+        "person or case before pasting: names, case numbers, addresses, dates "
+        "of birth. Synthetic means you made the example up entirely.",
+        "Every prompt here tells the assistant to stop and warn you if what you "
+        "pasted looks like real personal data. Treat that as a backstop, not a "
+        "substitute for checking first — and follow your own organisation's "
+        "rules about what may go into an AI tool at all.",
+    ]),
+    ("deliverable-prompt", "Deliverable prompt", [
+        "A prompt that produces one specific thing — a traceability matrix, "
+        "a set of acceptance criteria, a stakeholder register.",
+        "Most of the time this is what you want. 84 of the 126 prompts here are "
+        "deliverable prompts.",
+    ]),
+    ("master-prompt", "Master prompt", [
+        "A prompt that sets an assistant up to work with you across a whole "
+        "area for a while, offering several things it can produce, rather than "
+        "producing one artefact and stopping.",
+        "Useful when you are working a topic through over an afternoon. If you "
+        "just need one document, use a deliverable prompt instead.",
+    ]),
+    ("ba-service", "BA service", [
+        "A named area of business-analysis work — 'Process Analysis & "
+        "Improvement', 'Requirements Governance & Traceability'. This site "
+        "covers 42 of them.",
+        "It is how the prompts are filed. If the names mean nothing to you, "
+        "ignore them and search by what you are writing instead.",
+    ]),
+    ("delivery-context", "Delivery context", [
+        "The kind of project you are on: an agile delivery, a procurement, a "
+        "data warehouse build, a go-live. There are eleven here.",
+        "Useful when you know your project type but not which document you "
+        "need yet.",
+    ]),
+    ("prompt-framework", "Prompt framework", [
+        "A standard running order for the parts of a prompt — context first, "
+        "then the task, then the output format, and so on. CARE, CO-STAR, "
+        "RISEN, TIDD-EC, RACE, CRISPE, RTF, APE and BAB are all just different "
+        "running orders, usually named after their initials.",
+        "They matter to people building prompt tooling. As someone using a "
+        "prompt, you can ignore them completely — the ready-to-use version "
+        "on every prompt page is already in a good one.",
+    ]),
+    ("care-get", "CARE + G.E.T.", [
+        "The framework these prompts are written in. CARE is Context, Action, "
+        "Result/Format, Example. G.E.T. is what the prompt asks the assistant "
+        "to do afterwards: Generate the answer, Explain how it reached it, and "
+        "Test it by listing its sources and assumptions.",
+        "That last part is the useful bit for BA work — it is what turns "
+        "output you have to trust into output you can check.",
+    ]),
+    ("rubric", "Rubric / quality score", [
+        "A checklist used to mark each prompt out of 20 against ten criteria: "
+        "does it say who the audience is, does it give a worked example, does "
+        "it forbid made-up facts, and so on.",
+        "You do not need to care about the number. Everything published here "
+        "scored 17 or higher, which is the bar for being published at all. The "
+        "score is there so contributors know the standard and reviewers can "
+        "apply it consistently.",
+    ]),
+    ("agent", "AI agent", [
+        "An AI assistant that can take several steps on its own — read a "
+        "file, decide what to do next, come back to you — rather than "
+        "answering one question at a time.",
+        "Nothing on this site requires one.",
+    ]),
+    ("agent-skill", "Agent skill", [
+        "A file of instructions (named SKILL.md) that you give to an AI agent "
+        "once, so it knows how to do a job properly every time you ask, without "
+        "you pasting a prompt.",
+        "Think of it as a prompt you install rather than paste. Optional — "
+        "the copy-and-paste route works perfectly well.",
+    ]),
+    ("router-skill", "Router skill", [
+        "One particular agent skill on this site. You tell it what you are "
+        "working on in your own words — 'I need acceptance criteria a "
+        "tester can actually work from' — and it picks the right prompt out "
+        "of the 126, asks you for the details it needs, and hands back a "
+        "finished prompt.",
+        "It exists because 126 is too many to browse. It is a convenience, not "
+        "a requirement.",
+    ]),
+    ("agentic-ai", "Agentic AI", [
+        "A way of building systems where AI agents carry out multi-step tasks "
+        "with some independence, rather than just answering questions.",
+        "It appears on this site only as the name of one delivery context — "
+        "for BAs whose project happens to be building such a system. It is not "
+        "something you need to understand to use the prompts.",
+    ]),
+    ("rag", "RAG (retrieval-augmented generation)", [
+        "A technique for making an AI assistant answer from a specific set of "
+        "documents — your policies, your knowledge base — rather than "
+        "from whatever it learned in training. The system looks up relevant "
+        "documents first, then answers using them.",
+        "Same as above: it appears here only because some BAs are asked to "
+        "write requirements for systems that use it.",
+    ]),
+    ("grounding", "Grounding", [
+        "Tying an AI assistant's answers to real, checkable sources so it is "
+        "less free to invent. RAG is one way of doing it.",
+    ]),
+    ("bdd", "BDD / Gherkin / Given-When-Then", [
+        "A way of writing acceptance criteria as concrete scenarios in a fixed "
+        "shape: Given some starting situation, When someone does something, Then "
+        "this should happen. Gherkin is the name of that shape; BDD "
+        "(behaviour-driven development) is the practice of using it.",
+        "It is popular because the same scenario is readable by a business "
+        "stakeholder and usable by a tester.",
+    ]),
+    ("dor", "Definition of Ready / Definition of Done", [
+        "Two checklists an agile team agrees between themselves. Definition of "
+        "Ready is what a piece of work needs before the team will start it; "
+        "Definition of Done is what it needs before they will call it finished.",
+    ]),
+    ("uat", "UAT (user acceptance testing)", [
+        "The testing done by the people who will actually use a system, to "
+        "confirm it does what the business needed — as opposed to testing "
+        "that it works technically.",
+    ]),
+    ("babok", "BABOK", [
+        "A Guide to the Business Analysis Body of Knowledge, published by IIBA. "
+        "The reference text most BA practice is described against.",
+        "Some prompts mention it so the assistant writes in a style a BA "
+        "audience will recognise. You do not need a copy.",
+    ]),
 ]
 
 # Repo paths that have a home on the site. Anything unmapped falls through to
@@ -324,122 +510,178 @@ def harden(body: str) -> str:
 def prompt_page(p: dict) -> str:
     total = (p.get("score") or {}).get("total")
     pid = p["id"]
+
+    # The ready-to-use build is shown on its own. Every other framework lives
+    # behind a disclosure: those labels are jargon, and putting ten of them on
+    # the first screen is what made this page unreadable for a new reader.
+    main_prompt = render(p, "care")
+    others = [(k, m["label"], render(p, k), fidelity(p, k))
+              for k, m in FORMATS.items() if k != "care"]
+    others.append(("skill", "Agent skill file", to_skill(p), None))
+
     panels, tabs = [], []
-
-    variants = [(key, meta["label"], render(p, key), fidelity(p, key))
-                for key, meta in FORMATS.items()]
-    variants.append(("skill", "Agent skill", to_skill(p), None))
-
-    for i, (key, label, text, fid) in enumerate(variants):
+    for i, (key, label, text, fid) in enumerate(others):
         panel_id, tab_id, code_id = f"panel-{key}", f"tab-{key}", f"code-{key}"
-        note = ""
         if fid:
             lost = ", ".join(fid["criteria_lost"])
-            note = (
-                f'<p class="muted">{e(FORMATS[key]["note"])} '
-                + (f'Converting costs {fid["original_total"] - fid["converted_total"]} '
-                   f'rubric point(s) &mdash; this rendering scores '
-                   f'{fid["converted_total"]}/20, losing: {e(lost)}.'
-                   if lost else "Lossless: every rubric criterion has somewhere to go.")
-                + "</p>"
-            )
+            cost = (f"Scores {fid['converted_total']}/20 after conversion, losing: "
+                    f"{e(lost)}." if lost else "Carries everything the original does.")
+            note = f'<p class="muted">{e(FORMATS[key]["note"])} {cost}</p>'
         else:
-            note = ('<p class="muted">The prompt rebuilt as an agent skill: the modes become '
-                    "steps, the clarifying questions become a gate before drafting, and the "
-                    "validation block becomes a hand-back checklist. Save as "
-                    "<code>SKILL.md</code>.</p>")
+            note = ('<p class="muted">The same prompt rebuilt as an '
+                    f'<a href="{rel(1, "glossary/")}#agent-skill">agent skill</a> '
+                    "file, so an AI agent can follow it without you pasting "
+                    "anything. Save it as <code>SKILL.md</code>.</p>")
         tabs.append(
             f'<button type="button" role="tab" id="{tab_id}" aria-controls="{panel_id}" '
             f'aria-selected="{"true" if i == 0 else "false"}" '
             f'tabindex="{"0" if i == 0 else "-1"}">{e(label)}</button>'
         )
-        panels.append(f"""
-<div class="tabpanel" role="tabpanel" id="{panel_id}" aria-labelledby="{tab_id}" tabindex="0">
-  <h3 class="panel-heading">{e(label)}</h3>
-  {note}
-  <div class="copy-row">
-    <button type="button" class="btn" data-copy="{code_id}"
-            data-copy-status="copy-status-{key}" hidden>Copy {e(label)} prompt</button>
-    <span class="copy-status" id="copy-status-{key}" role="status" aria-live="polite"></span>
-  </div>
-  <pre id="{code_id}"><code>{e(text)}</code></pre>
-</div>""")
+        panels.append(
+            f'\n<div class="tabpanel" role="tabpanel" id="{panel_id}" '
+            f'aria-labelledby="{tab_id}" tabindex="0">\n'
+            f'  <h3 class="panel-heading">{e(label)}</h3>\n'
+            f"  {note}\n"
+            f'  <div class="copy-row">\n'
+            f'    <button type="button" class="btn" data-copy="{code_id}"\n'
+            f'            data-copy-status="copy-status-{key}" hidden>Copy this version</button>\n'
+            f'    <span class="copy-status" id="copy-status-{key}" role="status" '
+            f'aria-live="polite"></span>\n'
+            f"  </div>\n"
+            f'  <pre id="{code_id}"><code>{e(text)}</code></pre>\n'
+            f"</div>"
+        )
 
     inputs = "\n".join(f"<li><code>[{e(i)}]</code></li>" for i in p.get("inputs", [])) \
-        or "<li>None &mdash; this prompt takes no placeholders.</li>"
+        or "<li>Nothing &mdash; this one works as it is.</li>"
     contexts = "\n".join(
-        f'<li><a href="{rel(1, "contexts/")}#{e(re.sub(r"[^a-z0-9]+", "-", c.lower()).strip("-"))}">'
-        f"{e(c)}</a></li>" for c in p.get("delivery_contexts", [])
-    ) or "<li>Not mapped to a delivery context.</li>"
+        f'<li><a href="{rel(1, "contexts/")}'
+        f'#{e(re.sub(r"[^a-z0-9]+", "-", c.lower()).strip("-"))}">{e(c)}</a></li>'
+        for c in p.get("delivery_contexts", [])
+    ) or "<li>Not mapped to a particular project type.</li>"
 
     score_rows = [[e(label), str((p.get("score") or {}).get(key, "&ndash;")),
-                   "Machine-checked" if key in {
+                   "Checked automatically" if key in {
                        "c4_example", "c5_explain", "c6_test", "c7_anti_fabrication",
-                       "c8_data_safety", "c9_reusability"} else "Judgement"]
+                       "c8_data_safety", "c9_reusability"} else "Human judgement"]
                   for key, label in CRITERIA]
     notes = (p.get("score") or {}).get("notes")
     prov = p.get("provenance") or {}
+    deliverables = ", ".join(p.get("deliverables", []))
+
+    kind = (
+        "Produces one document and stops."
+        if p["type"] == "deliverable" else
+        "Sets the assistant up to work with you across this whole area, offering "
+        "several things it can produce. If you only need one document, use a "
+        "deliverable prompt instead."
+    )
+    verdict = (p.get("score") or {}).get("verdict", "")
 
     body = f"""
 <p class="muted"><a href="{rel(1, 'prompts/')}">&larr; All prompts</a></p>
 <h1>{e(p['name'])}</h1>
-<p class="meta">
-  <code>{e(pid)}</code>
-  <span>{e(p['role'])}</span>
-  <span>{e(p['service'])}</span>
-  <span>{e(p['type'].title())} prompt</span>
-  <span class="badge {verdict_class(total)}">{e(total)}/20 {e((p.get('score') or {}).get('verdict', ''))}</span>
-</p>
+
 <p class="lede">{e(p['task'])}</p>
 
-<h2>Who it is for</h2>
-<p><strong>You are:</strong> {e(p['persona'])}.<br>
-<strong>The audience for the output:</strong> {e(p['audience'])}.</p>
-<p><strong>Target deliverables:</strong> {e(', '.join(p.get('deliverables', [])) or '&ndash;')}</p>
+<p class="meta">
+  <span><strong>Writes:</strong> {e(deliverables or p['service'])}</span>
+  <span><strong>For:</strong> {e(p['audience'])}</span>
+</p>
+<p class="muted small">{e(kind)} Filed under
+<a href="{rel(1, 'glossary/')}#ba-service">{e(p['service'])}</a> for a
+{e(p['role'])}. Reference <code>{e(pid)}</code>.
+<a href="#quality">Quality score {e(total)}/20</a>.</p>
 
-<h2 id="fill-in">What you need to fill in</h2>
+<h2 id="ready">1. Have these ready</h2>
+<p>You will replace each of these in the prompt below:</p>
 <ul>
 {inputs}
 </ul>
+<p>Do not know one? Leave it as it is and say so &mdash; the assistant will ask.</p>
+
 <div class="panel">
-  <p><strong>Before you paste anything in:</strong> {e(p['data_safety'])}</p>
+  <h3>Before you paste anything in</h3>
+  <p>{e(p['data_safety'])}</p>
+  <p class="small">In short: take out real names, case numbers and anything else
+  identifying, or make up an example instead. See
+  <a href="{rel(1, 'glossary/')}#de-identified">de-identified data</a>.</p>
 </div>
 
-<h2 id="prompt">The prompt</h2>
-<p>Pick the framework your tool expects. The first is the library's native
-CARE + G.E.T. build; the others are conversions, and each says what it costs.</p>
-<div class="tabs full">
-  <div class="tablist" role="tablist" aria-label="Prompt framework">
-    {''.join(tabs)}
+<h2 id="prompt">2. Copy the prompt</h2>
+<div class="copy-row">
+  <button type="button" class="btn" data-copy="code-main"
+          data-copy-status="copy-status-main" hidden>Copy the prompt</button>
+  <span class="copy-status" id="copy-status-main" role="status" aria-live="polite"></span>
+</div>
+<pre id="code-main"><code>{e(main_prompt)}</code></pre>
+
+<h2 id="next">3. Paste it into your AI assistant</h2>
+<p>Copilot, ChatGPT, Claude or Gemini &mdash; any of them. Here is what should
+happen:</p>
+<ol>
+  <li><strong>It asks you questions first</strong> (up to {p.get('clarifiers', 5)}).
+  Answer them &mdash; this is what makes the draft about your project rather than
+  a generic one.</li>
+  <li><strong>It writes the document</strong> in the structure the prompt asked for.</li>
+  <li><strong>It explains how it got there</strong> and lists the assumptions it
+  made, so you can check its reasoning and not just its output.</li>
+</ol>
+<p>Anything tagged <code>[TBC]</code> it could not verify. Anything tagged
+<code>[PROPOSED &mdash; VALIDATE]</code> it suggested itself.
+<strong>Those tags are your to-do list.</strong> Treat the whole thing as a first
+draft and read every line before it goes to anyone.</p>
+
+<details class="advanced">
+  <summary>Other formats of this prompt (optional)</summary>
+  <p>The version above is ready to use and works everywhere. These are the same
+  prompt written in other
+  <a href="{rel(1, 'glossary/')}#prompt-framework">prompt frameworks</a>, for people
+  whose tooling or house standard expects one &mdash; plus an
+  <a href="{rel(1, 'glossary/')}#agent-skill">agent skill</a> version. Several drop
+  parts of the original, and each one says what it loses.</p>
+  <div class="tabs full">
+    <div class="tablist" role="tablist" aria-label="Other prompt formats">
+      {''.join(tabs)}
+    </div>
+    {''.join(panels)}
   </div>
-  {''.join(panels)}
-</div>
+</details>
 
-<h2 id="scorecard">Scorecard</h2>
-{table(["Criterion", "Mark", "Decided by"], score_rows,
-       "Marks out of 2 against the ten-criterion CARE + G.E.T. rubric.")}
-<p><strong>Total: {e(total)}/20 &mdash; {e((p.get('score') or {}).get('verdict', ''))}.</strong>
-{('<br>' + e(notes)) if notes else ''}</p>
-<p class="muted">A high score means the prompt is well-formed, not that it is effective.
-<a href="{rel(1, 'scoring/')}">How scoring works</a>.</p>
+<details class="advanced" id="quality">
+  <summary>Quality score: {e(total)}/20 &mdash; {e(verdict)}</summary>
+  <p>Every prompt here is marked against
+  <a href="{rel(1, 'scoring/')}">ten criteria</a> before publication, and 17 out of
+  20 is the minimum to be published at all. You do not need to care about the
+  number &mdash; it exists so contributors know the standard.</p>
+  {table(["Criterion", "Mark", "Decided by"], score_rows,
+         "Marks out of 2 against the ten-criterion quality standard.")}
+  {('<p>' + e(notes) + '</p>') if notes else ''}
+  <p class="muted">A high score means the prompt is well built, not that it worked.
+  If you use it for real, <a href="{rel(1, 'contribute/')}#field-reports">tell us
+  what happened</a> &mdash; that is worth more than the score.</p>
+</details>
 
-<h2 id="contexts">Used in these delivery contexts</h2>
+<h2 id="contexts">Used on these kinds of project</h2>
 <ul>
 {contexts}
 </ul>
 
-<h2 id="provenance">Provenance</h2>
+<h2 id="provenance">Who wrote it</h2>
 <ul>
   <li><strong>Author:</strong> {e(prov.get('author', 'Unknown'))}</li>
-  <li><strong>Source:</strong> {e(prov.get('source', '&ndash;'))}</li>
   <li><strong>Added:</strong> {e(prov.get('added', '&ndash;'))}</li>
-  <li><strong>Licence:</strong> {e(prov.get('license', 'CC-BY-4.0'))}</li>
+  <li><strong>Licence:</strong> {e(prov.get('license', 'CC-BY-4.0'))} &mdash; use it
+  at work, adapt it, keep the attribution.</li>
 </ul>
-<p>Improved this prompt, or used it on real work?
-<a href="{rel(1, 'contribute/')}">Contribute it back</a> &mdash; you keep the credit.</p>
+<p>Improved it, or found that it did not work?
+<a href="{rel(1, 'contribute/')}">Send it back</a> &mdash; you keep the credit.</p>
 """
     return page(title=p["name"], depth=1, current="prompts/",
-                description=f"{p['id']}: {p['task'][:150]}", body=body)
+                description=f"A ready-to-use AI prompt that writes: "
+                            f"{deliverables or p['service']}. Copy it into Copilot, "
+                            "ChatGPT or Claude.", body=body)
+
 
 def prompts_index(prompts: list[dict]) -> str:
     roles = sorted({p["role"] for p in prompts})
@@ -466,37 +708,43 @@ def prompts_index(prompts: list[dict]) -> str:
 
     body = f"""
 <h1>Find a prompt</h1>
-<p class="lede">{len(prompts)} prompts across {len(services)} business-analysis services.
-Filter below &mdash; or, better, don't.</p>
+<p class="lede">Each prompt writes one thing. Search for what you need to
+produce &mdash; &ldquo;acceptance criteria&rdquo;, &ldquo;process map&rdquo;,
+&ldquo;business case&rdquo;, &ldquo;test scripts&rdquo;.</p>
 
-<div class="panel">
-  <h2>Reading a list of 126 is the slow way</h2>
-  <p>Nobody knows in advance whether they want <code>BT-06-D2</code> or <code>BB-07-M</code>.
-  If you know the <em>artefact</em> you need, filter by service below. If you only know what
-  kind of project you are on, start from
-  <a href="{rel(1, 'contexts/')}">delivery contexts</a> instead. And if you have an AI
-  assistant to hand, the <a href="{rel(1, 'skills/ba-prompt-router.html')}">prompt router
-  skill</a> does the narrowing for you &mdash; you describe the work in your own words and it
-  returns one filled-in prompt.</p>
-</div>
+<p>Once you have found one: copy it, replace the bits in [SQUARE BRACKETS] with
+your own details, and paste it into Copilot, ChatGPT or Claude. New to this?
+<a href="{rel(1, 'start/')}">Start here</a> first.</p>
+
+<details class="advanced">
+  <summary>What do &ldquo;Master&rdquo; and &ldquo;Deliverable&rdquo; mean in the table?</summary>
+  <p><strong>Deliverable</strong> prompts produce one document and stop. That is
+  almost always what you want, and 84 of the 126 are this kind.</p>
+  <p><strong>Master</strong> prompts set the assistant up to work with you across a
+  whole area of BA work over a longer session, offering several things it can
+  produce rather than just one.</p>
+  <p><strong>Area of work</strong> is how the prompts are filed &mdash; 42 named
+  areas of business analysis. If the names mean nothing to you, ignore that column
+  and search by what you are writing instead.</p>
+</details>
 
 <form class="filters full" role="search" aria-label="Filter prompts"
       onsubmit="return false;">
   <div class="field">
     <label for="filter-search">Search</label>
     <input type="search" id="filter-search" autocomplete="off"
-           placeholder="acceptance criteria, business case, cutover&hellip;">
+           placeholder="acceptance criteria, process map, test scripts&hellip;">
   </div>
   <div class="field">
-    <label for="filter-role">Role</label>
+    <label for="filter-role">Your BA role</label>
     <select id="filter-role" data-filter="role"><option value="">All roles</option>{options(roles)}</select>
   </div>
   <div class="field">
-    <label for="filter-type">Type</label>
+    <label for="filter-type">Prompt type</label>
     <select id="filter-type" data-filter="type"><option value="">All types</option>{options(types)}</select>
   </div>
   <div class="field">
-    <label for="filter-service">BA service</label>
+    <label for="filter-service">Area of work</label>
     <select id="filter-service" data-filter="service"><option value="">All services</option>{options(services)}</select>
   </div>
   <div class="field">
@@ -511,10 +759,10 @@ Filter below &mdash; or, better, don't.</p>
 
 <div class="table-scroll full">
 <table id="prompt-list">
-  <caption>Every prompt, with its role, type, service and rubric score.</caption>
+  <caption>Every prompt, with the role it suits, what kind it is, its area of work and its quality score.</caption>
   <thead><tr>
     <th scope="col">Prompt</th><th scope="col">Role</th><th scope="col">Type</th>
-    <th scope="col">BA service</th><th scope="col">Score</th>
+    <th scope="col">Area of work</th><th scope="col">Score</th>
   </tr></thead>
   <tbody>
 {''.join(rows)}
@@ -522,17 +770,6 @@ Filter below &mdash; or, better, don't.</p>
 </table>
 </div>
 
-<h2>Master, Deliverable, Unit</h2>
-<dl>
-  <dt><strong>Master</strong></dt>
-  <dd>A working session across a whole BA service. Offers several modes, which is why
-  every Master scores 19 rather than 20 &mdash; a menu is not a single task.</dd>
-  <dt><strong>Deliverable</strong></dt>
-  <dd>One artefact, one task. Use these when you know what you need.</dd>
-  <dt><strong>Unit</strong></dt>
-  <dd>A Master split down to a single task so it can be tested.
-  <a href="{rel(1, 'decomposition/')}">How decomposition works</a>.</dd>
-</dl>
 """
     return page(title="Find a prompt", depth=1, current="prompts/",
                 description="Filter 126 scored business-analysis prompts by role, "
@@ -582,9 +819,12 @@ def contexts_page(contexts: list[dict], by_id: dict[str, dict]) -> str:
     )
     total_gaps = sum(len(c["gaps"]) for c in contexts)
     body = f"""
-<h1>Delivery contexts</h1>
-<p class="lede">Know your project type but not which prompt you need? Start here.
-Eleven contexts, each mapped to the BA services and prompts most used in it.</p>
+<h1>Find prompts by project type</h1>
+<p class="lede">Know what kind of project you are on, but not which document you
+need yet? Start from your project type and see the prompts BAs use most on it.</p>
+
+<p>If you already know what you need to write,
+<a href="{rel(1, 'prompts/')}">searching the prompts</a> is faster.</p>
 
 <nav aria-labelledby="toc-heading">
   <h2 id="toc-heading">On this page</h2>
@@ -598,7 +838,7 @@ source catalogue knows it does not yet cover. They are listed in context below r
 hidden, because a known gap is more useful than a forced match.</p>
 {''.join(sections)}
 """
-    return page(title="Delivery contexts", depth=1, current="contexts/",
+    return page(title="Find prompts by project type", depth=1, current="contexts/",
                 description="Eleven BA delivery contexts mapped to the services and "
                             "prompts most used in each.", body=body)
 
@@ -622,9 +862,22 @@ def frameworks_page(prompts: list[dict]) -> str:
 
     body = f"""
 <h1>Prompt frameworks</h1>
-<p class="lede">The library is written in CARE + G.E.T., but CARE is a storage format,
-not a commitment. Every prompt can be re-rendered into any of ten frameworks &mdash;
-or into an agent skill.</p>
+<p class="lede">You can ignore this page. The ready-to-use version on every prompt
+page already works in Copilot, ChatGPT and Claude &mdash; this is for people whose
+tooling or house standard expects a particular format.</p>
+
+<div class="panel">
+  <p>A <a href="{rel(1, 'glossary/')}#prompt-framework">prompt framework</a> is just
+  a standard running order for the parts of a prompt: context first, then the task,
+  then the required output, and so on. CARE, CO-STAR, RISEN and the rest are
+  different running orders, named after their initials. None of them is magic and
+  the differences rarely matter to someone simply using a prompt.</p>
+</div>
+
+<p>This library is written in
+<a href="{rel(1, 'glossary/')}#care-get">CARE + G.E.T.</a>, but that is a storage
+decision, not a commitment: every prompt can be re-rendered in any of ten
+frameworks, or as an agent skill.</p>
 
 <h2>Why that is possible</h2>
 <p>Each prompt is stored as <strong>fields, not as a blob of text</strong>: who is writing,
@@ -653,7 +906,7 @@ here</a>.</p>
 
 {''.join(sections)}
 """
-    return page(title="Prompt frameworks", depth=1, current="frameworks/",
+    return page(title="Prompt frameworks", depth=1, current="advanced/",
                 description="Ten prompt frameworks - CARE, CO-STAR, TIDD-EC, RISEN, "
                             "CRISPE, RACE, RTF, APE, BAB - and what each conversion costs.",
                 body=body)
@@ -669,10 +922,25 @@ def scoring_page(rubric: dict, prompts: list[dict]) -> str:
     mean = sum((p.get("score") or {}).get("total", 0) for p in prompts) / len(prompts)
 
     body = f"""
-<h1>Scoring</h1>
-<p class="lede">Every prompt carries a mark out of 20 against a ten-criterion rubric.
-Six of those criteria a machine can decide; four need judgement. The difference matters
-more than the number.</p>
+<h1>How prompts are quality checked</h1>
+<p class="lede">Short answer: you can ignore the scores. Everything published here
+passed the bar, and the number exists so contributors know the standard and
+reviewers apply it consistently.</p>
+
+<div class="panel">
+  <h2>Why bother scoring prompts at all?</h2>
+  <p>Because the difference between a prompt that gives you a usable draft and one
+  that gives you confident nonsense is not obvious by reading it. The checklist below
+  is the set of things that turned out to matter &mdash; does the prompt say who the
+  audience is, does it give the assistant a worked example to copy, does it forbid
+  made-up facts, does it stop you pasting real personal data.</p>
+  <p>Every prompt on this site scored at least 17 out of 20 against it. That is the
+  publication bar, not an aspiration.</p>
+</div>
+
+<p>What follows is the detail: the ten criteria, what a machine can and cannot
+judge, and why a high score is weaker evidence than one person saying a prompt
+actually worked.</p>
 
 <h2 id="criteria">The ten criteria</h2>
 <p>Each is scored 0 (absent), 1 (partial) or 2 (met).</p>
@@ -736,7 +1004,7 @@ Both are recorded rather than tuned away.</p>
   resolved by either side.</li>
 </ul>
 """
-    return page(title="Scoring", depth=1, current="scoring/",
+    return page(title="How prompts are quality checked", depth=1, current="advanced/",
                 description="The ten-criterion CARE + G.E.T. rubric, the scoring bands, "
                             "and what a high score does and does not mean.", body=body)
 
@@ -778,7 +1046,7 @@ def skills_pages(prompts: list[dict]) -> list[tuple[str, str]]:
 {md_to_html(source, 1)}
 """
         pages.append((f"skills/{slug}.html",
-                      page(title=title, depth=1, current="skills/",
+                      page(title=title, depth=1, current="advanced/",
                            description=front["description"][:180], body=body)))
 
     generated = "\n".join(
@@ -792,10 +1060,19 @@ def skills_pages(prompts: list[dict]) -> list[tuple[str, str]]:
 </li>""" for slug, title, blurb in hand)
 
     index_body = f"""
-<h1>Skills</h1>
-<p class="lede">An agent skill is a folder of instructions &mdash; a <code>SKILL.md</code> file
-an AI assistant reads and follows. These turn the library into something that works
-<em>with</em> you rather than something you have to search.</p>
+<h1>Use the library with an AI agent</h1>
+<p class="lede">Optional, and for a narrower audience. Copying and pasting a prompt
+works perfectly well &mdash; this page is for people who would rather install the
+library once than search it each time.</p>
+
+<div class="panel">
+  <p>An <a href="{rel(1, 'glossary/')}#agent-skill">agent skill</a> is a file of
+  instructions, named <code>SKILL.md</code>, that you hand to an AI assistant that
+  supports them (Claude Code and Claude Desktop, among others). After that, the
+  assistant knows how to do the job without you pasting anything.</p>
+  <p>If your AI assistant is Microsoft Copilot or ChatGPT, this will not apply to
+  you &mdash; <a href="{rel(1, 'prompts/')}">use the prompts directly</a> instead.</p>
+</div>
 
 <h2>The three that matter</h2>
 <ul class="cards">
@@ -825,81 +1102,323 @@ from your own domain.</p>
 </ul>
 """
     pages.append(("skills/index.html",
-                  page(title="Skills", depth=1, current="skills/",
+                  page(title="Use the library with an AI agent", depth=1, current="advanced/",
                        description="Agent skills that route, score and author BA prompts, "
                                    "plus all 126 prompts as standalone skills.",
                        body=index_body)))
     return pages
 
-def home_page(prompts: list[dict], contexts: list[dict]) -> str:
-    mean = sum((p.get("score") or {}).get("total", 0) for p in prompts) / len(prompts)
-    services = len({p["service"] for p in prompts})
-    ctx_cards = "\n".join(f"""<li class="card">
-  <h3><a href="{rel(0, 'contexts/')}#{re.sub(r'[^a-z0-9]+', '-', f"{c['id']}. {c['name']}".lower()).strip('-')}">{e(c['name'])}</a></h3>
-  <p>{e(c['when'][:120])}{'&hellip;' if len(c['when']) > 120 else ''}</p>
-</li>""" for c in contexts)
-
+def glossary_page() -> str:
+    items = "\n".join(
+        f'<h2 id="{e(slug)}">{e(term)}</h2>\n'
+        + "\n".join(f"<p>{body}</p>" for body in paras)
+        for slug, term, paras in GLOSSARY
+    )
+    toc = "\n".join(f'<li><a href="#{e(s)}">{e(t)}</a></li>' for s, t, _ in GLOSSARY)
     body = f"""
-<h1>Business-analysis prompts you don't have to browse</h1>
-<p class="lede">{len(prompts)} prompts across {services} BA services, every one scored against
-a published quality rubric, every one convertible into ten prompt frameworks or into an agent
-skill.</p>
+<h1>Glossary</h1>
+<p class="lede">Every term this site uses, in plain English. If something here is
+still unclear, that is a fault in the writing &mdash; please
+<a href="{REPO}/issues/new">tell us</a>.</p>
 
 <div class="panel">
-  <h2>Start where you actually are</h2>
-  <p>You almost never know which prompt you want &mdash; you know what you have to produce by
-  Friday. So pick whichever of these matches what is in your head right now:</p>
-  <ul>
-    <li><strong>I know the artefact I need</strong> (acceptance criteria, a KPI table, a
-    cutover plan) &rarr; <a href="{rel(0, 'prompts/')}">search the prompts</a>.</li>
-    <li><strong>I know my project type but not the artefact</strong> (agile delivery,
-    procurement, a data warehouse) &rarr; <a href="{rel(0, 'contexts/')}">start from a delivery
-    context</a>.</li>
-    <li><strong>I have an AI assistant open right now</strong> &rarr; give it the
-    <a href="{rel(0, 'skills/ba-prompt-router.html')}">router skill</a> and just describe the
-    work.</li>
-  </ul>
+  <p><strong>The short version:</strong> a <a href="#prompt">prompt</a> is text you
+  paste into an <a href="#ai-assistant">AI assistant</a> like Copilot or ChatGPT.
+  This site has 126 of them, already written, for documents business analysts
+  produce. Everything else on this page is optional detail.</p>
 </div>
 
-<h2>What makes these different from a list of prompts</h2>
-<dl>
-  <dt><strong>They are scored, and the scoring is honest about itself</strong></dt>
-  <dd>Ten criteria, 0&ndash;2 each. Six can be checked by machine and are; four need judgement
-  and are labelled as such. The library averages {mean:.2f}/20 &mdash; and the
-  <a href="{rel(0, 'scoring/')}">scoring page</a> explains at length why that number is weaker
-  evidence than one person saying it worked.</dd>
+<nav aria-labelledby="terms-heading">
+  <h2 id="terms-heading">Terms</h2>
+  <ul>
+{toc}
+  </ul>
+</nav>
 
-  <dt><strong>They carry safety rules you would otherwise forget</strong></dt>
-  <dd>Every prompt tells the model to stop if you paste real personal data, forbids invented
-  facts, and gives a flagging convention &mdash; <code>[TBC]</code> for unverified,
-  <code>[PROPOSED &mdash; VALIDATE]</code> for anything it made up itself.</dd>
+{items}
+"""
+    return page(title="Glossary", depth=1, current="glossary/",
+                description="Plain-English definitions of every term used on this "
+                            "site: prompt, AI assistant, agent skill, rubric, RAG and "
+                            "the rest.", body=body)
 
-  <dt><strong>They are stored as fields, not as text</strong></dt>
-  <dd>Which is why any prompt can be rebuilt as CO-STAR, RISEN, TIDD-EC or six others, or
-  turned into an agent skill &mdash; and why the site can tell you what each conversion
-  <a href="{rel(0, 'frameworks/')}">costs you</a>.</dd>
 
-  <dt><strong>They are organisation-neutral</strong></dt>
-  <dd>No client names, no sector assumptions, no jurisdiction-specific rules. Two edits make
-  them yours: add your organisation to the context, and swap each worked example for one from
-  your own domain.</dd>
-</dl>
+def start_page(prompts: list[dict]) -> str:
+    example = next((p for p in prompts if p["id"] == "BB-07-D1"), prompts[0])
+    picks = "\n".join(
+        f'<li><a href="{rel(1, "prompts/")}{e(pid)}.html">{e(label)}</a></li>'
+        for label, pid in QUICK_PICKS[:6]
+    )
+    body = f"""
+<h1>Start here</h1>
+<p class="lede">If you have never used an AI assistant for work, this page is the
+whole thing in about five minutes. No jargon, no setup, nothing to install.</p>
 
-<h2>Browse by delivery context</h2>
+<h2>What this site is</h2>
+<p>Business analysts write a lot of the same documents: requirements, acceptance
+criteria, process maps, stakeholder registers, business cases. An AI assistant can
+give you a decent first draft of any of them &mdash; but only if you ask well, and
+asking well takes a page of careful instructions.</p>
+<p><strong>This site is those instructions, already written.</strong> 126 of them,
+one for each kind of document. You copy one, fill in a few blanks, paste it in, and
+edit what comes back.</p>
+
+<h2>What you need</h2>
+<p>An <a href="{rel(1, 'glossary/')}#ai-assistant">AI assistant</a> &mdash; Microsoft
+Copilot, ChatGPT, Claude or Google Gemini. If your employer provides one, it is
+most likely Copilot. Any of them works; you do not need a paid tier.</p>
+<p>Check your organisation's rules on using AI at work before you start, especially
+about what information may go into one.</p>
+
+<h2>Use it in three steps</h2>
+<ol class="steps">
+  <li>
+    <h3>1. Find the thing you need to write</h3>
+    <p>Start with <a href="{rel(1, 'prompts/')}">Find a prompt</a> and search for
+    what you are producing &mdash; &ldquo;acceptance criteria&rdquo;, &ldquo;process
+    map&rdquo;, &ldquo;business case&rdquo;. Or pick one of these common ones:</p>
+    <ul>
+{picks}
+    </ul>
+  </li>
+  <li>
+    <h3>2. Copy the prompt</h3>
+    <p>Every prompt page has the full text and a <strong>Copy</strong> button. Before
+    you paste it anywhere, replace the bits in
+    <a href="{rel(1, 'glossary/')}#placeholder">[SQUARE BRACKETS]</a> with your own
+    details. They are listed at the top of each page so you know what to have ready.</p>
+    <p>Do not know one of them? Leave it as it is and say so &mdash; the assistant
+    will ask you about it.</p>
+  </li>
+  <li>
+    <h3>3. Paste it into your AI assistant</h3>
+    <p>Paste the whole thing into the message box and send it. <strong>It will ask
+    you questions before it writes anything</strong> &mdash; usually up to five. That
+    is deliberate: answering them is what makes the draft useful rather than generic.</p>
+    <p>Then it produces the document, explains how it put it together, and lists the
+    assumptions it made.</p>
+  </li>
+</ol>
+
+<h2>A worked example</h2>
+<p>Say you need to document how a process works today. You open
+<a href="{rel(1, 'prompts/')}{e(example['id'])}.html">{e(example['name'])}</a> and
+see it needs two things from you: your project name, and a description of the
+process. You paste the prompt with those filled in.</p>
+<p>The assistant asks you a few questions &mdash; who performs each step, where the
+process starts and stops, what the exceptions are. You answer. It gives you back a
+structured process map you can put into your own template and take to a workshop.</p>
+
+<h2>Three things to know before you trust the output</h2>
+<div class="panel">
+  <h3>It is a first draft, not a deliverable</h3>
+  <p>Read every line before it goes anywhere near a stakeholder. The prompts tell the
+  assistant to say so itself, but the judgement is yours.</p>
+</div>
+<div class="panel">
+  <h3>It will make things up unless you stop it</h3>
+  <p>AI assistants invent plausible detail &mdash; figures, dates, standards &mdash;
+  rather than say they do not know. Every prompt here forbids that and makes the
+  assistant tag anything unverified as <code>[TBC]</code> and anything it suggested
+  itself as <code>[PROPOSED &mdash; VALIDATE]</code>.
+  <strong>Those tags are your to-do list.</strong></p>
+</div>
+<div class="panel">
+  <h3>Do not paste real personal or sensitive data</h3>
+  <p>Take out names, case numbers, addresses and anything else that identifies a real
+  person or matter, or make up an example instead. Every prompt tells the assistant to
+  stop and warn you if it spots real data &mdash; but that is a backstop, not a
+  substitute for checking.</p>
+</div>
+
+<h2>That is genuinely it</h2>
+<p>You now know everything you need. <a href="{rel(1, 'prompts/')}">Find a prompt</a>
+and try one.</p>
+<p>If a word anywhere on this site is unfamiliar, the
+<a href="{rel(1, 'glossary/')}">glossary</a> defines all of them. There is also an
+<a href="{rel(1, 'advanced/')}">advanced section</a> for people building tooling on
+top of this &mdash; you can ignore it entirely.</p>
+"""
+    return page(title="Start here", depth=1, current="start/",
+                description="New to using AI at work? The whole thing in five "
+                            "minutes: what you need, how to use a prompt, and what "
+                            "to check before you trust the output.", body=body)
+
+
+def advanced_page(prompts: list[dict]) -> str:
+    body = f"""
+<h1>Advanced</h1>
+<p class="lede">Everything on this page is optional. If you came here to get a
+document written, you do not need any of it &mdash;
+<a href="{rel(1, 'prompts/')}">find a prompt</a> instead.</p>
+
+<p>This section is for people who want to build on the library rather than just use
+it: integrate it into tooling, re-render the prompts in a different format, apply the
+quality standard to their own prompts, or contribute.</p>
+
 <ul class="cards">
-{ctx_cards}
+  <li class="card">
+    <h2><a href="{rel(1, 'skills/')}">Use it with an AI agent</a></h2>
+    <p>Install the library as <a href="{rel(1, 'glossary/')}#agent-skill">agent
+    skills</a> so an assistant picks and fills the right prompt for you, instead of
+    you copying and pasting.</p>
+  </li>
+  <li class="card">
+    <h2><a href="{rel(1, 'frameworks/')}">Other prompt formats</a></h2>
+    <p>Every prompt can be re-rendered in nine other
+    <a href="{rel(1, 'glossary/')}#prompt-framework">prompt frameworks</a> &mdash;
+    CO-STAR, RISEN, TIDD-EC and the rest &mdash; and the site reports what each
+    conversion costs.</p>
+  </li>
+  <li class="card">
+    <h2><a href="{rel(1, 'scoring/')}">The quality standard</a></h2>
+    <p>The ten-criterion <a href="{rel(1, 'glossary/')}#rubric">rubric</a> every
+    prompt is marked against, what a machine can and cannot judge, and why a high
+    score is weaker evidence than one person saying it worked.</p>
+  </li>
+  <li class="card">
+    <h2><a href="{rel(1, 'decomposition/')}">Testable prompt units</a></h2>
+    <p>Why a prompt that offers several options cannot carry a regression test, and
+    the 188 single-task units generated to fix that.</p>
+  </li>
+  <li class="card">
+    <h2><a href="{rel(1, 'roadmap/')}">Roadmap</a></h2>
+    <p>What is next, what is under consideration, and what is deliberately not
+    planned.</p>
+  </li>
+  <li class="card">
+    <h2><a href="{rel(1, 'catalogue.json')}">catalogue.json</a></h2>
+    <p>The whole library as machine-readable data &mdash; every prompt with its
+    identifier, area of work, target documents and score. Start here if you are
+    building something on top.</p>
+  </li>
 </ul>
 
-<h2>Contribute</h2>
-<p>Prompts are better when the people doing the work write them. The bar is 17/20 on the
-rubric; below that you get the specific fixes back, not a rejection. Your name stays in the
-prompt's author field &mdash; which travels with it into every converted framework and every
-generated skill. <a href="{rel(0, 'contribute/')}">How to contribute</a>.</p>
+<h2>How the library is put together</h2>
+<p>Each prompt is stored as <strong>separate fields</strong> &mdash; who is writing,
+who the audience is, the one task, the required output structure, the rules, the
+worked example &mdash; rather than as one block of text.</p>
+<p>That is the decision everything else rests on. A block of text cannot be
+re-rendered in another framework, marked criterion by criterion, compared in a pull
+request, or converted into an agent skill. A set of fields can.</p>
+<p>The source, the tooling that builds this site, and the full contribution process
+are on <a href="{REPO}">GitHub</a>.</p>
 """
-    return page(title="Business-analysis prompts you don't have to browse", depth=0,
-                current="", description=f"{len(prompts)} scored business-analysis prompts "
-                f"across {services} BA services, convertible into ten prompt frameworks or "
-                "agent skills.", body=body)
+    return page(title="Advanced", depth=1, current="advanced/",
+                description="Optional material for people building on the library: "
+                            "agent skills, other prompt frameworks, the quality "
+                            "standard, and the data.", body=body)
+
+
+def home_page(prompts: list[dict], contexts: list[dict]) -> str:
+    services = len({p["service"] for p in prompts})
+    by_id = {p["id"]: p for p in prompts}
+
+    picks = "\n".join(f"""<li class="card">
+  <h3><a href="{rel(0, 'prompts/')}{e(pid)}.html">{e(label)}</a></h3>
+  <p>{e(by_id[pid]['name'] if pid in by_id else '')}</p>
+</li>""" for label, pid in QUICK_PICKS if pid in by_id)
+
+    ctx_links = "\n".join(
+        f"""<li><a href="{rel(0, 'contexts/')}#{re.sub(r'[^a-z0-9]+', '-', f"{c['id']}. {c['name']}".lower()).strip('-')}">{e(c['name'])}</a></li>"""
+        for c in contexts
+    )
+
+    body = f"""
+<h1>AI prompts for business analysts</h1>
+<p class="lede">Ready-to-use prompts for the documents you already write &mdash;
+requirements, acceptance criteria, process maps, business cases, test scripts.
+Copy one, paste it into Copilot or ChatGPT, and edit the draft it gives you back.</p>
+
+<p>Free, and free to adapt. {len(prompts)} prompts covering {services} areas of
+business-analysis work. Nothing to install and no account needed.</p>
+
+<h2>Use it in three steps</h2>
+<ol class="steps">
+  <li>
+    <h3>1. Find the thing you need to write</h3>
+    <p>Pick it from the list below, or
+    <a href="{rel(0, 'prompts/')}">search all {len(prompts)} prompts</a>.</p>
+  </li>
+  <li>
+    <h3>2. Copy the prompt</h3>
+    <p>Replace the few bits in [SQUARE BRACKETS] with your own details. Each page
+    lists exactly what to have ready.</p>
+  </li>
+  <li>
+    <h3>3. Paste it into Copilot, ChatGPT or Claude</h3>
+    <p>It asks you a handful of questions first, then writes the draft. Edit it
+    like you would anyone else's first draft.</p>
+  </li>
+</ol>
+
+<h2 id="what-are-you-writing">What are you writing today?</h2>
+<ul class="cards">
+{picks}
+</ul>
+<p><a href="{rel(0, 'prompts/')}">See all {len(prompts)} prompts</a>, or browse by
+what kind of project you are on:</p>
+<ul class="inline-list">
+{ctx_links}
+</ul>
+
+<div class="panel">
+  <h2>New to using AI at work?</h2>
+  <p>You do not need to know anything about AI to use this. The
+  <a href="{rel(0, 'start/')}">Start here</a> page covers the whole thing in about
+  five minutes: what you need, how to use a prompt, and what to check before you
+  trust what comes back.</p>
+</div>
+
+<h2>What you get that a blank chat box does not</h2>
+<dl>
+  <dt><strong>It asks before it writes</strong></dt>
+  <dd>Every prompt makes the assistant ask you up to five questions first. That is
+  the difference between a generic answer and one about your project.</dd>
+
+  <dt><strong>It flags what it made up</strong></dt>
+  <dd>AI assistants invent figures, dates and standards rather than admit they do
+  not know. These prompts forbid that, and make the assistant tag anything
+  unverified as <code>[TBC]</code> and anything it suggested itself as
+  <code>[PROPOSED &mdash; VALIDATE]</code>. Those tags become your checklist.</dd>
+
+  <dt><strong>It tells you where the answer came from</strong></dt>
+  <dd>Each prompt ends by asking the assistant to explain how it reached its answer
+  and list every assumption it made, so you can check it rather than trust it.</dd>
+
+  <dt><strong>It reminds you about sensitive data</strong></dt>
+  <dd>Each prompt tells the assistant to stop and warn you if what you pasted looks
+  like real personal information.</dd>
+
+  <dt><strong>The output has a shape you can check</strong></dt>
+  <dd>Prompts specify the actual structure &mdash; named sections, table columns,
+  how many test cases of each kind &mdash; so you can hold the draft up against
+  what you asked for.</dd>
+</dl>
+
+<h2>Where these came from</h2>
+<p>They were written by a working BA practice for its own use, then made
+organisation-neutral so anyone can adopt them: no client names, no sector
+assumptions, no country-specific rules. Every prompt was reviewed against a
+published quality standard before it was published here.</p>
+<p>Two edits make them yours: add your organisation and sector to the context
+section, and swap each worked example for one from your own domain. The example is
+the part that most changes the quality of what you get back.</p>
+
+<h2>Help make them better</h2>
+<p>If you write a prompt that works, or find that one of these does not, both are
+worth more than anything else here. Contributors keep their name on their prompts.
+<a href="{rel(0, 'contribute/')}">How to contribute</a>.</p>
+
+<p class="muted">Building tooling on top of this library, or want the quality
+standard and the other prompt formats? That is all in
+<a href="{rel(0, 'advanced/')}">Advanced</a>.</p>
+"""
+    return page(title="AI prompts for business analysts", depth=0, current="",
+                description=f"{len(prompts)} free, ready-to-use AI prompts for the "
+                "documents business analysts write: requirements, acceptance "
+                "criteria, process maps, business cases and more.", body=body)
+
 
 def contribute_page() -> str:
     body = f"""
@@ -1055,6 +1574,9 @@ def main(argv: list[str]) -> int:
 
     written = 0
     write("index.html", home_page(prompts, contexts)); written += 1
+    write("start/index.html", start_page(prompts)); written += 1
+    write("glossary/index.html", glossary_page()); written += 1
+    write("advanced/index.html", advanced_page(prompts)); written += 1
     write("prompts/index.html", prompts_index(prompts)); written += 1
     for p in prompts:
         write(f"prompts/{p['id']}.html", prompt_page(p)); written += 1

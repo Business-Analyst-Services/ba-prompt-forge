@@ -299,6 +299,66 @@ tbody tr:hover td { background: var(--surface); }
 }
 .btn:hover { background: var(--surface-2); color: var(--link-hover); }
 
+/* ---------- numbered steps ----------------------------------------------- */
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  gap: 1rem;
+}
+.steps > li {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.15rem;
+  background: var(--surface);
+}
+.steps h3 { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.steps > li > :last-child { margin-bottom: 0; }
+
+.inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+.inline-list li { margin: 0; }
+.inline-list a {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.925rem;
+}
+.inline-list a:hover { background: var(--surface-2); text-decoration: underline; }
+
+details.advanced {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.15rem;
+  margin: 0 0 1.5rem;
+  background: var(--surface);
+}
+details.advanced > summary {
+  cursor: pointer;
+  font-weight: 650;
+  min-height: 1.75rem;
+  padding: 0.2rem 0;
+}
+details.advanced > summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+details.advanced[open] > summary { margin-bottom: 1rem; }
+details.advanced details {
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+}
+details.advanced details > summary { cursor: pointer; font-weight: 600; }
+
 /* ---------- format tabs -------------------------------------------------- */
 
 .tabs { margin-bottom: 1.5rem; }
